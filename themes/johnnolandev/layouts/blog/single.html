@@ -3,7 +3,7 @@
         <div class="wrapper">
             <div class="categories">
                 {{ range $idx, $category := .Params.categories }}
-                {{- if ne $idx 0 }}, {{ end }}<a class="categories__link" href="{{ "categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>
+                {{- if ne $idx 0 }} {{ end }}<a class="categories__link" href="{{ "categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>
                 {{- end }}
             </div>
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">

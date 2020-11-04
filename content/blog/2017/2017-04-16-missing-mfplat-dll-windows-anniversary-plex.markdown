@@ -2,7 +2,7 @@
 layout: post
 title:  "Missing MFPlat.dll error when running Plex Media Server after Windows Anniversary Update"
 date:   2017-04-16 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Windows"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-04-16-missing-mfplat-dll-windows-anniversary-plex.jpg"

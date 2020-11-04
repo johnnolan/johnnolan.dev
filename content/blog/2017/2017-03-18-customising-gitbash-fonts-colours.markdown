@@ -2,7 +2,7 @@
 layout: post
 title:  "Customising Git Bash fonts and colours"
 date:   2017-03-18 09:00:38 +0000
-categories: ["Web development"]
+categories: ["Web development", "git", "bash", "Windows"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-03-18-customising-gitbash-fonts-colours.jpg"

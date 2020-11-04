@@ -2,7 +2,7 @@
 layout: post
 title:  "Debugging Javascript - Console and Debugger"
 date:   2018-10-07 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Javascript", "Chrome", "Debugging"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2018-10-07-debugging-javascript.png"

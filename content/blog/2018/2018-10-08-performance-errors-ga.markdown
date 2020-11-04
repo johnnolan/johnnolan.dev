@@ -2,7 +2,7 @@
 layout: post
 title:  "Performance Tracking and Error Tracking in Google Analytics with Data Studio"
 date:   2018-10-08 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Analytics", "Performance", "Metrics"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2018-10-08-performance-errors-ga.png"

@@ -2,7 +2,7 @@
 layout: post
 title:  "Handling teams towards the end of a big project"
 date:   2017-06-19 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Mental health", "Working practices"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-06-19-handling-team-end-project-2.jpg"

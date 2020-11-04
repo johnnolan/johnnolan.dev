@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating a Google Chrome Extension Tab"
 date:   2017-03-16 20:00:38 +0000
-categories: ["Web development"]
+categories: ["Web development", "Chrome"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-03-16-chrome-extension-leadership-quotes.jpg"

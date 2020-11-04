@@ -2,7 +2,7 @@
 layout: post
 title:  "How to use webpack-bundle-analyzer with create-react-app"
 date:   2019-01-15 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Reactjs", "Performance", "Metrics", "Javascript"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2019-01-13-react.png"

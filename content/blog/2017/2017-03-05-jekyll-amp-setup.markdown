@@ -2,7 +2,7 @@
 layout: post
 title:  "Setting up Jekyll for AMP"
 date:   2017-03-05 15:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Static site generator", "AMP", "Analytics", "Continuous integration"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-03-05-jekyll-amp-setup.jpg"

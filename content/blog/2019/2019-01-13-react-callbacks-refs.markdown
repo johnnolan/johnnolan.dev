@@ -2,7 +2,7 @@
 layout: post
 title:  "React Callback refs - Disable Button onClick"
 date:   2019-01-13 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "Reactjs", "HTML", "Javascript"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2019-01-13-react.png"

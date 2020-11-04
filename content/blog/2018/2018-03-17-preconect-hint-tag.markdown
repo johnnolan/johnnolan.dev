@@ -2,7 +2,7 @@
 layout: post
 title:  "preconnect your external sources"
 date:   2018-03-17 09:00:00 +0000
-categories: ["Web development"]
+categories: ["Web development", "HTML"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2018-03-17-preconnect-hint-tag.jpg"

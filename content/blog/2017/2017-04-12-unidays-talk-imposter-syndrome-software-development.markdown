@@ -2,7 +2,7 @@
 layout: post
 title:  "UNiDAYS talk on Imposter Syndrome in Software Development"
 date:   2017-04-12 19:15:38 +0000
-categories: ["Web development"]
+categories: ["Web development", "Mental health", "Working practices"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-04-12-unidays-talk-imposter-syndrome-software-development.jpg"

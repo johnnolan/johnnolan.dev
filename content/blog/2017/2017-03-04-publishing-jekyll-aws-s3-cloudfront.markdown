@@ -3,7 +3,7 @@ layout: post
 title:  "Publishing your Jekyll blog to AWS S3 and Cloudfront
 invalidation using Travis CI"
 date:   2017-03-03 20:00:38 +0000
-categories: ["Web development"]
+categories: ["Web development", "AWS", "Static site generator", "Continuous integration"]
 author: "John Nolan"
 publisher: "John Nolan"
 image: "/assets/posts/2017-03-04-publishing-jekyll-aws-s3-cloudfront.jpg"
