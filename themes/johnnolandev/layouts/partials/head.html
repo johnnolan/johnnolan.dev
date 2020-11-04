@@ -1,8 +1,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    {{ $sass         := resources.Get "sass/main.scss" }}
+{{ $sassIncludes := (slice "node_modules/") }}
+{{ $cssTarget    := "theme.css" }}
+{{ $cssOpts      := (dict "targetPath" $cssTarget "enableSourceMap" true "includePaths" $sassIncludes "outputStyle" "compressed") }}
+
+{{ $css := $sass | toCSS $cssOpts }}
+<link rel="stylesheet" href="{{ $css.Permalink | absURL }}" integrity="{{ $css.Data.Integrity }}">
+
     <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">

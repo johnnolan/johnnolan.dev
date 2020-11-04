@@ -1,10 +1,11 @@
 {{ define "main" }}
 <div class="page-content">
   <div class="wrapper">
-     <h1 class="page-heading">John Nolan<br />Software Development Blog</h1>
+    <a href="/categories/">Back to categories</a>
+    <h1 class="page-heading">Category: {{.Title }}</h1>
     {{ .Content }}
     <ul class="post-list">
-      {{ range .Site.RegularPages }}
+      {{ range .Paginator.Pages }}
       <li>
         <a class="post-list-item-link" href="{{ .Permalink }}">
           <span class="post-meta"><time>{{ .PublishDate.Format "January 2, 2006" }}</time></span>

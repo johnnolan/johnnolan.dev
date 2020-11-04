@@ -1,0 +1,14 @@
+<ul class="post-list">
+      {{ range .Pages }}
+      <li>
+        <a class="post-list-item-link" href="{{ .Permalink }}">
+          <span class="post-meta">Mar 26, 2020</span>
+
+          <h2>
+            <div class="post-link" href="{{ .Permalink }}">{{ .Title }}</div>
+          </h2>
+        </a>
+      </li>
+
+      {{ end }}
+    </ul>

@@ -1,0 +1,46 @@
+{{ define "main" }}
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="categories">
+                {{ range $idx, $category := .Params.categories }}
+                {{- if ne $idx 0 }}, {{ end }}<a class="categories__link" href="{{ "categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>
+                {{- end }}
+            </div>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">{{ .Title }}</h1>
+                <p class="post-meta">
+                <time datetime="{{ .Date }}" itemprop="datePublished">
+                    <time>
+                        {{ .PublishDate.Format "January 2, 2006" }}
+                    </time>
+                </time>{{ if .Params.Author }} <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Params.Author }}</span></span>{{ end }}</p>
+                <div class="post-img" itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="width" content="{{ .Params.Imagewidth }}"/>
+                    <meta itemprop="height" content="{{ .Params.Imageheight }}"/>
+                    <meta itemprop="url" content="{{ .Params.Image }}" />
+                    <img itemprop="image thumbnailUrl" alt="{{ .Title }}" class="post" src="{{ .Params.Image }}">
+                </div>
+            </header>
+
+            <div class="post-content" itemprop="articleBody">
+                {{ .Content }}
+            </div>
+                <div class="post-content">
+                
+                {{ if .Params.Publisher }}
+                <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://www.johnnolan.dev/assets/posts/2017-02-27-what-is-to-come.jpg">
+                </span>
+                <meta itemprop="name" content="{{ .Params.Publisher }}">
+                </span>
+                {{ end }}
+                
+                </div>
+
+            </article>
+        </div>
+    </div>
+{{ end }}
