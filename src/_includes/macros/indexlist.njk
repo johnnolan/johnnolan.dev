@@ -1,0 +1,17 @@
+{%- from "./contentMetaData.njk" import contentMetaData %}
+{% macro indexList(title, content, collection) %}
+    <h1 class="">{{title}}</h1>
+    {{ content | safe }}
+    {%- for article in collection | reverse -%}
+        {% if article.data.date %}
+            <article>
+                <h2 class="">
+                    <a href="{{ article.url }}" class="">
+                        {{ article.data.title }}
+                    </a>
+                </h2>
+                {{ contentMetaData(article.data.date, article.data.contributors) }}
+            </article>
+        {%- endif -%}
+    {%- endfor -%}
+{% endmacro %}

@@ -1,0 +1,25 @@
+{% macro pageContentMetaData(date, contributors, status, tags) %}
+{%- from "./datetime.njk" import datetime %}
+{%- from "./authorsList.njk" import authorsList %}
+
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{datetime(date)}}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Authors
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{authorsList(contributors)}}
+    </dd>
+  </div>
+</dl>
+
+{% endmacro %}

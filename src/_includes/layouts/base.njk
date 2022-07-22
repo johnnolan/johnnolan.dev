@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="{{ '/assets/main.css' | url }}" rel="stylesheet" as="style">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon-32x32.png' | url }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon-16x16.png' | url }}" sizes="16x16">
+    <link rel="manifest" href="{{ '/manifest.json' | url }}">
+    <link rel="mask-icon" href="{{ '/assets/images/safari-pinned-tab.svg' | url }}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href="https://www.johnnolan.dev/" />
+
+    <link rel="shortcut icon" href="{{ '/favicon.ico' | url }}" type="image/x-icon">
+
+    <meta name="description" content="xxx">
+
+    <script src="{{ '/assets/index.js' | url }}" defer></script>
+    <title>{{ title }} - Human Centered Technical Architecture - John Nolan</title>
+  </head>
+  <body>
+    {%- from "../macros/header.njk" import header %}
+    {%- from "../macros/footer.njk" import footer %}
+    {% block body %}
+      <div class="page-content">
+        {{ header() }}
+
+        {% block content %}
+
+          <main class="wrapper" role="main" id="content">
+
+            {{ content | safe }}
+            
+          </main>
+        </div>
+        {% endblock %}
+
+        {{ footer() }}
+
+      </div>
+    {% endblock %}
+  </body>
+</html>
