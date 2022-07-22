@@ -1,0 +1,25 @@
+{
+  "version": "0.1",
+  "language": "en_gb",
+  "dictionaries": [
+    "bash",
+    "companies",
+    "html",
+    "misc",
+    "softwareTerms"
+  ],
+  "ignorePaths": [
+    "_site/",
+    ".vscode/",
+    ".idea/",
+    "**/node_modules/**",
+    "**/*.lock",
+    "**/*.css",
+    "package.json"
+  ],
+  "allowCompoundWords": true,
+  "words": [
+    "Centered",
+    "hcta"
+  ]
+}

@@ -9,7 +9,7 @@
     "jshint": "jshint src/",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "lint:spell": "cspell '**/*.*'",
+    "lint:spell": "cspell '**/*.md'",
     "lint:markdown": "markdownlint '**/*.md' --ignore node_modules --ignore extensions",
     "lint:all": "yarn run lint:check && yarn run lint:spell && yarn run lint:markdown",
     "sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css",
