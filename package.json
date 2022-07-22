@@ -13,8 +13,8 @@
     "lint:markdown": "markdownlint '**/*.md' --ignore node_modules --ignore extensions",
     "lint:all": "yarn run lint:check && yarn run lint:spell && yarn run lint:markdown",
     "sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css",
-    "serve": "eleventy --serve",
-    "build": "eleventy"
+    "serve": "yarn run sass && eleventy --serve --watch",
+    "build": "yarn run sass && eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.1"

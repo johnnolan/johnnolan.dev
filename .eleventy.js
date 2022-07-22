@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
 
+  eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
+
+  eleventyConfig.addWatchTarget("./src/");
+
   eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(pluginRss);
 

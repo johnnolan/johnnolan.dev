@@ -20,15 +20,12 @@
     <meta name="description" content="xxx">
 
     <script src="{{ '/assets/index.js' | url }}" defer></script>
-    <title>{{ title }} - Human Centered Technical Architecture - John Nolan</title>
+    <title>{{ title }} - {{ site.name }} - John Nolan</title>
   </head>
   <body>
-    {%- from "../macros/header.njk" import header %}
     {%- from "../macros/footer.njk" import footer %}
     {% block body %}
       <div class="page-content">
-        {{ header() }}
-
         {% block content %}
 
           <main class="wrapper" role="main" id="content">
@@ -39,7 +36,7 @@
         </div>
         {% endblock %}
 
-        {{ footer() }}
+        {{ footer({ githubName: site.githubName }) }}
 
       </div>
     {% endblock %}
