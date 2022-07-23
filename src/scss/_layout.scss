@@ -9,23 +9,6 @@
 	> .wrapper
 	{
 
-		> .my-face
-		{
-			text-align: center;
-			padding: 20px 0 10px 0;
-
-			img
-			{
-				border-radius: 99em;
-				max-width: 20%;
-				border: 5px solid $brand-color-2;
-
-				@include media-min-query($on-palm)
-				{
-					max-width: 10%;
-				}
-			}
-		}
 	}
 }
 
@@ -34,7 +17,8 @@
 	font-size: 26px;
 	font-weight: bold;
 	line-height: 1.4;
-	padding: 20px 0 40px 0;
+	padding: 0 0 40px 0;
+	margin: 0;
 	text-align: center;
 	color: $brand-color-2;
 
@@ -43,6 +27,10 @@
 		text-decoration: none;
 	}
 
+}
+
+.article-heading {
+	text-align: left;
 }
 
 .site-nav
@@ -228,27 +216,11 @@
 {
 	font-size: 50px;
 	text-align: center;
-    margin-top: 20px;
 	width: 100%;
-	padding: 20px 0;
+	margin: 0;
+	padding: 20px 0 0 0;
 	font-weight: bold;
 	color: $brand-color-2;
-
-
-	/*> .head-one
-	{
-		color: #BB8B6D;
-	}
-
-	> .head-two
-	{
-		color: #E58F78;
-	}
-
-	> .head-three
-	{
-		color: #9F7153;
-	}*/
 }
 
 .post-list
@@ -260,6 +232,7 @@
 	{
 		padding: 20px;
 
+		&:focus,
 		&:hover
 		{
 			background-color: $brand-color-2;
@@ -285,6 +258,7 @@
 		.post-list-item-link
 		{
 			display: block;
+			&:focus,
 			&:hover
 			{
 				text-decoration: none;
@@ -297,11 +271,6 @@
 			color: $brand-color-2;
 			margin-bottom: 20px;
 			margin-top: 10px;
-		}
-
-		.post-content
-		{
-
 		}
 	}
 

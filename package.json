@@ -13,7 +13,9 @@
     "lint:markdown": "markdownlint '**/*.md' --ignore node_modules --ignore extensions",
     "lint:all": "yarn run lint:check && yarn run lint:spell && yarn run lint:markdown",
     "sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css",
-    "serve": "yarn run sass && eleventy --serve --watch",
+    "watch:sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css --watch",
+    "watch:eleventy": "eleventy --serve --watch",
+    "serve": "concurrently \"yarn run watch:eleventy\" \"yarn run watch:sass\"",
     "build": "yarn run sass && eleventy"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "@babel/core": "^7.18.9",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.18.9",
+    "concurrently": "^7.3.0",
     "cspell": "^6.4.0",
     "dayjs": "^1.11.4",
     "eslint": "^8.20.0",

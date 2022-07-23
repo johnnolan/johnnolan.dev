@@ -23,10 +23,14 @@
     <title>{{ title }} - {{ site.name }} - John Nolan</title>
   </head>
   <body>
+    {%- from "../macros/header.njk" import header %}
     {%- from "../macros/footer.njk" import footer %}
     {% block body %}
       <div class="page-content">
         {% block content %}
+
+          
+        {{ header({ siteName: site.name }) }}
 
           <main class="wrapper" role="main" id="content">
 
