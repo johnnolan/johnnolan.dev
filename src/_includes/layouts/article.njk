@@ -3,11 +3,13 @@ layout: layouts/fullwidth.njk
 backLink: "/hcta/"
 ---
 
-<h1 class="article-heading">{{title}}</h1>
+<article class="article-page">
+    <h1 class="article-page-heading">{{title}}</h1>
 
-{%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
-{{ pageContentMetaData(date, contributors, undefined, tags) }}
+    {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
+    {{ pageContentMetaData(date, contributors, undefined, tags) }}
 
-{{ content | safe }}
+    {{ content | safe }}
 
-{%- include "../partials/githubHistory.njk" -%}
+    {%- include "../partials/githubHistory.njk" -%}
+</article>

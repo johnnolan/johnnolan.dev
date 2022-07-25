@@ -53,3 +53,10 @@ jobs:
     name: Dependabot Approve and Auto Merge
     needs: ['build']
     uses: ./.github/workflows/dependabot-approve-and-auto-merge_job.yml
+
+  sonar_cloud:
+    name: Sonar Cloud
+    needs: ['build']
+    uses: ./.github/workflows/sonar_cloud_job.yml
+    secrets:
+      SONARCLOUD_SECRET: ${{ secrets.SONARCLOUD_TOKEN }}

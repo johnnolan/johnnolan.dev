@@ -1,0 +1,25 @@
+.header {
+  position: relative;
+
+  > .wrapper {
+    > .site-heading {
+      font-size: 50px;
+      text-align: center;
+      width: 100%;
+      margin: 0;
+      padding: 20px 0 0 0;
+      font-weight: bold;
+      color: $brand-color-2;
+    }
+
+    > .site-sub-heading {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.4;
+      padding: 0 0 40px 0;
+      margin: 0;
+      text-align: center;
+      color: $brand-color-2;
+    }
+  }
+}

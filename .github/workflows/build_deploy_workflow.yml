@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build_deploy:
     name: Build and Deploy documentation site
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
@@ -30,3 +30,10 @@ jobs:
         with:
           branch: gh-pages
           folder: _site
+
+  sonar_cloud:
+    name: Sonar Cloud
+    needs: ['build_deploy']
+    uses: ./.github/workflows/sonar_cloud_job.yml
+    secrets:
+      SONARCLOUD_SECRET: ${{ secrets.SONARCLOUD_TOKEN }}
