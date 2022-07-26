@@ -3,25 +3,33 @@
  */
 .site-footer {
   padding: $spacing-unit 0;
-  background-color: $brand-color-5;
+  background-color: $brand-color-4;
   border-top: solid 1px $brand-color;
   margin-top: $spacing-unit;
 
   .footer-heading {
     font-size: 18px;
+    color: $text-color-light;
     margin-bottom: $spacing-unit;
     margin-top: 0;
   }
   .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
-    margin-left: - math.div($spacing-unit, 2);
+    color: $text-color-light;
     @extend %clearfix;
 
     .footer-col {
       float: left;
       margin-bottom: math.div($spacing-unit, 2);
       padding-left: math.div($spacing-unit, 2);
+
+      a {
+        color: $text-color-light;
+        &:hover {
+          color: $text-color-light;
+          text-decoration: underline;
+        }
+      }
 
       &-1 {
         width: -webkit-calc(35% - (#{$spacing-unit} / 2));

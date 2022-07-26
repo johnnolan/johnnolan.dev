@@ -12,7 +12,16 @@
     justify-content: space-between;
     padding: 0;
     margin: 0;
+
+    @include media-query($on-palm) {
+      display: block;
+      text-align: center;
+    }
+
     &-item {
+      @include media-query($on-palm) {
+        padding: 5px 0;
+      }
       list-style-type: none;
       padding: 0;
       margin: 0;
