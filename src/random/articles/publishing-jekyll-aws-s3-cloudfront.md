@@ -23,7 +23,7 @@ First create a new directory called _script_ in your root folder and
 create a file called _cibuild_. Now past the following details
 replacing _www.nolanscafe.co.uk_ with your S3 bucket name.
 
-```
+``` bash
 jekyll build
 pip install awscli
 aws s3 sync --acl public-read --sse --delete _site s3://www.nolanscafe.co.uk
@@ -50,7 +50,7 @@ This is going to do the following
 Now create a `.travis.yml` file in the root for your directory with the
 following contents.
 
-```
+``` yaml
 language: ruby
 dist: trusty
 sudo: required

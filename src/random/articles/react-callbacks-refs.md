@@ -18,7 +18,7 @@ The following could probably be done with setting state and setting the disabled
 
 To access the Element you want, you need to first assign it a `ref`. Like below
 
-```
+``` jsx
 <button
  className="btn"
  onClick={this.onClick}
@@ -36,7 +36,7 @@ More examples and alternative ways of using `refs` can be found here [https://re
 
 From here we are now able to access this in our code. For the example below, `onClick` will disable the button to prevent users from double clicking the button.
 
-```
+``` jsx
 onClick = e => {
  this.btnReview.setAttribute("disabled", "disabled");
 }

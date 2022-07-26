@@ -17,7 +17,7 @@ that your markup will be making a request to a resource on an external domain, l
 
 The tag looks like this
 
-```
+``` html
 <link rel="preconnect" href="//example.com">
 ```
 

@@ -10,7 +10,7 @@ imagewidth: "600"
 imageheight: "225"
 ---
 
-Picture source: Alicia Liu‏ [@aliciatweet](https://twitter.com/aliciatweet)
+Picture source: Alicia Liu [@aliciatweet](https://twitter.com/aliciatweet)
 
 > The following is a list of notes covering my talk to our development team at UNiDAYS
 
@@ -78,7 +78,7 @@ The above is an example for university students, but if you replace
 university with any other condition such as new job, contracting for
 the first time, learning a new language, etc they can all fit.
 
-# My experiences with Imposter Syndrome
+## My experiences with Imposter Syndrome
 
 When I first started here I felt like I had lied in the interview and
 the homework. Even though everything I did was my own, I still felt
@@ -119,7 +119,7 @@ Off the back of that, I have learnt even more as I pair programme and
 solve problems with them using new technologies I have never touched
 before.
 
-# So, if you feel at all like this, here are the reasons why you shouldn't
+## So, if you feel at all like this, here are the reasons why you shouldn't
 
 - UNiDAYS employed you.
   They only employee people they think are worth it and this can be
@@ -136,7 +136,7 @@ before.
   technologies I have ever worked with. I love learning new things
   from each of you.
 
-# How can we work together to overcome it
+## How can we work together to overcome it
 
 > Here are some paths to start on
 

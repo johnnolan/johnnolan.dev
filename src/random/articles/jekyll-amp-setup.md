@@ -46,7 +46,7 @@ of the site but don't worry I will cover how we can make this simpler later.
 
 In your \_config-amp.yml add to the bottom the following settings.
 
-```
+``` yaml
 destination:   _site/amp
 layouts_dir:   ./_layouts-amp
 
@@ -60,7 +60,7 @@ defaults:
 
 and change your baseurl to
 
-```
+``` yaml
 baseurl: "/amp"
 ```
 
@@ -80,7 +80,7 @@ be easily processed. This means we need to make the following changes
 
 In our default.html change it to
 
-```
+``` nunjucks
 {% raw  %}
 <!doctype html>
 <html amp lang="en">
@@ -123,7 +123,7 @@ folder. There content will look like so
 
 amp-head.html
 
-```
+``` nunjucks
 {% raw  %}
 <head>
   <meta charset="utf-8">
@@ -220,7 +220,7 @@ to allow AMP sites to work.
 
 amp-footer.html
 
-```
+``` nunjucks
 {% raw  %}
 <footer class="site-footer">
 
@@ -304,7 +304,7 @@ to link to is
 
 and then for Google Analytics we can do this in our footer
 
-```
+``` javascript
 <amp-analytics type="googleanalytics">
   <script type="application/json">
     {
@@ -344,7 +344,7 @@ And in your \_config-amp.yml add the following line
 
 Now in your head.html add the following code
 
-```
+``` nunjucks
 {% raw  %}
 {% if page.url == '/amp/' %}}
 <link rel="amphtml" href="{{ page.url | prepend: site.canonical_baseurl | prepend: site.url | append: 'index.html' }}" />

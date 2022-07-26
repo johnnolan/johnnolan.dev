@@ -26,7 +26,7 @@ Using the `render` method directly passing this in won't work. We have to instea
 
 On *line 22* we create a, what I have called, Mock App with some basic html in it.
 
-```
+``` jsx
 class MockApp extends React.Component {
   render () {
     return (
@@ -40,19 +40,19 @@ class MockApp extends React.Component {
 
 We will use this to be able to wrap our Higher Order Component around it. We do this on *line 30*.
 
-```
+``` jsx
 const MockWithHOC = withHOC(MockApp)
 ```
 
 This will now return us a React component we can pass into render.
 
-```
+``` jsx
 const { container, getByText } = render(<MockWithHOC />)
 ```
 
 And that's it, we can now start to use this as if it were any other component, plus test that the `WrappedComponent` renders correctly.
 
-```
+``` jsx
 expect(getByText(/HOC Example/i)).toBeInTheDocument()
 expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
 ```

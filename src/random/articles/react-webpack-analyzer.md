@@ -18,13 +18,13 @@ This is a simple and very straight forward way to implement into your project. I
 
 First step, install the npm package like so
 
-```
+``` bash
 npm install --save-dev webpack-bundle-analyzer
 ```
 
 Now in your `package.json` file add the following to your `scripts` section.
 
-```
+``` json
 "scripts": {
  "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json
 }

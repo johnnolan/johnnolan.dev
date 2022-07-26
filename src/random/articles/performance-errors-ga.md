@@ -28,7 +28,7 @@ For more information on the exception Google Analytics event see the link below.
 
 [https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#exDescription](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#exDescription)
 
-```
+``` javascript
 if (typeof window.onerror === "object")
 {
     window.onerror = function (err, url, line)
@@ -52,7 +52,7 @@ For more information on the Google Analytics timing event, see the link below.
 
 [https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#timingCategory](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#timingCategory)
 
-```
+``` javascript
 var perfume = new Perfume({
     firstPaint: true,
     firstContentfulPaint: true,
@@ -69,7 +69,7 @@ var perfume = new Perfume({
 *Note:* If you are using the more modern gtag installation of Google Analytics to track your user timings then the following
 code will work instead.
 
-```
+``` javascript
  var perfume = new Perfume({
     firstPaint: true,
     firstContentfulPaint: true,
