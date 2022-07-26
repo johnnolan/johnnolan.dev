@@ -1,11 +1,5 @@
 var GA_ANALYTICS_ID = "UA-92772847-1";
 
-document.addEventListener("click", (e) => {
-  if (e.target) {
-    trackExternalLink(e.target);
-  }
-});
-
 function setupGoogleAnalytics(analyticsId) {
   var s = document.createElement("script");
   s.type = "text/javascript";
