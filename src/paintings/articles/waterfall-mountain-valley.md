@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Peeks of a mountain range breaking above a dense fog in the distance."
-image: "assets/artwork/waterfall-mountain-valley"
+image: "assets/artwork/waterfall-mountain-valley.jpg"
 large: false
 ---

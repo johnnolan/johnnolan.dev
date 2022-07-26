@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Winter lake with snow topped trees and distant mountains."
-image: "assets/artwork/snow-lake"
-largeimage: "assets/artwork/large/snow-lake"
+image: "assets/artwork/snow-lake.jpg"
+largeimage: "assets/artwork/large/snow-lake.jpg"
 large: true
 ---

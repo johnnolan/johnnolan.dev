@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Lit up Blue Ridged Mountain range whith a group of trees just in the fore front."
-image: "assets/artwork/blue-mountain-range"
+image: "assets/artwork/blue-mountain-range.jpg"
 large: false
 ---

@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "A center stage waterfall with bright flora engulfing it."
-image: "assets/artwork/waterfall"
+image: "assets/artwork/waterfall.jpg"
 large: false
 ---

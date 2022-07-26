@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Evening settling on a cloudy, sunny day silhouetting the hilly countryside."
-image: "assets/artwork/evening-countryside"
+image: "assets/artwork/evening-countryside.jpg"
 large: false
 ---

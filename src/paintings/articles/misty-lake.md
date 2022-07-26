@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Lone tree on a Misty Lake."
-image: "assets/artwork/misty-lake"
-largeimage: "assets/artwork/large/misty-lake"
+image: "assets/artwork/misty-lake.jpg"
+largeimage: "assets/artwork/large/misty-lake.jpg"
 large: true
 ---

@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Mountain peeks over a misty cloud filled sky."
-image: "assets/artwork/misty-top-mountains"
-largeimage: "assets/artwork/large/misty-top-mountains"
+image: "assets/artwork/misty-top-mountains.jpg"
+largeimage: "assets/artwork/large/misty-top-mountains.jpg"
 large: true
 ---

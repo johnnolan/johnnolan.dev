@@ -5,7 +5,7 @@ date: 2020-03-26
 tags: 
   - other
 contributors: ["John Nolan"]
-image: "/assets/posts/2017-06-19-handling-team-end-project-2.jpg"
+image: "assets/posts/2017-06-19-handling-team-end-project-2.jpg"
 imagewidth: "400"
 imageheight: "419"
 ---

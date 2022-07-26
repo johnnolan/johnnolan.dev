@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Moody autumn mountainside before the storm."
-image: "assets/artwork/autumn-mountainside"
-largeimage: "assets/artwork/large/autumn-mountainside"
+image: "assets/artwork/autumn-mountainside.jpg"
+largeimage: "assets/artwork/large/autumn-mountainside.jpg"
 large: true
 ---

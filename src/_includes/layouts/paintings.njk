@@ -9,10 +9,10 @@ backLink: "/paintings/"
     {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
 
-    <img class="gallery__image" src="/{{image}}.jpg" alt="{{description}}" />
+    <img class="gallery__image" src="/{{image}}" alt="{{description}}" />
     <figcaption class="gallery__description">{{description}}</figcaption>
     {% if large %}
-        <a href="/{{largeimage}}.jpg" class="gallery__description">(View Large Image)</a>
+        <a href="/{{largeimage}}" class="gallery__description">(View Large Image)</a>
     {% endif %}
 
     {{ content | safe }}

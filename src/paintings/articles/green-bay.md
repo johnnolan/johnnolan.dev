@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Autumnal foliage with a mountain backdrop."
-image: "assets/artwork/green-bay"
-largeimage: "assets/artwork/large/green-bay"
+image: "assets/artwork/green-bay.jpg"
+largeimage: "assets/artwork/large/green-bay.jpg"
 large: true
 ---

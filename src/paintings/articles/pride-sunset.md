@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "A vivid play on a deep coloured sky as the sun sets of a hillside."
-image: "assets/artwork/pride-sunset"
+image: "assets/artwork/pride-sunset.jpg"
 large: false
 ---

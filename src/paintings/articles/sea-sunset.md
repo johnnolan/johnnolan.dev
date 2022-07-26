@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "A twilight sunset with stars shining and a mix of clouds and bright sky hues over a calm sea."
-image: "assets/artwork/sea-sunset"
+image: "assets/artwork/sea-sunset.jpg"
 large: false
 ---

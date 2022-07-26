@@ -6,6 +6,6 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Frozen lake with trees at the foot of a cold, cloudless sky mountain."
-image: "assets/artwork/frozen-mountain-lake"
+image: "assets/artwork/frozen-mountain-lake.jpg"
 large: false
 ---

@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Sunset with waves over a mountainous cliff side."
-image: "assets/artwork/sunset-cliffs"
-largeimage: "assets/artwork/large/sunset-cliffs"
+image: "assets/artwork/sunset-cliffs.jpg"
+largeimage: "assets/artwork/large/sunset-cliffs.jpg"
 large: true
 ---

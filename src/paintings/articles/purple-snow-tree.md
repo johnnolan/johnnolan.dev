@@ -6,7 +6,7 @@ tags:
   - painting
 contributors: ["John Nolan"]
 description: "Winter solstice with a mythical purple tree."
-image: "assets/artwork/purple-snow-tree"
-largeimage: "assets/artwork/large/purple-snow-tree"
+image: "assets/artwork/purple-snow-tree.jpg"
+largeimage: "assets/artwork/large/purple-snow-tree.jpg"
 large: true
 ---

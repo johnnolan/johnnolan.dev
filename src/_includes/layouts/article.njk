@@ -10,7 +10,7 @@ backLink: "/hcta/"
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
 
     {% if image %}
-        <img class="gallery__image" src="/{{image}}.jpg" alt="{{title}}" />
+        <img class="gallery__image" src="/{{image}}" alt="{{title}}" />
     {% endif %}
 
     {{ content | safe }}
