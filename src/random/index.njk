@@ -4,4 +4,4 @@ title: Other posts around tech
 ---
 
 {%- from "../_includes/macros/indexlist.njk" import indexList %}
-{{ indexList(title, '', collections.other) }}
+{{ indexList(title, '', collections.other | reverse) }}

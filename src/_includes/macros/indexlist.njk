@@ -4,7 +4,7 @@
         <h1 class="articles-heading">{{title}}</h1>
         {{ content | safe }}
         <div class="post-list">
-            {%- for article in collection | reverse -%}
+            {%- for article in collection -%}
                 {% if article.data.date %}
                     <article>
                         <a href="{{ article.url }}" class="post-list-item-link">

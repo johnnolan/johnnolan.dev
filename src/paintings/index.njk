@@ -4,4 +4,4 @@ title: Collection of Oil Paintings
 ---
 
 {%- from "../_includes/macros/indexlist.njk" import indexList %}
-{{ indexList(title, '', collections.painting) }}
+{{ indexList(title, '', collections.painting | reverse) }}
