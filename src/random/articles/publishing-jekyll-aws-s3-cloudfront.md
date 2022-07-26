@@ -98,7 +98,7 @@ It is important to name these exactly like so
 These keys are stored as Environmental Variables that can be accessed in
 your Travis build script and are all encrypted.
 
-_Never put sensitive information in your Github Repo_
+> Never put sensitive information in your Github Repo
 
 You should now be all setup ready for continuous integration. Commit and
 Push these changes to Github and now Travis should receive the trigger
