@@ -9,5 +9,9 @@ backLink: "/hcta/"
     {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
 
+    {% if image %}
+        <img class="gallery__image" src="/{{image}}.jpg" alt="{{title}}" />
+    {% endif %}
+
     {{ content | safe }}
 </article>
