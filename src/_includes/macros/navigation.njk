@@ -1,0 +1,15 @@
+{% macro navigation(categories) %}
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list">
+                {%- for article in categories | reverse -%}
+                    <li class="nav_list-item">
+                        <a href="{{ article.url }}" alt="Navigate to {{ article.name }}" class="nav_list-item_link">
+                            {{ article.name }}
+                        </a>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </nav>
+{% endmacro %}

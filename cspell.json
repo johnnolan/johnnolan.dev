@@ -1,0 +1,49 @@
+{
+  "version": "0.1",
+  "language": "en_gb",
+  "dictionaries": [
+    "bash",
+    "companies",
+    "html",
+    "misc",
+    "softwareTerms"
+  ],
+  "ignorePaths": [
+    "_site/",
+    ".vscode/",
+    ".idea/",
+    "**/node_modules/**",
+    "**/*.lock",
+    "**/*.css",
+    "package.json"
+  ],
+  "allowCompoundWords": true,
+  "words": [
+    "Centered",
+    "Counseling",
+    "Outro",
+    "webpackanalyzer",
+    "Analyzer",
+    "noobies",
+    "cibuild",
+    "awscli",
+    "nolanscafe",
+    "Contentful",
+    "typeof",
+    "anaylytics",
+    "vars",
+    "Roboto",
+    "Creset",
+    "Cred",
+    "numstat",
+    "Greeny",
+    "divs",
+    "writeup",
+    "peeky",
+    "Peeky",
+    "shiney",
+    "gtag",
+    "refs",
+    "hcta"
+  ]
+}

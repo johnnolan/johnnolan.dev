@@ -1,0 +1,20 @@
+{% macro categoryList(categories) %}
+    <div class="articles articles--categories">
+        <div class="wrapper">
+            <div class="post-list">
+                {%- for article in categories | reverse -%}
+                    <article>
+                        <a href="{{ article.url }}" class="post-list-item-link">
+                            <h2 class="post-link">
+                                {{ article.name }}
+                            </h2>
+                        </a>
+                        <span class="post-meta">
+                            {{ article.description }}
+                        </span>
+                    </article>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

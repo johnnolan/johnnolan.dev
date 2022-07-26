@@ -1,0 +1,25 @@
+{% macro pageContentMetaData(date, contributors) %}
+{%- from "./datetime.njk" import datetime %}
+{%- from "./authorsList.njk" import authorsList %}
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      {{datetime(date)}}
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      {{authorsList(contributors)}}
+    </dd>
+  </div>
+</dl>
+
+{% endmacro %}

@@ -1,0 +1,5 @@
+{% macro authorsList(contributors) %}
+    {% if contributors %}
+        {{ contributors | join(", ") }}
+    {% endif %}
+{% endmacro %}

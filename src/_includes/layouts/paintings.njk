@@ -1,0 +1,19 @@
+---
+layout: layouts/fullwidth.njk
+backLink: "/paintings/"
+---
+
+<article class="article-page">
+    <h1 class="article-page-heading">{{title}}</h1>
+
+    {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
+    {{ pageContentMetaData(date, contributors, undefined, tags) }}
+
+    <img class="gallery__image" src="/{{image}}" alt="{{description}}" />
+    <figcaption class="gallery__description">{{description}}</figcaption>
+    {% if large %}
+        <a href="/{{largeimage}}" class="gallery__description">(View Large Image)</a>
+    {% endif %}
+
+    {{ content | safe }}
+</article>

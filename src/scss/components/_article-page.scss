@@ -1,0 +1,29 @@
+.article-page {
+  &-heading {
+    text-align: left;
+  }
+
+  line-height: 1.6;
+  margin-bottom: 0;
+
+  > h1 {
+    font-size: 42px;
+
+    @include media-query($on-laptop) {
+      font-size: 38px;
+    }
+  }
+
+  > h2 {
+    margin-top: 30px;
+
+    @include media-query($on-laptop) {
+      margin-top: 20px;
+    }
+  }
+
+  > a {
+    color: $brand-color-2;
+    font-weight: bold;
+  }
+}

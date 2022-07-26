@@ -1,0 +1,24 @@
+.header {
+  background-color: $background-color;
+
+  .wrapper {
+    position: relative;
+
+    .site-heading {
+      font-size: 26px;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 10px 0 10px 0;
+      font-weight: bold;
+      color: $brand-color-2;
+      
+      &-link {
+        color: $brand-color-2;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{%- from "./pageContentMetaData.njk" import pageContentMetaData %}
+{% macro indexList(title, content, collection) %}
+    <div class="articles">
+        <h1 class="articles-heading">{{title}}</h1>
+        {{ content | safe }}
+        <div class="post-list">
+            {%- for article in collection -%}
+                {% if article.data.date %}
+                    <article>
+                        <a href="{{ article.url }}" class="post-list-item-link">
+                            <h2 class="post-link">
+                                    {{ article.data.title }}
+                            </h2>
+                        </a>
+                        {% if article.data.image %}
+                            <img class="gallery__image" src="/{{article.data.image}}" alt="{{article.data.description}}" />
+                        {%- endif -%}
+                        <span class="post-meta">
+                            {{ pageContentMetaData(article.data.date, article.data.contributors) }}
+                        </span>
+                    </article>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+{% endmacro %}

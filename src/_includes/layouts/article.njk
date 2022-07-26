@@ -1,0 +1,17 @@
+---
+layout: layouts/fullwidth.njk
+backLink: "/hcta/"
+---
+
+<article class="article-page">
+    <h1 class="article-page-heading">{{title}}</h1>
+
+    {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
+    {{ pageContentMetaData(date, contributors, undefined, tags) }}
+
+    {% if image %}
+        <img class="gallery__image" src="/{{image}}" alt="{{title}}" />
+    {% endif %}
+
+    {{ content | safe }}
+</article>

@@ -1,0 +1,44 @@
+{
+  "name": "johnnolan.dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:johnnolan/johnnolan.dev.git",
+  "author": "John Nolan <me@johnnolan.dev>",
+  "license": "MIT",
+  "scripts": {
+    "jshint": "jshint src/",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "lint:spell": "cspell '**/*.md'",
+    "lint:markdown": "markdownlint '**/*.md' --ignore node_modules",
+    "fix:markdown": "markdownlint '**/*.md' --ignore node_modules --fix",
+    "lint:report": "eslint --ignore-path .gitignore --output-file eslint_report.json --format json .",
+    "lint:all": "yarn run lint:check && yarn run lint:spell && yarn run lint:markdown",
+    "sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css",
+    "watch:sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css --watch",
+    "watch:eleventy": "eleventy --serve --watch",
+    "serve": "concurrently \"yarn run watch:eleventy\" \"yarn run watch:sass\"",
+    "build": "yarn run sass && eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@babel/core": "^7.18.9",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.9",
+    "concurrently": "^7.3.0",
+    "cspell": "^6.4.0",
+    "dayjs": "^1.11.4",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jshint": "^2.13.5",
+    "markdown-it": "^13.0.1",
+    "markdownlint-cli": "^0.32.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.53.0"
+  }
+}

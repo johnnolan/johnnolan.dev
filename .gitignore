@@ -1,1 +1,4 @@
 resources
+node_modules/
+_site/
+src/_includes/css/
