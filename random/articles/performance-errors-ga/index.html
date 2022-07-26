@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/assets/main.css" rel="stylesheet" as="style">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href="https://www.johnnolan.dev/" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="Human Centered Technical Architecture, Paintings and thoughts">
+
+    <script src="/assets/index.js" defer></script>
+    <title>Performance Tracking and Error Tracking in Google Analytics with Data Studio - John Nolan - John Nolan</title>
+  </head>
+  <body>
+
+    
+      <div class="page-content">
+        
+          
+          
+<header class="header">
+
+  <div class="wrapper">
+
+    <h2 class="site-heading">
+      <a class="site-heading-link" href="/" alt="Go to homepage">
+        John Nolan
+      </a>
+    </h2>
+
+  </div>
+</header>
+
+
+
+          
+            
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list"><li class="nav_list-item">
+                        <a href="/hcta" alt="Navigate to Human Centered Technical Architecture" class="nav_list-item_link">
+                            Human Centered Technical Architecture
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/paintings" alt="Navigate to Oil Paintings" class="nav_list-item_link">
+                            Oil Paintings
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/random" alt="Navigate to Development" class="nav_list-item_link">
+                            Development
+                        </a>
+                    </li></ul>
+        </div>
+    </nav>
+
+          
+          
+          <main class="wrapper" role="main" id="content">
+
+            
+<article class="article-page">
+    <h1 class="article-page-heading">Performance Tracking and Error Tracking in Google Analytics with Data Studio</h1>
+    
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      
+<time datetime="2018-10-08">8 October 2018</time>
+
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      
+    
+        John Nolan
+    
+
+    </dd>
+  </div>
+</dl>
+
+
+
+    
+        <img class="gallery__image" src="/assets/posts/2018-10-08-performance-errors-ga.png" alt="Performance Tracking and Error Tracking in Google Analytics with Data Studio" />
+    
+
+    <p>So you want to track your performance and error tracking on your website? If you have Google Analytics installed
+already then you are half way there!</p>
+<p>There are some amazing great 3rd party services out there, but if you only want the basics then
+this method is amazing for small personal websites.</p>
+<h2>Tracking Errors</h2>
+<p>To track errors on a website then its as simple as the below code.</p>
+<p>First we check to see if the onerror object is available for us, if so on an error we fire a google event
+<code>exception</code> with the line number and error. Very simple and you can expand on this for modern browser APIs like
+shown here <a href="https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror">https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror</a></p>
+<p>For more information on the exception Google Analytics event see the link below.</p>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#exDescription">https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#exDescription</a></p>
+<pre><code class="language-javascript">if (typeof window.onerror === &quot;object&quot;)
+{
+    window.onerror = function (err, url, line)
+    {
+        gtag('event', 'exception', {
+            'exDescription': line + ': ' + err
+        });
+    };
+}
+</code></pre>
+<h2>Tracking Performance</h2>
+<p>For tracking performance I am using the incredibly awesome <a href="http://zizzamia.github.io/perfume/">Perfume.js</a>. Check out their site
+for a breakdown on everything it can do. This includes polyfills for older browsers and gives us a great
+starting point to start measuring metrics.</p>
+<p>The setup is very straight forward and once you include their script you can start tracking with the code below.</p>
+<p>For more information on the Google Analytics timing event, see the link below.</p>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#timingCategory">https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#timingCategory</a></p>
+<pre><code class="language-javascript">var perfume = new Perfume({
+    firstPaint: true,
+    firstContentfulPaint: true,
+    firstInputDelay: true,
+    timeToInteractive: true,
+    logging: false,
+    googleAnalytics: {
+        enable: true,
+        timingVar: &quot;performance&quot;
+    }
+})
+</code></pre>
+<p><em>Note:</em> If you are using the more modern gtag installation of Google Analytics to track your user timings then the following
+code will work instead.</p>
+<pre><code class="language-javascript"> var perfume = new Perfume({
+    firstPaint: true,
+    firstContentfulPaint: true,
+    firstInputDelay: true,
+    timeToInteractive: true,
+    logging: true,
+    analyticsTracker: function(metricName, duration) {
+        gtag('event', 'timing_complete', {
+            'name': metricName,
+            'value': duration,
+            'event_category': 'perfume'
+            });
+        }
+    })
+</code></pre>
+<h2>Producing a Dashboard</h2>
+<p>I have created a Dashboard for others to view, take a copy, link to their own Google Analytics account and amend
+as needed. Please feel free do so with this as you wish!</p>
+<p><a href="https://datastudio.google.com/open/1BqYvDZXowIb_dyc9u-1UzEPuqS_x1Chg">https://datastudio.google.com/open/1BqYvDZXowIb_dyc9u-1UzEPuqS_x1Chg</a></p>
+<p>Once you have made a copy simply change the datasource and start playing. Hopefully this will give you a good
+starting point.</p>
+
+</article>
+
+
+            
+          </main>
+
+        
+      </div>
+
+        
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Human Centered Technical Architecture, Paintings and thoughts</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:me@johnnolan.dev">me@johnnolan.dev</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+          <div class="twitter">
+              <a href="https://github.com/johnnolan"><span class="icon icon--github">
+                  <span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg></span>
+                  </span>
+              <span class="username">johnnolan</span></a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+    
+  </body>
+</html>

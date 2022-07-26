@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/assets/main.css" rel="stylesheet" as="style">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href="https://www.johnnolan.dev/" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="Human Centered Technical Architecture, Paintings and thoughts">
+
+    <script src="/assets/index.js" defer></script>
+    <title>Creating a Google Chrome Extension Tab - John Nolan - John Nolan</title>
+  </head>
+  <body>
+
+    
+      <div class="page-content">
+        
+          
+          
+<header class="header">
+
+  <div class="wrapper">
+
+    <h2 class="site-heading">
+      <a class="site-heading-link" href="/" alt="Go to homepage">
+        John Nolan
+      </a>
+    </h2>
+
+  </div>
+</header>
+
+
+
+          
+            
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list"><li class="nav_list-item">
+                        <a href="/hcta" alt="Navigate to Human Centered Technical Architecture" class="nav_list-item_link">
+                            Human Centered Technical Architecture
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/paintings" alt="Navigate to Oil Paintings" class="nav_list-item_link">
+                            Oil Paintings
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/random" alt="Navigate to Development" class="nav_list-item_link">
+                            Development
+                        </a>
+                    </li></ul>
+        </div>
+    </nav>
+
+          
+          
+          <main class="wrapper" role="main" id="content">
+
+            
+<article class="article-page">
+    <h1 class="article-page-heading">Creating a Google Chrome Extension Tab</h1>
+    
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      
+<time datetime="2017-03-16">16 March 2017</time>
+
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      
+    
+        John Nolan
+    
+
+    </dd>
+  </div>
+</dl>
+
+
+
+    
+        <img class="gallery__image" src="/assets/posts/2017-03-16-chrome-extension-leadership-quotes.jpg" alt="Creating a Google Chrome Extension Tab" />
+    
+
+    <blockquote>
+<p>A little writeup on some fun I had creating a Google Chrome
+tab plugin called &quot;Inspirational Leadership and Coaching Quotes&quot;</p>
+</blockquote>
+<h2>Why?</h2>
+<p>Over the past few months I have had the joy of taking part in
+a self discovery course with our company UNiDAYS. I have already done
+one of these before but it is nice to try a different system
+and have a recap on what you have been up to. I had a thought,
+random shower thought, why not have some fun and using one
+of the sessions where we talked about influences and quotes
+that mean something to us to make a start tab in Chrome.</p>
+<p>So I did.</p>
+<p>The repo to look at is here <a href="https://github.com/johnnolan/leadership-quotes-chrome-tab">https://github.com/johnnolan/leadership-quotes-chrome-tab</a></p>
+<h2>How?</h2>
+<p>I first went here <a href="http://extensionizr.com">http://extensionizr.com</a>
+and selected the settings I needed. This tool is so simple and
+since I just wanted to get up and running, this gave me a quick
+way to create the boiler plate for the extension.</p>
+<p>I created a very basic Gulp file, again, quick and simple to
+get up and running that would take my src dir and copy all
+required files for release into a new dist folder.</p>
+<p>I created a bunch of icons and added these to my manifest file.
+Then created a screenshot of the finished tab to upload.</p>
+<p>A note on the boilerplate setup, it is missing the following
+from the manifest file which is a required attribute</p>
+<p><code>&quot;short_name&quot;: &quot;Inspirational Leadership Quotes&quot;,</code></p>
+<p><code>shortname</code> is required so make sure you add this.</p>
+<p>In <code>Override.html</code> add your html you want and add a <code>script</code>
+tag to your .js file should you need it. Mine does the following.</p>
+<ul>
+<li>Load and parse the local json file with all the quotes and
+authors in</li>
+<li>Randomly selects a number from the length of quotes</li>
+<li>Populates a id placeholder using jquery (which I bundled
+in the file)</li>
+</ul>
+<p>Nice and simple.</p>
+<p>For the styling I took advantage of knowing this was in Chrome
+so used <code>vh</code> and <code>vw</code> values for placement of divs and
+backgrounds, then <code>vw</code> for font sizes to get a dynamic font
+sizing depending on the viewport size.</p>
+<p>After I was done, I ran my <code>build</code> Gulp task which collected
+everything and put it in a <code>dist</code> folder. Then zip up the contents
+of the folder and you are ready to submit it to the Google
+Chrome Extension Console.</p>
+<h2>Publishing</h2>
+<p>To publish your shiney new tab/extension go here</p>
+<p><a href="https://chrome.google.com/webstore/developer/dashboard">https://chrome.google.com/webstore/developer/dashboard</a>
+and click <code>Add new item</code>.</p>
+<p>Upload your zip folder here and after you should find you can
+fine tune your extension with a few extra options.</p>
+<p>Once thing that is a bit shitty is you need to pay a one off $5
+when you first submit an extension. I gather this is to deter
+people from spamming so much but meh.</p>
+<p>Once you are happy publish your extension, wait up to an hour
+and then go show your friends, your mum and co-workers and
+show them how awesome you are.</p>
+<h2>Conclusion</h2>
+<p>So there you go, the whole thing is quite simple to setup, except
+the horrible Chrome Extension Admin Console interface, but hey,
+it's functional!</p>
+
+</article>
+
+
+            
+          </main>
+
+        
+      </div>
+
+        
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Human Centered Technical Architecture, Paintings and thoughts</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:me@johnnolan.dev">me@johnnolan.dev</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+          <div class="twitter">
+              <a href="https://github.com/johnnolan"><span class="icon icon--github">
+                  <span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg></span>
+                  </span>
+              <span class="username">johnnolan</span></a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+    
+  </body>
+</html>

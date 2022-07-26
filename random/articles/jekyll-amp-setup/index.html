@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/assets/main.css" rel="stylesheet" as="style">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href="https://www.johnnolan.dev/" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="Human Centered Technical Architecture, Paintings and thoughts">
+
+    <script src="/assets/index.js" defer></script>
+    <title>Setting up Jekyll for AMP - John Nolan - John Nolan</title>
+  </head>
+  <body>
+
+    
+      <div class="page-content">
+        
+          
+          
+<header class="header">
+
+  <div class="wrapper">
+
+    <h2 class="site-heading">
+      <a class="site-heading-link" href="/" alt="Go to homepage">
+        John Nolan
+      </a>
+    </h2>
+
+  </div>
+</header>
+
+
+
+          
+            
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list"><li class="nav_list-item">
+                        <a href="/hcta" alt="Navigate to Human Centered Technical Architecture" class="nav_list-item_link">
+                            Human Centered Technical Architecture
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/paintings" alt="Navigate to Oil Paintings" class="nav_list-item_link">
+                            Oil Paintings
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/random" alt="Navigate to Development" class="nav_list-item_link">
+                            Development
+                        </a>
+                    </li></ul>
+        </div>
+    </nav>
+
+          
+          
+          <main class="wrapper" role="main" id="content">
+
+            
+<article class="article-page">
+    <h1 class="article-page-heading">Setting up Jekyll for AMP</h1>
+    
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      
+<time datetime="2017-03-05">5 March 2017</time>
+
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      
+    
+        John Nolan
+    
+
+    </dd>
+  </div>
+</dl>
+
+
+
+    
+        <img class="gallery__image" src="/assets/posts/2017-03-05-jekyll-amp-setup.jpg" alt="Setting up Jekyll for AMP" />
+    
+
+    <p>In the following article I will be taking you through how I enabled AMP pages for my Jekyll blog.</p>
+<ul>
+<li>Jekyll project structure</li>
+<li>Configuring the layouts</li>
+<li>Adding a Service Worker to an AMP Page</li>
+<li>Adding Google Analytics</li>
+<li>Setting up canonical and amphtml meta tags</li>
+<li>How to build both sites in one command and include it in your CI build</li>
+</ul>
+<p>As always you can find an example of all of this to reference on my
+<a href="https://github.com/johnnolan/blog">repo at Github</a></p>
+<p>For an introduction and guide to AMP, you can go to the official site
+here <a href="https://www.ampproject.org/">https://www.ampproject.org/</a> which
+is an excellent source for getting started.</p>
+<h2>Jekyll project structure</h2>
+<p>If you take a look <a href="https://github.com/johnnolan/blog">here</a> at my Github
+repository you can see the following new folder
+<a href="https://github.com/johnnolan/blog/tree/master/_layouts-amp">_layouts-amp</a>
+and a new file called
+<a href="https://github.com/johnnolan/blog/blob/master/_config-amp.yml">_config-amp.yml</a>.</p>
+<p>In the _layouts-amp folder we have a copy of the _layouts folder. This
+will be used for the necessary html layout changes needed.</p>
+<p>The new _config-amp.yml is a copy of our _config.yml and we will be
+adding some additional settings to it so we can specify new defaults for
+it to use.</p>
+<p>This means we will have to run to separate processes to produce 2 versions
+of the site but don't worry I will cover how we can make this simpler later.</p>
+<p>In your _config-amp.yml add to the bottom the following settings.</p>
+<pre><code class="language-yaml">destination:   _site/amp
+layouts_dir:   ./_layouts-amp
+
+defaults:
+  -
+    scope:
+      path: &quot;_posts&quot;
+    values:
+      layout: &quot;default&quot;
+</code></pre>
+<p>and change your baseurl to</p>
+<pre><code class="language-yaml">baseurl: &quot;/amp&quot;
+</code></pre>
+<p>Now go to your command line and run the following command</p>
+<p><code>jekyll build --config _config-amp.yml</code></p>
+<p>With the additional settings it will produce a copy of your existing site
+into a sub folder called /amp. Now for the fun part, customising the
+templates.</p>
+<h2>Configuring the layouts</h2>
+<p>AMP requires us to strip the majority of things we have come to take
+as standard, and markup our content in a certain way so that it can
+be easily processed. This means we need to make the following changes</p>
+<p>In our default.html change it to</p>
+<pre><code class="language-nunjucks">
+&lt;!doctype html&gt;
+&lt;html amp lang=&quot;en&quot;&gt;
+
+ {% include amp-head.html %}
+
+&lt;body&gt;
+
+&lt;header class=&quot;site-header&quot;&gt;
+  &lt;div class=&quot;wrapper&quot;&gt;
+    &lt;a class=&quot;site-title&quot; href=&quot;{{ site.baseurl }}/index.html&quot;&gt;{{ site.title }}&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+  {{ content }}
+&lt;/div&gt;
+
+ {% include amp-footer.html %}
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<p>Notice we have in our html declaration <code>amp</code>. This is an example
+of things we need to change. Also pay attention to the site-title link.
+Because I host on S3 and haven't got around to figuring out how to set
+sub folders to look for index.html by default I have had to add
+index.html to the end.</p>
+<p>page.html and post.html I have left the same but you may need to amend
+yours depending on the markup you have. Mine is very basic (on purpose)
+so it validates by default.</p>
+<p>In the above snippet I have referenced two files, amp-footer.html and
+amp-head.html. We need to create these two files in our
+<a href="https://github.com/johnnolan/blog/tree/master/_includes">_includes</a>
+folder. There content will look like so</p>
+<p>amp-head.html</p>
+<pre><code class="language-nunjucks">
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;script async src=&quot;https://cdn.ampproject.org/v0.js&quot;&gt;&lt;/script&gt;
+  &lt;script async custom-element=&quot;amp-install-serviceworker&quot; src=&quot;https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js&quot;&gt;&lt;/script&gt;
+  &lt;script async custom-element=&quot;amp-analytics&quot; src=&quot;https://cdn.ampproject.org/v0/amp-analytics-0.1.js&quot;&gt;&lt;/script&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;{{ page.description }}&quot;&gt;
+  &lt;meta name=&quot;og:description&quot; content=&quot;{{ page.description }}&quot;&gt;
+  &lt;title&gt;{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}&lt;/title&gt;
+  &lt;link rel=&quot;canonical&quot; href=&quot;{{ page.url | replace:'index.html','' | prepend: site.canonical_baseurl | prepend: site.url }}&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1,initial-scale=1&quot;&gt;
+  {% if page.date %}
+  &lt;script type=&quot;application/ld+json&quot;&gt;
+      {
+        &quot;@context&quot;: &quot;http://schema.org&quot;,
+        &quot;@type&quot;: &quot;blogPost&quot;,
+        &quot;headline&quot;: {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %},
+        &quot;datePublished&quot;: {{ page.date }},
+        &quot;image&quot;: [
+          &quot;/android-chrome-512x512.png&quot;
+        ]
+      }
+    &lt;/script&gt;
+  {% endif %}
+  &lt;style amp-custom&gt;
+    body {
+      color: #000;
+      font-family: &quot;Roboto&quot;,sans-serif;
+    }
+    .icon&gt;svg {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+    .wrapper {
+      max-width: -webkit-calc(800px - (30px * 2));
+      max-width: calc(800px - (30px * 2));
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+    a {
+      color: #1573ca;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .site-header {
+      background-color: #1573ca;
+      min-height: 80px;
+      position: relative;
+    }
+    .site-title {
+      font-size: 26px;
+      color: #fff;
+      line-height: 74px;
+      letter-spacing: -1px;
+      margin-bottom: 0;
+      float: left;
+    }
+    .site-title:hover {
+      text-decoration: none;
+    }
+    .highlighter-rouge .highlight {
+      background: #eef;
+    }
+    pre {
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+    pre, code {
+      font-size: 15px;
+      border-radius: 3px;
+      background-color: #eef;
+    }
+  &lt;/style&gt;
+  &lt;style amp-boilerplate&gt;body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}&lt;/style&gt;&lt;noscript&gt;&lt;style amp-boilerplate&gt;body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}&lt;/style&gt;&lt;/noscript&gt;
+
+&lt;/head&gt;
+
+</code></pre>
+<p>With AMP you should include all your CSS inline. It also needs to be as small as possible and be wrapped in a new special
+tag called <code>&lt;style amp-custom&gt;</code>. I have deliberately only included the absolute basic CSS to keep it functional.</p>
+<p>This tag is a direct relation to this JS include file <code>https://cdn.ampproject.org/v0.js</code>. This contains the definitions
+for the new tags that you are able to wrap common functionality into.</p>
+<p>This also allows us to use the <code>&lt;style amp-boilerplate&gt;</code> which from what I can tell is a required set of styles
+to allow AMP sites to work.</p>
+<p>amp-footer.html</p>
+<pre><code class="language-nunjucks">
+&lt;footer class=&quot;site-footer&quot;&gt;
+
+  &lt;div class=&quot;wrapper&quot;&gt;
+
+    &lt;h2 class=&quot;footer-heading&quot;&gt;{{ site.title }}&lt;/h2&gt;
+
+    &lt;div class=&quot;footer-col-wrapper&quot;&gt;
+      &lt;div class=&quot;footer-col footer-col-1&quot;&gt;
+        &lt;ul class=&quot;contact-list&quot;&gt;
+          &lt;li&gt;{{ site.title }}&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;mailto:{{ site.email }}&quot;&gt;{{ site.email }}&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;footer-col footer-col-2&quot;&gt;
+        &lt;ul class=&quot;social-media-list&quot;&gt;
+          {% if site.github_username %}
+          &lt;li&gt;
+            {% include icon-github.html username=site.github_username %}
+          &lt;/li&gt;
+          {% endif %}
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;footer-col footer-col-3&quot;&gt;
+        &lt;p&gt;{{ site.description }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+
+  &lt;/div&gt;
+
+&lt;/footer&gt;
+
+&lt;amp-install-serviceworker src=&quot;/sw.js&quot; data-iframe-src=&quot;https://www.nolanscafe.co.uk&quot; layout=&quot;nodisplay&quot;&gt;
+&lt;/amp-install-serviceworker&gt;
+
+&lt;amp-analytics type=&quot;googleanalytics&quot;&gt;
+  &lt;script type=&quot;application/json&quot;&gt;
+    {
+      &quot;vars&quot;: {
+        &quot;account&quot;: &quot;UA-92772847-1&quot;
+      },
+      &quot;triggers&quot;: {
+        &quot;trackPageview&quot;: {
+          &quot;on&quot;: &quot;visible&quot;,
+          &quot;request&quot;: &quot;pageview&quot;
+        }
+      }
+    }
+  &lt;/script&gt;
+
+&lt;/amp-analytics&gt;
+
+</code></pre>
+<p>The only changes on here are the addition of the amp-analytics and
+amp-install-serviceworker tags. I will explain these below.</p>
+<p>So now if we run the build command again we should have a new amp compatible
+site in our /amp sub folder.</p>
+<h2>Adding Service Worker functionality</h2>
+<p>Because we are restricted by including external javascript and CSS in AMP, we have to use their built in libraries
+to get access to functionality such as Service Workers. Above you can see we have included the script</p>
+<p><code>&lt;script async custom-element=&quot;amp-install-serviceworker&quot; src=&quot;https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>and then to enable our service worker we use this tag.</p>
+<p><code>&lt;amp-install-serviceworker src=&quot;/sw.js&quot; data-iframe-src=&quot;https://www.nolanscafe.co.uk&quot; layout=&quot;nodisplay&quot;&gt;&lt;/amp-install-serviceworker&gt;</code></p>
+<h2>Adding Google Analytics</h2>
+<p>Just like the service worker, for analytics there is an AMP library we can call upon to pass parameters through. The script
+to link to is</p>
+<p><code>&lt;script async custom-element=&quot;amp-analytics&quot; src=&quot;https://cdn.ampproject.org/v0/amp-analytics-0.1.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>and then for Google Analytics we can do this in our footer</p>
+<pre><code class="language-javascript">&lt;amp-analytics type=&quot;googleanalytics&quot;&gt;
+  &lt;script type=&quot;application/json&quot;&gt;
+    {
+      &quot;vars&quot;: {
+        &quot;account&quot;: &quot;UA-92772847-1&quot;
+      },
+      &quot;triggers&quot;: {
+        &quot;trackPageview&quot;: {
+          &quot;on&quot;: &quot;visible&quot;,
+          &quot;request&quot;: &quot;pageview&quot;
+        }
+      }
+    }
+  &lt;/script&gt;
+
+&lt;/amp-analytics&gt;
+</code></pre>
+<p>Notice that in the type attribute I have specified googleanalytics. This can be changed to your preferred anaylytics
+provider. See the links at the end of tHe document for more advanced usages. Just replace my account ID with your own.</p>
+<h2>Setting up canonical and amphtml meta tags</h2>
+<p><code>&lt;link rel=&quot;canonical&quot; href=&quot;{{ page.url | replace:'index.html','' | prepend: site.canonical_baseurl | prepend: site.url }}&quot; /&gt;</code></p>
+<p>This line specifies the link back to our full html page. It is required to allow the user/browser easy access back
+to the full page.</p>
+<p>A bit of functionality we haven't configured yet is the addition of the variable <code>canonical_baseurl</code>. Open up your
+_config.yml and add the following line in</p>
+<p><code>canonical_baseurl: &quot;/amp&quot;</code></p>
+<p>And in your _config-amp.yml add the following line</p>
+<p><code>canonical_baseurl: &quot;&quot;</code></p>
+<p>Now in your head.html add the following code</p>
+<pre><code class="language-nunjucks">
+{% if page.url == '/amp/' %}}
+&lt;link rel=&quot;amphtml&quot; href=&quot;{{ page.url | prepend: site.canonical_baseurl | prepend: site.url | append: 'index.html' }}&quot; /&gt;
+{% else %}
+&lt;link rel=&quot;amphtml&quot; href=&quot;{{ page.url | prepend: site.canonical_baseurl | prepend: site.url }}&quot; /&gt;
+{% endif %}
+
+</code></pre>
+<p>This lets the search engines know there is an equivalent AMP file to our full html page.</p>
+<p>All this can be seen in my Github repository.</p>
+<h2>How to build both sites and include it in your CI build</h2>
+<p>In your package.json add the following line under scripts</p>
+<p><code>&quot;build&quot;: &quot;jekyll build &amp;&amp; jekyll build --config _config-amp.yml&quot;</code></p>
+<p>Now in your build script change your <code>jekyll build</code> to <code>npm run build</code></p>
+<p>Every time you want to build both sites just run the following from bash</p>
+<p><code>npm run build</code></p>
+<p>Done! Now you can prepend /amp/ to any post and you will get your AMP version.</p>
+<h2>External resources</h2>
+<ul>
+<li><a href="https://www.ampproject.org/">AMP Project Homepage</a></li>
+<li><a href="https://www.ampproject.org/docs/reference/components/dynamic/amp-install-serviceworker">AMP Serviceworker</a></li>
+<li><a href="https://www.ampproject.org/docs/reference/components/ads/amp-analytics">AMP Analytics</a></li>
+</ul>
+
+</article>
+
+
+            
+          </main>
+
+        
+      </div>
+
+        
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Human Centered Technical Architecture, Paintings and thoughts</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:me@johnnolan.dev">me@johnnolan.dev</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+          <div class="twitter">
+              <a href="https://github.com/johnnolan"><span class="icon icon--github">
+                  <span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg></span>
+                  </span>
+              <span class="username">johnnolan</span></a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+    
+  </body>
+</html>

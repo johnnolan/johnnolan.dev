@@ -1,9 +1,0 @@
-baseURL = "https://www.johnnolan.dev/"
-languageCode = "en-gb"
-title = "Front End Development, React, Redux and others"
-theme = "johnnolandev"
-[params]
-    description = "Brain dump blog for all Front End Development, React, Redux and any other problems I face and solve"
-    email = "me@johnnolan.dev"
-    googleAnalytics = "UA-92772847-1"
-    github = "johnnolan"

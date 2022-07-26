@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "name": "Development",
+            "description": "Historical posts around Software Development.",
+            "url": "/random"
+        },
+        {
+            "name": "Oil Paintings",
+            "description": "Display of my Oil Paintings.",
+            "url": "/paintings"
+        },
+        {
+            "name": "Human Centered Technical Architecture",
+            "description": "Collection of articles about Human Centered Technical Architecture.",
+            "url": "/hcta"
+        }
+    ]
+}
