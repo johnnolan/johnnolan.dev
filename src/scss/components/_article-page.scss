@@ -6,7 +6,7 @@
   line-height: 1.6;
   margin-bottom: 0;
 
-  > h2 {
+  > h1 {
     font-size: 42px;
 
     @include media-query($on-laptop) {
@@ -14,19 +14,11 @@
     }
   }
 
-  > h3 {
-    font-size: 36px;
+  > h2 {
+    margin-top: 30px;
 
     @include media-query($on-laptop) {
-      font-size: 32px;
-    }
-  }
-
-  > h4 {
-    font-size: 30px;
-
-    @include media-query($on-laptop) {
-      font-size: 28px;
+      margin-top: 20px;
     }
   }
 

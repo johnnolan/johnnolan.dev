@@ -5,10 +5,11 @@
   padding: $spacing-unit 0;
   background-color: $brand-color-5;
   border-top: solid 1px $brand-color;
+  margin-top: $spacing-unit;
 
   .footer-heading {
     font-size: 18px;
-    margin-bottom: math.div($spacing-unit, 2);
+    margin-bottom: $spacing-unit;
     margin-top: 0;
   }
   .footer-col-wrapper {
