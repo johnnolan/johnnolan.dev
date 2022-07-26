@@ -1,67 +1,84 @@
-.post-list {
-  margin-left: 0;
-  list-style: none;
+.articles {
+  margin-top: 20px;
 
-  > article {
-    padding: 20px;
+  &-heading {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .post-list {
+    margin-left: 0;
+    list-style: none;
 
-    &:focus,
-    &:hover {
-      background-color: $brand-color-2;
-      -webkit-transition: background-color 400ms ease-out;
-      -moz-transition: background-color 400ms ease-out;
-      -o-transition: background-color 400ms ease-out;
-      transition: background-color 400ms ease-out;
+    > article {
+      padding: 20px;
 
-      border-radius: $border-radius;
-      -moz-border-radius: $border-radius;
-      -webkit-border-radius: $border-radius;
-      border: 0 solid #000000;
-
-      .post-meta,
-      .post-link,
-      .post-content {
+      .post-list-item-link {
+        display: block;
+        text-decoration: none;
         color: $brand-color-3;
-        text-decoration: none;
+
+        &:hover {
+          color: $brand-color-3;
+          text-decoration: underline;
+        }
+      }
+
+      h2 {
+        color: $brand-color-3;
+        font-weight: bolder;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-size: 26px
       }
     }
 
-    .post-list-item-link {
-      display: block;
-      &:focus,
-      &:hover {
-        text-decoration: none;
+    @include media-min-query($on-palm) {
+      display: flex;
+      flex-wrap: wrap;
+
+      > article {
+        width: 42%;
+        margin-bottom: $spacing-unit;
+
+        &:nth-child(2) {
+          margin-left: 1em;
+        }
       }
     }
 
-    h2 {
-      color: $brand-color-2;
-      margin-bottom: 20px;
-      margin-top: 10px;
+    @include media-min-query($on-desktop) {
+      > article {
+        width: 28%;
+        margin-bottom: $spacing-unit;
+
+        &:nth-child(3) {
+          margin-left: 1em;
+        }
+      }
     }
   }
 
-  @include media-min-query($on-palm) {
-    display: flex;
-    flex-wrap: wrap;
+  &--categories {
+    margin-top: 0;
 
-    > article {
-      width: 42%;
-      margin-bottom: $spacing-unit;
+    background-color: $brand-color;
+    .post-list {
+  
+      > article {
+        color: $text-color-light;
 
-      &:nth-child(2) {
-        margin-left: 1em;
-      }
-    }
-  }
-
-  @include media-min-query($on-desktop) {
-    > article {
-      width: 28%;
-      margin-bottom: $spacing-unit;
-
-      &:nth-child(3) {
-        margin-left: 1em;
+        .post-list-item-link {
+          color: $text-color-light;;
+  
+          &:hover {
+            color: $text-color-light;
+            
+          }
+        }
+  
+        h2 {
+          color: $text-color-light;
+        }
       }
     }
   }

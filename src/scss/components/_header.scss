@@ -1,25 +1,24 @@
 .header {
-  position: relative;
+  background-color: $background-color;
 
-  > .wrapper {
-    > .site-heading {
+  .wrapper {
+    position: relative;
+
+    .site-heading {
       font-size: 26px;
       text-align: left;
       width: 100%;
       margin: 0;
-      padding: 20px 0 0 0;
+      padding: 10px 0 10px 0;
       font-weight: bold;
       color: $brand-color-2;
-    }
-
-    > .site-sub-heading {
-      font-size: 20px;
-      font-weight: normal;
-      line-height: 1.4;
-      padding: 0 0 40px 0;
-      margin: 0;
-      text-align: left;
-      color: $brand-color-2;
+      
+      &-link {
+        color: $brand-color-2;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

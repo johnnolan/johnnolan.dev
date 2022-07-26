@@ -18,7 +18,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("log", (value) => {
     console.log(value);
   });
-
+  eleventyConfig.addFilter("limit", function(array, limit) {
+    return array.slice(0, limit);
+  });
   eleventyConfig.addFilter('dateFilter', dateFilter);
   eleventyConfig.addFilter('date24HourFilter', date24HourFilter);
   

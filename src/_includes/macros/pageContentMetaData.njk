@@ -3,20 +3,20 @@
 {%- from "./authorsList.njk" import authorsList %}
 
 
-<dl class="">
-  <div class="">
-    <dt class="">
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
       Date
     </dt>
-    <dd class="">
+    <dd class="metadata-item-value">
       {{datetime(date)}}
     </dd>
   </div>
-  <div class="">
-    <dt class="">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
       Authors
     </dt>
-    <dd class="">
+    <dd class="metadata-item-value">
       {{authorsList(contributors)}}
     </dd>
   </div>

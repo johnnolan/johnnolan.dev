@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "name": "General Dev",
+            "description": "Other posts around tech.",
+            "url": "/random"
+        },
+        {
+            "name": "Paintings",
+            "description": "Collection of Oil Paintings.",
+            "url": "/paintings"
+        },
+        {
+            "name": "Human Centered Technical Architecture",
+            "description": "Collection of articles around Human Centered Technical Architecture.",
+            "url": "/hcta"
+        }
+    ]
+}

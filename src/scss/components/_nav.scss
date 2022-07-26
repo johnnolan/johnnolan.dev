@@ -1,0 +1,24 @@
+.nav {
+  position: relative;
+  padding: 10px 0 10px 0;
+  margin: 0px 0 10px 0;
+  background-color: $brand-color;
+  border-bottom: 1px solid $brand-color;
+  box-shadow: 1px 1px 3px 0;
+
+  &_list {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    &-item {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      &_link {
+        color: $text-color-light;
+      }
+    }
+  }
+}

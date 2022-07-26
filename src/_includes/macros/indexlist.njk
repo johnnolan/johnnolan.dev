@@ -1,21 +1,23 @@
-{%- from "./contentMetaData.njk" import contentMetaData %}
+{%- from "./pageContentMetaData.njk" import pageContentMetaData %}
 {% macro indexList(title, content, collection) %}
-    <h1 class="page-heading">{{title}}</h1>
-    {{ content | safe }}
-    <div class="post-list">
-        {%- for article in collection | reverse -%}
-            {% if article.data.date %}
-                <article>
-                    <a href="{{ article.url }}" class="post-list-item-link">
-                        <h2 class="post-link">
-                                {{ article.data.title }}
-                        </h2>
+    <div class="articles">
+        <h1 class="articles-heading">{{title}}</h1>
+        {{ content | safe }}
+        <div class="post-list">
+            {%- for article in collection | reverse -%}
+                {% if article.data.date %}
+                    <article>
+                        <a href="{{ article.url }}" class="post-list-item-link">
+                            <h2 class="post-link">
+                                    {{ article.data.title }}
+                            </h2>
+                        </a>
                         <span class="post-meta">
-                            {{ contentMetaData(article.data.date, article.data.contributors) }}
+                            {{ pageContentMetaData(article.data.date, article.data.contributors) }}
                         </span>
-                    </a>
-                </article>
-            {%- endif -%}
-        {%- endfor -%}
+                    </article>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
     </div>
 {% endmacro %}

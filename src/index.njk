@@ -1,6 +1,8 @@
 ---
 layout: layouts/fullwidth.njk
+mastheadTitle: true
 ---
 
 {%- from "./_includes/macros/indexlist.njk" import indexList %}
-{{ indexList(title, '', collections.all) }}
+
+{{ indexList("Latest Articles", '', collections.all | limit(3)) }}

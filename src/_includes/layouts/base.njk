@@ -24,23 +24,32 @@
   </head>
   <body>
     {%- from "../macros/header.njk" import header %}
+    {%- from "../macros/navigation.njk" import navigation %}
     {%- from "../macros/footer.njk" import footer %}
+    {%- from "../macros/categoryList.njk" import categoryList %}
+
     {% block body %}
       <div class="page-content">
         {% block content %}
-
           
-        {{ header({ siteName: site.name, siteDescription: site.description }) }}
+          {{ header({ siteName: site.name }) }}
 
+          {% if mastheadTitle %}
+            {{ categoryList(categories.items) }}
+          {% else %}
+            {{ navigation(categories.items) }}
+          {% endif %}
+          
           <main class="wrapper" role="main" id="content">
 
             {{ content | safe }}
             
           </main>
-        </div>
-        {% endblock %}
 
-        {{ footer({ githubName: site.githubName }) }}
+        {% endblock %}
+      </div>
+
+        {{ footer({ githubName: site.githubName, siteDescription: site.description }) }}
 
       </div>
     {% endblock %}

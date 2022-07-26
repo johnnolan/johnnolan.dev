@@ -1,7 +1,0 @@
-{% macro contentMetaData(date, contributors) %}
-<p class=""><strong>Date</strong>: <time datetime="{{ date | date24HourFilter }}">{{ date | dateFilter }}</time>
-<br />
-<strong>Authors: </strong>
-{{ contributors | join(", ") }}
-</p>
-{% endmacro %}
