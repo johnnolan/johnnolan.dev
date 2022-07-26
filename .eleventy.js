@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
 
   eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
 

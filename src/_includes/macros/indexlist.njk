@@ -12,6 +12,9 @@
                                     {{ article.data.title }}
                             </h2>
                         </a>
+                        {% if article.data.image %}
+                            <img class="gallery__image" src="/{{article.data.image}}.jpg" alt="{{article.data.description}}" />
+                        {%- endif -%}
                         <span class="post-meta">
                             {{ pageContentMetaData(article.data.date, article.data.contributors) }}
                         </span>
