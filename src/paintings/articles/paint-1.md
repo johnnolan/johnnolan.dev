@@ -1,9 +1,9 @@
 ---
 layout: layouts/article.njk
-title: "Tech Ethics in Architectural Decision Records"
+title: "Painting 1"
 date: 2022-03-30
 tags: 
-  - hcta
+  - painting
 contributors: ["John Nolan"]
 ---
 

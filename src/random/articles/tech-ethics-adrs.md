@@ -1,9 +1,9 @@
 ---
 layout: layouts/article.njk
-title: "Tech Ethics in Architectural Decision Records"
+title: "Other Article"
 date: 2022-03-30
 tags: 
-  - hcta
+  - other
 contributors: ["John Nolan"]
 ---
 

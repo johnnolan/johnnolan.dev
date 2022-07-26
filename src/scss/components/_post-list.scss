@@ -1,0 +1,68 @@
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > article {
+    padding: 20px;
+
+    &:focus,
+    &:hover {
+      background-color: $brand-color-2;
+      -webkit-transition: background-color 400ms ease-out;
+      -moz-transition: background-color 400ms ease-out;
+      -o-transition: background-color 400ms ease-out;
+      transition: background-color 400ms ease-out;
+
+      border-radius: $border-radius;
+      -moz-border-radius: $border-radius;
+      -webkit-border-radius: $border-radius;
+      border: 0 solid #000000;
+
+      .post-meta,
+      .post-link,
+      .post-content {
+        color: $brand-color-3;
+        text-decoration: none;
+      }
+    }
+
+    .post-list-item-link {
+      display: block;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    h2 {
+      color: $brand-color-2;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+  }
+
+  @include media-min-query($on-palm) {
+    display: flex;
+    flex-wrap: wrap;
+
+    > article {
+      width: 42%;
+      margin-bottom: $spacing-unit;
+
+      &:nth-child(2) {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  @include media-min-query($on-desktop) {
+    > article {
+      width: 28%;
+      margin-bottom: $spacing-unit;
+
+      &:nth-child(3) {
+        margin-left: 1em;
+      }
+    }
+  }
+}
