@@ -14,7 +14,7 @@ With the horrible arrival of COVID-19, everyone who can, has begun remote workin
 
 > Stay Home. Protect the NHS. Save Lives.
 
-For a lot of people, this is their first time attempting it. 
+For a lot of people, this is their first time attempting it.
 
 I am a huge advocate for remote working and this is the worst possible situation to start it. I know this will cause many people to hate the idea of remote working in the future.
 
@@ -31,6 +31,7 @@ My average Remote Working routine is below. Usually my day allows me to remain c
 Only interruptions are from Slack and I am able to get a lot of work done.
 
 ### Remote Working
+
 1. Gym/Exercise Bike
 2. Dog Walk
 3. Shower
@@ -43,6 +44,7 @@ Only interruptions are from Slack and I am able to get a lot of work done.
 10. Finish for the day, go for a walk as my after work commute
 
 ### Pandemic Remote Working
+
 1. Exercise Bike if I have the energy
 2. Walk around the garden
 3. Try and sneak a Shower
@@ -75,7 +77,7 @@ All these can help with your normal day to day working, but right now, are espec
 
 ### Use the Pomodoro Technique
 
-This involves trying to set yourself, small bits of time where you can concentrate on one thing. 
+This involves trying to set yourself, small bits of time where you can concentrate on one thing.
 
 The steps are
 
@@ -83,7 +85,7 @@ The steps are
 2. Set a timer, usually this is for 25 minutes, but 15 minutes or 45 minutes is fine, it is up to you
 3. Work on this one task
 4. When the timer finishes, stop what you are doing and walk away for a short break
-5. Once you are ready, return to step 1 to continue where you were or start a new task 
+5. Once you are ready, return to step 1 to continue where you were or start a new task
 
 ### Turn off communication
 
@@ -99,9 +101,9 @@ This can be hard depending on your company. Where you can, promote asynchronous 
 
 During this pandemic, it is very easy to have news sites and twitter open, watching for new stories coming in. It is important to keep up to date with happenings, but not while you are working.
 
-You already know enough about the situation, you do not need to be updated about it every 5 minutes. Push alerts to your phone about breaking news are not healthy either. 
+You already know enough about the situation, you do not need to be updated about it every 5 minutes. Push alerts to your phone about breaking news are not healthy either.
 
-> Give your mental health a break and close the sites down for a while. 
+> Give your mental health a break and close the sites down for a while.
 
 In your breaks or your lunch, then you can catch up if you want.
 

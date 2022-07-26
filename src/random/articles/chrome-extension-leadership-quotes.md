@@ -14,21 +14,23 @@ imageheight: "200"
 tab plugin called "Inspirational Leadership and Coaching Quotes"
 
 ## Why?
+
 Over the past few months I have had the joy of taking part in
 a self discovery course with our company UNiDAYS. I have already done
 one of these before but it is nice to try a different system
 and have a recap on what you have been up to. I had a thought,
 random shower thought, why not have some fun and using one
 of the sessions where we talked about influences and quotes
-that mean something to us to make a start tab in Chrome. 
+that mean something to us to make a start tab in Chrome.
 
 So I did.
 
 The repo to look at is here [https://github.com/johnnolan/leadership-quotes-chrome-tab](https://github.com/johnnolan/leadership-quotes-chrome-tab)
 
 ## How?
-I first went here [http://extensionizr.com](http://extensionizr.com) 
-and selected the settings I needed. This tool is so simple and 
+
+I first went here [http://extensionizr.com](http://extensionizr.com)
+and selected the settings I needed. This tool is so simple and
 since I just wanted to get up and running, this gave me a quick
 way to create the boiler plate for the extension.
 
@@ -38,8 +40,8 @@ required files for release into a new dist folder.
 
 I created a bunch of icons and added these to my manifest file.
  Then created a screenshot of the finished tab to upload.
- 
-A note on the boilerplate setup, it is missing the following 
+
+A note on the boilerplate setup, it is missing the following
 from the manifest file which is a required attribute
 
 ```"short_name": "Inspirational Leadership Quotes",```
@@ -68,23 +70,25 @@ of the folder and you are ready to submit it to the Google
 Chrome Extension Console.
 
 ## Publishing
+
 To publish your shiney new tab/extension go here
 
 [https://chrome.google.com/webstore/developer/dashboard](https://chrome.google.com/webstore/developer/dashboard)
 and click ```Add new item```.
 
-Upload your zip folder here and after you should find you can 
+Upload your zip folder here and after you should find you can
 fine tune your extension with a few extra options.
 
-Once thing that is a bit shitty is you need to pay a one off $5 
-when you first submit an extension. I gather this is to deter 
+Once thing that is a bit shitty is you need to pay a one off $5
+when you first submit an extension. I gather this is to deter
 people from spamming so much but meh.
 
-Once you are happy publish your extension, wait up to an hour 
-and then go show your friends, your mum and co-workers and 
+Once you are happy publish your extension, wait up to an hour
+and then go show your friends, your mum and co-workers and
 show them how awesome you are.
 
 ## Conclusion
+
 So there you go, the whole thing is quite simple to setup, except
-the horrible Chomre Extension Admin Console interface, but hey,
+the horrible Chrome Extension Admin Console interface, but hey,
 it's functional!

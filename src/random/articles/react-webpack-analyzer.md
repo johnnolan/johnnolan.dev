@@ -26,7 +26,7 @@ Now in your `package.json` file add the following to your `scripts` section.
 
 ```
 "scripts": {
-	"stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json
+ "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json
 }
 ```
 

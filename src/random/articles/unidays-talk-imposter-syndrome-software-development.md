@@ -119,7 +119,7 @@ Off the back of that, I have learnt even more as I pair programme and
 solve problems with them using new technologies I have never touched
 before.
 
-# So, if you feel at all like this, here are the reasons why you shouldn't.
+# So, if you feel at all like this, here are the reasons why you shouldn't
 
 - UNiDAYS employed you.
   They only employee people they think are worth it and this can be

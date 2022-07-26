@@ -85,7 +85,7 @@ In our default.html change it to
 <!doctype html>
 <html amp lang="en">
 
-	{% include amp-head.html %}
+ {% include amp-head.html %}
 
 <body>
 
@@ -99,7 +99,7 @@ In our default.html change it to
   {{ content }}
 </div>
 
-	{% include amp-footer.html %}
+ {% include amp-footer.html %}
 
 </body>
 </html>
@@ -289,7 +289,7 @@ site in our /amp sub folder.
 Because we are restricted by including external javascript and CSS in AMP, we have to use their built in libraries
 to get access to functionality such as Service Workers. Above you can see we have included the script
 
-` <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>`
+`<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>`
 
 and then to enable our service worker we use this tag.
 

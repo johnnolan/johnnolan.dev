@@ -14,7 +14,7 @@ Recently I have had to test a React Higher Order Component using the fabulous [r
 
 Before I go any further into detail, below is some example code I have done so you can get straight to copy and pasting. For more information see below the code sample.
 
-## Show me the code!
+## Show me the code
 
 <script src="https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js"></script>
 

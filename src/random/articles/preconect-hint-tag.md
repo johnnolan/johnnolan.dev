@@ -57,7 +57,6 @@ Each one gives you certain advantages/disadvantages over the other.
 For more in-depth information you can check out
 [https://w3c.github.io/resource-hints/#preconnect](https://w3c.github.io/resource-hints/#preconnect)
 
-
 Sources
 
 * [W3C Resource Hints](https://w3c.github.io/resource-hints)

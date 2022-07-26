@@ -21,7 +21,7 @@ up.
 
 First create a new directory called _script_ in your root folder and
 create a file called _cibuild_. Now past the following details
-replacing *www.nolanscafe.co.uk* with your S3 bucket name.
+replacing _www.nolanscafe.co.uk_ with your S3 bucket name.
 
 ```
 jekyll build

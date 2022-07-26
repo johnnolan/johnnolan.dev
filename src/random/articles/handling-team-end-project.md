@@ -21,18 +21,21 @@ leaders who are looking for ways to feel more connecting with their
 colleagues as the pressure mounts.
 
 ## Get closer to your teams
+
 Now is the time to start connecting with your team more than ever. Take breaks together and let them get stresses off
 their chest. Listen closely and try and solve those problems for them.
 
 > The less stress on their shoulders the easier it is to keep calm and focused.
 
 ## Do a reset on what is left
+
 One of my favourite things is doing a reset of work. Forgetting everything done so far and going through only what is
 left. With a clean board, you can see the end in sight.
 
 It is a small psychological boost but works really well to give people the energy to reach the end at a high velocity.
 
 ## Roll your sleeves up and get stuck in
+
 If like me you are lucky enough to have a development background then pair with people where it's needed.
 
 > This doesn't mean micromanaging and you must not make them feel like they are underachieving.
@@ -42,12 +45,14 @@ Let them know to shout if they want to work together at any time. Even have days
 just make your self available without distractions.
 
 ## Communicate with your team about everything
+
 All management meetings and changes should be communicated immediately. Make your team feel as close to upper
 management as possible and part of the process.
 
 Ownership of work and projects is essential to make people feel like they are a part of the final piece of work.
 
 ## Fix arguments straight away
+
 Passion is great if channelled correctly. Arguments can start over an interpretation of specs, inter-department
  beliefs, who wrote this shit code, etc.
 
@@ -82,6 +87,7 @@ Remain calm as much as you can. You need to lead by example. Be the rock everyon
 stuff done.
 
 ## Lean on your team as much as they lean on you
+
 Don't isolate yourself. More than anything you need to keep positive,
 spew rainbows and keep your energy levels up.
 As soon as they see you start to give up, that will affect all others around you.
@@ -93,6 +99,7 @@ You are part of a team, you are not there to do everything yourself and look dow
   what you should be.
 
 ## Celebrate every win
+
 When someone or group of people solves a problem, celebrate it. It can be high fives, hugs,
 beer, a quick nip out to get doughnuts or coffee. It can be anything, just make sure to savour even the smallest wins.
 

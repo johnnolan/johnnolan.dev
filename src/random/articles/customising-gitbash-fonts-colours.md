@@ -37,7 +37,7 @@ This gave me...
 
 Now to apply this
 
-* Open up Git Bash and bring up the options by cicking on the icon in the top left.
+* Open up Git Bash and bring up the options by clicking on the icon in the top left.
 * Select the Background as ```rgb(0, 57, 70)```
 * Select foreground as ```rgb(116, 145, 151)```
 * Go to Text and select the Terminus font Bold and size 12
@@ -64,4 +64,4 @@ Done, so lovely! Of course this is just what I find sexy. Have a play,
 
 If you want to see my progress on using **Git Templates** for commit
 messages and my **Git Alias** settings visit my Trunk of Funk repo I have
-just started [ https://github.com/johnnolan/jb-trunk-of-funk]( https://github.com/johnnolan/jb-trunk-of-funk).
+just started [https://github.com/johnnolan/jb-trunk-of-funk]( https://github.com/johnnolan/jb-trunk-of-funk).
