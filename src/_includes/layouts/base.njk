@@ -13,7 +13,7 @@
     <link rel="mask-icon" href="{{ '/assets/images/safari-pinned-tab.svg' | url }}" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="canonical" href="https://www.johnnolan.dev/" />
+    <link rel="canonical" href="{{ site.url }}" />
 
     <link rel="shortcut icon" href="{{ '/favicon.ico' | url }}" type="image/x-icon">
 
@@ -21,8 +21,24 @@
 
     <script src="{{ '/assets/index.js' | url }}" defer></script>
     <title>{{ title }} - {{ site.name }} - John Nolan</title>
+    
   </head>
-  <body>
+  <body><script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "{{ site.name }}",
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}",
+        "sameAs": "",
+        "author": {
+          "@type": "Person",
+          "name": "John Nolan",
+          "url": "https://www.johnnolan.dev"
+        },
+        "isFamilyFriendly": "true"
+      }
+    </script>
     {%- from "../macros/header.njk" import header %}
     {%- from "../macros/navigation.njk" import navigation %}
     {%- from "../macros/footer.njk" import footer %}
