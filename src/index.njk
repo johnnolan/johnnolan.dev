@@ -5,4 +5,4 @@ mastheadTitle: true
 
 {%- from "./_includes/macros/indexlist.njk" import indexList %}
 
-{{ indexList("Latest Articles", '', collections.all.reverse().slice(0,7)) }}
+{{ indexList("Latest Articles", '', collections.all.reverse().slice(0,7), site) }}

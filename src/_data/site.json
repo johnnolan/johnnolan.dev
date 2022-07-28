@@ -1,5 +1,8 @@
 {
     "name": "John Nolan",
     "description": "Human Centered Technical Architecture, Paintings and thoughts",
-    "githubName": "johnnolan"
+    "githubName": "johnnolan",
+    "jobTitle": "Technical Architect",
+    "authorImage": "assets/images/johnnolan.png",
+    "url": "https://www.johnnolan.dev"
 }

@@ -1,0 +1,12 @@
+{% macro ldArticle(name, image, url, jobTitle, siteUrl) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "{{ name }}",
+  "image": "{{ siteUrl }}/{{ image }}",
+  "url": "{{ url }}",
+  "jobTitle": "{{ jobTitle }}"
+}
+</script>
+{% endmacro %}
