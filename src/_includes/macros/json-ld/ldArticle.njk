@@ -1,0 +1,25 @@
+{% macro ldArticle(headline, image, datePublished, organisationName, authorName, authorImage, authorJobTitle, siteUrl) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name": "{{ authorName }}",
+    "image": "{{ siteUrl }}/{{ authorImage }}",
+    "url": "{{ siteUrl }}",
+    "jobTitle": "{{ authorJobTitle }}"
+  },
+  "headline": "{{ headline }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ siteUrl }}/{{ image }}"
+  },
+  "datePublished": "{{ datePublished | date24HourFilter }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ organisationName }}"
+  }
+}
+</script>
+{% endmacro %}

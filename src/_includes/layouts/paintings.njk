@@ -2,8 +2,10 @@
 layout: layouts/fullwidth.njk
 backLink: "/paintings/"
 ---
+    {%- from "../../_includes/macros/json-ld/ldArticle.njk" import ldArticle %}
 
 <article class="article-page">
+    {{ ldArticle(title, image, date, site.name, site.name, site.authorImage, site.jobTitle, site.url) }}
     <h1 class="article-page-heading">{{title}}</h1>
 
     {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
