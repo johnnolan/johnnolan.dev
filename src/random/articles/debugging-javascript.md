@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title:  "Debugging Javascript - Console and Debugger"
+description:  "Overview of debugging options using Google Chrome Debugger"
 date: 2018-10-07
 tags: 
   - other
@@ -10,16 +11,16 @@ imagewidth: "100"
 imageheight: "100"
 ---
 
-We have recently had some interns start at UNiDAYS and while showing one of the newbies how to write Jest tests in our solution one thing they started doing is adding console.log to various places in the code to see how it worked.
+We have recently had some interns start at UNiDAYS and while showing how to write Jest tests in our solution one thing they started doing is adding `console.log` to various places in the code to see how it worked.
 
-As I started mentioning other debugging methods I realised this may not be common knowledge so here are a few pointers for those at University dealing with JavaScript and having to debug code without being able to step through in a debugger.
+* Open Chrome
+* Press F12
 
-Now, go open Chrome and hit F12. This will show you the Chrome Dev Tools debugger.
+This will show you the Chrome Dev Tools debugger.
 
 We will be playing in Console and Sources tabs. For now, select the Console tab.
 
-For those already familiar with the below, check out the [Chrome API Reference](https://developers.google.com/web/tools/chrome-devtools/console/console-reference). It has all
-sorts of cool things like `console.assert`, `console.count` and `console.time`!
+For those already familiar with the below, check out the [Chrome API Reference](https://developers.google.com/web/tools/chrome-devtools/console/console-reference). It has all sorts of cool things like `console.assert`, `console.count` and `console.time`!
 
 ## console.log
 
@@ -41,7 +42,7 @@ This will print the message to the console window.
 
 ## console.warn and console.error
 
-This is just like console.log, works in the same way, however now you can get a nicely coloured error or warning message into your console. This can have advantages for debugging errors and warnings in a debug/local environment or if you are building a 3rd party plugin of some sort, a far better way of displaying that something is wrong in the way they have implemented your code rather than just throwing an error.
+This is just like console.log, however you can get a nicely coloured error or warning message into your console. This can have advantages for debugging errors and warnings in a debug/local environment or if you are building a 3rd party plugin of some sort, a far better way of displaying that something is wrong in the way they have implemented your code rather than just throwing an error.
 
 <script src="https://gist.github.com/johnnolan/f902352efe270c33a3a4bfbf201fb8b2.js"></script>
 
@@ -49,7 +50,7 @@ This is just like console.log, works in the same way, however now you can get a 
 
 ## console.table
 
-This is beautiful and so under used. Again used like console.log but it will instead display your object in the console as a table view. If you are wanting to log out an array or complex object, try this first, it is infinitely better to be able to see the data rather than console.log
+Used like console.log but it will instead display your object in the console as a table view. If you are wanting to log out an array or complex object, try this first, it is infinitely better to be able to see the data rather than `console.log`.
 
 `console.table(jsonObject);`
 
@@ -71,7 +72,7 @@ When you need to debug and step through your code, adding this to your JavaScrip
 
 ## Console sidebar
 
-Now you have `console.warn`, `console.error`, `console.log` and `console.table` all spitting out data to your console, it can become hard to sift through all the noise.
+Now you have `console.warn`, `console.error`, `console.log` and `console.table` all printing data to your console, it can become hard to sift through all the noise.
 
 ![alt text](/assets/posts/2018-10-07-debugging-javascript/sidebar-6.png "Sidebar Icon")
 

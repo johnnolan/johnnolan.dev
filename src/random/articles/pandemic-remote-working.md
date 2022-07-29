@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title:  "Pandemic Remote Working vs Remote Working"
+description:  "Thoughts on how I found remote working in a pandemic vs standard remote working"
 date: 2020-03-26
 tags: 
   - other

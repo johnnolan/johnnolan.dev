@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title:  "React Callback refs - Disable Button onClick"
+description:  "Using React Callback refs to access the DOM in JSX"
 date: 2019-01-13
 tags: 
   - other
@@ -10,9 +11,7 @@ imagewidth: "250"
 imageheight: "250"
 ---
 
-## A noobies common questions to React and Redux series
-
-One issue I had, was getting to a DOM element in my JSX.
+## How to get to a DOM element in JSX
 
 The following could probably be done with setting state and setting the disabled attribute based on this, but mine was a bit more complex and I found this snippet that allowed you to access the Element.
 

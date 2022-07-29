@@ -1,6 +1,8 @@
 ---
 layout: layouts/fullwidth.njk
 mastheadTitle: true
+eleventyComputed:
+    title: "{{ site.description }}"
 ---
 
 {%- from "./_includes/macros/indexlist.njk" import indexList %}

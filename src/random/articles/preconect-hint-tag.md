@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title:  "preconnect your external sources"
+description:  "Using the preconnect tag to quickly load your external resources"
 date: 2018-03-17
 tags: 
   - other

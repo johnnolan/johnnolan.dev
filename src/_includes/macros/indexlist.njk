@@ -1,25 +1,30 @@
 {%- from "./pageContentMetaData.njk" import pageContentMetaData %}
 {%- from "./json-ld/ldArticle.njk" import ldArticle %}
-{% macro indexList(title, content, collection, site) %}
+{% macro indexList(title, content, collection, site, showImages) %}
     <div class="articles">
         <h1 class="articles-heading">{{title}}</h1>
         {{ content | safe }}
         <div class="post-list">
             {%- for article in collection -%}
                 {% if article.data.date %}
-                    <article>
-                        {{ ldArticle(article.data.title, article.data.image, article.data.date, site.name, site.name, site.authorImage, site.jobTitle, site.url) }}
+                    <article class="article">
+                        {{ ldArticle(article.data.title, article.data.image, article.data.date, site.name, site.name, site.authorImage, site.jobTitle, article.data.description, site.url) }}
                         <a href="{{ article.url }}" class="post-list-item-link">
                             <h2 class="post-link">
-                                    {{ article.data.title }}
+                                {{ article.data.title }}
                             </h2>
                         </a>
-                        {% if article.data.image %}
-                            <img class="gallery__image" src="/{{article.data.image}}" alt="{{article.data.description}}" />
+                        {% if article.data.description %}
+                            <figcaption class="article-caption">{{article.data.description}}</figcaption>
                         {%- endif -%}
                         <span class="post-meta">
                             {{ pageContentMetaData(article.data.date, article.data.contributors) }}
                         </span>
+                        {% if showImages %}
+                            {% if article.data.image %}
+                                <img class="article-image" src="/{{article.data.image}}" alt="{{article.data.description}}" />
+                            {%- endif -%}
+                        {%- endif -%}
                     </article>
                 {%- endif -%}
             {%- endfor -%}

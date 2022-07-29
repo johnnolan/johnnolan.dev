@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title:  "Publishing your Jekyll blog to AWS S3 and Cloudfront invalidation using Travis CI"
+description:  "How to publish your Jekyll blog to AWS S3. Includes caching with Cloudfront and how to invalidate the cache using Travis CI"
 date: 2017-03-03
 tags: 
   - other

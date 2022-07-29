@@ -1,4 +1,17 @@
 ---
 layout: layouts/base.njk
 ---
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "{{ title }}",
+        "description": "{{ description }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "{{ site.name }}"
+        }
+    }
+    </script>
 {{ content | safe }}

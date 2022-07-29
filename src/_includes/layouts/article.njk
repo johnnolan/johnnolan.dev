@@ -6,7 +6,7 @@ backLink: "/hcta/"
 {%- from "../../_includes/macros/json-ld/ldArticle.njk" import ldArticle %}
 
 <article class="article-page">
-    {{ ldArticle(title, image, date, site.name, site.name, site.authorImage, site.jobTitle, site.url) }}
+    {{ ldArticle(title, image, date, site.name, site.name, site.authorImage, site.jobTitle, description, site.url) }}
     <h1 class="article-page-heading">{{title}}</h1>
 
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
