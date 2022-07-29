@@ -17,13 +17,14 @@
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <meta name="description" content="Human Centered Technical Architecture, Paintings and thoughts">
+    <meta name="description" content="Overview of debugging options using Google Chrome Debugger">
 
     <script src="/assets/index.js" defer></script>
-    <title>Debugging Javascript - Console and Debugger - John Nolan - John Nolan</title>
+    <title>Debugging Javascript - Console and Debugger - John Nolan</title>
     
   </head>
-  <body><script type="application/ld+json">
+  <body>
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org/",
         "@type": "WebSite",
@@ -84,6 +85,19 @@
           <main class="wrapper" role="main" id="content">
 
             
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "Debugging Javascript - Console and Debugger",
+        "description": "Overview of debugging options using Google Chrome Debugger",
+        "publisher": {
+          "@type": "Organization",
+          "name": "John Nolan"
+        }
+    }
+    </script>
+
 
 <article class="article-page">
     
@@ -99,6 +113,7 @@
     "jobTitle": "Technical Architect"
   },
   "headline": "Debugging Javascript - Console and Debugger",
+  "description": "Overview of debugging options using Google Chrome Debugger",
   "image": {
     "@type": "ImageObject",
     "url": "https://www.johnnolan.dev/assets/posts/2018-10-07-debugging-javascript.png"
@@ -147,12 +162,14 @@
         <img class="gallery__image" src="/assets/posts/2018-10-07-debugging-javascript.png" alt="Debugging Javascript - Console and Debugger" />
     
 
-    <p>We have recently had some interns start at UNiDAYS and while showing one of the newbies how to write Jest tests in our solution one thing they started doing is adding console.log to various places in the code to see how it worked.</p>
-<p>As I started mentioning other debugging methods I realised this may not be common knowledge so here are a few pointers for those at University dealing with JavaScript and having to debug code without being able to step through in a debugger.</p>
-<p>Now, go open Chrome and hit F12. This will show you the Chrome Dev Tools debugger.</p>
+    <p>We have recently had some interns start at UNiDAYS and while showing how to write Jest tests in our solution one thing they started doing is adding <code>console.log</code> to various places in the code to see how it worked.</p>
+<ul>
+<li>Open Chrome</li>
+<li>Press F12</li>
+</ul>
+<p>This will show you the Chrome Dev Tools debugger.</p>
 <p>We will be playing in Console and Sources tabs. For now, select the Console tab.</p>
-<p>For those already familiar with the below, check out the <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference">Chrome API Reference</a>. It has all
-sorts of cool things like <code>console.assert</code>, <code>console.count</code> and <code>console.time</code>!</p>
+<p>For those already familiar with the below, check out the <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference">Chrome API Reference</a>. It has all sorts of cool things like <code>console.assert</code>, <code>console.count</code> and <code>console.time</code>!</p>
 <h2>console.log</h2>
 <p>This is standard, you maybe use this all the time to print out messages or objects to see what value is at the time of it being called. This is a slow way of debugging but still a viable option.</p>
 <p>You can do this by adding</p>
@@ -163,11 +180,11 @@ sorts of cool things like <code>console.assert</code>, <code>console.count</code
 <script src="https://gist.github.com/johnnolan/5ce8c624e32645fd1b648bd01451faff.js"></script>
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/console_log-1.png" alt="alt text" title="console.log"></p>
 <h2>console.warn and console.error</h2>
-<p>This is just like console.log, works in the same way, however now you can get a nicely coloured error or warning message into your console. This can have advantages for debugging errors and warnings in a debug/local environment or if you are building a 3rd party plugin of some sort, a far better way of displaying that something is wrong in the way they have implemented your code rather than just throwing an error.</p>
+<p>This is just like console.log, however you can get a nicely coloured error or warning message into your console. This can have advantages for debugging errors and warnings in a debug/local environment or if you are building a 3rd party plugin of some sort, a far better way of displaying that something is wrong in the way they have implemented your code rather than just throwing an error.</p>
 <script src="https://gist.github.com/johnnolan/f902352efe270c33a3a4bfbf201fb8b2.js"></script>
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/console_warn-2.png" alt="alt text" title="console.warn and console.error"></p>
 <h2>console.table</h2>
-<p>This is beautiful and so under used. Again used like console.log but it will instead display your object in the console as a table view. If you are wanting to log out an array or complex object, try this first, it is infinitely better to be able to see the data rather than console.log</p>
+<p>Used like console.log but it will instead display your object in the console as a table view. If you are wanting to log out an array or complex object, try this first, it is infinitely better to be able to see the data rather than <code>console.log</code>.</p>
 <p><code>console.table(jsonObject);</code></p>
 <script src="https://gist.github.com/johnnolan/47cb77f479ea5b128ab3be54c44430b4.js"></script>
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/console_table-3.png" alt="alt text" title="console.table"></p>
@@ -178,7 +195,7 @@ sorts of cool things like <code>console.assert</code>, <code>console.count</code
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/debugger-4.png" alt="alt text" title="debugger"></p>
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/debugger-5.png" alt="alt text" title="debugger"></p>
 <h2>Console sidebar</h2>
-<p>Now you have <code>console.warn</code>, <code>console.error</code>, <code>console.log</code> and <code>console.table</code> all spitting out data to your console, it can become hard to sift through all the noise.</p>
+<p>Now you have <code>console.warn</code>, <code>console.error</code>, <code>console.log</code> and <code>console.table</code> all printing data to your console, it can become hard to sift through all the noise.</p>
 <p><img src="/assets/posts/2018-10-07-debugging-javascript/sidebar-6.png" alt="alt text" title="Sidebar Icon"></p>
 <p>Click on the icon like above and this will open up a sidebar to allow you to filter what type of message you want to see.</p>
 <p>You also have the ability to filter your messages using the filter bar. Again this is a massive time saver when searching for specific messages registered to your console window.</p>

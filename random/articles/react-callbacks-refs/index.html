@@ -17,13 +17,14 @@
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <meta name="description" content="Human Centered Technical Architecture, Paintings and thoughts">
+    <meta name="description" content="Using React Callback refs to access the DOM in JSX">
 
     <script src="/assets/index.js" defer></script>
-    <title>React Callback refs - Disable Button onClick - John Nolan - John Nolan</title>
+    <title>React Callback refs - Disable Button onClick - John Nolan</title>
     
   </head>
-  <body><script type="application/ld+json">
+  <body>
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org/",
         "@type": "WebSite",
@@ -84,6 +85,19 @@
           <main class="wrapper" role="main" id="content">
 
             
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "React Callback refs - Disable Button onClick",
+        "description": "Using React Callback refs to access the DOM in JSX",
+        "publisher": {
+          "@type": "Organization",
+          "name": "John Nolan"
+        }
+    }
+    </script>
+
 
 <article class="article-page">
     
@@ -99,6 +113,7 @@
     "jobTitle": "Technical Architect"
   },
   "headline": "React Callback refs - Disable Button onClick",
+  "description": "Using React Callback refs to access the DOM in JSX",
   "image": {
     "@type": "ImageObject",
     "url": "https://www.johnnolan.dev/assets/posts/2019-01-13-react.png"
@@ -147,8 +162,7 @@
         <img class="gallery__image" src="/assets/posts/2019-01-13-react.png" alt="React Callback refs - Disable Button onClick" />
     
 
-    <h2>A noobies common questions to React and Redux series</h2>
-<p>One issue I had, was getting to a DOM element in my JSX.</p>
+    <h2>How to get to a DOM element in JSX</h2>
 <p>The following could probably be done with setting state and setting the disabled attribute based on this, but mine was a bit more complex and I found this snippet that allowed you to access the Element.</p>
 <p>To access the Element you want, you need to first assign it a <code>ref</code>. Like below</p>
 <pre><code class="language-jsx">&lt;button
