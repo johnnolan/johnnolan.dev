@@ -8,10 +8,21 @@
     margin-left: 0;
     list-style: none;
 
-    > article {
+    .article {
       padding: 20px;
 
+      &-caption {
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      &-image {
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
       .post-list-item-link {
+        margin-bottom: 10px;
         display: block;
         text-decoration: none;
         color: $brand-color-3;
@@ -25,7 +36,7 @@
       h2 {
         color: $brand-color-3;
         font-weight: bolder;
-        margin-bottom: 20px;
+        margin-bottom: 0;
         margin-top: 10px;
         font-size: 26px
       }
@@ -38,21 +49,13 @@
       > article {
         width: 42%;
         margin-bottom: $spacing-unit;
-
-        &:nth-child(2) {
-          margin-left: 1em;
-        }
       }
     }
 
     @include media-min-query($on-desktop) {
       > article {
-        width: 28%;
+        width: 45%;
         margin-bottom: $spacing-unit;
-
-        &:nth-child(3) {
-          margin-left: 1em;
-        }
       }
     }
   }

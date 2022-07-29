@@ -1,4 +1,4 @@
-{% macro ldArticle(headline, image, datePublished, organisationName, authorName, authorImage, authorJobTitle, siteUrl) %}
+{% macro ldArticle(headline, image, datePublished, organisationName, authorName, authorImage, authorJobTitle, description, siteUrl) %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -11,6 +11,7 @@
     "jobTitle": "{{ authorJobTitle }}"
   },
   "headline": "{{ headline }}",
+  "description": "{{ description }}",
   "image": {
     "@type": "ImageObject",
     "url": "{{ siteUrl }}/{{ image }}"
