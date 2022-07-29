@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title: "UNiDAYS talk on Imposter Syndrome in Software Development"
+description: "A writeup of a talk I gave at UNiDAYS on Imposter Syndrome in Software Development"
 date: 2017-04-12
 tags:
   - other

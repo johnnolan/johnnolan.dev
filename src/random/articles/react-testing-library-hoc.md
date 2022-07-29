@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
-title:  "How to test a React Higher Order Component using react-testing-library and Jest"
+title:  "React Higher Order Component using react-testing-library and Jest"
+description:  "How to test a React Higher Order Component using react-testing-library and Jest"
 date: 2019-06-05
 tags: 
   - other
@@ -10,7 +11,7 @@ imagewidth: "250"
 imageheight: "250"
 ---
 
-Recently I have had to test a React Higher Order Component using the fabulous [react-testing-library](https://github.com/testing-library/react-testing-library) but struggled to find how you can achieve this.
+Recently I have had to test a React Higher Order Component using [react-testing-library](https://github.com/testing-library/react-testing-library) but struggled to find how you can achieve this.
 
 Before I go any further into detail, below is some example code I have done so you can get straight to copy and pasting. For more information see below the code sample.
 

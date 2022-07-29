@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
 title: "Setting up Jekyll for AMP"
+description: "A guide on setting up Jekyll and AMP"
 date: 2017-03-05
 tags:
   - other

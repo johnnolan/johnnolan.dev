@@ -1,6 +1,7 @@
 ---
 layout: layouts/article.njk
-title:  "How to use webpack-bundle-analyzer with create-react-app"
+title:  "webpack-bundle-analyzer and create-react-app"
+description:  "How to use webpack-bundle-analyzer with create-react-app"
 date: 2019-01-15
 tags: 
   - other
