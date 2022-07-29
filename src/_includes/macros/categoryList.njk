@@ -3,7 +3,7 @@
         <div class="wrapper">
             <div class="post-list">
                 {%- for article in categories | reverse -%}
-                    <article>
+                    <article class="article--category">
                         <a href="{{ article.url }}" class="post-list-item-link">
                             <h2 class="post-link">
                                 {{ article.name }}
