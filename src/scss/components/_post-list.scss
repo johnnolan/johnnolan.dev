@@ -38,7 +38,7 @@
         font-weight: bolder;
         margin-bottom: 0;
         margin-top: 10px;
-        font-size: 26px
+        font-size: 26px;
       }
     }
 
@@ -46,15 +46,29 @@
       display: flex;
       flex-wrap: wrap;
 
-      > article {
+      > .article {
         width: 42%;
+        margin-bottom: $spacing-unit;
+      }
+
+      > .article--category {
+        width: 31%;
+        margin-bottom: 30px;
+        margin-left: 1em;
         margin-bottom: $spacing-unit;
       }
     }
 
     @include media-min-query($on-desktop) {
-      > article {
+      > .article {
         width: 45%;
+        margin-bottom: $spacing-unit;
+      }
+
+      > .article--category {
+        width: 31%;
+        margin-bottom: 30px;
+        margin-left: 1em;
         margin-bottom: $spacing-unit;
       }
     }
@@ -65,19 +79,17 @@
 
     background-color: $brand-color;
     .post-list {
-  
       > article {
         color: $text-color-light;
 
         .post-list-item-link {
           color: $text-color-light;
-  
+
           &:hover {
             color: $text-color-light;
-            
           }
         }
-  
+
         h2 {
           color: $text-color-light;
         }
