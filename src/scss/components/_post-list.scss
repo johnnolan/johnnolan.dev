@@ -52,10 +52,9 @@
       }
 
       > .article--category {
-        width: 31%;
+        width: 30%;
         margin-bottom: 30px;
         margin-left: 1em;
-        margin-bottom: $spacing-unit;
       }
     }
 
@@ -69,7 +68,6 @@
         width: 31%;
         margin-bottom: 30px;
         margin-left: 1em;
-        margin-bottom: $spacing-unit;
       }
     }
   }
@@ -81,6 +79,7 @@
     .post-list {
       > article {
         color: $text-color-light;
+        padding: 30px 0;
 
         .post-list-item-link {
           color: $text-color-light;
@@ -92,6 +91,8 @@
 
         h2 {
           color: $text-color-light;
+          margin: 0 0 10px 0;
+          padding: 0;
         }
       }
     }
