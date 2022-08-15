@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.18.10",
     "concurrently": "^7.3.0",
     "cspell": "^6.6.1",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
