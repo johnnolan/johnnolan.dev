@@ -130,6 +130,6 @@ If we use other Github features such as Actions, we must be aware that we cannot
 
 ## Article References
 
-* ["Documenting Architecture Decisions" by Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
-* ["Tech Ethic Decisions" by Lisa Talia Moretti](https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/)
-* [Modernising Lasting Power of Attorney ADR](https://docs.modernising.opg.service.justice.gov.uk/adr/articles/0002-verifiable-credentials/)
+- ["Documenting Architecture Decisions" by Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+- ["Tech Ethic Decisions" by Lisa Talia Moretti](https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/)
+- [Modernising Lasting Power of Attorney ADR](https://docs.modernising.opg.service.justice.gov.uk/adr/articles/0002-verifiable-credentials/)
