@@ -89,7 +89,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
+    font-weight: bold;
 }
 
 
@@ -116,7 +116,7 @@ blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: calc($spacing-unit / 2);
-    font-size: 28px;
+    font-size: 22px;
     letter-spacing: -1px;
     font-style: italic;
 
