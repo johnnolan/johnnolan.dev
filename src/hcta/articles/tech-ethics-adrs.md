@@ -43,7 +43,7 @@ An ADR is laid out in a simple format to make it light weight and quick to fill 
 - Decision
   - A "We will..." description of what you will do.
 - Status
-   - A status of the decision, this includes Accepted, Rejected, Proposed, Deprecated and Superseded.
+  - A status of the decision, this includes Accepted, Rejected, Proposed, Deprecated and Superseded.
 - Consequences
   - Any downstream consequences, positive or negative, that will be caused by this decision.
 
