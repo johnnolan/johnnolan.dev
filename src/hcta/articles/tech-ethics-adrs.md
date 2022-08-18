@@ -15,7 +15,7 @@ I have had the privilege to have worked with a Digital Sociologist recently who 
 
 One of my passions in development is front end performance and the concept of tech privilege (this will be another post in the future). This introduced me to a wider view on ethics in development.
 
-[A blog post Lisa has written titled "Tech Ethic Decisions"](https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/) introduces the concept and I instantly began to wonder how you could take this and apply it to a teams every day working.
+[A blog post by Lisa Talia Moretti titled "Tech Ethic Decisions"](https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/) introduces the concept and I instantly began to wonder how you could take this and apply it to a teams every day working.
 
 In this article we will be using these guidelines, so I recommend you pause to take time to read her article.
 
@@ -127,3 +127,9 @@ We should use Github for storing our source code.
 We will be open source from the start.
 
 If we use other Github features such as Actions, we must be aware that we cannot move to another provider quickly without first replacing built in functionality with another tool.
+
+## Article References
+
+- ["Documenting Architecture Decisions" by Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+- ["Tech Ethic Decisions" by Lisa Talia Moretti](https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/)
+- [Modernising Lasting Power of Attorney ADR](https://docs.modernising.opg.service.justice.gov.uk/adr/articles/0002-verifiable-credentials/)
