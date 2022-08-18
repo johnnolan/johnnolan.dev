@@ -11,9 +11,5 @@ backLink: "/hcta/"
 
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
 
-    {% if image %}
-        <img class="gallery__image" src="/{{image}}" alt="{{title}}" />
-    {% endif %}
-
     {{ content | safe }}
 </article>

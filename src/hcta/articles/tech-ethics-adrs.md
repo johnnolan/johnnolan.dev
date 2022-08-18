@@ -2,6 +2,7 @@
 layout: layouts/article.njk
 title: "Tech Ethics in Architectural Decision Records"
 description: "Adding Tech Ethics when writing Architectural Decision Records for your service."
+image: "assets/posts/johnnolan.jpg"
 date: 2022-08-22
 tags: 
   - hcta
