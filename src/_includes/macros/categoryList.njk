@@ -1,7 +1,7 @@
 {% macro categoryList(categories, site) %}
     <div class="articles articles--categories">
         <div class="wrapper">
-            <div class="post-list">
+            <div class="post-list post-list--category">
                 {%- for article in categories | reverse -%}
                     <article class="article--category">
                         <a href="{{ article.url }}" class="post-list-item-link">
