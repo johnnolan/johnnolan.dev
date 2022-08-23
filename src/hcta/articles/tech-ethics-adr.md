@@ -10,6 +10,10 @@ tags:
 contributors: ["John Nolan"]
 ---
 
+## TLDR
+
+You can see the final Ethics ADR template and a copy of this decision in the [docs folder of this Github repository](https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs).
+
 ## Introduction
 
 I have had the privilege to have worked with a Digital Sociologist recently who introduced me to the concept of Tech Ethics.

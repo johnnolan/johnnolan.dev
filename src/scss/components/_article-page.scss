@@ -22,8 +22,8 @@
     }
   }
 
-  > a {
-    color: $brand-color-2;
-    font-weight: bold;
+  a {
+    color: $brand-color;
+    text-decoration: underline;
   }
 }

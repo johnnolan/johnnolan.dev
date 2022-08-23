@@ -16,7 +16,7 @@ $spacing-unit: 30px;
 $text-color: #111;
 $text-color-light: #fdfdfd;
 $background-color: #fdfdfd;
-$brand-color: #006496;
+$brand-color: #111111;
 $brand-color-2: darken($brand-color, 30%);
 $brand-color-3: darken($brand-color, 40%);
 $brand-color-4: lighten($brand-color, 10%);
@@ -63,4 +63,5 @@ $on-desktop: 1105px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting", "components/header", "components/footer",
-"components/nav", "components/metadata", "components/article-page", "components/post-list";
+"components/nav", "components/metadata", "components/article-page", "components/post-list", 
+"components/gallery";
