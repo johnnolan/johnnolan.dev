@@ -30,7 +30,7 @@
     "@babel/core": "^7.19.0",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.19.0",
-    "concurrently": "^7.3.0",
+    "concurrently": "^7.4.0",
     "cspell": "^6.8.1",
     "dayjs": "^1.11.5",
     "eslint": "^8.23.0",
