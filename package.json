@@ -27,7 +27,7 @@
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@babel/core": "^7.19.0",
+    "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.19.0",
     "concurrently": "^7.4.0",
