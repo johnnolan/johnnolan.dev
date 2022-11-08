@@ -29,7 +29,7 @@
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@babel/core": "^7.19.6",
     "@babel/eslint-parser": "^7.19.1",
-    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-env": "^7.20.2",
     "concurrently": "^7.5.0",
     "cspell": "^6.14.1",
     "dayjs": "^1.11.6",
