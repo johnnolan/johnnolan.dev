@@ -1,4 +1,4 @@
-var GA_ANALYTICS_ID = "UA-92772847-1";
+var GA_ANALYTICS_ID = "G-F1C9XCHGQX";
 
 function setupGoogleAnalytics(analyticsId) {
   var s = document.createElement("script");
@@ -11,9 +11,6 @@ function setupGoogleAnalytics(analyticsId) {
   };
   window.gtag("js", new Date());
   window.gtag("config", analyticsId, {
-    linker: {
-      domains: ["www.gov.uk"],
-    },
     transport_type: "beacon",
     anonymize_ip: true, // https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
     allow_google_signals: false, // https://developers.google.com/analytics/devguides/collection/gtagjs/display-features
