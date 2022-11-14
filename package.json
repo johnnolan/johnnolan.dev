@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "globby": "^13.1.2",
-    "jshint": "^2.13.5",
+    "jshint": "^2.13.6",
     "markdown-it": "^13.0.1",
     "markdownlint-cli": "^0.32.2",
     "pa11y": "^6.2.3",
