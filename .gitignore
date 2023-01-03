@@ -2,3 +2,4 @@ resources
 node_modules/
 _site/
 src/_includes/css/
+pa11y-output.json
