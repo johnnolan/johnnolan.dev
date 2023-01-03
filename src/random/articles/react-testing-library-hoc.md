@@ -31,9 +31,9 @@ function withHOC (WrappedComponent) {
       <section>
         <h1>HOC Example</h1>
       </section>
-      <seciton>
+      <section>
         <WrappedComponent {...this.props} />
-      </seciton>
+      </section>
       </main>
     )
   }
