@@ -166,7 +166,50 @@
     <p>Recently I have had to test a React Higher Order Component using <a href="https://github.com/testing-library/react-testing-library">react-testing-library</a> but struggled to find how you can achieve this.</p>
 <p>Before I go any further into detail, below is some example code I have done so you can get straight to copy and pasting. For more information see below the code sample.</p>
 <h2>Show me the code</h2>
-<script src="https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js"></script>
+<p>The Gist is here <a href="https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js">https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js</a></p>
+<pre><code class="language-jsx">import React from 'react'
+import {render, cleanup} from 'react-testing-library'
+
+// withHOC.js
+function withHOC (WrappedComponent) {
+  render() {
+    return (
+      &lt;main&gt;
+      &lt;section&gt;
+        &lt;h1&gt;HOC Example&lt;/h1&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;WrappedComponent {...this.props} /&gt;
+      &lt;/section&gt;
+      &lt;/main&gt;
+    )
+  }
+}
+
+afterEach(cleanup)
+
+class MockApp extends React.Component {
+  render () {
+    return (
+      &lt;p&gt;
+        Hello from your Mock App
+      &lt;/p&gt;
+    )
+  }
+}
+
+const MockWithHOC = withHOC(MockApp)
+
+test('can render with redux with defaults', () =&gt; {
+  const { container, getByText } = render(
+      &lt;MockWithHOC /&gt;)
+      
+  expect(getByText(/HOC Example/i)).toBeInTheDocument()
+  expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
+  
+  expect(container).toMatchSnapshot()
+})
+</code></pre>
 <h2>What is going on?</h2>
 <p>As you can see from the above code we have an example and very basic High Order Component called <code>withHOC</code>. This creates a layout and generic H1 for us and then renders our <code>WrappedComponent</code>.</p>
 <p>Using the <code>render</code> method directly passing this in won't work. We have to instead do a bit of setup.</p>
