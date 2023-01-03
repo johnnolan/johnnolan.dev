@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight calc(#{$base-font-size} / #{$base-line-height}) $base-font-family;
+    font: $base-font-weight 16px $base-font-family;
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
@@ -23,6 +23,7 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    line-height: $base-line-height;
 }
 
 
@@ -43,7 +44,7 @@ h2, h3, h4, h5, h6
 }
 
 p {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 /**
@@ -62,12 +63,6 @@ img {
 figure > img {
     display: block;
 }
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
 
 /**
  * Lists
@@ -98,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: $text-color;
     text-decoration: none;
 
 
@@ -113,8 +108,8 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: $text-color;
+    border-left: 4px solid $text-color;
     padding-left: calc($spacing-unit / 2);
     font-size: 22px;
     letter-spacing: -1px;
@@ -132,7 +127,7 @@ blockquote {
  */
 pre,
 code {
-    font-size: 20px;
+    font-size: 18px;
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 3px;
     color: #ddca7e;
@@ -204,7 +199,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: $text-color;
         }
     }
 }
@@ -219,8 +214,7 @@ pre {
         padding: 10px;
 
         &:hover {
-            background-color: $brand-color;
-            color: $brand-color-3;
+            color: $text-color-light;
             text-decoration: none;
         }
     }

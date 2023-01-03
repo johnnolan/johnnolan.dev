@@ -17,7 +17,52 @@ Before I go any further into detail, below is some example code I have done so y
 
 ## Show me the code
 
-<script src="https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js"></script>
+The Gist is here [https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js](https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js)
+
+``` jsx
+import React from 'react'
+import {render, cleanup} from 'react-testing-library'
+
+// withHOC.js
+function withHOC (WrappedComponent) {
+  render() {
+    return (
+      <main>
+      <section>
+        <h1>HOC Example</h1>
+      </section>
+      <section>
+        <WrappedComponent {...this.props} />
+      </section>
+      </main>
+    )
+  }
+}
+
+afterEach(cleanup)
+
+class MockApp extends React.Component {
+  render () {
+    return (
+      <p>
+        Hello from your Mock App
+      </p>
+    )
+  }
+}
+
+const MockWithHOC = withHOC(MockApp)
+
+test('can render with redux with defaults', () => {
+  const { container, getByText } = render(
+      <MockWithHOC />)
+      
+  expect(getByText(/HOC Example/i)).toBeInTheDocument()
+  expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
+  
+  expect(container).toMatchSnapshot()
+})
+```
 
 ## What is going on?
 
