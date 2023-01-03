@@ -3,19 +3,19 @@
  */
 .site-footer {
   padding: $spacing-unit 0;
-  background-color: $brand-color;
-  border-top: solid 1px $brand-color;
+  background-color: $background-color-2;
+  border-top: solid 1px $text-color;
   margin-top: $spacing-unit;
 
   .footer-heading {
     font-size: 18px;
-    color: $text-color-light;
+    color: $text-color;
     margin-bottom: $spacing-unit;
     margin-top: 0;
   }
   .footer-col-wrapper {
     font-size: 15px;
-    color: $text-color-light;
+    color: $text-color;
     @extend %clearfix;
 
     .footer-col {
