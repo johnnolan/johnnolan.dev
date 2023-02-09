@@ -16,13 +16,13 @@
     "lint:all": "yarn run lint:check && yarn run lint:spell && yarn run lint:markdown",
     "sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css",
     "watch:sass": "sass --style=compressed src/scss/main.scss src/_includes/css/main.css --watch",
-    "watch:eleventy": "eleventy --serve --watch",
+    "watch:eleventy": "eleventy --serve --watch --incremental",
     "serve": "concurrently \"yarn run watch:eleventy\" \"yarn run watch:sass\"",
     "build": "yarn run sass && eleventy",
     "pa11y-ci": "pa11y-ci '_site/**/*.html'"
   },
   "dependencies": {
-    "@11ty/eleventy": "1.0.2"
+    "@11ty/eleventy": "2.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
