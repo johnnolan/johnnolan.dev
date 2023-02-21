@@ -31,7 +31,7 @@
     "@babel/eslint-parser": "7.19.1",
     "@babel/preset-env": "7.20.2",
     "concurrently": "7.6.0",
-    "cspell": "6.25.0",
+    "cspell": "6.26.3",
     "dayjs": "1.11.7",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
@@ -42,6 +42,6 @@
     "markdownlint-cli": "0.33.0",
     "pa11y-ci": "3.0.1",
     "prettier": "2.8.4",
-    "sass": "1.58.1"
+    "sass": "1.58.3"
   }
 }
