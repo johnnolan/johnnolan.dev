@@ -1,0 +1,219 @@
+@startmindmap
+
+!theme cerulean
+
+* Technical\nArchitecture\nMind Map
+
+** Technical Best Practice
+
+** Cloud First
+*** Infra as Code
+**** Terraform
+**** Cloudformation
+*** Automated Pipelines
+**** Linting
+**** Testing
+**** Deployments
+**** Releases
+**** Versioning (Semantic)
+**** Auto Merge patch and minor dependencies
+**** Linting
+*** Container Security Scanning
+*** Ephemeral Environments
+**** Cheap to run
+**** Dev and CI consistency
+**** Auto destroy
+*** Uptime Guarentees
+**** Auto scaling
+**** Multi Region vs AZ
+***** AZ is multiple data centers in a region, for example Ireland
+***** Multi Region is Ireland and London for example
+**** On Demand Backups
+***** Retention Policy
+*** Thing as a Service
+**** Infrastructure as a Service
+**** Platform as a Service
+**** Software as a Service
+
+** Security
+*** Web Application Firewall (WAF)
+**** Brute Force Protection
+**** Common exploit protection
+*** Access Policies
+*** Self managed key rotation
+*** Threat Modelling
+**** ASVS (OWASP Application Security Verification Standard)
+**** Regular Independent Security Health Check
+*** Dynamic Application Security Testing (DAST)
+*** Static Application Security Testing (SAST)
+*** Dependency Scanning
+**** Renovate or Dependabot
+***** Maintain security patching
+***** Automated detection of vulnerabilities
+*** NCSC Webcheck
+*** Self managed automatically rotated keys
+*** TLS and HTTPS throughout
+*** Principle of Least Privilege throughout
+
+** Technology
+*** Frontend
+**** Accessibility
+***** Yearly Audits
+***** Automated tooling checks in pipeline
+****** WAVE
+****** pa11y
+****** Axe
+****** WCAG 2.1 AAA
+***** Test with built in OS software e.g.VoiceOver on Mac
+***** Cross Browser Testing
+****** Define what you support
+****** caniuse.com
+****** Browserstack
+***** Progressive Enhancement
+****** prefers-color-scheme
+****** Network Information API
+****** Service Workers API
+****** whatdoesmysitecost.com
+**** Static or Dynamic
+**** CDN
+***** HTTP/2
+***** Regions
+**** Performance
+***** Real User Metrics (RUM)
+***** Benchmarks
+****** Javascript Error Reporting
+****** CSS, JS max sizes
+****** Brotli compression
+****** WebVitals
+****** Automated Testing
+******* Google Lighthouse
+**** Design System
+***** Driven by UX and Design
+***** Reusable pattern
+***** Component based design
+***** Faster iterations
+
+*** Data
+**** Retention Policy
+**** Security
+***** Encryption at Rest
+***** Customer Managed Encryption Keys
+***** Access Policies
+**** Ethics
+***** Only store what is needed
+***** GDPR - Right to forget
+***** Consent Models
+**** Versioning of Data Models
+**** Backups
+**** Availability
+
+** Observability
+*** Server Side Metrics
+*** Tracing
+**** AWS X-Ray
+*** Alerting
+*** Logging
+*** Anonymised Data
+*** Client Side Metrics
+**** User Metrics
+**** Web Vitals
+*** Automated Business KPIs
+*** Centralised Dashboards
+
+** Technical Best Practice
+*** Reusability
+**** Identify common components
+**** Reduce replication of code
+*** Documentation (In Repo where possible)
+**** Diagrams as Code
+***** C4 Models (Structurizr)
+***** UML (PUML)
+***** Auto Generate low level diagrams from code base (If there is value)
+**** Runbooks
+**** READMEs
+**** Architectural Decision Records (ADRs)
+**** Contribution Guidelines
+*** Testing
+**** Unit
+***** Testing of all domain and service layer components with mocked dependencies
+**** Integration
+***** Testing of domain and service layer components with real external dependencies
+**** Acceptance/UI
+***** Testing of full application with mocked external dependencies
+**** Smoke
+***** End to end testing of full application with development/production infrastructure
+*** Tooling should be open source and industry standard
+**** Application logging
+**** Linting
+**** OpenAPI Specifications
+**** Authentication
+
+left side
+
+** Architecture
+*** Authentication
+**** OIDC
+**** Cloud Provider
+**** Social Login
+**** Domain Boundaries of services
+**** Domain Boundaries of Data
+**** API
+***** RESTful
+****** OpenAPI Specifications
+****** Security
+******* API Key
+******* OIDC
+****** Mock Servers
+****** API Standards
+******* Versioning
+******* Response Status
+******* Validation
+******* Naming conventions
+***** GraphQL
+***** Websockets
+**** Multilingual
+***** I18N
+***** Weblate
+**** Diagrams as Code
+***** C4 Models (Structurizr)
+***** UML (PUML)
+
+** Disaster Recovery
+*** Recovery time objective (RTO)
+*** Recovery point objective (RPO)
+*** Agreed recovery option vs cost
+
+** User Needs
+*** User Research
+**** Do we have any already?
+**** Schedule research for regular release cycles
+*** Demographic
+**** Age
+**** Background
+**** Gender
+**** Knowledge
+**** Accessibility
+*** Problem
+**** What is the problem we are trying to solve?
+**** High level user needs
+**** What does good look like
+**** How to measure success
+*** Constraints
+**** Tech
+**** Ethical
+***** Inclusive
+***** Data Needs
+****** Data Privacy
+****** Consent Model
+***** Environmental
+**** Business
+**** Customer
+**** Budget
+
+** Agile
+*** Sprint Reviews to stakeholders
+*** Documentation published
+*** Decision Records
+*** Regular feedback cycles
+
+@endmindmap
