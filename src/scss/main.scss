@@ -6,26 +6,26 @@
   }
 $base-font-family: Inter, OpenSans, Arial, Helvetica, sans-serif;
 $base-font-family-header: OpenSans, Arial, Helvetica, sans-serif;
-$base-font-size: 21px;
+$base-font-size: 18px;
 $base-font-weight: 400;
-$base-line-height: 28px;
+$base-line-height: 24px;
 
 $spacing-unit: 30px;
 
-$text-color: #ffffff;
-$text-color-light: #cdcdcd;
-$background-color: #1b1b1b;
-$background-color-2: #343434;
+$text-color: #212529;
+$text-color-light: #212529;
+$background-color: #ffffff;
+$background-color-2: #fdfdfd;
 $background-color-3: #fdfdfd;
 
 $border-radius: 18px;
 
 // Width of the content area
-$content-width: 1180px;
+$content-width: 930px;
 
 $on-palm: 600px;
 $on-laptop: 800px;
-$on-desktop: 1105px;
+$on-desktop: 930px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {

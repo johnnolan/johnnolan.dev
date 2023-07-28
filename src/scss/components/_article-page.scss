@@ -1,9 +1,13 @@
 .article-page {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+
   &-heading {
-    text-align: left;
+    text-align: center;
   }
 
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 0;
 
   > h1 {
@@ -15,10 +19,10 @@
   }
 
   > h2 {
-    margin-top: 30px;
+    margin-top: 4rem;
 
     @include media-query($on-laptop) {
-      margin-top: 20px;
+      margin-top: 3rem;
     }
   }
 

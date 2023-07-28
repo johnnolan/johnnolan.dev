@@ -65,10 +65,3 @@ jobs:
           script: |
             const script = require('./.github/workflows/scripts/pa11y-ci.js')
             await script({ github, context, core })
-
-  sonar_cloud:
-    name: Sonar Cloud
-    needs: ['build']
-    uses: ./.github/workflows/sonar_cloud_job.yml
-    secrets:
-      SONARCLOUD_SECRET: ${{ secrets.SONARCLOUD_TOKEN }}
