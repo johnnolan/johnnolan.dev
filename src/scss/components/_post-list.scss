@@ -27,7 +27,6 @@
       .post-list-item-link {
         margin-bottom: 10px;
         display: block;
-        text-decoration: none;
         color: $text-color;
 
         &:hover {
@@ -38,11 +37,24 @@
 
       h2 {
         color: $text-color-light;
-        font-weight: bolder;
+        font-weight: 400;
         margin-bottom: 0;
         margin-top: 10px;
         font-size: 26px;
       }
+    }
+
+    > .article--category {
+      h2 {
+        font-weight: 700;
+      }
+      &:first-child {
+        margin-left: 0em;
+      }
+    }
+
+    > .article--category:first-child {
+      margin-left: 0em;
     }
 
     @include media-min-query($on-palm) {
