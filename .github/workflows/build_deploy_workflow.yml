@@ -37,10 +37,3 @@ jobs:
         with:
           branch: gh-pages
           folder: _site
-
-  sonar_cloud:
-    name: Sonar Cloud
-    needs: ['build_deploy']
-    uses: ./.github/workflows/sonar_cloud_job.yml
-    secrets:
-      SONARCLOUD_SECRET: ${{ secrets.SONARCLOUD_TOKEN }}
