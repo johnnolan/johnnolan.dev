@@ -22,12 +22,12 @@ up.
 
 First create a new directory called _script_ in your root folder and
 create a file called _cibuild_. Now past the following details
-replacing _www.nolanscafe.co.uk_ with your S3 bucket name.
+replacing _bucketname_ with your S3 bucket name.
 
 ``` bash
 jekyll build
 pip install awscli
-aws s3 sync --acl public-read --sse --delete _site s3://www.nolanscafe.co.uk
+aws s3 sync --acl public-read --sse --delete _site s3://bucketname
 aws configure set preview.cloudfront true
 aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
 ```
