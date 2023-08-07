@@ -1472,6 +1472,13 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@kevingimbel/eleventy-plugin-mermaid@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@kevingimbel/eleventy-plugin-mermaid/-/eleventy-plugin-mermaid-2.1.0.tgz#1d7ce18b8c6b8c8f77b62008a1f419436e471947"
+  integrity sha512-nIZI1NAQzlZUyZHmbEKplpRdZxvufMEAtVzBC6Vq9tGXpJGAzjD8oOnIV//IAjHhSlb/fpB0tHXFhjJ+670uzQ==
+  dependencies:
+    htmlencode "^0.0.4"
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz#dbf733a965ca47b1973177dc0bb6c889edcfb129"
@@ -3096,6 +3103,11 @@ html_codesniffer@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/html_codesniffer/-/html_codesniffer-2.5.1.tgz#d76d124b8f5cd0e58b3c1b142fd095a40573ea28"
   integrity sha512-vcz0yAaX/OaV6sdNHuT9alBOKkSxYb8h5Yq26dUqgi7XmCgGUSa7U9PiY1PBXQFMjKv1wVPs5/QzHlGuxPDUGg==
+
+htmlencode@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/htmlencode/-/htmlencode-0.0.4.tgz#f7e2d6afbe18a87a78e63ba3308e753766740e3f"
+  integrity sha512-0uDvNVpzj/E2TfvLLyyXhKBRvF1y84aZsyRxRXFsQobnHaL4pcaXk+Y9cnFlvnxrBLeXDNq/VJBD+ngdBgQG1w==
 
 htmlparser2@3.8.x:
   version "3.8.3"
