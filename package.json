@@ -34,14 +34,14 @@
     "cspell": "6.31.2",
     "dayjs": "1.11.9",
     "eslint": "8.46.0",
-    "eslint-config-prettier": "8.9.0",
+    "eslint-config-prettier": "8.10.0",
     "eslint-plugin-prettier": "5.0.0",
     "globby": "13.2.2",
     "jshint": "2.13.6",
     "markdown-it": "13.0.1",
     "markdownlint-cli": "0.35.0",
     "pa11y-ci": "3.0.1",
-    "prettier": "3.0.0",
+    "prettier": "3.0.1",
     "sass": "1.64.2"
   }
 }
