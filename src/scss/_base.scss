@@ -14,9 +14,14 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight 16px $base-font-family;
+    font: $base-font-weight 18px $base-font-family;
+    letter-spacing: 0.03em;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
     color: $text-color;
+    line-height: 22px;
     background-color: $background-color;
+    word-wrap: break-word;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -84,7 +89,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+    font-weight: 700;
 }
 
 

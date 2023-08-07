@@ -3,6 +3,7 @@
 
   &-heading {
     font-size: 34px;
+    margin-top: 40px;
   }
   .post-list {
     margin-left: 0;
@@ -37,10 +38,11 @@
 
       h2 {
         color: $text-color-light;
-        font-weight: 400;
+        font-weight: 700;
         margin-bottom: 0;
         margin-top: 10px;
         font-size: 26px;
+        line-height: 34px;
       }
     }
 
