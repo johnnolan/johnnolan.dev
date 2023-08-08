@@ -3,6 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const dateFilter = require('./src/filters/date-filter.js');
 const date24HourFilter = require('./src/filters/date24Hours-filter.js');
 const pluginMermaid = require('@kevingimbel/eleventy-plugin-mermaid');
+const embedYouTube = require('eleventy-plugin-youtube-embed');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
@@ -18,6 +19,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginMermaid);
+  eleventyConfig.addPlugin(embedYouTube);
 
   eleventyConfig.addFilter("log", (value) => {
     console.log(value);
