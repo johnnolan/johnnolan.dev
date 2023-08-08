@@ -2,7 +2,7 @@ const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const dateFilter = require('./src/filters/date-filter.js');
 const date24HourFilter = require('./src/filters/date24Hours-filter.js');
-const pluginMermaid = require('@kevingimbel/eleventy-plugin-mermaid');
+const pluginMermaid = require('./src/modules/eleventy-plugin-mermaid.js');
 const embedYouTube = require('eleventy-plugin-youtube-embed');
 
 module.exports = function (eleventyConfig) {
