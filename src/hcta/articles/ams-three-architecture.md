@@ -63,12 +63,12 @@ In this article I want to go over a set of tooling and ways of working I use to:
 
 There are three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way:
 
-- **ArchiMate** for data that changes rarely centered around the business
+- **Archi - ArchiMate modelling language** for data that changes rarely centered around the business
 - **Mermaid** for data that belongs in the teams and is owned by them
-- **Structurizr** for data that is owned by the technical persons in teams
+- **Structurizr - C4 Model** for data that is owned by the technical persons in teams
 
 
-## ArchiMate modelling
+## ArchiMate modelling language
 
 > The ArchiMate® modelling language is an open and independent Enterprise Architecture standard that supports the description, analysis and visualisation of architecture within and across business domains. ArchiMate is one of the open standards hosted by The Open Group® and is fully aligned with TOGAF®. ArchiMate aids stakeholders in assessing the impact of design choices and changes.
 
@@ -147,9 +147,11 @@ Some of the advantages to using Mermaid are:
 
 Below are examples of some diagrams you can create with Mermaid. Adding these to your ADRs and documentation will help those wanting to understand decisions in your organisation better.
 
+### Examples of Mermaid syntax
+
 All the below are written with Mermaid in Markdown and rendered on the fly using Mermaids Javascript library. See the source code of this page or the links below each one for further information.
 
-### gitGraph
+#### Git Graph
 
 ```mermaid
 gitGraph
@@ -167,7 +169,7 @@ gitGraph
 
 Source code: [Git Graph](https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/gitGraph.md)
 
-### Sequence Diagrams
+#### Sequence Diagrams
 
 ```mermaid
 sequenceDiagram
@@ -200,7 +202,7 @@ sequenceDiagram
 
 Source code: [Sequence Diagram](https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/2-sequenceDiagram-3.md)
 
-### User Stories
+#### User Stories
 
 ```mermaid
 graph TD;
@@ -236,7 +238,7 @@ graph TD;
 
 Reference: [https://devrants.blog/2022/08/20/mermaid-event-storming/](https://devrants.blog/2022/08/20/mermaid-event-storming/)
 
-### Class Diagram
+#### Class Diagram
 
 ```mermaid
 classDiagram
@@ -264,7 +266,7 @@ classDiagram
 
 Source code: [Class Diagram](https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/1-classDiagram-2.md)
 
-### Flow Diagram
+#### Flow Diagram
 
 ```mermaid
 flowchart TD
@@ -277,7 +279,7 @@ flowchart TD
 
 Source code: [Flow Chart](https://mermaid.js.org/syntax/flowchart.html)
 
-### Quadrant Chart
+#### Quadrant Chart
 
 ```mermaid
 quadrantChart
@@ -298,7 +300,7 @@ quadrantChart
 
 Source code: [Flow Chart](https://mermaid.js.org/syntax/flowchart.html)
 
-### Pie Chart
+#### Pie Chart
 
 ```mermaid
 pie title Pets adopted by volunteers
@@ -309,7 +311,7 @@ pie title Pets adopted by volunteers
 
 Source code: [Pie Chart](https://mermaid.js.org/syntax/pie.html)
 
-### User Journey
+#### User Journey
 
 ```mermaid
 journey
@@ -325,7 +327,7 @@ journey
 
 Source code: [User Journey](https://mermaid.js.org/syntax/userJourney.html)
 
-### Mind Map
+#### Mind Map
 
 ```mermaid
 mindmap
@@ -349,6 +351,92 @@ mindmap
 
 Source code: [Mind Map](https://mermaid.js.org/syntax/mindmap.html)
 
-## Structurizr
+## Structurizr - C4 Model
 
+> The C4 model was created as a way to help software development teams describe and communicate software architecture, both during up-front design sessions and when retrospectively documenting an existing codebase. It's a way to create maps of your code, at various levels of detail, in the same way you would use something like Google Maps to zoom in and out of an area you are interested in.
 
+Citation: [C4 Model Website](https://c4model.com/)
+
+If you are unfamiliar with Structurizr and C4 Modelling then I highly suggest watching the following video by Simon Brown. This 30 minute video will give you all the information you will need to get started. 
+
+https://www.youtube.com/watch?v=x2-rSnhpw0g
+
+### How C4 Modelling works
+
+As described at the start of the section, C4 Models are a great way to describe your software architecture alongside your code base.
+
+C4 Modelling allows you to break down your software architecture in four levels:
+
+- Level 1: System Context
+  - Shows how the software system fits into the world around it
+- Level 2: Container
+  - Shows the high-level technical building blocks
+- Level 3: Component
+  - Zooms in to the individual Containers showing the components inside
+- Level 4: Code
+  - Zoom into the individual components showing how that component is implemented
+
+In my experience, I have never done Level 4 and rarely do Level 3 unless in an ideation stage. Changes in a code base mean without automation, your diagrams at Level 3 and 4 can become quickly out of sync and provide little value compared to Level 1 and 2.
+
+This does not mean it would not be valuable to have these for your teams. If this is the case I would recommend looking at specific language libraries that can generate Level 3 and 4 diagrams from your code.
+
+### What is Structurizr?
+
+> Structurizr builds upon "diagrams as code", allowing you to create multiple software architecture diagrams from a single model. There are a number of tools for creating Structurizr compatible workspaces, with the Structurizr DSL being the recommended option for most teams.
+
+Citation: [Structurizr Website](https://structurizr.com/)
+
+https://www.youtube.com/watch?v=4HEd1EEQLR0
+
+Using Structurizr, we can create C4 Models as Code. It is specially designed to support C4 modelling, meaning it gives us a opinoinated environment to work within.
+
+An example of how we can write a simple Software System is:
+
+``` dsl
+workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+}
+```
+
+This will provide us with the following output in SVG, PNG, PlantUML or Mermaid.
+
+[![Level 1](/assets/posts/ams-three-c4-level1.png)](/assets/posts/ams-three-c4-level1.png)
+Credit: [https://structurizr.com/](https://structurizr.com/)
+
+[![Level 2](/assets/posts/ams-three-c4-level2.png)](/assets/posts/ams-three-c4-level2.png)
+Credit: [https://structurizr.com/](https://structurizr.com/)
+
+### Why use Structurizr C4 Modelling as well as Mermaid?
+
+- Reference other diagrams and models [(use the !includes keyword)](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#includes)
+  - Store your Actors in a central repository
+  - Reference other repositories diagrams
+- Forces standards to write our code
+- Specific to C4 Modelelling
+- Fully Open Source
+- 
