@@ -14,7 +14,7 @@ contributors: ["John Nolan"]
 
 I come from a Agile Technical Architecture background. This means operating in a servant role for teams rather than top down.
 
-In this role, your responsibilities are
+In this role, your responsibilities are:
 
 - Enabling people to make decisions
 - Empathy and support for people when things go wrong
@@ -24,7 +24,7 @@ In this role, your responsibilities are
 - Provide the vision of where we are going (TO BE)
 - Be the bridge between the business and technical teams
 
-These responsibilities give you a split of two main skill areas.
+These responsibilities give you a split of two main skill areas:
 
 1. Communication
 2. Technical knowledge
@@ -51,7 +51,7 @@ You are there to unblock and help, not hinder how people want to work.
 
 ## Using AMS (ArchiMate, Mermaid and Structurizr)
 
-In this article I want to go over a set of tooling and ways of working I use to
+In this article I want to go over a set of tooling and ways of working I use to:
 
 - Provide the correct diagram to tell your story
 - Maintain your knowledge of the business in one place
@@ -61,7 +61,7 @@ In this article I want to go over a set of tooling and ways of working I use to
 - Store your data models where it is appropriate
 
 
-To do this, you can use three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way.
+There are three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way:
 
 - **ArchiMate** for data that changes rarely centered around the business
 - **Mermaid** for data that belongs in the teams and is owned by them
@@ -82,9 +82,7 @@ With the constant change in Agile ways of working, we sometimes miss a way to ce
 
 I have been a victim of having key business information written down somewhere deep in Google Drive from 3 years ago.
 
-You need somewhere that you can store high level business knowledge. This is where ArchiMate excels.
-
-Using a tool like Archi, you can use the ArchiMate modelling language to store
+This is where ArchiMate excels. You can use the ArchiMate modelling language to store:
 
 - Any knowledge that sits outside of the codebase
 - Data that will not change on a regular basis
@@ -129,12 +127,27 @@ TODO: Add example images
 
 Citation: [Mermaid Github repository](https://github.com/mermaid-js/mermaid#about)
 
-TODO: 
-- Can add to a dedicated Github Repo
-  - Track Changes
-  - All in one place rather than multiple tools
-- Renders in Github natively and easily in a browser for documentation such as ADRs
+When you have a need to record decisions that have been collaboratively decided with your teams, you want to use Mermaid.
 
+Mermaid allows you to create Diagrams as Code. It has an easy to learn language with a wealth of online tooling to help you build your diagram.
+
+Some of the advantages to using Mermaid are:
+
+- You can add your diagrams to Source Control
+- Works natively with Markdown
+- Maintenance and creation is everyones responsibility
+- Store in a central repository for organisation level diagrams
+- Store your product and code base diagrams alongside your code
+- Have full version history of changes over time
+- Renders in Github natively and easily in a browser for documentation such as ADRs
+- No storing and rendering images
+- No additional tooling required in your pipelines to render diagrams
+- Open Source your decisions
+- A picture speaks a 1000 words
+
+Below are examples of some diagrams you can create with Mermaid. Adding these to your ADRs and documentation will help those wanting to understand decisions in your organisation better.
+
+All the below are written with Mermaid in Markdown and rendered on the fly using Mermaids Javascript library. See the source code of this page or the links below each one for further information.
 
 ### gitGraph
 
@@ -337,4 +350,5 @@ mindmap
 Source code: [Mind Map](https://mermaid.js.org/syntax/mindmap.html)
 
 ## Structurizr
+
 
