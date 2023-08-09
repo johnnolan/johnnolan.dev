@@ -1,9 +1,9 @@
 ---
 layout: layouts/article.njk
 title: "AMS (ArchiMate, Mermaid and Structurizr) - The Three Peaks of Architecture"
-description: "AMS - The three tools to..."
+description: "AMS - The Three Peaks of Architecture, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams."
 image: "assets/posts/johnnolan.jpg"
-date: 2023-08-09
+date: 2023-08-10
 tags: 
   - hcta
   - architecture
