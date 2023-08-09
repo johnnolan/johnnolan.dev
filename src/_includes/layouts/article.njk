@@ -10,6 +10,11 @@ backLink: "/hcta/"
     <h1 class="article-page-heading">{{title}}</h1>
 
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
+    
+    <h2>Contents</h2>
+    <nav aria-label="Contents" role="navigation">
+        {{ content | toc | safe }}
+    </nav>
 
     {{ content | safe }}
 </article>
