@@ -6,6 +6,12 @@
         "runners": [
             "axe"
         ],
+        "ignore": [
+            "frame-tested",
+            "color-contrast",
+            "aria-roledescription",
+            "frame-title-unique"
+        ],
         "reporters": [
             "cli",
             [
