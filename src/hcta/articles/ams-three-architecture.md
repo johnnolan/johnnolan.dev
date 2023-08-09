@@ -397,7 +397,7 @@ C4 Models are a great way to describe your software architecture alongside your 
 
 In my experience, I have never done Level 4 and rarely do Level 3 unless in an ideation stage. Changes in a code base, mean without automation, your diagrams at Level 3 and 4 can become quickly out of sync and provide little value compared to Level 1 and 2.
 
-This does not mean it would not be valuable to have these for your teams. If this is the case I would recommend looking at specific language libraries that can generate Level 3 and 4 diagrams from your code.
+This does not mean it would not be valuable to have these for your teams. If this is the case I would recommend looking at specific language libraries that can generate Level 3 and 4 diagrams from your code or make updating the diagrams a part of your development lifecycle.
 
 ### What is Structurizr?
 
