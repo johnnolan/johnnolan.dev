@@ -1,43 +1,41 @@
 // Replace list copied from https://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
-const _escText = text => {
+const _escText = (text) => {
   return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+};
 
-const _buildLink = ({id, text, children}, ul, flat, anchorClass) => {
-  let nestedList = ''
+const _buildLink = ({ id, text, children }, ul, flat, anchorClass) => {
+  let nestedList = "";
 
   if (children.length > 0 && flat) {
-    nestedList = children.map(c => _buildLink(c, ul, flat))
+    nestedList = children.map((c) => _buildLink(c, ul, flat));
   } else if (children.length > 0) {
-    nestedList = BuildList(children, ul, flat)
+    nestedList = BuildList(children, ul, flat);
   }
 
-  const anchorClassAttribute = anchorClass ? ` class="${anchorClass}"` : ''
+  const anchorClassAttribute = anchorClass ? ` class="${anchorClass}"` : "";
 
   if (id && text && flat) {
-    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(
-      text
-    )}</a></li>${(nestedList || []).join('')}`
+    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(text)}</a></li>${(
+      nestedList || []
+    ).join("")}`;
   } else if (id && text) {
-    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(
-      text
-    )}</a>${nestedList}</li>`
+    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(text)}</a>${nestedList}</li>`;
   } else {
-    return nestedList
+    return nestedList;
   }
-}
+};
 
 const BuildList = (listItems, ul, flat, anchorClass) => {
-  const listType = ul ? 'ul' : 'ol'
+  const listType = ul ? "ul" : "ol";
   const list = listItems
     .sort((a, b) => a.order - b.order)
-    .map(li => _buildLink(li, ul, flat, anchorClass))
+    .map((li) => _buildLink(li, ul, flat, anchorClass));
 
-  return list.length > 0 ? `<${listType}>${list.join('')}</${listType}>` : ''
-}
+  return list.length > 0 ? `<${listType}>${list.join("")}</${listType}>` : "";
+};
 
-module.exports = BuildList
+module.exports = BuildList;
