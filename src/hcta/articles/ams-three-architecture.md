@@ -20,11 +20,11 @@ In this role, your responsibilities are:
 - Empathy and support for people when things go wrong
 - Provide high level business and technology requirements to the technical teams
 - Empower teams to own their work
-- Share the understanding of where we are (AS IS)
-- Provide the vision of where we are going (TO BE)
+- Share the understanding of where we are (ASIS)
+- Provide the vision of where we are going (TOBE)
 - Be the bridge between the business and technical teams
 
-These responsibilities give you a split of two main skill areas:
+Two common responsibilities areas are:
 
 1. Communication
 2. Technical knowledge
@@ -47,8 +47,6 @@ You need to be able to wear different hats and adapt quickly to your situation.
 
 To get to the point where you can be effective, you have to understand the business, its people and both their capabilities.
 
-You are there to unblock and help, not hinder how people want to work.
-
 ## Using AMS (ArchiMate, Mermaid and Structurizr)
 
 In this article I want to go over a set of tooling and ways of working I use to:
@@ -63,7 +61,7 @@ In this article I want to go over a set of tooling and ways of working I use to:
 
 There are three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way:
 
-- **Archi - ArchiMate modelling language** for data that changes rarely centered around the business
+- **Archi - ArchiMate modelling language** for data that changes rarely, centered around the business
 - **Mermaid** for data that belongs in the teams and is owned by them
 - **Structurizr - C4 Model** for data that is owned by the technical persons in teams
 
@@ -74,9 +72,7 @@ There are three different tools and techniques to gather information, keep it up
 
 Citation: [ArchiMate Tool](https://www.ArchiMatetool.com/)
 
-That is correct, the first tool I want to talk about comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.
-
-Just because a way of working does not fit how we want to work, it doesn't mean there isn't something we cannot learn from it.
+The first tool I want to talk about comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.
 
 With the constant change in Agile ways of working, we sometimes miss a way to centralise all the key business requirements in one place.
 
@@ -88,31 +84,38 @@ This is where ArchiMate excels. You can use the ArchiMate modelling language to 
 - Data that will not change on a regular basis
 - Data that you will need to present to the business in various views
 
-Within Archi we can easily generate an AS IS model of our Enterprise to understand the complexities of the business and have a place we can revisit on a regular basis to ensure we are meeting the requirements.
+Within Archi we can easily generate an ASIS model of our Enterprise to understand the complexities of the business and have a place we can revisit on a regular basis to ensure we are meeting the requirements.
 
-- **Business**
-  - Business Value
-  - Processes
-  - Services
-  - Actors
-  - Contracts
-  - Products
-  - User Needs
-  - Company/Department/Team structure
-  - Roles
-  - Stakeholders
-- **Legislation**
-  - Legal
-  - Policies
-- **Organisation Strategies**
-  - Resources
-  - Capabilities
-  - Value Streams
-- **Motivations**
-  - Goals
-  - Outcomes
-  - Drivers
-  - Values
+### Business
+
+- Business Value
+- Processes
+- Services
+- Actors
+- Contracts
+- Products
+- User Needs
+- Company/Department/Team structure
+- Roles
+- Stakeholders
+
+### Legislation
+
+- Legal
+- Policies
+
+### Organisation Strategies
+
+- Resources
+- Capabilities
+- Value Streams
+
+### Motivations
+
+- Goals
+- Outcomes
+- Drivers
+- Values
 
 If we know the above, we can make better decisions and help others find their way forward when building new products and features.
 
@@ -127,23 +130,22 @@ TODO: Add example images
 
 Citation: [Mermaid Github repository](https://github.com/mermaid-js/mermaid#about)
 
-When you have a need to record decisions that have been collaboratively decided with your teams, you want to use Mermaid.
+When you have a need to record visualisation decisions that have been collaboratively decided with your teams, you want to use Mermaid.
 
-Mermaid allows you to create Diagrams as Code. It has an easy to learn language with a wealth of online tooling to help you build your diagram.
+Mermaid allows you to create Diagrams as Code. It is a flexible language with a wealth of online tooling to help you build your diagram.
 
 Some of the advantages to using Mermaid are:
 
-- You can add your diagrams to Source Control
-- Works natively with Markdown
-- Maintenance and creation is everyones responsibility
-- Store in a central repository for organisation level diagrams
-- Store your product and code base diagrams alongside your code
-- Have full version history of changes over time
-- Renders in Github natively and easily in a browser for documentation such as ADRs
-- No storing and rendering images
-- No additional tooling required in your pipelines to render diagrams
-- Open Source your decisions
-- A picture speaks a 1000 words
+- You can add your diagrams to Source Control.
+- Works natively with Markdown.
+- Maintenance and creation is everyones responsibility.
+- Store in a central repository for organisation level diagrams.
+- Store your product and code base diagrams alongside your code.
+- Have full version history of changes over time.
+- Renders in Github natively in a browser for documentation such as ADRs.
+- No storing and rendering images (you can if you want).
+- No additional tooling required in your pipelines to render diagrams.
+- Open Source your decisions.
 
 Below are examples of some diagrams you can create with Mermaid. Adding these to your ADRs and documentation will help those wanting to understand decisions in your organisation better.
 
@@ -363,9 +365,7 @@ https://www.youtube.com/watch?v=x2-rSnhpw0g
 
 ### How C4 Modelling works
 
-As described at the start of the section, C4 Models are a great way to describe your software architecture alongside your code base.
-
-C4 Modelling allows you to break down your software architecture in four levels:
+C4 Models are a great way to describe your software architecture alongside your code base. It allows you to break down your software architecture in four levels:
 
 - Level 1: System Context
   - Shows how the software system fits into the world around it
@@ -376,7 +376,7 @@ C4 Modelling allows you to break down your software architecture in four levels:
 - Level 4: Code
   - Zoom into the individual components showing how that component is implemented
 
-In my experience, I have never done Level 4 and rarely do Level 3 unless in an ideation stage. Changes in a code base mean without automation, your diagrams at Level 3 and 4 can become quickly out of sync and provide little value compared to Level 1 and 2.
+In my experience, I have never done Level 4 and rarely do Level 3 unless in an ideation stage. Changes in a code base, mean without automation, your diagrams at Level 3 and 4 can become quickly out of sync and provide little value compared to Level 1 and 2.
 
 This does not mean it would not be valuable to have these for your teams. If this is the case I would recommend looking at specific language libraries that can generate Level 3 and 4 diagrams from your code.
 
@@ -433,10 +433,31 @@ Credit: [https://structurizr.com/](https://structurizr.com/)
 
 ### Why use Structurizr C4 Modelling as well as Mermaid?
 
-- Reference other diagrams and models [(use the !includes keyword)](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#includes)
-  - Store your Actors in a central repository
+- Reference other diagrams and models [(use the !includes keyword)](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#includes):
+  - e.g. store your Actors in a central repository
   - Reference other repositories diagrams
-- Forces standards to write our code
-- Specific to C4 Modelelling
-- Fully Open Source
-- 
+  - Create a high level Enterprise diagram that references all other repository diagrams
+- Structured syntax specific to C4 Modelelling.
+- Open Source.
+- Exports to a wide range of tools and visualisations such as:
+  - PlantUML
+  - C4-PlantUML
+  - Mermaid
+  - Ilograph
+  - Graph view
+
+## Conclusion
+
+There are many tools and methodologies for Architecture and each project will require different solutions to understand and solve complex problems within organisations.
+
+With the three tools above, we can:
+
+- Keep business and user data that changes slowly in one place to understand and visualise using ArchiMate
+- Record and version collaborative ASIS and TOBE ideas in multiple visualisations with Mermaid
+- Maintain a high level view of our individual and enterprise level architecture, alongside the code with C4 Modelling and Structurizr
+
+Mixing these three tools and methods we can provide the right information to the right people at the right level of detail while also maintaining a history of our decisions over time.
+
+## References
+
+
