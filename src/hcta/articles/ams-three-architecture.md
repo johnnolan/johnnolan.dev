@@ -117,9 +117,34 @@ Within Archi we can easily generate an ASIS model of our Enterprise to understan
 
 If we know the above, we can make better decisions and help others find their way forward when building new products and features.
 
-Below are a few examples on how we can structure our Data Model and the Views we can produce to tell a story.
+Archi allows us to add our data and create relationships across domain boundaries allowing us to visualise the complexities of an Organisation. Examples of some of these relationships are:
 
-TODO: Add example images
+- Connect teams to Budgets
+- Projects to Programming Languages and team member specialities
+- External Services to internal dependencies
+- Business Capabilities to team resources
+
+### Example Data Models and Views in Archi
+
+Below is a small set of examples of data you can store and visualise in Archi.
+
+#### Strategy and Business needs
+
+Define resources, capabilities and value streams, datasources, governance and any other context specific organisation strategies.
+
+[![Strategy](/assets/posts/ams-three/archi-strategy.png)](/assets/posts/ams-three/archi-strategy.png)
+[![Strategy](/assets/posts/ams-three/archi-strategy2.png)](/assets/posts/ams-three/archi-strategy2.png)
+[![Strategy](/assets/posts/ams-three/archi-view-business-need.png)](/assets/posts/ams-three/archi-view-business-need.png)
+
+#### Team Capability Recording
+
+Record the Organisations teams by Professions, Actors, Teams and methologies to identify resources across the landscape.
+
+[![Strategy](/assets/posts/ams-three/archi-teams.png)](/assets/posts/ams-three/archi-teams.png)
+[![Strategy](/assets/posts/ams-three/archi-tech.png)](/assets/posts/ams-three/archi-tech.png)
+[![Strategy](/assets/posts/ams-three/archi-view-teams.png)](/assets/posts/ams-three/archi-view-teams.png)
+[![Strategy](/assets/posts/ams-three/archi-view-team-dependencies.png)](/assets/posts/ams-three/archi-view-team-dependencies.png)
+
 
 ## Mermaid
 
@@ -422,10 +447,10 @@ workspace {
 
 This will provide us with the following output in SVG, PNG, PlantUML or Mermaid.
 
-[![Level 1](/assets/posts/ams-three-c4-level1.png)](/assets/posts/ams-three-c4-level1.png)
+[![Level 1](/assets/posts/ams-three/ams-three-c4-level1.png)](/assets/posts/ams-three/ams-three-c4-level1.png)
 Credit: [https://structurizr.com/](https://structurizr.com/)
 
-[![Level 2](/assets/posts/ams-three-c4-level2.png)](/assets/posts/ams-three-c4-level2.png)
+[![Level 2](/assets/posts/ams-three/ams-three-c4-level2.png)](/assets/posts/ams-three/ams-three-c4-level2.png)
 Credit: [https://structurizr.com/](https://structurizr.com/)
 
 ### Why use Structurizr C4 Modelling as well as Mermaid?
