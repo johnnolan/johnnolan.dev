@@ -70,11 +70,9 @@ There are three different tools and techniques to gather information, keep it up
 
 Citation: [ArchiMate Tool](https://www.ArchiMatetool.com/)
 
-The first tool I want to talk about comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.
+ArchiMate comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.
 
-With the constant change in Agile ways of working, we sometimes miss a way to centralise all the key business requirements in one place.
-
-I have been a victim of having key business information written down somewhere deep in Google Drive from 3 years ago.
+With the iterative development mindset in Agile ways of working, we sometimes miss a way to centralise all the key business requirements in one place, while keeping a high level view of the overall goal of our solutions.
 
 This is where ArchiMate excels. You can use the ArchiMate modelling language to store:
 
