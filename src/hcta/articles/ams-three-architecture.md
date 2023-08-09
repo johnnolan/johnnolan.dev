@@ -380,7 +380,7 @@ Citation: [C4 Model Website](https://c4model.com/)
 
 If you are unfamiliar with Structurizr and C4 Modelling then I highly suggest watching the following video by Simon Brown. This 30 minute video will give you all the information you will need to get started.
 
-https://www.youtube.com/watch?v=x2-rSnhpw0g {{< mdl-disable "<!-- markdownlint-disable MD034 -->" >}}
+[https://www.youtube.com/watch?v=x2-rSnhpw0g](https://www.youtube.com/watch?v=x2-rSnhpw0g)
 
 ### How C4 Modelling works
 
@@ -405,7 +405,7 @@ This does not mean it would not be valuable to have these for your teams. If thi
 
 Citation: [Structurizr Website](https://structurizr.com/)
 
-https://www.youtube.com/watch?v=4HEd1EEQLR0
+[https://www.youtube.com/watch?v=4HEd1EEQLR0](https://www.youtube.com/watch?v=4HEd1EEQLR0)
 
 Using Structurizr, we can create C4 Models as Code. It is specially designed to support C4 modelling, meaning it gives us a opinionated environment to work within.
 
