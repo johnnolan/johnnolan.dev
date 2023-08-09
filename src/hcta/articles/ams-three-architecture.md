@@ -14,7 +14,7 @@ contributors: ["John Nolan"]
 
 I come from a Agile Technical Architecture background. This means operating in a servant role for teams rather than top down.
 
-In this role, your responsibilities are:
+In this role, some of your responsibilities are:
 
 - Enabling people to make decisions
 - Empathy and support for people when things go wrong
@@ -24,10 +24,10 @@ In this role, your responsibilities are:
 - Provide the vision of where we are going (TOBE)
 - Be the bridge between the business and technical teams
 
-Two common responsibilities areas are:
+Two common responsibility areas are:
 
 1. Communication
-2. Technical knowledge
+2. Technical/Domain knowledge
 
 You need to be able to wear different hats and adapt quickly to your situation.
 
@@ -58,13 +58,11 @@ In this article I want to go over a set of tooling and ways of working I use to:
 - Identify where not to use diagrams
 - Store your data models where it is appropriate
 
-
 There are three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way:
 
 - **Archi - ArchiMate modelling language** for data that changes rarely, centered around the business
 - **Mermaid** for data that belongs in the teams and is owned by them
 - **Structurizr - C4 Model** for data that is owned by the technical persons in teams
-
 
 ## ArchiMate modelling language
 
@@ -122,7 +120,6 @@ If we know the above, we can make better decisions and help others find their wa
 Below are a few examples on how we can structure our Data Model and the Views we can produce to tell a story.
 
 TODO: Add example images
-
 
 ## Mermaid
 
@@ -460,4 +457,13 @@ Mixing these three tools and methods we can provide the right information to the
 
 ## References
 
-
+- [Structurizr](https://structurizr.com/)
+- [C4 Model Website](https://c4model.com/)
+- [Developer Rants - Mermaid Event Storming](https://devrants.blog/2022/08/20/mermaid-event-storming/)
+- [Mermaid Website](https://mermaid.js.org/)
+- [Mermaid Live Editor!](https://mermaid.live/)
+- [Mermaid Github Repo](https://github.com/mermaid-js/mermaid)
+- [Scaled Agile Framework](https://scaledagileframework.com/about/)
+- [Open Group ArchiMate Modelling Language](https://www.opengroup.org/archimate-forum/archimate-overview)
+- [Archi Tool](https://www.archimatetool.com/)
+- [Creating Software with Modern Diagramming Techniques by Ashley Peacock](https://pragprog.com/titles/apdiag/creating-software-with-modern-diagramming-techniques/)
