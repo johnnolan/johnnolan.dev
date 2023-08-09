@@ -138,13 +138,12 @@ Define resources, capabilities and value streams, datasources, governance and an
 
 #### Team Capability Recording
 
-Record the Organisations teams by Professions, Actors, Teams and methologies to identify resources across the landscape.
+Record the Organisations teams by Professions, Actors, Teams and methodologies to identify resources across the landscape.
 
 [![Strategy](/assets/posts/ams-three/archi-teams.png)](/assets/posts/ams-three/archi-teams.png)
 [![Strategy](/assets/posts/ams-three/archi-tech.png)](/assets/posts/ams-three/archi-tech.png)
 [![Strategy](/assets/posts/ams-three/archi-view-teams.png)](/assets/posts/ams-three/archi-view-teams.png)
 [![Strategy](/assets/posts/ams-three/archi-view-team-dependencies.png)](/assets/posts/ams-three/archi-view-team-dependencies.png)
-
 
 ## Mermaid
 
@@ -201,7 +200,7 @@ sequenceDiagram
     actor Browser
     participant SUS as Sign Up Service
     participant US as User Service
-    links US: {"Responsitory": "#"}
+    links US: {"Repository": "#"}
     participant Kafka
 
     Browser->>SUS: GET /sign_up
@@ -360,7 +359,7 @@ mindmap
       Long history
       ::icon(fa fa-book)
       Popularisation
-        British popular psychology author Tony Buzan
+        British popular psychology author Tony Tony
     Research
       On effectiveness<br/>and features
       On Automatic creation
@@ -381,9 +380,9 @@ Source code: [Mind Map](https://mermaid.js.org/syntax/mindmap.html)
 
 Citation: [C4 Model Website](https://c4model.com/)
 
-If you are unfamiliar with Structurizr and C4 Modelling then I highly suggest watching the following video by Simon Brown. This 30 minute video will give you all the information you will need to get started. 
+If you are unfamiliar with Structurizr and C4 Modelling then I highly suggest watching the following video by Simon Brown. This 30 minute video will give you all the information you will need to get started.
 
-https://www.youtube.com/watch?v=x2-rSnhpw0g
+https://www.youtube.com/watch?v=x2-rSnhpw0g {{< mdl-disable "<!-- markdownlint-disable MD034 -->" >}}
 
 ### How C4 Modelling works
 
@@ -410,7 +409,7 @@ Citation: [Structurizr Website](https://structurizr.com/)
 
 https://www.youtube.com/watch?v=4HEd1EEQLR0
 
-Using Structurizr, we can create C4 Models as Code. It is specially designed to support C4 modelling, meaning it gives us a opinoinated environment to work within.
+Using Structurizr, we can create C4 Models as Code. It is specially designed to support C4 modelling, meaning it gives us a opinionated environment to work within.
 
 An example of how we can write a simple Software System is:
 
@@ -459,7 +458,7 @@ Credit: [https://structurizr.com/](https://structurizr.com/)
   - e.g. store your Actors in a central repository
   - Reference other repositories diagrams
   - Create a high level Enterprise diagram that references all other repository diagrams
-- Structured syntax specific to C4 Modelelling.
+- Structured syntax specific to C4 Modelling.
 - Open Source.
 - Exports to a wide range of tools and visualisations such as:
   - PlantUML
