@@ -2,6 +2,7 @@
 layout: layouts/fullwidth.njk
 backLink: "/hcta/"
 ---
+{%- from "../../_includes/macros/toc.njk" import toc %}
 {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
 {%- from "../../_includes/macros/json-ld/ldArticle.njk" import ldArticle %}
 
@@ -11,10 +12,7 @@ backLink: "/hcta/"
 
     {{ pageContentMetaData(date, contributors, undefined, tags) }}
     
-    <h2>Contents</h2>
-    <nav aria-label="Contents" role="navigation">
-        {{ content | toc | safe }}
-    </nav>
+    {{ toc(content, toc) }}
 
     {{ content | safe }}
 </article>

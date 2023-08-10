@@ -45,4 +45,4 @@ $on-desktop: 930px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting", "components/header", "components/footer",
 "components/nav", "components/metadata", "components/article-page", "components/post-list", 
-"components/gallery", "components/mermaid";
+"components/gallery", "components/mermaid", "components/toc";
