@@ -1,6 +1,6 @@
 var GA_ANALYTICS_ID = "G-F1C9XCHGQX";
 var COOKIE_NAME = "JNDEV_COOKIES";
-var body = document.getElementsByTagName("body")[0]
+var body = document.getElementsByTagName("body")[0];
 
 function setupGoogleAnalytics(analyticsId) {
   var isCookieAccepted = getCookie(COOKIE_NAME);
@@ -32,27 +32,32 @@ function setupGoogleAnalytics(analyticsId) {
 }
 
 function getCookie(name) {
-  var nameEQ = name + '=';
-  var cookies = document.cookie.split(';');
+  var nameEQ = name + "=";
+  var cookies = document.cookie.split(";");
   for (var i = 0, len = cookies.length; i < len; i++) {
     var cookie = cookies[i];
-      while (cookie.charAt(0) === ' ') {
-          cookie = cookie.substring(1, cookie.length);
-      }
-      if (cookie.indexOf(nameEQ) === 0) {
-          return decodeURIComponent(cookie.substring(nameEQ.length));
-      }
+    while (cookie.charAt(0) === " ") {
+      cookie = cookie.substring(1, cookie.length);
+    }
+    if (cookie.indexOf(nameEQ) === 0) {
+      return decodeURIComponent(cookie.substring(nameEQ.length));
+    }
   }
   return null;
 }
 
 function setCookie(name, value, options) {
-  if (typeof options === 'undefined' || options.days === undefined) {
-      options = { days: 365 }
+  if (typeof options === "undefined" || options.days === undefined) {
+    options = { days: 365 };
   }
 
   const maxAge = options.days * 24 * 60 * 60;
-  const cookie =`${name}=${encodeURIComponent(value)}` + "; path=/" + "; max-age=" + maxAge + "; Secure; SameSite=Strict;";
+  const cookie =
+    `${name}=${encodeURIComponent(value)}` +
+    "; path=/" +
+    "; max-age=" +
+    maxAge +
+    "; Secure; SameSite=Strict;";
   document.cookie = cookie;
   return cookie;
 }
@@ -63,15 +68,15 @@ function cookieClicked(result) {
 }
 
 function hideBanner() {
-  body.getElementsByClassName("cookie-banner")[0].classList.toggle('hide', true);
+  body.getElementsByClassName("cookie-banner")[0].classList.toggle("hide", true);
 }
 
-document.addEventListener('click', (e) => {
+document.addEventListener("click", (e) => {
   var element = e.target;
   if (element.dataset.module === "cookie-button") {
-    cookieClicked(element.getAttribute('value'));
+    cookieClicked(element.getAttribute("value"));
   }
-})
+});
 
 if (getCookie(COOKIE_NAME) !== null) {
   hideBanner();
