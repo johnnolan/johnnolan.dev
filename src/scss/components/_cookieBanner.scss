@@ -1,6 +1,11 @@
 .cookie-banner {
   background-color: #e7e7e7;
   padding: 20px 0;
+
+  &__header {
+    margin-top: 0;
+  }
+
   &__button-group {
     &-link {
       margin-right: 1em;
