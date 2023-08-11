@@ -26,7 +26,7 @@ In this role, some of your responsibilities are:
 
 Two common responsibility areas are:
 
-1. Communication
+1. Communication/Collaboration
 2. Technical/Domain knowledge
 
 You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerous contexts.
