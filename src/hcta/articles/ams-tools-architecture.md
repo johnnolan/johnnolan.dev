@@ -29,9 +29,9 @@ Two common responsibility areas are:
 1. Communication
 2. Technical/Domain knowledge
 
-You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerious contexts.
+You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerous contexts.
 
-Explaining a plan to a board of directors, product person and developer all entale alterating your language and context.
+Explaining a plan to a board of directors, product person and developer all entail alterating your language and context.
 
 To get to the point where you can be effective in these conversations, you have to understand the business, its people and both their capabilities.
 
