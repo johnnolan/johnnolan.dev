@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/random/articles/react-testing-library-hoc/" />
@@ -162,26 +166,43 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#show-me-the-code">Show me the code</a></li><li><a href="#what-is-going-on%3F">What is going on?</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
+
 
     <p>Recently I have had to test a React Higher Order Component using <a href="https://github.com/testing-library/react-testing-library">react-testing-library</a> but struggled to find how you can achieve this.</p>
 <p>Before I go any further into detail, below is some example code I have done so you can get straight to copy and pasting. For more information see below the code sample.</p>
-<h2>Show me the code</h2>
+<h2 id="show-me-the-code" tabindex="-1">Show me the code</h2>
 <p>The Gist is here <a href="https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js">https://gist.github.com/johnnolan/1c8075a9124506d75953b540adf7a3bd.js</a></p>
-<pre><code class="language-jsx">import React from 'react'
+<pre class="jsx">import React from 'react'
 import {render, cleanup} from 'react-testing-library'
 
 // withHOC.js
 function withHOC (WrappedComponent) {
   render() {
     return (
-      &lt;main&gt;
-      &lt;section&gt;
-        &lt;h1&gt;HOC Example&lt;/h1&gt;
-      &lt;/section&gt;
-      &lt;section&gt;
-        &lt;WrappedComponent {...this.props} /&gt;
-      &lt;/section&gt;
-      &lt;/main&gt;
+      <main>
+      <section>
+        <h1>HOC Example</h1>
+      </section>
+      <section>
+        <WrappedComponent {...this.props} />
+      </section>
+      </main>
     )
   }
 }
@@ -191,49 +212,49 @@ afterEach(cleanup)
 class MockApp extends React.Component {
   render () {
     return (
-      &lt;p&gt;
+      <p>
         Hello from your Mock App
-      &lt;/p&gt;
+      </p>
     )
   }
 }
 
 const MockWithHOC = withHOC(MockApp)
 
-test('can render with redux with defaults', () =&gt; {
+test('can render with redux with defaults', () => {
   const { container, getByText } = render(
-      &lt;MockWithHOC /&gt;)
+      <MockWithHOC />)
       
   expect(getByText(/HOC Example/i)).toBeInTheDocument()
   expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
   
   expect(container).toMatchSnapshot()
 })
-</code></pre>
-<h2>What is going on?</h2>
+</pre>
+<h2 id="what-is-going-on%3F" tabindex="-1">What is going on?</h2>
 <p>As you can see from the above code we have an example and very basic High Order Component called <code>withHOC</code>. This creates a layout and generic H1 for us and then renders our <code>WrappedComponent</code>.</p>
 <p>Using the <code>render</code> method directly passing this in won't work. We have to instead do a bit of setup.</p>
 <p>On <em>line 22</em> we create a, what I have called, Mock App with some basic html in it.</p>
-<pre><code class="language-jsx">class MockApp extends React.Component {
+<pre class="jsx">class MockApp extends React.Component {
   render () {
     return (
-      &lt;p&gt;
+      <p>
         Hello from your Mock App
-      &lt;/p&gt;
+      </p>
     )
   }
 }
-</code></pre>
+</pre>
 <p>We will use this to be able to wrap our Higher Order Component around it. We do this on <em>line 30</em>.</p>
-<pre><code class="language-jsx">const MockWithHOC = withHOC(MockApp)
-</code></pre>
+<pre class="jsx">const MockWithHOC = withHOC(MockApp)
+</pre>
 <p>This will now return us a React component we can pass into render.</p>
-<pre><code class="language-jsx">const { container, getByText } = render(&lt;MockWithHOC /&gt;)
-</code></pre>
+<pre class="jsx">const { container, getByText } = render(<MockWithHOC />)
+</pre>
 <p>And that's it, we can now start to use this as if it were any other component, plus test that the <code>WrappedComponent</code> renders correctly.</p>
-<pre><code class="language-jsx">expect(getByText(/HOC Example/i)).toBeInTheDocument()
+<pre class="jsx">expect(getByText(/HOC Example/i)).toBeInTheDocument()
 expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
-</code></pre>
+</pre>
 
 </article>
 
@@ -274,5 +295,6 @@ expect(getByText(/Hello from your Mock App/i)).toBeInTheDocument()
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>

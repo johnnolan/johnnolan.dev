@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/random/articles/react-webpack-analyzer/" />
@@ -162,18 +166,35 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#a-noobies-common-questions-to-react-and-redux-series">A noobies common questions to React and Redux series</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
 
-    <h2>A noobies common questions to React and Redux series</h2>
+
+    <h2 id="a-noobies-common-questions-to-react-and-redux-series" tabindex="-1">A noobies common questions to React and Redux series</h2>
 <p>webpack Bundle Analyzer (<a href="https://www.npmjs.com/package/webpack-bundle-analyzer">https://www.npmjs.com/package/webpack-bundle-analyzer</a>) is a beautiful tool that allows you to easily see your build bundles content and size, breaking down each import throughout. It has helped me identify glaring improvements on what I import into my projects and will help you to.</p>
 <p>This is a simple and very straight forward way to implement into your project. It is all based on using <code>create-react-app</code>.</p>
 <p>First step, install the npm package like so</p>
-<pre><code class="language-bash">npm install --save-dev webpack-bundle-analyzer
-</code></pre>
+<pre class="bash">npm install --save-dev webpack-bundle-analyzer
+</pre>
 <p>Now in your <code>package.json</code> file add the following to your <code>scripts</code> section.</p>
-<pre><code class="language-json">&quot;scripts&quot;: {
- &quot;stats&quot;: &quot;react-scripts build \&quot;--stats\&quot; &amp;&amp; webpack-bundle-analyzer build/bundle-stats.json
+<pre class="json">"scripts": {
+ "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json
 }
-</code></pre>
+</pre>
 <p>Now from your command line you can run <code>npm stats</code> and it will build a production build and launch a browser window to show you your bundle size and contents.</p>
 <p><img src="/assets/posts/webpackanalyzer.gif" alt="webpack-bundle-analyzer"></p>
 <p>Photo taken from <a href="https://www.npmjs.com/package/webpack-bundle-analyzer">https://www.npmjs.com/package/webpack-bundle-analyzer</a></p>
@@ -217,5 +238,6 @@
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>

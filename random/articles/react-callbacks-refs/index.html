@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/random/articles/react-callbacks-refs/" />
@@ -162,27 +166,44 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#how-to-get-to-a-dom-element-in-jsx">How to get to a DOM element in JSX</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
 
-    <h2>How to get to a DOM element in JSX</h2>
+
+    <h2 id="how-to-get-to-a-dom-element-in-jsx" tabindex="-1">How to get to a DOM element in JSX</h2>
 <p>The following could probably be done with setting state and setting the disabled attribute based on this, but mine was a bit more complex and I found this snippet that allowed you to access the Element.</p>
 <p>To access the Element you want, you need to first assign it a <code>ref</code>. Like below</p>
-<pre><code class="language-jsx">&lt;button
- className=&quot;btn&quot;
+<pre class="jsx"><button
+ className="btn"
  onClick={this.onClick}
- ref={btnReview  =&gt; {
+ ref={btnReview  => {
   this.btnReview = btnReview;
  }}
-)}&gt;
+)}>
  Review
-&lt;/button&gt;
-</code></pre>
+</button>
+</pre>
 <p>Callback refs are a way to assign your element a function with a name you can access higher up in your Component. For example you may want to change the text temporarily or change an attribute, call a event handler, etc, depending on a more complex set of logic.</p>
 <p>More examples and alternative ways of using <code>refs</code> can be found here <a href="https://reactjs.org/docs/refs-and-the-dom.html#callback-refs">https://reactjs.org/docs/refs-and-the-dom.html#callback-refs</a></p>
 <p>From here we are now able to access this in our code. For the example below, <code>onClick</code> will disable the button to prevent users from double clicking the button.</p>
-<pre><code class="language-jsx">onClick = e =&gt; {
- this.btnReview.setAttribute(&quot;disabled&quot;, &quot;disabled&quot;);
+<pre class="jsx">onClick = e => {
+ this.btnReview.setAttribute("disabled", "disabled");
 }
-</code></pre>
+</pre>
 
 </article>
 
@@ -223,5 +244,6 @@
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>

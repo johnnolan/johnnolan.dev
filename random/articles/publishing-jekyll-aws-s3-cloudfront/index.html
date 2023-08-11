@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/random/articles/publishing-jekyll-aws-s3-cloudfront/" />
@@ -162,75 +166,90 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            
+        </nav>
+    </div>
+</details>
+
 
     <blockquote>
-<p>This information is useful once you have signed up to
-<a href="https://travis-ci.org">https://travis-ci.org</a> via
-<a href="https://github.com">https://github.com</a> and you have an existing
-AWS S3 bucket and AWS Cloudfront distribution setup. I will be covering
+<p>This information is useful once you have signed up to<br>
+<a href="https://travis-ci.org">https://travis-ci.org</a> via<br>
+<a href="https://github.com">https://github.com</a> and you have an existing<br>
+AWS S3 bucket and AWS Cloudfront distribution setup. I will be covering<br>
 this soon.</p>
 </blockquote>
-<p>At any time you can look at my <a href="https://github.com/johnnolan/blog">repo on Github</a> to see how I have set this
+<p>At any time you can look at my <a href="https://github.com/johnnolan/blog">repo on Github</a> to see how I have set this<br>
 up.</p>
-<p>First create a new directory called <em>script</em> in your root folder and
-create a file called <em>cibuild</em>. Now past the following details
+<p>First create a new directory called <em>script</em> in your root folder and<br>
+create a file called <em>cibuild</em>. Now past the following details<br>
 replacing <em>bucketname</em> with your S3 bucket name.</p>
-<pre><code class="language-bash">jekyll build
+<pre class="bash">jekyll build
 pip install awscli
 aws s3 sync --acl public-read --sse --delete _site s3://bucketname
 aws configure set preview.cloudfront true
 aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
-</code></pre>
+</pre>
 <p>This is going to do the following</p>
 <ul>
 <li>Build our jekyll site</li>
 <li>Install <code>awscli</code> on the Travis site</li>
-<li>We then sync our _site directory that has been built by the command
-<code>jekyll build</code>, deleting all contents on the remote
+<li>We then sync our _site directory that has been built by the command<br>
+<code>jekyll build</code>, deleting all contents on the remote<br>
 bucket at the same time</li>
-<li>The line with <code>preview.cloudfront</code> tells the AWS Cli that you want
-to enable the preview mode of it. This is still in BETA so this allows
+<li>The line with <code>preview.cloudfront</code> tells the AWS Cli that you want<br>
+to enable the preview mode of it. This is still in BETA so this allows<br>
 us access to it.</li>
-<li>Then finally we invalidate the cache on cloudfront. There are a couple
-of points on this. First, you are allowed up to 1,000 files to be
-invalidated per month. After this you are charged. At this point it is
-around $50 per 1,000. The other is it can take up to 15 minutes for the
+<li>Then finally we invalidate the cache on cloudfront. There are a couple<br>
+of points on this. First, you are allowed up to 1,000 files to be<br>
+invalidated per month. After this you are charged. At this point it is<br>
+around $50 per 1,000. The other is it can take up to 15 minutes for the<br>
 cache to be invalidated so please be patient.</li>
 </ul>
-<p>Now create a <code>.travis.yml</code> file in the root for your directory with the
+<p>Now create a <code>.travis.yml</code> file in the root for your directory with the<br>
 following contents.</p>
-<pre><code class="language-yaml">language: ruby
+<pre class="yaml">language: ruby
 dist: trusty
 sudo: required
 rvm:
 - 2.3.3
 before_script:
 - chmod +x ./script/cibuild
-script: &quot;./script/cibuild&quot;
+script: "./script/cibuild"
 branches:
   only:
   - master
-</code></pre>
-<p>This is our deployment file. This tells Travis what we want to do once
+</pre>
+<p>This is our deployment file. This tells Travis what we want to do once<br>
 it has hold of our files from Github.</p>
 <ul>
-<li><code>language: ruby</code> tells it the environment we want to use to run our
+<li><code>language: ruby</code> tells it the environment we want to use to run our<br>
 build (Ruby)</li>
-<li><code>dist</code> and <code>sudo</code> tell Travis that we want to run in full
+<li><code>dist</code> and <code>sudo</code> tell Travis that we want to run in full<br>
 trust mode. This is required for using the <code>awscli</code> library</li>
-<li><code>script</code> tells Travis to use our file we created previously to be
+<li><code>script</code> tells Travis to use our file we created previously to be<br>
 run</li>
-<li><code>branches</code> tells Travis to... only build our master
+<li><code>branches</code> tells Travis to... only build our master<br>
 branch</li>
 </ul>
-<p>Now, before we commit and push to Github we need to setup credentials for
+<p>Now, before we commit and push to Github we need to setup credentials for<br>
 <code>awscli</code>, to allow it to connect to our account.</p>
-<p>Log into <a href="https://travis-ci.org">https://travis-ci.org</a> and find your
-repo. In the <code>More options</code> drop down select
+<p>Log into <a href="https://travis-ci.org">https://travis-ci.org</a> and find your<br>
+repo. In the <code>More options</code> drop down select<br>
 <code>Settings</code>. Here you will find an area called Environment Variables.</p>
-<p>Here add your AWS Access Key, AWS Secret Key, S3 Bucket Region
-and your AWS Cloudfront Distribution Id for Cloudfront. This can be
-found in the <em>General</em> tab in your AWS Cloudfront distribution
+<p>Here add your AWS Access Key, AWS Secret Key, S3 Bucket Region<br>
+and your AWS Cloudfront Distribution Id for Cloudfront. This can be<br>
+found in the <em>General</em> tab in your AWS Cloudfront distribution<br>
 dashboard.</p>
 <p>It is important to name these exactly like so</p>
 <ul>
@@ -239,14 +258,14 @@ dashboard.</p>
 <li><code>AWS_SECRET_ACCESS_KEY</code></li>
 <li><code>CLOUDFRONT_DISTRIBUTION_ID</code></li>
 </ul>
-<p>These keys are stored as Environmental Variables that can be accessed in
+<p>These keys are stored as Environmental Variables that can be accessed in<br>
 your Travis build script and are all encrypted.</p>
 <blockquote>
 <p>Never put sensitive information in your Github Repo</p>
 </blockquote>
-<p>You should now be all setup ready for continuous integration. Commit and
-Push these changes to Github and now Travis should receive the trigger
-and use the <code>.travis.yml</code> file and <code>cibuild</code> to execute your
+<p>You should now be all setup ready for continuous integration. Commit and<br>
+Push these changes to Github and now Travis should receive the trigger<br>
+and use the <code>.travis.yml</code> file and <code>cibuild</code> to execute your<br>
 Jekyll and AWS S3 and Cloudfront deployment.</p>
 
 </article>
@@ -288,5 +307,6 @@ Jekyll and AWS S3 and Cloudfront deployment.</p>
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>

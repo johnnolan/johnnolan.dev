@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link href="/assets/main.css" rel="stylesheet" as="style">
+    <link rel="canonical" href="https://www.johnnolan.dev/hcta/articles/ams-tools-architecture/" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams.">
+
+    <meta property="og:title" content="AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge" />
+    <meta property="og:url" content="https://www.johnnolan.dev/hcta/articles/ams-tools-architecture/" />
+    <meta property="og:description" content="AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams." />
+    <meta property="og:image" content="https://www.johnnolan.dev/assets/posts/johnnolan.jpg" />
+    <meta property="og:type" content="article" />
+
+    <script src="/assets/index.js" defer></script>
+    <title>AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge - John Nolan</title>
+    
+  </head>
+  <body>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "John Nolan",
+        "url": "https://www.johnnolan.dev",
+        "description": "Human Centered Technical Architecture, Paintings and thoughts",
+        "author": {
+          "@type": "Person",
+          "name": "John Nolan",
+          "url": "https://www.johnnolan.dev"
+        },
+        "isFamilyFriendly": "true"
+      }
+    </script>
+
+    
+      <div class="page-content">
+        
+          
+          
+<header class="header">
+
+  <div class="wrapper">
+
+    <h2 class="site-heading">
+      <a class="site-heading-link" href="/" alt="Go to homepage">
+        John Nolan
+      </a>
+    </h2>
+
+  </div>
+</header>
+
+
+
+          
+            
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list"><li class="nav_list-item">
+                        <a href="/hcta" alt="Navigate to Human Centered Technical Architecture" class="nav_list-item_link">
+                            Human Centered Technical Architecture
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/paintings" alt="Navigate to Oil Paintings" class="nav_list-item_link">
+                            Oil Paintings
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/random" alt="Navigate to Development" class="nav_list-item_link">
+                            Development
+                        </a>
+                    </li></ul>
+        </div>
+    </nav>
+
+          
+          
+          <main class="wrapper" role="main" id="content">
+
+            
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge",
+        "description": "AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "John Nolan"
+        }
+    }
+    </script>
+
+
+<article class="article-page">
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name": "John Nolan",
+    "image": "https://www.johnnolan.dev/assets/images/johnnolan.png",
+    "url": "https://www.johnnolan.dev",
+    "jobTitle": "Technical Architect"
+  },
+  "headline": "AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge",
+  "description": "AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.johnnolan.dev/assets/posts/johnnolan.jpg"
+  },
+  "datePublished": "2023-08-10",
+  "publisher": {
+    "@type": "Organization",
+    "name": "John Nolan"
+  }
+}
+</script>
+
+    <h1 class="article-page-heading">AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge</h1>
+
+    
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      
+<time datetime="2023-08-10">10 August 2023</time>
+
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      
+    
+        John Nolan
+    
+
+    </dd>
+  </div>
+</dl>
+
+
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#introduction">Introduction</a></li><li><a href="#using-ams-(archimate%2C-mermaid-and-structurizr)">Using AMS (ArchiMate, Mermaid and Structurizr)</a></li><li><a href="#archimate-modelling-language">ArchiMate modelling language</a><ul><li><a href="#business">Business</a></li><li><a href="#legislation">Legislation</a></li><li><a href="#organisation-strategies">Organisation Strategies</a></li><li><a href="#motivations">Motivations</a></li><li><a href="#example-data-models-and-views-in-archi">Example Data Models and Views in Archi</a><ul><li><a href="#strategy-and-business-needs">Strategy and Business needs</a></li><li><a href="#team-capability-recording">Team Capability Recording</a></li></ul></li></ul></li><li><a href="#mermaid">Mermaid</a><ul><li><a href="#examples-of-mermaid-syntax">Examples of Mermaid syntax</a><ul><li><a href="#git-graph">Git Graph</a></li><li><a href="#sequence-diagrams">Sequence Diagrams</a></li><li><a href="#user-stories">User Stories</a></li><li><a href="#class-diagram">Class Diagram</a></li><li><a href="#flow-diagram">Flow Diagram</a></li><li><a href="#quadrant-chart">Quadrant Chart</a></li><li><a href="#pie-chart">Pie Chart</a></li><li><a href="#user-journey">User Journey</a></li><li><a href="#mind-map">Mind Map</a></li></ul></li></ul></li><li><a href="#structurizr---c4-model">Structurizr - C4 Model</a><ul><li><a href="#how-c4-modelling-works">How C4 Modelling works</a></li><li><a href="#what-is-structurizr%3F">What is Structurizr?</a></li><li><a href="#why-use-structurizr-c4-modelling-as-well-as-mermaid%3F">Why use Structurizr C4 Modelling as well as Mermaid?</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li><li><a href="#references">References</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
+
+
+    <h2 id="introduction" tabindex="-1">Introduction</h2>
+<p>I come from a Agile Technical Architecture background. This means operating in a servant role for teams rather than top down.</p>
+<p>In this role, some of your responsibilities are:</p>
+<ul>
+<li>Enabling people to make decisions</li>
+<li>Empathy and support for people when things go wrong</li>
+<li>Provide high level business and technology requirements to the technical teams</li>
+<li>Empower teams to own their work</li>
+<li>Share the understanding of where we are (ASIS)</li>
+<li>Provide the vision of where we are going (TOBE)</li>
+<li>Be the bridge between the business and technical teams</li>
+</ul>
+<p>Two common responsibility areas are:</p>
+<ol>
+<li>Communication/Collaboration</li>
+<li>Technical/Domain knowledge</li>
+</ol>
+<p>You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerous contexts.</p>
+<p>Explaining a plan to a board of directors, product person and developer all entail alterating your language and context.</p>
+<p>To get to the point where you can be effective in these conversations, you have to understand the business, its people and both their capabilities.</p>
+<h2 id="using-ams-(archimate%2C-mermaid-and-structurizr)" tabindex="-1">Using AMS (ArchiMate, Mermaid and Structurizr)</h2>
+<p>I want to go over a set of tooling, techniques and ways of working I use to:</p>
+<ul>
+<li>Maintain your knowledge of the business in one place</li>
+<li>Provide the correct diagram to tell your story</li>
+<li>Prevent outdated diagrams existing in your business</li>
+<li>Use Diagrams as Code wherever possible</li>
+<li>Identify where not to use diagrams</li>
+<li>Store your data models where it is appropriate</li>
+</ul>
+<p>There are three different tools and techniques to gather information, keep it up to date and help you tell a story to the right people in the right way:</p>
+<ul>
+<li><strong>Archi - ArchiMate modelling language</strong> for data that changes rarely, centered around the business</li>
+<li><strong>Mermaid</strong> for data that belongs in the teams and is owned by them</li>
+<li><strong>Structurizr - C4 Model</strong> for data that is owned by the technical persons in teams</li>
+</ul>
+<h2 id="archimate-modelling-language" tabindex="-1">ArchiMate modelling language</h2>
+<blockquote>
+<p>The ArchiMate® modelling language is an open and independent Enterprise Architecture standard that supports the description, analysis and visualisation of architecture within and across business domains. ArchiMate is one of the open standards hosted by The Open Group® and is fully aligned with TOGAF®. ArchiMate aids stakeholders in assessing the impact of design choices and changes.</p>
+</blockquote>
+<p>Citation: <a href="https://www.ArchiMatetool.com/">ArchiMate Tool</a></p>
+<p>ArchiMate comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.</p>
+<p>With the iterative development mindset in Agile ways of working, we sometimes miss a way to centralise all the key business requirements in one place, while keeping a high level view of the overall goal of our solutions.</p>
+<p>This is where ArchiMate excels. You can use the ArchiMate modelling language to store:</p>
+<ul>
+<li>Any knowledge that sits outside of the codebase</li>
+<li>Data that will not change on a regular basis</li>
+<li>Data that you will need to present to the business in various views</li>
+</ul>
+<p>Within Archi we can easily generate an ASIS model of our Enterprise to understand the complexities of the business and have a place we can revisit on a regular basis to ensure we are meeting the requirements.</p>
+<h3 id="business" tabindex="-1">Business</h3>
+<ul>
+<li>Business Value</li>
+<li>Processes</li>
+<li>Services</li>
+<li>Actors</li>
+<li>Contracts</li>
+<li>Products</li>
+<li>User Needs</li>
+<li>Company/Department/Team structure</li>
+<li>Roles</li>
+<li>Stakeholders</li>
+</ul>
+<h3 id="legislation" tabindex="-1">Legislation</h3>
+<ul>
+<li>Legal</li>
+<li>Policies</li>
+</ul>
+<h3 id="organisation-strategies" tabindex="-1">Organisation Strategies</h3>
+<ul>
+<li>Resources</li>
+<li>Capabilities</li>
+<li>Value Streams</li>
+</ul>
+<h3 id="motivations" tabindex="-1">Motivations</h3>
+<ul>
+<li>Goals</li>
+<li>Outcomes</li>
+<li>Drivers</li>
+<li>Values</li>
+</ul>
+<p>If we know the above, we can make better decisions and help others find their way forward when building new products and features.</p>
+<p>Archi allows us to add our data and create relationships across domain boundaries allowing us to visualise the complexities of an Organisation. Examples of some of these relationships are:</p>
+<ul>
+<li>Connect teams to Budgets</li>
+<li>Projects to Programming Languages and team member specialities</li>
+<li>External Services to internal dependencies</li>
+<li>Business Capabilities to team resources</li>
+</ul>
+<h3 id="example-data-models-and-views-in-archi" tabindex="-1">Example Data Models and Views in Archi</h3>
+<p>Below is a small set of examples of data you can store and visualise in Archi.</p>
+<h4 id="strategy-and-business-needs" tabindex="-1">Strategy and Business needs</h4>
+<p>Define resources, capabilities and value streams, datasources, governance and any other context specific organisation strategies.</p>
+<p><a href="/assets/posts/ams-three/archi-strategy.png"><img src="/assets/posts/ams-three/archi-strategy.png" alt="Strategy"></a><br>
+<a href="/assets/posts/ams-three/archi-strategy2.png"><img src="/assets/posts/ams-three/archi-strategy2.png" alt="Strategy"></a><br>
+<a href="/assets/posts/ams-three/archi-view-business-need.png"><img src="/assets/posts/ams-three/archi-view-business-need.png" alt="Strategy"></a></p>
+<h4 id="team-capability-recording" tabindex="-1">Team Capability Recording</h4>
+<p>Record the Organisations teams by Professions, Actors, Teams and methodologies to identify resources across the landscape.</p>
+<p><a href="/assets/posts/ams-three/archi-teams.png"><img src="/assets/posts/ams-three/archi-teams.png" alt="Strategy"></a><br>
+<a href="/assets/posts/ams-three/archi-tech.png"><img src="/assets/posts/ams-three/archi-tech.png" alt="Strategy"></a><br>
+<a href="/assets/posts/ams-three/archi-view-teams.png"><img src="/assets/posts/ams-three/archi-view-teams.png" alt="Strategy"></a><br>
+<a href="/assets/posts/ams-three/archi-view-team-dependencies.png"><img src="/assets/posts/ams-three/archi-view-team-dependencies.png" alt="Strategy"></a></p>
+<h2 id="mermaid" tabindex="-1">Mermaid</h2>
+<blockquote>
+<p>Mermaid is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development.</p>
+</blockquote>
+<p>Citation: <a href="https://github.com/mermaid-js/mermaid#about">Mermaid Github repository</a></p>
+<p>When you have a need to record visualisation decisions that have been collaboratively decided with your teams, you want to use Mermaid.</p>
+<p>Mermaid allows you to create Diagrams as Code. It is a flexible language with a wealth of online tooling to help you build your diagram.</p>
+<p>Some of the advantages to using Mermaid are:</p>
+<ul>
+<li>You can add your diagrams to Source Control.</li>
+<li>Works natively with Markdown.</li>
+<li>Maintenance and creation is everyones responsibility.</li>
+<li>Store in a central repository for organisation level diagrams.</li>
+<li>Store your product and code base diagrams alongside your code.</li>
+<li>Have full version history of changes over time.</li>
+<li>Renders in Github natively in a browser for documentation such as ADRs.</li>
+<li>No storing and rendering images (you can if you want).</li>
+<li>No additional tooling required in your pipelines to render diagrams.</li>
+<li>Open Source your decisions.</li>
+</ul>
+<p>Below are examples of some diagrams you can create with Mermaid. Adding these to your ADRs and documentation will help those wanting to understand decisions in your organisation better.</p>
+<h3 id="examples-of-mermaid-syntax" tabindex="-1">Examples of Mermaid syntax</h3>
+<p>All the below are written with Mermaid in Markdown and rendered on the fly using Mermaids Javascript library. See the source code of this page or the links below each one for further information.</p>
+<h4 id="git-graph" tabindex="-1">Git Graph</h4>
+<pre class="mermaid">gitGraph&#10;   commit&#10;   commit&#10;   branch develop&#10;   checkout develop&#10;   commit&#10;   commit&#10;   checkout main&#10;   merge develop&#10;   commit&#10;   commit&#10;</pre>
+<p>Source code: <a href="https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/gitGraph.md">Git Graph</a></p>
+<h4 id="sequence-diagrams" tabindex="-1">Sequence Diagrams</h4>
+<pre class="mermaid">sequenceDiagram&#10;    autonumber&#10;    actor Browser&#10;    participant SUS as Sign Up Service&#10;    participant US as User Service&#10;    links US: {&quot;Repository&quot;: &quot;#&quot;}&#10;    participant Kafka&#10;&#10;    Browser-&gt;&gt;SUS: GET /sign_up&#10;    activate SUS&#10;    SUS--&gt;&gt;Browser: 200 OK (HTML Page)&#10;    deactivate SUS&#10;&#10;    Browser-&gt;&gt;+SUS: POST /sign_up&#10;    SUS-&gt;&gt;SUS: Validate input&#10;&#10;    alt invalid input&#10;        SUS--&gt;&gt;Browser: Error&#10;    else valid input&#10;        SUS-&gt;&gt;+US: POST /users&#10;        US--)Kafka: User Created Event Published&#10;        Note left of Kafka: other services take action based on this event&#10;        US--&gt;&gt;-SUS: 201 Created (User)&#10;        SUS--&gt;&gt;-Browser: 301 Redirect (Login Page)&#10;    end&#10;&#10;</pre>
+<p>Source code: <a href="https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/2-sequenceDiagram-3.md">Sequence Diagram</a></p>
+<h4 id="user-stories" tabindex="-1">User Stories</h4>
+<pre class="mermaid">graph TD;&#10;   classDef facadeCommand fill:#779fae&#10;   classDef command fill:#aec6cf&#10;   classDef result fill:#cfcfc4 &#10;   classDef event fill:#ffb853&#10;   classDef domainEvent fill:#ffcb81&#10;   classDef integrationEvent fill:#ffdeaf&#10;   classDef query fill:#62d862&#10;   classDef readModel fill:#77dd77&#10;   classDef userInterface fill:#a2e8a2&#10;   classDef aggregate fill:#fdfd9d&#10;   classDef service fill:#fcfc78&#10;   classDef policy fill:#b6a2db&#10;   classDef saga fill:#c9bbe5&#10;   classDef process fill:#ddd4ee&#10;   classDef timer fill:#cfcfc4&#10;   classDef person fill:#ffd1dc&#10;   classDef system fill:#ffd1dc&#10;   classDef comment fill:transparent&#10;   &#10;   FacadeCommand:::facadeCommand --&gt; Command:::command&#10;   Result:::result --&gt; Event:::event&#10;   DomainEvent:::domainEvent --&gt; IntegrationEvent:::integrationEvent&#10;   Query:::query --&gt; ReadModel:::readModel&#10;   UserInterface:::userInterface --&gt; Aggregate:::aggregate&#10;   Service:::service --&gt; Policy:::policy&#10;   Saga:::saga --&gt; Process:::process&#10;   Timer:::timer --&gt; Person:::person&#10;   System:::system --&gt; Comment:::comment&#10;</pre>
+<p>Reference: <a href="https://devrants.blog/2022/08/20/mermaid-event-storming/">https://devrants.blog/2022/08/20/mermaid-event-storming/</a></p>
+<h4 id="class-diagram" tabindex="-1">Class Diagram</h4>
+<pre class="mermaid">classDiagram&#10;    Title &quot;1..*&quot; -- &quot;1..*&quot; Genre: is associated with&#10;    %% Added to make visibility better&#10;    Title: \n\n&#10;    %% Can be used to link a Domain Object to external documentation&#10;    link Title &quot;#&quot; _blank&#10;&#10;    Title &quot;1..*&quot; *-- &quot;0..*&quot; Season: has&#10;    Title &quot;1..*&quot; *-- &quot;0..*&quot; Review: has&#10;    Title &quot;0..*&quot; o-- &quot;1..*&quot; Actor: features&#10;&#10;    TV Show --|&gt; Title: implements&#10;    Short --|&gt; Title: implements&#10;    Film --|&gt; Title: implements&#10;&#10;    Viewer &quot;0..*&quot; --&gt; &quot;0..*&quot; Title: watches&#10;&#10;    Season &quot;1&quot; *-- &quot;0..*&quot; Review: has&#10;    Season &quot;1&quot; *-- &quot;1..*&quot; Episode: contains&#10;&#10;    Episode &quot;1&quot; *-- &quot;0..*&quot; Review: has&#10;</pre>
+<p>Source code: <a href="https://raw.githubusercontent.com/johnnolan/mermaid-learning/main/1-classDiagram-2.md">Class Diagram</a></p>
+<h4 id="flow-diagram" tabindex="-1">Flow Diagram</h4>
+<pre class="mermaid">flowchart TD&#10;    A[Christmas] --&gt;|Get money| B(Go shopping)&#10;    B --&gt; C{Let me think}&#10;    C --&gt;|One| D[Laptop]&#10;    C --&gt;|Two| E[iPhone]&#10;    C --&gt;|Three| F[fa:fa-car Car]&#10;</pre>
+<p>Source code: <a href="https://mermaid.js.org/syntax/flowchart.html">Flow Chart</a></p>
+<h4 id="quadrant-chart" tabindex="-1">Quadrant Chart</h4>
+<pre class="mermaid">quadrantChart&#10;    title Reach and engagement of campaigns&#10;    x-axis Low Reach --&gt; High Reach&#10;    y-axis Low Engagement --&gt; High Engagement&#10;    quadrant-1 We should expand&#10;    quadrant-2 Need to promote&#10;    quadrant-3 Re-evaluate&#10;    quadrant-4 May be improved&#10;    Campaign A: [0.3, 0.6]&#10;    Campaign B: [0.45, 0.23]&#10;    Campaign C: [0.57, 0.69]&#10;    Campaign D: [0.78, 0.34]&#10;    Campaign E: [0.40, 0.34]&#10;    Campaign F: [0.35, 0.78]&#10;</pre>
+<p>Source code: <a href="https://mermaid.js.org/syntax/flowchart.html">Flow Chart</a></p>
+<h4 id="pie-chart" tabindex="-1">Pie Chart</h4>
+<pre class="mermaid">pie title Pets adopted by volunteers&#10;    &quot;Dogs&quot; : 386&#10;    &quot;Cats&quot; : 85&#10;    &quot;Rats&quot; : 15&#10;</pre>
+<p>Source code: <a href="https://mermaid.js.org/syntax/pie.html">Pie Chart</a></p>
+<h4 id="user-journey" tabindex="-1">User Journey</h4>
+<pre class="mermaid">journey&#10;    title My working day&#10;    section Go to work&#10;      Make tea: 5: Me&#10;      Go upstairs: 3: Me&#10;      Do work: 1: Me, Cat&#10;    section Go home&#10;      Go downstairs: 5: Me&#10;      Sit down: 5: Me&#10;</pre>
+<p>Source code: <a href="https://mermaid.js.org/syntax/userJourney.html">User Journey</a></p>
+<h4 id="mind-map" tabindex="-1">Mind Map</h4>
+<pre class="mermaid">mindmap&#10;  root((mindmap))&#10;    Origins&#10;      Long history&#10;      ::icon(fa fa-book)&#10;      Popularisation&#10;        British popular psychology author Tony Tony&#10;    Research&#10;      On effectiveness&lt;br/&gt;and features&#10;      On Automatic creation&#10;        Uses&#10;            Creative techniques&#10;            Strategic planning&#10;            Argument mapping&#10;    Tools&#10;      Pen and paper&#10;      Mermaid&#10;</pre>
+<p>Source code: <a href="https://mermaid.js.org/syntax/mindmap.html">Mind Map</a></p>
+<h2 id="structurizr---c4-model" tabindex="-1">Structurizr - C4 Model</h2>
+<blockquote>
+<p>The C4 model was created as a way to help software development teams describe and communicate software architecture, both during up-front design sessions and when retrospectively documenting an existing codebase. It's a way to create maps of your code, at various levels of detail, in the same way you would use something like Google Maps to zoom in and out of an area you are interested in.</p>
+</blockquote>
+<p>Citation: <a href="https://c4model.com/">C4 Model Website</a></p>
+<p>If you are unfamiliar with Structurizr and C4 Modelling then I highly suggest watching the following video by Simon Brown. This 30 minute video will give you all the information you will need to get started.</p>
+<div id="x2-rSnhpw0g" class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;"><iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" width="100%" height="100%" frameborder="0" title="Embedded YouTube video" src="https://www.youtube-nocookie.com/embed/x2-rSnhpw0g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<h3 id="how-c4-modelling-works" tabindex="-1">How C4 Modelling works</h3>
+<p>C4 Models are a great way to describe your software architecture alongside your code base. It allows you to break down your software architecture in four levels:</p>
+<ul>
+<li>Level 1: System Context
+<ul>
+<li>Shows how the software system fits into the world around it</li>
+</ul>
+</li>
+<li>Level 2: Container
+<ul>
+<li>Shows the high-level technical building blocks</li>
+</ul>
+</li>
+<li>Level 3: Component
+<ul>
+<li>Zooms in to the individual Containers showing the components inside</li>
+</ul>
+</li>
+<li>Level 4: Code
+<ul>
+<li>Zoom into the individual components showing how that component is implemented</li>
+</ul>
+</li>
+</ul>
+<p>In my experience, I have never done Level 4 and rarely do Level 3 unless in an ideation stage. Changes in a code base, mean without automation, your diagrams at Level 3 and 4 can become quickly out of sync and provide little value compared to Level 1 and 2.</p>
+<p>This does not mean it would not be valuable to have these for your teams. If this is the case I would recommend looking at specific language libraries that can generate Level 3 and 4 diagrams from your code or make updating the diagrams a part of your development lifecycle.</p>
+<h3 id="what-is-structurizr%3F" tabindex="-1">What is Structurizr?</h3>
+<blockquote>
+<p>Structurizr builds upon &quot;diagrams as code&quot;, allowing you to create multiple software architecture diagrams from a single model. There are a number of tools for creating Structurizr compatible workspaces, with the Structurizr DSL being the recommended option for most teams.</p>
+</blockquote>
+<p>Citation: <a href="https://structurizr.com/">Structurizr Website</a></p>
+<div id="4HEd1EEQLR0" class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;"><iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" width="100%" height="100%" frameborder="0" title="Embedded YouTube video" src="https://www.youtube-nocookie.com/embed/4HEd1EEQLR0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p>Using Structurizr, we can create C4 Models as Code. It is specially designed to support C4 modelling, meaning it gives us a opinionated environment to work within.</p>
+<p>An example of how we can write a simple Software System is:</p>
+<pre class="dsl">workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+}
+</pre>
+<p>This will provide us with the following output in SVG, PNG, PlantUML or Mermaid.</p>
+<p><a href="/assets/posts/ams-three/ams-three-c4-level1.png"><img src="/assets/posts/ams-three/ams-three-c4-level1.png" alt="Level 1"></a><br>
+Credit: <a href="https://structurizr.com/">https://structurizr.com/</a></p>
+<p><a href="/assets/posts/ams-three/ams-three-c4-level2.png"><img src="/assets/posts/ams-three/ams-three-c4-level2.png" alt="Level 2"></a><br>
+Credit: <a href="https://structurizr.com/">https://structurizr.com/</a></p>
+<h3 id="why-use-structurizr-c4-modelling-as-well-as-mermaid%3F" tabindex="-1">Why use Structurizr C4 Modelling as well as Mermaid?</h3>
+<ul>
+<li>Reference other diagrams and models <a href="https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#includes">(use the !includes keyword)</a>:
+<ul>
+<li>e.g. store your Actors in a central repository</li>
+<li>Reference other repositories diagrams</li>
+<li>Create a high level Enterprise diagram that references all other repository diagrams</li>
+</ul>
+</li>
+<li>Structured syntax specific to C4 Modelling.</li>
+<li>Open Source.</li>
+<li>Exports to a wide range of tools and visualisations such as:
+<ul>
+<li>PlantUML</li>
+<li>C4-PlantUML</li>
+<li>Mermaid</li>
+<li>Ilograph</li>
+<li>Graph view</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion" tabindex="-1">Conclusion</h2>
+<p>There are many tools and methodologies for Architecture and each project will require different solutions to understand and solve complex problems within organisations.</p>
+<p>With the three tools above, we can:</p>
+<ul>
+<li>Keep business and user data that changes slowly in one place to understand and visualise using ArchiMate</li>
+<li>Record and version collaborative ASIS and TOBE ideas in multiple visualisations with Mermaid</li>
+<li>Maintain a high level view of our individual and enterprise level architecture, alongside the code with C4 Modelling and Structurizr</li>
+</ul>
+<p>Mixing these three tools and methods we can provide the right information to the right people at the right level of detail while also maintaining a history of our decisions over time.</p>
+<h2 id="references" tabindex="-1">References</h2>
+<ul>
+<li><a href="https://structurizr.com/">Structurizr</a></li>
+<li><a href="https://c4model.com/">C4 Model Website</a></li>
+<li><a href="https://devrants.blog/2022/08/20/mermaid-event-storming/">Developer Rants - Mermaid Event Storming</a></li>
+<li><a href="https://mermaid.js.org/">Mermaid Website</a></li>
+<li><a href="https://mermaid.live/">Mermaid Live Editor!</a></li>
+<li><a href="https://github.com/mermaid-js/mermaid">Mermaid Github Repo</a></li>
+<li><a href="https://scaledagileframework.com/about/">Scaled Agile Framework</a></li>
+<li><a href="https://www.opengroup.org/archimate-forum/archimate-overview">Open Group ArchiMate Modelling Language</a></li>
+<li><a href="https://www.archimatetool.com/">Archi Tool</a></li>
+<li><a href="https://pragprog.com/titles/apdiag/creating-software-with-modern-diagramming-techniques/">Creating Software with Modern Diagramming Techniques by Ashley Peacock</a></li>
+</ul>
+
+</article>
+
+
+            
+          </main>
+
+        
+      </div>
+
+        
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Human Centered Technical Architecture, Paintings and thoughts</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:me@johnnolan.dev">me@johnnolan.dev</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+          <div class="twitter">
+              <a href="https://github.com/johnnolan"><span class="icon icon--github">
+                  <span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg></span>
+                  </span>
+              <span class="username">johnnolan</span></a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+    
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
+  </body>
+</html>

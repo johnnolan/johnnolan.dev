@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/random/articles/preconect-hint-tag/" />
@@ -162,20 +166,35 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            
+        </nav>
+    </div>
+</details>
+
 
     <p>Recently I have added in (and well overdue) the <code>preconnect</code> meta tag.</p>
-<p>Preconnect is a resource hint tag you can add to your markup in the <code>&lt;head&gt;</code>. It will tell the browser,
+<p>Preconnect is a resource hint tag you can add to your markup in the <code>&lt;head&gt;</code>. It will tell the browser,<br>
 that your markup will be making a request to a resource on an external domain, later int the document.</p>
 <p>The tag looks like this</p>
-<pre><code class="language-html">&lt;link rel=&quot;preconnect&quot; href=&quot;//example.com&quot;&gt;
-</code></pre>
+<pre class="html"><link rel="preconnect" href="//example.com">
+</pre>
 <p>Once defined this will initiate the below, including SSL handshakes</p>
 <ul>
 <li>DNS Lookup</li>
 <li>TCP Handshake</li>
 <li>TLS negotiation</li>
 </ul>
-<p>This will save you time later on down the request chain when the browser sees these resources and starts
+<p>This will save you time later on down the request chain when the browser sees these resources and starts<br>
 to decide how to handle them.</p>
 <p>The image above is an example of results using Google Chrome Dev Tools at <code>Fast 3G</code> and <code>Online</code> options.</p>
 <ul>
@@ -189,7 +208,7 @@ to decide how to handle them.</p>
 <blockquote>
 <p>On mobile connections and a 6x slowdown on processor speed, it has a reduction of 2-6 seconds on page load speed!</p>
 </blockquote>
-<p>Unfortunately, I didn't get a before for the Online test, but you can imagine the gain. The mobile performance
+<p>Unfortunately, I didn't get a before for the Online test, but you can imagine the gain. The mobile performance<br>
 fight is what I am concentrating on day to day at the moment, anyway.</p>
 <p>This gives us another great tool in our arsenal.</p>
 <p>There are other options as well</p>
@@ -198,8 +217,8 @@ fight is what I am concentrating on day to day at the moment, anyway.</p>
 <li><a href="https://w3c.github.io/resource-hints/#prefetch">prefetch</a></li>
 <li><a href="https://w3c.github.io/resource-hints/#prerender">prerender</a></li>
 </ul>
-<p>Each one gives you certain advantages/disadvantages over the other.
-For more in-depth information you can check out
+<p>Each one gives you certain advantages/disadvantages over the other.<br>
+For more in-depth information you can check out<br>
 <a href="https://w3c.github.io/resource-hints/#preconnect">https://w3c.github.io/resource-hints/#preconnect</a></p>
 <p>Sources</p>
 <ul>
@@ -245,5 +264,6 @@ For more in-depth information you can check out
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>

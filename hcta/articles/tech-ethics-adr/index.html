@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link href="/assets/main.css" rel="stylesheet" as="style">
     <link rel="canonical" href="https://www.johnnolan.dev/hcta/articles/tech-ethics-adr/" />
@@ -162,10 +166,27 @@
 </dl>
 
 
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#tl%3Bdr">tl;dr</a></li><li><a href="#introduction">Introduction</a><ul><li><a href="#what-is-an-architectural-decision-record-(adr)%3F">What is an Architectural Decision Record (ADR)?</a></li></ul></li><li><a href="#first-version-of-adding-tech-ethics-to-adrs">First version of adding Tech Ethics to ADRs</a></li><li><a href="#how-to-setup-tech-ethics-in-architectural-decision-records">How to setup Tech Ethics in Architectural Decision Records</a></li><li><a href="#example-adr">Example ADR</a></li><li><a href="#status">Status</a></li><li><a href="#context">Context</a></li><li><a href="#ethics">Ethics</a><ul><li><a href="#decision">Decision</a></li><li><a href="#consequences">Consequences</a></li></ul></li><li><a href="#article-references">Article References</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
 
-    <h2>TLDR</h2>
+
+    <h2 id="tl%3Bdr" tabindex="-1">tl;dr</h2>
 <p>You can see the final Ethics ADR template and a copy of this decision in the <a href="https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs">docs folder of this Github repository</a>.</p>
-<h2>Introduction</h2>
+<h2 id="introduction" tabindex="-1">Introduction</h2>
 <p>I have had the privilege to have worked with a Digital Sociologist recently who introduced me to the concept of Tech Ethics.</p>
 <p>One of my passions in development is front end performance and the concept of tech privilege (this will be another post in the future). This introduced me to a wider view on ethics in development.</p>
 <p><a href="https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/">A blog post by Lisa Talia Moretti titled &quot;Tech Ethic Decisions&quot;</a> introduces the concept and I instantly began to wonder how you could take this and apply it to a teams every day working.</p>
@@ -173,7 +194,7 @@
 <blockquote>
 <p>&quot;When we design digital products and services, we think about the impact we’re having on the systems in which people live their lives&quot; - Lisa Talia Moretti</p>
 </blockquote>
-<h3>What is an Architectural Decision Record (ADR)?</h3>
+<h3 id="what-is-an-architectural-decision-record-(adr)%3F" tabindex="-1">What is an Architectural Decision Record (ADR)?</h3>
 <p><a href="https://cognitect.com/authors/MichaelNygard.html">Michael Nygard</a> talks in detail in his blog post <a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">&quot;Documenting Architecture Decisions&quot;</a></p>
 <p>Architectural Decision Records are a way of leaving an historical view of decisions made and why they were made during the development of a service.</p>
 <p>This gives the following advantages</p>
@@ -211,9 +232,9 @@
 </ul>
 </li>
 </ul>
-<h2>First version of adding Tech Ethics to ADRs</h2>
+<h2 id="first-version-of-adding-tech-ethics-to-adrs" tabindex="-1">First version of adding Tech Ethics to ADRs</h2>
 <p>The first version of adding Tech Ethics was to add all the sub headings to the ADR template.</p>
-<pre><code class="language-markdown">- Title
+<pre class="markdown">- Title
 - Context
 - Ethics
   - Mitigate against being tech deterministic
@@ -223,26 +244,26 @@
 - Decision
 - Status
 - Consequences
-</code></pre>
+</pre>
 <p>The main aim of ADRs is to be as concise as possible and after testing this in a Service called <a href="https://docs.modernising.opg.service.justice.gov.uk/adr/articles/0002-verifiable-credentials/">Modernising Lasting Power of Attorney</a> it felt too complex.</p>
 <p>After learning from this, I propose a simpler version of just having Ethics as a section with the sub headings being prompts.</p>
-<h2>How to setup Tech Ethics in Architectural Decision Records</h2>
+<h2 id="how-to-setup-tech-ethics-in-architectural-decision-records" tabindex="-1">How to setup Tech Ethics in Architectural Decision Records</h2>
 <p>We want to use the four top level sections of Tech Ethics and use them as points of reference.</p>
 <p>We should have one section called Ethics.</p>
 <p>We should include in comments on the ADR template, a link to the original article and the list of sub headings as a prompt.</p>
 <p>Below is a template of how this could look. It is in a gist so please feel free to take this or suggest edits.</p>
 <p>The final ADR template that I use can be found in this repository at <a href="https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs/0000-adr-template.md">https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs/0000-adr-template.md</a></p>
 <script src="https://gist.github.com/johnnolan/5a650b3f376cb88012ca289680185dac.js"></script>
-<h2>Example ADR</h2>
+<h2 id="example-adr" tabindex="-1">Example ADR</h2>
 <p>Below is an example of what an Architectural Decision Record with Tech Ethics looks like.</p>
 <p>You can see the template and a copy of this decision in the <a href="https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs">docs folder of this Github repository</a>.</p>
-<h1>0001 - Use Github for source code storage</h1>
+<h1 id="0001---use-github-for-source-code-storage" tabindex="-1">0001 - Use Github for source code storage</h1>
 <p>Date: 2022-08-18</p>
-<h2>Status</h2>
+<h2 id="status" tabindex="-1">Status</h2>
 <p>Accepted</p>
-<h2>Context</h2>
+<h2 id="context" tabindex="-1">Context</h2>
 <p>We want to store our source code in a open source, cloud based git provider.</p>
-<h2>Ethics</h2>
+<h2 id="ethics" tabindex="-1">Ethics</h2>
 <p>There are other providers we could use, but doing so would not bring any great benefit over our already established best practices for existing services.</p>
 <p>We can move to any other provider should we wish due to git being an open standard.</p>
 <p>Having our code on Github as a Public repository allows others to learn from and contribute to our work. This could include anyone from students learning to big corporations wanting to use and contribute.</p>
@@ -251,12 +272,12 @@
 <p>We should ensure that our repositories are marked as Open Source as soon as we feel comfortable.</p>
 <p>With our code in the open, people can gain trust that we are not abusing their data or privacy and help identify any potential security issues we may miss.</p>
 <p>We should never store any Personal Identifiable Information into our Repository nor any secrets committed.</p>
-<h3>Decision</h3>
+<h3 id="decision" tabindex="-1">Decision</h3>
 <p>We should use Github for storing our source code.</p>
-<h3>Consequences</h3>
+<h3 id="consequences" tabindex="-1">Consequences</h3>
 <p>We will be open source from the start.</p>
 <p>If we use other Github features such as Actions, we must be aware that we cannot move to another provider quickly without first replacing built in functionality with another tool.</p>
-<h2>Article References</h2>
+<h2 id="article-references" tabindex="-1">Article References</h2>
 <ul>
 <li><a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">&quot;Documenting Architecture Decisions&quot; by Michael Nygard</a></li>
 <li><a href="https://docs.modernising.opg.service.justice.gov.uk/research-development/articles/tech-ethic-decisions/">&quot;Tech Ethic Decisions&quot; by Lisa Talia Moretti</a></li>
@@ -302,5 +323,6 @@
 
 
     
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
   </body>
 </html>
