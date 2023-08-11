@@ -1,7 +1,7 @@
 ---
 layout: layouts/article.njk
-title: "AMS (ArchiMate, Mermaid and Structurizr) - The Three Peaks of Architecture"
-description: "AMS - The Three Peaks of Architecture, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams."
+title: "AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge"
+description: "AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams."
 image: "assets/posts/johnnolan.jpg"
 date: 2023-08-10
 tags: 
@@ -29,30 +29,18 @@ Two common responsibility areas are:
 1. Communication
 2. Technical/Domain knowledge
 
-You need to be able to wear different hats and adapt quickly to your situation.
+You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerious contexts.
 
-### How you communicate
+Explaining a plan to a board of directors, product person and developer all entale alterating your language and context.
 
-- Is your audience Product people?
-  - Talk about the user value and financial cost of the decisions
-- Is your audience Technical people?
-  - Talk about the technical vision their decisions need to fit into
-
-### Presenting Technical Knowledge
-
-- Is the team well established and knowledgable?
-  - Give them the parameters to work within and stand back so they can do their work.
-- Is the team new or Junior heavy?
-  - Spend more time pairing and planning to help guide the technical decisions and learning resources.
-
-To get to the point where you can be effective, you have to understand the business, its people and both their capabilities.
+To get to the point where you can be effective in these conversations, you have to understand the business, its people and both their capabilities.
 
 ## Using AMS (ArchiMate, Mermaid and Structurizr)
 
-In this article I want to go over a set of tooling and ways of working I use to:
+I want to go over a set of tooling, techniques and ways of working I use to:
 
-- Provide the correct diagram to tell your story
 - Maintain your knowledge of the business in one place
+- Provide the correct diagram to tell your story
 - Prevent outdated diagrams existing in your business
 - Use Diagrams as Code wherever possible
 - Identify where not to use diagrams
