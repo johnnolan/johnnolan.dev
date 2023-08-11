@@ -10,7 +10,7 @@ tags:
 contributors: ["John Nolan"]
 ---
 
-## TLDR
+## tl;dr
 
 You can see the final Ethics ADR template and a copy of this decision in the [docs folder of this Github repository](https://github.com/johnnolan/johnnolan.dev/tree/main/docs/adrs).
 

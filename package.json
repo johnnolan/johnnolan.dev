@@ -19,10 +19,11 @@
     "watch:eleventy": "eleventy --serve --watch --incremental",
     "serve": "concurrently \"yarn run watch:eleventy\" \"yarn run watch:sass\"",
     "build": "yarn run sass && eleventy",
-    "pa11y-ci": "pa11y-ci '_site/**/*.html'"
+    "pa11y-ci": "pa11y-ci --config .pa11yci '_site/**/*.html'"
   },
   "dependencies": {
-    "@11ty/eleventy": "2.0.1"
+    "@11ty/eleventy": "2.0.1",
+    "eleventy-plugin-youtube-embed": "^1.9.0"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
@@ -30,6 +31,7 @@
     "@babel/core": "7.22.10",
     "@babel/eslint-parser": "7.22.10",
     "@babel/preset-env": "7.22.10",
+    "cheerio": "^1.0.0-rc.12",
     "concurrently": "8.2.0",
     "cspell": "6.31.2",
     "dayjs": "1.11.9",
@@ -37,8 +39,10 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.0",
     "globby": "13.2.2",
+    "htmlencode": "^0.0.4",
     "jshint": "2.13.6",
     "markdown-it": "13.0.1",
+    "markdown-it-anchor": "^8.6.7",
     "markdownlint-cli": "0.35.0",
     "pa11y-ci": "3.0.1",
     "prettier": "3.0.1",

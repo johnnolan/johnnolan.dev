@@ -1,0 +1,10 @@
+.toc {
+  margin-bottom: 15px;
+  &__summary {
+    font-weight: 700;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

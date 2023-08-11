@@ -14,9 +14,14 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight 16px $base-font-family;
+    font: $base-font-weight 18px $base-font-family;
+    letter-spacing: 0.03em;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
     color: $text-color;
+    line-height: 22px;
     background-color: $background-color;
+    word-wrap: break-word;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -69,9 +74,11 @@ figure > img {
  */
 ul, ol {
     margin-left: $spacing-unit;
+    margin-bottom: 2em;
 }
 
 li {
+    margin-top: 0.5em;
     > ul,
     > ol {
          margin-bottom: 0;
@@ -84,7 +91,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+    font-weight: 700;
 }
 
 
@@ -130,8 +137,8 @@ code {
     font-size: 16px;
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 3px;
-    color: #ddca7e;
-    background-color: #1D1E22;
+    color: #000000;
+    background-color: #ffffff;
 }
 
 code {

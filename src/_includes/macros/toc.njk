@@ -1,0 +1,14 @@
+{% macro toc(content, toc) %}
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            {{ content | toc | safe }}
+        </nav>
+    </div>
+</details>
+{% endmacro %}
