@@ -52,8 +52,10 @@
     {%- from "../macros/navigation.njk" import navigation %}
     {%- from "../macros/footer.njk" import footer %}
     {%- from "../macros/categoryList.njk" import categoryList %}
+    {%- from "../macros/cookieBanner.njk" import cookieBanner %}
 
     {% block body %}
+      {{ cookieBanner() }}
       <div class="page-content">
         {% block content %}
           
