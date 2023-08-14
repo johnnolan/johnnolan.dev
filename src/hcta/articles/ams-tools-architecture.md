@@ -60,6 +60,10 @@ Citation: [ArchiMate Tool](https://www.ArchiMatetool.com/)
 
 ArchiMate comes from the TOGAF landscape which lends itself to more Enterprise Architecture modelling rather than Agile Architecture.
 
+ArchiMate and TOGAF are huge topics of which I am just starting my journey on. From what I have learnt so far, the [experts at the Open Group](https://www.opengroup.org/togaf) have created a wealth best practices to learn and make your own. You can learn more on their website of how to start a training course and access to resources.
+
+I am personally looking forward to mixing elements of TOGAF and Agile Architecture to expand my abilities. The more you know.
+
 With the iterative development mindset in Agile ways of working, we sometimes miss a way to centralise all the key business requirements in one place, while keeping a high level view of the overall goal of our solutions.
 
 This is where ArchiMate excels. You can use the ArchiMate modelling language to store:
