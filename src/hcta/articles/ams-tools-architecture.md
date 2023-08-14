@@ -131,6 +131,8 @@ Record the Organisations teams by Professions, Actors, Teams and methodologies t
 [![Strategy](/assets/posts/ams-three/archi-view-teams.png)](/assets/posts/ams-three/archi-view-teams.png)
 [![Strategy](/assets/posts/ams-three/archi-view-team-dependencies.png)](/assets/posts/ams-three/archi-view-team-dependencies.png)
 
+ArchiMate and TOGAF are huge topics of which I am just starting my journey on. From what I have learnt so far, the [experts at the Open Group](https://www.opengroup.org/togaf) have created a wealth best practices to learn and make your own. You can learn more on their website of how to start a training course and access to resources that can help you get started. The more you know.
+
 ## Mermaid
 
 > Mermaid is a JavaScript-based diagramming and charting tool that uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. The main purpose of Mermaid is to help documentation catch up with development.
