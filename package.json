@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "2.0.1",
-    "eleventy-plugin-youtube-embed": "1.9.0"
+    "eleventy-plugin-youtube-embed": "1.9.1"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
