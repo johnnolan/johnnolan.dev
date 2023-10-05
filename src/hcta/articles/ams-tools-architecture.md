@@ -12,28 +12,17 @@ contributors: ["John Nolan"]
 
 ## Introduction
 
-I come from a Agile Technical Architecture background. This means operating in a servant role for teams rather than top down.
+I come from a Agile Technical Architecture background. This means operating in a servant role for teams rather than top down. I am now exploring the Enterprise Architecture skillsets such as TOGAF to expand my knowledge and find a middle ground of how I like to work. The more you know!
 
-In this role, some of your responsibilities are:
-
-- Enabling people to make decisions
-- Empathy and support for people when things go wrong
-- Provide high level business and technology requirements to the technical teams
-- Empower teams to own their work
-- Share the understanding of where we are (ASIS)
-- Provide the vision of where we are going (TOBE)
-- Be the bridge between the business and technical teams
-
-Two common responsibility areas are:
-
-1. Communication/Collaboration
-2. Technical/Domain knowledge
-
-You need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerous contexts.
+ As a Architect, you need to be able to wear different hats and adapt quickly to your situation. It is common to explain the same situation in numerous contexts.
 
 Explaining a plan to a board of directors, product person and developer all entail alterating your language and context.
 
 To get to the point where you can be effective in these conversations, you have to understand the business, its people and both their capabilities.
+
+Below I have set out my current thoughts on how I can take different Architecture practices and merge them to hit three levels of context you need to manage when on a project.
+
+But please bare in mind, diagrams to visualise your thoughts should be used sparingly and when appropriate. They can get out of date quickly and sometimes it is easier just to do. I cover some of these instances below in further detail.
 
 ## Using AMS (ArchiMate, Mermaid and Structurizr)
 
