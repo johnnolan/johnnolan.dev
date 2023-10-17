@@ -33,7 +33,7 @@
     "@babel/preset-env": "7.23.2",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "8.2.1",
-    "cspell": "7.3.7",
+    "cspell": "7.3.8",
     "dayjs": "1.11.10",
     "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
