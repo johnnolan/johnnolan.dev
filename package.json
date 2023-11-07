@@ -35,7 +35,7 @@
     "concurrently": "8.2.2",
     "cspell": "7.3.8",
     "dayjs": "1.11.10",
-    "eslint": "8.52.0",
+    "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.1",
     "globby": "13.2.2",
