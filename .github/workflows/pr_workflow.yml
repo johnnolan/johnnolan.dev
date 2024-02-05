@@ -44,7 +44,7 @@ jobs:
 
       - name: Audit pages using lighthouse
         continue-on-error: true
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v11
         with:
           configPath: "./lighthouserc.json"
           budgetPath: ./src/_includes/budget.json
