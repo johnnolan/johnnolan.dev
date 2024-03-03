@@ -28,9 +28,9 @@
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
     "@11ty/eleventy-plugin-rss": "1.2.0",
-    "@babel/core": "7.23.9",
+    "@babel/core": "7.24.0",
     "@babel/eslint-parser": "7.23.10",
-    "@babel/preset-env": "7.23.9",
+    "@babel/preset-env": "7.24.0",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "8.2.2",
     "cspell": "8.4.1",
