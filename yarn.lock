@@ -1235,9 +1235,9 @@
   integrity sha512-tKSSUf9BJEV+GJQAYGw5e+ouhEe2ZXE620S7BLKe3ZmpnjlNG9JqlnaBhkIMxKnNFkLY2BP/EARzw31AZnOv4g==
 
 "@cspell/dict-en_us@^4.3.17":
-  version "4.3.18"
-  resolved "https://registry.yarnpkg.com/@cspell/dict-en_us/-/dict-en_us-4.3.18.tgz#ce8895988c83068daff128730b29b3f52f60e141"
-  integrity sha512-D8jGT7Zi3+e8zIpT0NqGKvvzehcvUETFlOA0NxcRStkw7H7mgouHxKFU+u7t3tvCoGNwh2gwjCqZQlK8ZXwQHw==
+  version "4.3.19"
+  resolved "https://registry.yarnpkg.com/@cspell/dict-en_us/-/dict-en_us-4.3.19.tgz#ba79bed9cee82fdc9f76d03e85b8f07ea655c322"
+  integrity sha512-tHcXdkmm0t9LlRct1vgu3+h0KW/wlXCInkTiR4D/rl730q1zu2qVEgiy1saMiTUSNmdu7Hiy+Mhb+1braVqnZQ==
 
 "@cspell/dict-filetypes@^3.0.3":
   version "3.0.3"
@@ -1377,9 +1377,9 @@
   integrity sha512-ph0twaRoV+ylui022clEO1dZ35QbeEQaKTaV2sPOsdwIokABPIiK09oWwGK9qg7jRGQwVaRPEq0Vp+IG1GpqSQ==
 
 "@cspell/dict-software-terms@^3.3.18":
-  version "3.3.18"
-  resolved "https://registry.yarnpkg.com/@cspell/dict-software-terms/-/dict-software-terms-3.3.18.tgz#f25863c316eea195d74b170d41711e2c7402e9ca"
-  integrity sha512-LJZGGMGqS8KzgXJrSMs3T+6GoqHG9z8Bc+rqLzLzbtoR3FbsMasE9U8oP2PmS3q7jJLFjQkzmg508DrcuZuo2g==
+  version "3.3.20"
+  resolved "https://registry.yarnpkg.com/@cspell/dict-software-terms/-/dict-software-terms-3.3.20.tgz#ced0152f99228d697ab177b095f242ea73edfad2"
+  integrity sha512-KmPwCxYWEu7SGyT/0m/n6i6R4ZgxbmN3XcerzA6Z629Wm5iZTVfJaMWqDK2RKAyBawS7OMfxGz0W/wYU4FhJlA==
 
 "@cspell/dict-sql@^2.1.3":
   version "2.1.3"
@@ -1402,9 +1402,9 @@
   integrity sha512-Ak+vy4HP/bOgzf06BAMC30+ZvL9mzv21xLM2XtfnBLTDJGdxlk/nK0U6QT8VfFLqJ0ZZSpyOxGsUebWDCTr/zQ==
 
 "@cspell/dict-typescript@^3.1.2":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@cspell/dict-typescript/-/dict-typescript-3.1.3.tgz#47d9ab11d3a24157b4d7240f7c61bdf06e97ae71"
-  integrity sha512-TdD789OWwOImH/IMyz/QRA6LJz7ScI/qbn1YOkcAW3AROvgbc0oKAxzp08+Xu8tj4GROrJ9UqZdh0t9xQCPkPg==
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@cspell/dict-typescript/-/dict-typescript-3.1.4.tgz#65a7d4a00f17ad61300864e17ae3d2bcf2c2d57d"
+  integrity sha512-jUcPa0rsPca5ur1+G56DXnSc5hbbJkzvPHHvyQtkbPXBQd3CXPMNfrTVCgzex/7cY/7FONcpFCUwgwfni9Jqbw==
 
 "@cspell/dict-vue@^3.0.0":
   version "3.0.0"
@@ -1925,9 +1925,9 @@ callsites@^3.0.0, callsites@^3.1.0:
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001610"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001610.tgz#2f44ed6e21d359e914271ae35b68903632628ccf"
-  integrity sha512-QFutAY4NgaelojVMjY63o6XlZyORPaLfyMnsl3HgnWdJUcX6K0oaJymHjH8PT5Gk7sTm8rvC/c5COUQKXqmOMA==
+  version "1.0.30001612"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001612.tgz#d34248b4ec1f117b70b24ad9ee04c90e0b8a14ae"
+  integrity sha512-lFgnZ07UhaCcsSZgWW0K5j4e69dK1u/ltrL9lTUiFOwNHs12S3UMIEYgBV0Z6C6hRDev7iRnMzzYmKabYdXF9g==
 
 chalk-template@^1.1.0:
   version "1.1.0"
@@ -2157,9 +2157,9 @@ convert-source-map@^2.0.0:
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
 
 core-js-compat@^3.31.0, core-js-compat@^3.36.1:
-  version "3.36.1"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.36.1.tgz#1818695d72c99c25d621dca94e6883e190cea3c8"
-  integrity sha512-Dk997v9ZCt3X/npqzyGdTlq6t7lDBhZwGvV94PKzDArjp7BTRm7WlDAXYd/OWdeFHO8OChQYRJNJvUCqCbrtKA==
+  version "3.37.0"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.37.0.tgz#d9570e544163779bb4dff1031c7972f44918dc73"
+  integrity sha512-vYq4L+T8aS5UuFg4UwDhc7YNRWVeVZwltad9C/jV3R2LgVOpS9BDr7l/WL6BN0dbV3k1XejPTHqqEzJgsa0frA==
   dependencies:
     browserslist "^4.23.0"
 
@@ -2500,9 +2500,9 @@ ejs@^3.1.9:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.736"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.736.tgz#ecb4348f4d5c70fb1e31c347e5bad6b751066416"
-  integrity sha512-Rer6wc3ynLelKNM4lOCg7/zPQj8tPOCB2hzD32PX9wd3hgRRi9MxEbmkFCokzcEhRVMiOVLjnL9ig9cefJ+6+Q==
+  version "1.4.745"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.745.tgz#9c202ce9cbf18a5b5e0ca47145fd127cc4dd2290"
+  integrity sha512-tRbzkaRI5gbUn5DEvF0dV4TQbMZ5CLkWeTAXmpC9IrYT+GE+x76i9p+o3RJ5l9XmdQlI1pPhVtE9uNcJJ0G0EA==
 
 eleventy-plugin-youtube-embed@1.10.2:
   version "1.10.2"
@@ -3513,9 +3513,9 @@ linkify-it@^5.0.0:
     uc.micro "^2.0.0"
 
 liquidjs@^10.7.0:
-  version "10.11.0"
-  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.11.0.tgz#85a5bb50b4838558d03a352f7427f3186229e028"
-  integrity sha512-DPUG/ez9KbeV6oxon4EOJPzkNModjYmSa2ceP3r9+3bOV9+MnpN/+a1KwGaj8bz5pp4td3kBiHrPX9sC7iuDxA==
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.11.1.tgz#abc6cd118bda960883401a6f0e406e29d64bcf43"
+  integrity sha512-ORlMi7Okt311anHyvuYTRijrdX9He4lbeGEfugSLeHuSYREnFM2M0ppG1/zQHR/k5KSvMP/d4DfUDIFdS8MtqQ==
   dependencies:
     commander "^10.0.0"
 
