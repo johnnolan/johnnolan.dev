@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
-    "@11ty/eleventy-plugin-rss": "2.0.2",
+    "@11ty/eleventy-plugin-rss": "2.0.3",
     "@babel/core": "7.26.0",
     "@babel/eslint-parser": "7.26.5",
     "@babel/preset-env": "7.26.0",
@@ -37,7 +37,7 @@
     "dayjs": "1.11.13",
     "eslint": "9.18.0",
     "eslint-config-prettier": "10.0.1",
-    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-prettier": "5.2.2",
     "globby": "14.0.2",
     "htmlencode": "0.0.4",
     "jshint": "2.13.6",
@@ -46,6 +46,6 @@
     "markdownlint-cli": "0.43.0",
     "pa11y-ci": "3.1.0",
     "prettier": "3.4.2",
-    "sass": "1.83.2"
+    "sass": "1.83.4"
   }
 }
