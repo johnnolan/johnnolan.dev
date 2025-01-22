@@ -37,7 +37,7 @@
     "dayjs": "1.11.13",
     "eslint": "9.18.0",
     "eslint-config-prettier": "10.0.1",
-    "eslint-plugin-prettier": "5.2.2",
+    "eslint-plugin-prettier": "5.2.3",
     "globby": "14.0.2",
     "htmlencode": "0.0.4",
     "jshint": "2.13.6",
