@@ -33,7 +33,7 @@
     "@babel/preset-env": "7.26.9",
     "cheerio": "1.0.0",
     "concurrently": "9.1.2",
-    "cspell": "8.17.4",
+    "cspell": "8.17.5",
     "dayjs": "1.11.13",
     "eslint": "9.21.0",
     "eslint-config-prettier": "10.0.1",
@@ -45,7 +45,7 @@
     "markdown-it-anchor": "9.2.0",
     "markdownlint-cli": "0.44.0",
     "pa11y-ci": "3.1.0",
-    "prettier": "3.5.1",
+    "prettier": "3.5.2",
     "sass": "1.85.0"
   }
 }
