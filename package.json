@@ -36,7 +36,7 @@
     "cspell": "8.17.5",
     "dayjs": "1.11.13",
     "eslint": "9.21.0",
-    "eslint-config-prettier": "10.0.1",
+    "eslint-config-prettier": "10.0.2",
     "eslint-plugin-prettier": "5.2.3",
     "globby": "14.1.0",
     "htmlencode": "0.0.4",
