@@ -46,6 +46,6 @@
     "markdownlint-cli": "0.44.0",
     "pa11y-ci": "3.1.0",
     "prettier": "3.5.3",
-    "sass": "1.86.2"
+    "sass": "1.86.3"
   }
 }
