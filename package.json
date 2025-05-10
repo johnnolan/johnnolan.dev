@@ -30,7 +30,7 @@
     "@11ty/eleventy-plugin-rss": "2.0.3",
     "@babel/core": "7.27.1",
     "@babel/eslint-parser": "7.27.1",
-    "@babel/preset-env": "7.27.1",
+    "@babel/preset-env": "7.27.2",
     "cheerio": "1.0.0",
     "concurrently": "9.1.2",
     "cspell": "9.0.0",
