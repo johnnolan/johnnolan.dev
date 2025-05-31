@@ -28,7 +28,7 @@
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
     "@11ty/eleventy-plugin-rss": "2.0.4",
-    "@babel/core": "7.27.1",
+    "@babel/core": "7.27.3",
     "@babel/eslint-parser": "7.27.1",
     "@babel/preset-env": "7.27.2",
     "cheerio": "1.0.0",
