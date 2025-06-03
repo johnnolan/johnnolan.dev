@@ -28,16 +28,16 @@
   "devDependencies": {
     "@11ty/eleventy-plugin-inclusive-language": "1.0.3",
     "@11ty/eleventy-plugin-rss": "2.0.4",
-    "@babel/core": "7.27.3",
+    "@babel/core": "7.27.4",
     "@babel/eslint-parser": "7.27.1",
     "@babel/preset-env": "7.27.2",
     "cheerio": "1.0.0",
     "concurrently": "9.1.2",
     "cspell": "9.0.2",
     "dayjs": "1.11.13",
-    "eslint": "9.27.0",
+    "eslint": "9.28.0",
     "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-prettier": "5.4.0",
+    "eslint-plugin-prettier": "5.4.1",
     "globby": "14.1.0",
     "htmlencode": "0.0.4",
     "jshint": "2.13.6",
@@ -46,6 +46,6 @@
     "markdownlint-cli": "0.45.0",
     "pa11y-ci": "3.1.0",
     "prettier": "3.5.3",
-    "sass": "1.89.0"
+    "sass": "1.89.1"
   }
 }
