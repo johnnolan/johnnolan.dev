@@ -35,7 +35,7 @@
     "concurrently": "9.2.0",
     "cspell": "9.1.2",
     "dayjs": "1.11.13",
-    "eslint": "9.29.0",
+    "eslint": "9.30.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-prettier": "5.5.1",
     "globby": "14.1.0",
@@ -45,7 +45,7 @@
     "markdown-it-anchor": "9.2.0",
     "markdownlint-cli": "0.45.0",
     "pa11y-ci": "3.1.0",
-    "prettier": "3.6.1",
+    "prettier": "3.6.2",
     "sass": "1.89.2"
   }
 }
