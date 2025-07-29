@@ -1,4 +1,3 @@
-const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
 const markdownIt = require("./markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const dateFilter = require("./src/filters/date-filter.js");
@@ -18,7 +17,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/");
 
-  eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(embedYouTube);
