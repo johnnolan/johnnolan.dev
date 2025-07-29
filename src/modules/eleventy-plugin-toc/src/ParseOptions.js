@@ -9,7 +9,7 @@ const ParseOptions = (userOptions, defaultOptions) => {
   if (userOptions && typeof userOptions === "string") {
     try {
       safeUserOptions = JSON.parse(userOptions);
-    } catch (e) {} // eslint-disable-line
+    } catch (e) {}
   } else if (userOptions && userOptions.constructor === {}.constructor) {
     safeUserOptions = userOptions;
   }

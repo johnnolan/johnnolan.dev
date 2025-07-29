@@ -58,6 +58,7 @@ jobs:
 
       - name: Send pa11y results to PR Comment
         uses: actions/github-script@v7
+        continue-on-error: true
         env:
           BODY_PREFIX: '<!-- pa11y-ci results -->'
           OWNER: 'johnnolan'

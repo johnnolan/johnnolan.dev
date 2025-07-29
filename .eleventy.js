@@ -1,11 +1,10 @@
-const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
-const markdownIt = require('./markdown-it');
+const markdownIt = require("./markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const dateFilter = require('./src/filters/date-filter.js');
-const date24HourFilter = require('./src/filters/date24Hours-filter.js');
-const pluginMermaid = require('./src/modules/eleventy-plugin-mermaid.js');
-const embedYouTube = require('eleventy-plugin-youtube-embed');
-const pluginTOC = require('./src/modules/eleventy-plugin-toc/.eleventy.js');
+const dateFilter = require("./src/filters/date-filter.js");
+const date24HourFilter = require("./src/filters/date24Hours-filter.js");
+const pluginMermaid = require("./src/modules/eleventy-plugin-mermaid.js");
+const embedYouTube = require("eleventy-plugin-youtube-embed");
+const pluginTOC = require("./src/modules/eleventy-plugin-toc/.eleventy.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
@@ -18,13 +17,12 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/");
 
-  eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(embedYouTube);
   eleventyConfig.addPlugin(pluginTOC, {
-      wrapper: 'div',
-      ul: true,
+    wrapper: "div",
+    ul: true,
   });
 
   eleventyConfig.addFilter("log", (value) => {
@@ -33,10 +31,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("limit", function (array, limit) {
     return array.slice(0, limit);
   });
-  eleventyConfig.addFilter('dateFilter', dateFilter);
-  eleventyConfig.addFilter('date24HourFilter', date24HourFilter);
+  eleventyConfig.addFilter("dateFilter", dateFilter);
+  eleventyConfig.addFilter("date24HourFilter", date24HourFilter);
 
-  eleventyConfig.setLibrary('md', markdownIt());
+  eleventyConfig.setLibrary("md", markdownIt());
 
   return {
     dir: { input: "src", output: "_site", data: "_data" },
