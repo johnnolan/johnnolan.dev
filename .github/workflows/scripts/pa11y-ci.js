@@ -51,7 +51,7 @@ module.exports = async ({ github, context, core }) => {
 
   // Try to find an existing pa11y results comment
   const previousComment = comments.find((comment) =>
-    comment.body.startsWith(process.env.BODY_PREFIX)
+    comment.body.startsWith(process.env.BODY_PREFIX),
   );
   if (previousComment) {
     // Update the previous comment
