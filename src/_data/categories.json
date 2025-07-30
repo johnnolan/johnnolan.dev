@@ -11,8 +11,8 @@
             "url": "/paintings"
         },
         {
-            "name": "Human Centered Technical Architecture",
-            "description": "Collection of articles about Human Centered Technical Architecture.",
+            "name": "Technical Architecture and Development",
+            "description": "Collection of articles about Technical Architecture and Development.",
             "url": "/hcta"
         }
     ]

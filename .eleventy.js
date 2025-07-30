@@ -3,6 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const dateFilter = require("./src/filters/date-filter.js");
 const date24HourFilter = require("./src/filters/date24Hours-filter.js");
 const pluginMermaid = require("./src/modules/eleventy-plugin-mermaid.js");
+const customHelpers = require("./src/modules/cacheBuster.js");
 const embedYouTube = require("eleventy-plugin-youtube-embed");
 const pluginTOC = require("./src/modules/eleventy-plugin-toc/.eleventy.js");
 
@@ -12,6 +13,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/rootAssets": "/" });
+
+  eleventyConfig.addGlobalData("cssHash", () => {
+    return customHelpers.getHash("src/_includes/css/main.css"); // adjust path to output file
+  });
+
+  eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
 
   eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
 
