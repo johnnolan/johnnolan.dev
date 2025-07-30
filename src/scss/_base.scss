@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight 18px $base-font-family;
+    font: $base-font-weight 16px $base-font-family;
     letter-spacing: 0.03em;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -118,7 +118,7 @@ blockquote {
     color: $text-color;
     border-left: 4px solid $text-color;
     padding-left: calc($spacing-unit / 2);
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: -1px;
     font-style: italic;
 
