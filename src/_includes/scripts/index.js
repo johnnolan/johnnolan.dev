@@ -29,6 +29,12 @@ function setupGoogleAnalytics(analyticsId) {
     page_title: document.title,
     page_path: location.pathname.split("?")[0],
   });
+
+  var scf = document.createElement("script");
+  scf.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  scf.setAttribute("data-cf-beacon", '{"token": "30bebefbd39f472b98f50e2b18eef67c"}');
+  scf.async = true;
+  document.body.appendChild(scf);
 }
 
 function getCookie(name) {
