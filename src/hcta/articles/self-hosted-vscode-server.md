@@ -19,7 +19,7 @@ You can find the `docker-compose.yml` and `Dockerfile` in this gist [https://gis
 
 I use a lot of different operating systems and computers, anything from Windows, Linux, Chromebooks, Android Phone and Macs. Until recently I have just maintained one computer for writing code. Setting up the tooling required in each OS is a nightmare and some, like the Chromebook, are just not possible to do.
 
-I have recently been playing with builing a self-hosted server at home. This has allowed me to install the following tooling locally
+I have recently been playing with building a self-hosted server at home. This has allowed me to install the following tooling locally
 
 * [Gitea](https://about.gitea.com/) (GitHub clone)
 * [Woodpecker CI](https://woodpecker-ci.org/) (CI/CD)
@@ -30,7 +30,7 @@ I have recently been playing with builing a self-hosted server at home. This has
   
 With these tools installed, I have been able to run a completely isolated and self-hosted development pipeline from my own house.
 
-But what about a dedicated virtual development environment so I could develop on any device from anywhere in the world in a consitent manner?
+But what about a dedicated virtual development environment so I could develop on any device from anywhere in the world in a consistent manner?
 
 Could I run something that gave me similar features to GitHub Codespaces?
 
@@ -48,22 +48,22 @@ The standard Dockerfile used [https://hub.docker.com/r/linuxserver/code-server/]
 
 For my personal projects I needed to run
 
-- yarn
-- npm
-- node
-- pa11y
-- puppeteer
-- Jest
-- Typescript
-- terraform
+* yarn
+* npm
+* node
+* pa11y
+* puppeteer
+* Jest
+* Typescript
+* terraform
 
 Yes. I do enjoy the web dev life.
 
 I also like to have some default alias's setup in my environment to make it quicker to run common commands from the Terminal.
 
-- `terraform` = `tf` e.g. `tf plan`
-- `yarn run` = `yr` e.g. `yr build`
-- `git status` = `gst`
+* `terraform` = `tf` e.g. `tf plan`
+* `yarn run` = `yr` e.g. `yr build`
+* `git status` = `gst`
 
 In order for all this to be available, I created my own Dockerfile using `FROM lscr.io/linuxserver/code-server:latest` as the base image. See the following code for how this looks. You can easily take this and add/replace with your needs.
 
