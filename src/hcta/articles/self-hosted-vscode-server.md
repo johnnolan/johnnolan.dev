@@ -40,7 +40,7 @@ I quickly discovered I could use a self-hosted version of Visual Studio Code Ser
 
 This means if I am on my Chromebook, I can connect via the browser and on my windows machine connect via the VS Code application. Both will provide me with the exact same environment without the difficulties of configuring each locally on the machine.
 
-[![Strategy](/assets/posts/selfhosted/vscodeserver.png)](/assets/posts/aselfhosted/vscodeserver.png)
+[![Strategy](/assets/posts/selfhosted/vscodeserver.png)](/assets/posts/selfhosted/vscodeserver.png)
 
 ## The Dockerfile
 
