@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link href="/assets/main.css?v=7a64dad5" rel="stylesheet" as="style">
+    <link rel="canonical" href="https://www.johnnolan.dev/hcta/articles/self-hosted-vscode-server/" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="How to setup and run your own self-hosted Visual Studio Code Server with pre-installed development tooling.">
+
+    <meta property="og:title" content="Self-hosted Visual Studio Code Server with pre-installed development tooling" />
+    <meta property="og:url" content="https://www.johnnolan.dev/hcta/articles/self-hosted-vscode-server/" />
+    <meta property="og:description" content="How to setup and run your own self-hosted Visual Studio Code Server with pre-installed development tooling." />
+    <meta property="og:image" content="https://www.johnnolan.dev/assets/posts/johnnolan.jpg" />
+    <meta property="og:type" content="article" />
+
+    <script src="/assets/index.js" defer></script>
+    <title>Self-hosted Visual Studio Code Server with pre-installed development tooling - John Nolan</title>
+    
+  </head>
+  <body>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "John Nolan",
+        "url": "https://www.johnnolan.dev",
+        "description": "Technical Architecture and Development, Paintings and thoughts",
+        "author": {
+          "@type": "Person",
+          "name": "John Nolan",
+          "url": "https://www.johnnolan.dev"
+        },
+        "isFamilyFriendly": "true"
+      }
+    </script>
+
+    
+      
+  <div class="cookie-banner " data-nosnippet role="region" aria-label="Cookies on John Nolan Personal Blog">
+    <div class="wrapper">
+      <div>
+        <h2 class="cookie-banner__header">Cookies on John Nolan Personal Blog</h2>
+        <div>
+          <p>I use Google Analytics to monitor and help analyse my traffic.</p>
+          <p>I would like to set additional cookies so I can remember your settings and understand how you use the site to make improvements.</p>
+        </div>
+      </div>
+      <div class="cookie-banner__button-group">
+        <a href="#" title="Accept additional cookies" class="cookie-banner__button-group-link" value="accept" name="cookies" data-module="cookie-button">
+          Accept cookies
+        </a>
+        <a href="#" title="Reject additional cookies" class="cookie-banner__button-group-link" value="reject" name="cookies" data-module="cookie-button">
+          Reject cookies
+        </a>
+      </div>
+    </div>
+  </div>
+
+      <div class="page-content">
+        
+          
+          
+<header class="header">
+
+  <div class="wrapper">
+
+    <h2 class="site-heading">
+      <a class="site-heading-link" href="/" alt="Go to homepage">
+        John Nolan
+      </a>
+    </h2>
+
+  </div>
+</header>
+
+
+
+          
+            
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="nav_list"><li class="nav_list-item">
+                        <a href="/hcta" alt="Navigate to Technical Architecture and Development" class="nav_list-item_link">
+                            Technical Architecture and Development
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/paintings" alt="Navigate to Oil Paintings" class="nav_list-item_link">
+                            Oil Paintings
+                        </a>
+                    </li><li class="nav_list-item">
+                        <a href="/random" alt="Navigate to Development" class="nav_list-item_link">
+                            Development
+                        </a>
+                    </li></ul>
+        </div>
+    </nav>
+
+          
+          
+          <main class="wrapper" role="main" id="content">
+
+            
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "Self-hosted Visual Studio Code Server with pre-installed development tooling",
+        "description": "How to setup and run your own self-hosted Visual Studio Code Server with pre-installed development tooling.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "John Nolan"
+        }
+    }
+    </script>
+
+
+<article class="article-page">
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name": "John Nolan",
+    "image": "https://www.johnnolan.dev/assets/images/johnnolan.png",
+    "url": "https://www.johnnolan.dev",
+    "jobTitle": "Technical Architect"
+  },
+  "headline": "Self-hosted Visual Studio Code Server with pre-installed development tooling",
+  "description": "How to setup and run your own self-hosted Visual Studio Code Server with pre-installed development tooling.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.johnnolan.dev/assets/posts/johnnolan.jpg"
+  },
+  "datePublished": "2025-07-31",
+  "publisher": {
+    "@type": "Organization",
+    "name": "John Nolan"
+  }
+}
+</script>
+
+    <h1 class="article-page-heading">Self-hosted Visual Studio Code Server with pre-installed development tooling</h1>
+
+    
+
+
+<dl class="metadata">
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Date
+    </dt>
+    <dd class="metadata-item-value">
+      
+<time datetime="2025-07-31">31 July 2025</time>
+
+    </dd>
+  </div>
+  <div class="metadata-item">
+    <dt class="metadata-item-key">
+      Authors
+    </dt>
+    <dd class="metadata-item-value">
+      
+    
+        John Nolan
+    
+
+    </dd>
+  </div>
+</dl>
+
+
+    
+    
+<details class="toc">
+    <summary>
+        <span class="toc__summary">
+            Table of Contents
+        </span>
+    </summary>
+    <div>
+        <nav aria-label="Contents" role="navigation">
+            <div class="toc" >
+        <ul><li><a href="#show-me-the-code">Show me the code</a></li><li><a href="#introduction">Introduction</a></li><li><a href="#visual-studio-code-server">Visual Studio Code Server</a></li><li><a href="#the-dockerfile">The Dockerfile</a></li><li><a href="#docker-compose.yml">docker-compose.yml</a></li><li><a href="#build-pipeline">Build Pipeline</a></li></ul>
+      </div>
+        </nav>
+    </div>
+</details>
+
+
+    <h2 id="show-me-the-code" tabindex="-1">Show me the code</h2>
+<p>You can find the <code>docker-compose.yml</code> and <code>Dockerfile</code> in this gist <a href="https://gist.github.com/johnnolan/06dc558b55649d1c9e1f6d6a7afebbfd">https://gist.github.com/johnnolan/06dc558b55649d1c9e1f6d6a7afebbfd</a>.</p>
+<h2 id="introduction" tabindex="-1">Introduction</h2>
+<p>I use a lot of different operating systems and computers, anything from Windows, Linux, Chromebooks, Android Phone and Macs. Until recently I have just maintained one computer for writing code. Setting up the tooling required in each OS is a nightmare and some, like the Chromebook, are just not possible to do.</p>
+<p>I have recently been playing with building a self-hosted server at home. This has allowed me to install the following tooling locally</p>
+<ul>
+<li><a href="https://about.gitea.com/">Gitea</a> (GitHub clone)</li>
+<li><a href="https://woodpecker-ci.org/">Woodpecker CI</a> (CI/CD)</li>
+<li><a href="https://hub.docker.com/_/registry">Docker Registry</a> (Self-hosted Docker Registry)</li>
+<li><a href="https://hub.docker.com/r/renovate/renovate">Renovate</a> (Dependency management)</li>
+</ul>
+<blockquote>
+<p>For how to build this stack, see the article <a href="../self-hosted-development-pipeline/">Self-Hosted Development Pipeline Setup</a></p>
+</blockquote>
+<p>With these tools installed, I have been able to run a completely isolated and self-hosted development pipeline from my own house.</p>
+<p>But what about a dedicated virtual development environment so I could develop on any device from anywhere in the world in a consistent manner?</p>
+<p>Could I run something that gave me similar features to GitHub Codespaces?</p>
+<h2 id="visual-studio-code-server" tabindex="-1">Visual Studio Code Server</h2>
+<p>I quickly discovered I could use a self-hosted version of Visual Studio Code Server. Visual Studio Code Server is a service that allows you to run a virtual machine preconfigured with a Visual Studio web interface, to have a stable and consistent development environment across devices.</p>
+<p>This means if I am on my Chromebook, I can connect via the browser and on my windows machine connect via the VS Code application. Both will provide me with the exact same environment without the difficulties of configuring each locally on the machine.</p>
+<p><a href="/assets/posts/aselfhosted/vscodeserver.png"><img src="/assets/posts/selfhosted/vscodeserver.png" alt="Strategy"></a></p>
+<h2 id="the-dockerfile" tabindex="-1">The Dockerfile</h2>
+<p>The standard Dockerfile used <a href="https://hub.docker.com/r/linuxserver/code-server/">https://hub.docker.com/r/linuxserver/code-server/</a> will provide you with the web interface and some basic tooling installed. But you will quickly reach the limits of what is installed on the container.</p>
+<p>For my personal projects I needed to run</p>
+<ul>
+<li>yarn</li>
+<li>npm</li>
+<li>node</li>
+<li>pa11y</li>
+<li>puppeteer</li>
+<li>Jest</li>
+<li>Typescript</li>
+<li>terraform</li>
+</ul>
+<p>Yes. I do enjoy the web dev life.</p>
+<p>I also like to have some default alias's setup in my environment to make it quicker to run common commands from the Terminal.</p>
+<ul>
+<li><code>terraform</code> = <code>tf</code> e.g. <code>tf plan</code></li>
+<li><code>yarn run</code> = <code>yr</code> e.g. <code>yr build</code></li>
+<li><code>git status</code> = <code>gst</code></li>
+</ul>
+<p>In order for all this to be available, I created my own Dockerfile using <code>FROM lscr.io/linuxserver/code-server:latest</code> as the base image. See the following code for how this looks. You can easily take this and add/replace with your needs.</p>
+<script src="https://gist.github.com/johnnolan/06dc558b55649d1c9e1f6d6a7afebbfd.js?file=Dockerfile"></script>
+<h2 id="docker-compose.yml" tabindex="-1">docker-compose.yml</h2>
+<p>In order to run this docker image, you can use the following docker-compose.yml replacing your volume path and repository to where you store your image.</p>
+<script src="https://gist.github.com/johnnolan/06dc558b55649d1c9e1f6d6a7afebbfd.js?file=docker-compose.yml"></script>
+<h2 id="build-pipeline" tabindex="-1">Build Pipeline</h2>
+<p>See the article <a href="../self-hosted-development-pipeline/">Self-Hosted Development Pipeline Setup</a> for the full setup.</p>
+<p>As mentioned at the start of this article, I already have a local development pipeline running, so doing the following steps I am able to completely automate the build.</p>
+<script src="https://gist.github.com/johnnolan/06dc558b55649d1c9e1f6d6a7afebbfd.js?file=.woodpecker.yml"></script>
+<ol>
+<li>Create a new Git repository to store the Dockerfile and .woodpecker.yml file</li>
+<li>Allow Woodpecker CI to build the Docker image and upload to my self-hosted Docker repository</li>
+<li>Create a new Git repository for the docker-compose.yml file and create a .woodpecker.yml file for the build steps</li>
+<li>Woodpecker runs docker compose up referencing the latest version of the Docker image</li>
+<li>To maintain auto deployment, run Renovate on a crontab on the self-hosted server</li>
+<li>When renovate finds an updated Docker image version it will automatically create a Pull Request and auto merge, redeploying the VS Code Server</li>
+</ol>
+<p>Using this setup, I can now amend the Dockerfile to add new or update versions of existing dependencies. Upon a build of the new image, my VS Code server will auto update and deploy without any manual steps.</p>
+<p>All of these steps can be replicated in any other CI/CD setup of course and be done in cloud services such as AWS, Azure and GCP.</p>
+
+</article>
+
+
+            
+          </main>
+
+        
+      </div>
+
+        
+  <footer class="site-footer">
+    <div class="wrapper">
+      <h2 class="footer-heading">Technical Architecture and Development, Paintings and thoughts</h2>
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <span class="icon icon--github">
+            <svg
+              fill="#000000"
+              height="200px"
+              width="200px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="-143 145 512 512"
+              xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9
+                  V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7
+                  C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6
+                  c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z
+                  "></path>
+              </g>
+            </svg>
+          </span>
+          <a href="https://www.linkedin.com/in/johnallennolan/">
+            <span class="username">
+              Linkedin
+            </span>
+          </a>
+        </div>
+        <div class="footer-col footer-col-1">
+          <div class="twitter">
+            <span class="icon icon--github">
+              <svg viewBox="0 0 16 16">
+                <path
+                  fill="#828282"
+                  d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                    c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                    c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                    c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                    C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                    c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                    c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                    c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                    c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path>
+              </svg>
+            </span>
+          </span>
+          <a href="https://github.com/johnnolan">
+            <span class="username">johnnolan</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    
+    <script type="module" async>import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>
+  </body>
+</html>
