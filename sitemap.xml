@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/articles/tech-ethics-adr/</loc>
+    <lastmod>2022-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/articles/technical-architect-cheatsheet/</loc>
+    <lastmod>2023-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/articles/ams-tools-architecture/</loc>
+    <lastmod>2023-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/articles/self-hosted-development-pipeline/</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/articles/self-hosted-vscode-server/</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/publishing-jekyll-aws-s3-cloudfront/</loc>
+    <lastmod>2017-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/unidays-talk-imposter-syndrome-software-development/</loc>
+    <lastmod>2017-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/handling-team-end-project/</loc>
+    <lastmod>2017-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/preconect-hint-tag/</loc>
+    <lastmod>2018-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/debugging-javascript/</loc>
+    <lastmod>2018-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/performance-errors-ga/</loc>
+    <lastmod>2018-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/react-callbacks-refs/</loc>
+    <lastmod>2019-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/react-webpack-analyzer/</loc>
+    <lastmod>2019-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/react-testing-library-hoc/</loc>
+    <lastmod>2019-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/articles/pandemic-remote-working/</loc>
+    <lastmod>2020-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/random/</loc>
+    <lastmod>2025-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/paintings/</loc>
+    <lastmod>2025-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.johnnolan.dev/hcta/</loc>
+    <lastmod>2025-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
