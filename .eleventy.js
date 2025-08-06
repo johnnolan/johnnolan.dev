@@ -2,6 +2,8 @@ const markdownIt = require("./markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const dateFilter = require("./src/filters/date-filter.js");
 const date24HourFilter = require("./src/filters/date24Hours-filter.js");
+const concat = require("./src/filters/concat-filter.js");
+const dateSitemap = require("./src/filters/dateSitemap-filter.js");
 const pluginMermaid = require("./src/modules/eleventy-plugin-mermaid.js");
 const customHelpers = require("./src/modules/cacheBuster.js");
 const embedYouTube = require("eleventy-plugin-youtube-embed");
@@ -40,6 +42,8 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("dateFilter", dateFilter);
   eleventyConfig.addFilter("date24HourFilter", date24HourFilter);
+  eleventyConfig.addFilter("dateSitemap", dateSitemap);
+  eleventyConfig.addFilter("concat", concat);
 
   eleventyConfig.setLibrary("md", markdownIt());
 
