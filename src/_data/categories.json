@@ -3,17 +3,17 @@
         {
             "name": "Development",
             "description": "Historical posts around Software Development.",
-            "url": "/random"
+            "url": "/random/"
         },
         {
             "name": "Oil Paintings",
             "description": "Display of my Oil Paintings.",
-            "url": "/paintings"
+            "url": "/paintings/"
         },
         {
             "name": "Technical Architecture and Development",
             "description": "Collection of articles about Technical Architecture and Development.",
-            "url": "/hcta"
+            "url": "/hcta/"
         }
     ]
 }
