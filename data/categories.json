@@ -6,11 +6,6 @@
             "url": "/random/"
         },
         {
-            "name": "Oil Paintings",
-            "description": "Display of my Oil Paintings.",
-            "url": "/paintings/"
-        },
-        {
             "name": "Technical Architecture and Development",
             "description": "Collection of articles about Technical Architecture and Development.",
             "url": "/hcta/"
