@@ -4,7 +4,6 @@
         "config:recommended",
         "schedule:daily",
         ":pinAllExceptPeerDependencies",
-        ":automergeAll",
         "npm:unpublishSafe",
         "group:all"
     ],
