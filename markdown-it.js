@@ -1,6 +1,6 @@
 const markdownItAnchor = require("markdown-it-anchor");
 
-module.exports = function () {
+export default function () {
   const options = {
     html: true,
     breaks: true,
