@@ -1,15 +1,15 @@
-const markdownIt = require("./markdown-it");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const dateFilter = require("./src/filters/date-filter.js");
-const date24HourFilter = require("./src/filters/date24Hours-filter.js");
-const concat = require("./src/filters/concat-filter.js");
-const dateSitemap = require("./src/filters/dateSitemap-filter.js");
-const pluginMermaid = require("./src/modules/eleventy-plugin-mermaid.js");
-const customHelpers = require("./src/modules/cacheBuster.js");
-const embedYouTube = require("eleventy-plugin-youtube-embed");
-const pluginTOC = require("./src/modules/eleventy-plugin-toc/.eleventy.js");
+import markdownIt from "./markdown-it.js";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import dateFilter from "./src/filters/date-filter.js";
+import date24HourFilter from "./src/filters/date24Hours-filter.js";
+import concat from "./src/filters/concat-filter.js";
+import dateSitemap from "./src/filters/dateSitemap-filter.js";
+import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
+import customHelpers from "./src/modules/cacheBuster.js";
+import youtubeEmbed from "eleventy-plugin-youtube-embed";
+import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
@@ -17,7 +17,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/rootAssets": "/" });
 
   eleventyConfig.addGlobalData("cssHash", () => {
-    return customHelpers.getHash("src/_includes/css/main.css"); // adjust path to output file
+    return customHelpers.getHash("src/_includes/css/main.css");
   });
 
   eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginMermaid);
-  eleventyConfig.addPlugin(embedYouTube);
+  eleventyConfig.addPlugin(youtubeEmbed);
   eleventyConfig.addPlugin(pluginTOC, {
     wrapper: "div",
     ul: true,
@@ -53,4 +53,4 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: "njk",
     passthroughFileCopy: true,
   };
-};
+}

@@ -1,16 +1,18 @@
-const markdownItAnchor = require("markdown-it-anchor");
+import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
 
-module.exports = function () {
+export default function () {
   const options = {
     html: true,
     breaks: true,
     linkify: false,
   };
-  var md = require("markdown-it")(options);
+
+  const md = markdownIt(options);
   md.use(markdownItAnchor, {
     permalinkClass: "direct-link",
     permalinkSymbol: "",
   });
 
   return md;
-};
+}

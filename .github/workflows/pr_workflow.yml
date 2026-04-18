@@ -12,16 +12,16 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up prerequisites - node and yarn
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version-file: '.nvmrc'
 
       - name: Cache yarn dependencies
         id: cache
-        uses: actions/cache@v5
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ./node_modules
           key: modules-${{ hashFiles('yarn.lock') }}
@@ -45,7 +45,7 @@ jobs:
 
       - name: Audit pages using lighthouse
         continue-on-error: true
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
         with:
           configPath: "./lighthouserc.json"
           budgetPath: ./src/_includes/budget.json
@@ -57,7 +57,7 @@ jobs:
         continue-on-error: true
 
       - name: Send pa11y results to PR Comment
-        uses: actions/github-script@v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         continue-on-error: true
         env:
           BODY_PREFIX: '<!-- pa11y-ci results -->'
