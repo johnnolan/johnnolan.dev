@@ -30,7 +30,7 @@
     "@11ty/eleventy-plugin-rss": "3.0.0",
     "@babel/core": "7.29.0",
     "@babel/eslint-parser": "7.28.6",
-    "@babel/preset-env": "7.29.3",
+    "@babel/preset-env": "7.29.5",
     "cheerio": "1.2.0",
     "concurrently": "9.2.1",
     "cspell": "10.0.0",
@@ -44,7 +44,7 @@
     "markdown-it": "14.1.1",
     "markdown-it-anchor": "9.2.0",
     "markdownlint-cli": "0.48.0",
-    "pa11y-ci": "4.1.0",
+    "pa11y-ci": "4.1.1",
     "prettier": "3.8.3",
     "sass": "1.99.0"
   }
