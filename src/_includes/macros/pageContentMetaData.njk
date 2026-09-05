@@ -5,26 +5,14 @@
 
 <dl class="metadata">
   <div class="metadata-item">
-    <dt class="metadata-item-key">
-      Date
-    </dt>
     <dd class="metadata-item-value">
       {{datetime(date)}}
     </dd>
   </div>
-  <div class="metadata-item">
-    <dt class="metadata-item-key">
-      Authors
-    </dt>
-    <dd class="metadata-item-value">
-      {{authorsList(contributors)}}
-    </dd>
-  </div>
+</dl>
+<dl class="metadata">
   {% if tags %}
     <div class="metadata-item">
-      <dt class="metadata-item-key">
-        Tags
-      </dt>
       <dd class="metadata-item-value">
         <span class="metadata-tags">
           {% for tag in tags %}
@@ -35,5 +23,4 @@
     </div>
   {% endif %}
 </dl>
-
 {% endmacro %}

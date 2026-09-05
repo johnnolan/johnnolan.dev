@@ -1,11 +1,13 @@
 .metadata {
+  display: flex;
 
   &-item {
-    display: flex;
+    font-size: 15px;
+    padding-right: 5px;
+    color: $text-color-light;
 
     &-key {
       padding-right: 10px;
-      font-weight: bold;
     }
   }
 
