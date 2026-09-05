@@ -27,16 +27,16 @@ The repository manages tenant configuration as code. Terraform describes the int
 
 This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
 
-The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgment.
+The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgement.
 
 ## What the repository does
 
 The Terraform configuration currently covers several parts of an Entra tenant:
 
-- Tenant organization settings and core policies.
+- Tenant organisation settings and core policies.
 - Conditional Access policies and named locations.
 - Authentication strength and authentication method policies.
-- Security defaults, authorization, and external identities policies.
+- Security defaults, authorisation, and external identities policies.
 - Group lifecycle settings and the Conditional Access exclusion group.
 - Cross-tenant access configuration.
 - A dedicated application registration for Maester security tests.
@@ -147,7 +147,7 @@ Each topic has a different failure mode. Provider selection is about API coverag
 
 Managing Entra ID as code does not make identity simple. It makes the important parts easier to inspect, review, repeat, and discuss.
 
-That is the reason for this repository. It provides a working foundation for tenant configuration, but it also leaves room for the judgment that secure identity work still requires. The later posts will explore those edges in more detail.
+That is the reason for this repository. It provides a working foundation for tenant configuration, but it also leaves room for the judgement that secure identity work still requires. The later posts will explore those edges in more detail.
 
 ## References
 
