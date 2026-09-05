@@ -13,6 +13,7 @@ $text-color-light: #212529;
 $background-color: #ffffff;
 $background-color-2: #fdfdfd;
 $background-color-3: #fdfdfd;
+$border-color: #e6e6e6;
 
 $border-radius: 18px;
 
@@ -20,8 +21,8 @@ $border-radius: 18px;
 $content-width: 1200px;
 
 $on-palm: 600px;
-$on-laptop: 1200px;
-$on-desktop: 1200px;
+$on-laptop: 1100px;
+$on-desktop: 1100px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
