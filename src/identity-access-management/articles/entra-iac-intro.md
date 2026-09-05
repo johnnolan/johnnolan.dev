@@ -127,6 +127,22 @@ The repository is also a record of the decisions behind the configuration.
 
 This is especially useful for resources that are not created from scratch. Some Entra policies are singletons that already exist in a tenant. Import blocks allow Terraform to adopt those objects while keeping the transition explicit.
 
+## Using AI Skills as project context
+
+The repository also uses AI Skills to make its security and Terraform guidance available during development. These are focused instruction sets that help an AI assistant understand the repository before suggesting or changing code.
+
+The Markdown files provide the context those Skills need. The root [Copilot instructions](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/copilot-instructions.md) map Terraform files to specialist Skills, while companion guides explain resources, permissions, imports, workflows, and operational decisions.
+
+For example, a request to change `terraform/conditional-access.tf` should use the Conditional Access architect Skill. A security review of any Terraform file should use the security baseline auditor Skill, which brings Microsoft, NCSC, and Maester guidance into the review process.
+
+This helps in three ways:
+
+- **Security testing:** the assistant has local guidance for checking break-glass exclusions, least-privilege permissions, rollout states, and relevant Maester controls.
+- **Terraform changes:** the assistant knows when to prefer a typed `azuread_*` resource, when Microsoft Graph is required, and which constraints apply to the file being changed.
+- **Onboarding:** new contributors can read the Markdown guides to understand how the tenant is structured, how workflows operate, and why certain resources use imports or Graph APIs.
+
+The Skills do not replace a plan review, tenant testing, or human approval. They make the repository's existing decisions easier to apply consistently and give new users a clearer place to start.
+
 ## Topics for future posts
 
 This introduction only covers the shape of the repository. Future posts will go deeper into the decisions that make the approach useful in practice:
