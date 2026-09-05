@@ -1,0 +1,7 @@
+---
+layout: layouts/fullwidth.njk
+title: Identity Access Management
+---
+
+{%- from "../_includes/macros/indexlist.njk" import indexList %}
+{{ indexList(title, '', collections.iam | reverse, site, false) }}

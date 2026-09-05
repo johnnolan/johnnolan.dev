@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "name": "Development",
-            "description": "Historical posts around Software Development.",
-            "url": "/random/"
-        },
-        {
             "name": "Technical Architecture and Development",
             "description": "Collection of articles about Technical Architecture and Development.",
             "url": "/hcta/"
+        },
+        {
+            "name": "Identity and Access Management",
+            "description": "Collection of articles about Identity and Access Management.",
+            "url": "/identity-access-management/"
         }
     ]
 }

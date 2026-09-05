@@ -5,6 +5,7 @@ description: "An introduction to managing Microsoft Entra ID with Terraform, Git
 image: "assets/posts/johnnolan.jpg"
 date: 2026-09-05
 tags:
+  - iam
   - entra-id
   - terraform
   - security
