@@ -17,6 +17,8 @@ contributors: ["John Nolan"]
 
 The complete Terraform configuration, GitHub Actions workflows, runbooks, and security guidance are available in the [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code).
 
+[![GitHub Repo Image](/assets/posts/iam/entra-iac-intro/repo.png)](/assets/posts/iam/entra-iac-intro/repo.png)
+
 Microsoft Entra ID is part of the security boundary for almost every Microsoft cloud environment. That makes manual changes in the portal harder to reason about as a tenant grows.
 
 I wanted a better way to describe those changes, review them, and apply them with a repeatable process. This repository is my working example of that approach: Entra ID managed with Terraform, reviewed through GitHub, and checked with automated security tests.
@@ -56,6 +58,8 @@ The normal workflow is simple:
 5. Merge the approved change.
 6. Let the main-branch workflow apply the configuration.
 
+### Workflow overview
+
 The pull request plan makes the proposed tenant change visible before it is applied. This matters most for Conditional Access, authentication methods, and cross-tenant access, where a technically valid change can still have a large operational impact.
 
 For local work, the same checks can be run from the `terraform` directory:
@@ -77,6 +81,8 @@ Terraform is only one part of the repository. The GitHub Actions workflows provi
 
 Every relevant pull request gets a plan. The reusable workflow runs `tflint`, `terraform fmt`, `terraform init`, `terraform validate`, and `terraform plan`. The result is uploaded as an artifact and summarised in the pull request.
 
+[![Terraform Actions](/assets/posts/iam/entra-iac-intro/tfaction.png)](/assets/posts/iam/entra-iac-intro/tfaction.png)
+
 ### Apply on merge
 
 Changes merged to `main` use the same reusable workflow with the `apply` command. Keeping plan and apply in the same workflow path reduces the chance that the two operations behave differently.
@@ -87,11 +93,15 @@ The daily drift workflow runs a detailed Terraform plan. When the tenant no long
 
 Drift is useful information. It can point to a portal change, an external automation process, a provider limitation, or a resource that was never imported correctly. The issue gives that difference a place to be investigated instead of letting it disappear into the next deployment.
 
+[![Drift Detection](/assets/posts/iam/entra-iac-intro/driftdetection.png)](/assets/posts/iam/entra-iac-intro/driftdetection.png)
+
 ### Maester checks
 
 The repository also runs Maester tests on a schedule. Maester checks the tenant against Microsoft security recommendations and other identity controls, then publishes an HTML report as a workflow artifact.
 
 Terraform answers, "Does the tenant match the declared configuration?" Maester answers, "Does the tenant meet these security checks?" Those are related questions, but they are not the same question.
+
+[![Maester Tests](/assets/posts/iam/entra-iac-intro/maester.png)](/assets/posts/iam/entra-iac-intro/maester.png)
 
 ## Security choices
 
@@ -131,6 +141,8 @@ This is especially useful for resources that are not created from scratch. Some 
 
 The repository also uses AI Skills to make its security and Terraform guidance available during development. These are focused instruction sets that help an AI assistant understand the repository before suggesting or changing code.
 
+[![Skills](/assets/posts/iam/entra-iac-intro/skills.png)](/assets/posts/iam/entra-iac-intro/skills.png)
+
 The Markdown files provide the context those Skills need. The root [Copilot instructions](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/copilot-instructions.md) map Terraform files to specialist Skills, while companion guides explain resources, permissions, imports, workflows, and operational decisions.
 
 For example, a request to change `terraform/conditional-access.tf` should use the Conditional Access architect Skill. A security review of any Terraform file should use the security baseline auditor Skill, which brings Microsoft, NCSC, and Maester guidance into the review process.
@@ -141,7 +153,7 @@ This helps in three ways:
 - **Terraform changes:** the assistant knows when to prefer a typed `azuread_*` resource, when Microsoft Graph is required, and which constraints apply to the file being changed.
 - **Onboarding:** new contributors can read the Markdown guides to understand how the tenant is structured, how workflows operate, and why certain resources use imports or Graph APIs.
 
-The Skills do not replace a plan review, tenant testing, or human approval. They make the repository's existing decisions easier to apply consistently and give new users a clearer place to start.
+> **The Skills do not replace a plan review, tenant testing, or human approval.** They make the repository's existing decisions easier to apply consistently and give new users a clearer place to start.
 
 ## Topics for future posts
 
