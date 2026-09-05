@@ -7,7 +7,7 @@
         },
         {
             "name": "Identity and Access Management",
-            "description": "Collection of articles about Identity and Access Management.",
+            "description": "Collection of articles about Identity and Access Management, Entra ID as Code and Maester.",
             "url": "/identity-access-management/"
         }
     ]
