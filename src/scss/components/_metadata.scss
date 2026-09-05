@@ -2,9 +2,27 @@
 
   &-item {
     display: flex;
+
     &-key {
       padding-right: 10px;
       font-weight: bold;
     }
+  }
+
+  &-tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border: 1px solid #b8ced8;
+    border-radius: 999px;
+    color: #36515c;
+    background-color: #e8f1f5;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

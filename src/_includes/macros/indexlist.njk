@@ -18,7 +18,7 @@
                             <figcaption class="article-caption">{{article.data.description}}</figcaption>
                         {%- endif -%}
                         <span class="post-meta">
-                            {{ pageContentMetaData(article.data.date, article.data.contributors) }}
+                            {{ pageContentMetaData(article.data.date, article.data.contributors, article.data.tags) }}
                         </span>
                         {% if showImages %}
                             {% if article.data.image %}
