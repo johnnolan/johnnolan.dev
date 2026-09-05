@@ -32,8 +32,8 @@ jobs:
       - name: Build
         run: yarn run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
-        with:
-          branch: gh-pages
-          folder: _site
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy _site --project-name=johnnolan-dev --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
