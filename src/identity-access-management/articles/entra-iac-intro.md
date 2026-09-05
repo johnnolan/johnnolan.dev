@@ -27,7 +27,7 @@ I wanted a better way to describe those changes, review them, and apply them wit
 
 The repository manages tenant configuration as code. Terraform describes the intended state, pull requests provide a review point, and GitHub Actions applies approved changes after they reach `main`.
 
-This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
+> This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
 
 The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgement.
 
