@@ -1,4 +1,4 @@
-{% macro pageContentMetaData(date, contributors) %}
+{% macro pageContentMetaData(date, contributors, tags) %}
 {%- from "./datetime.njk" import datetime %}
 {%- from "./authorsList.njk" import authorsList %}
 
@@ -20,6 +20,20 @@
       {{authorsList(contributors)}}
     </dd>
   </div>
+  {% if tags %}
+    <div class="metadata-item">
+      <dt class="metadata-item-key">
+        Tags
+      </dt>
+      <dd class="metadata-item-value">
+        <span class="metadata-tags">
+          {% for tag in tags %}
+            <span class="metadata-tag">{{tag}}</span>
+          {% endfor %}
+        </span>
+      </dd>
+    </div>
+  {% endif %}
 </dl>
 
 {% endmacro %}

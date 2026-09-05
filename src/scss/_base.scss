@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight 16px $base-font-family;
+    font: $base-font-weight 18px $base-font-family;
     letter-spacing: 0.03em;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -138,7 +138,7 @@ code {
     border: 1px solid rgba(0,0,0,0.4);
     border-radius: 3px;
     color: #000000;
-    background-color: #ffffff;
+    background-color: #eef6e8;
 }
 
 code {
