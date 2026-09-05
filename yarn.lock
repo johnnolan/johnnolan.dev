@@ -3497,9 +3497,9 @@ linkify-it@^5.0.0:
     uc.micro "^2.0.0"
 
 liquidjs@^10.25.0:
-  version "10.27.0"
-  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.27.0.tgz#e31dc4c539e1a26aee46c847b4e60a6ede32564a"
-  integrity sha512-tw/OA59K7aIBlMKIrKlumr37fiZUheShVHXY8cVctWisgY1p9mc5hreOvlreoS0wTiwlWk14Ya7305c2a/Cg5w==
+  version "10.29.0"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.29.0.tgz#ee061890ccf0da26be377aad4f02bd32da0140d8"
+  integrity sha512-pCVOhs6FLAR8su3ItJ07diN26t6W5dHQRnmTMy8HPyTFuv1+oSCVJIGp5pGjfQyOZfh50KswvKtMTp6p4JEIdw==
   dependencies:
     commander "^10.0.0"
 
