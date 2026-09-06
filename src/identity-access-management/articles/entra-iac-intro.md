@@ -107,7 +107,7 @@ Changes merged to `main` use the same reusable workflow with the `apply` command
 
 The daily drift workflow runs a detailed Terraform plan. When the tenant no longer matches the configuration, the workflow creates or updates a GitHub issue with the plan details.
 
-Drift is useful information. It can point to a portal change, an external automation process, a provider limitation, or a resource that was never imported correctly. The issue gives that difference a place to be investigated instead of letting it disappear into the next deployment.
+A drifted plan could mean someone has made a change through the portal, another automation process has changed the tenant, or Terraform isn't managing the resource correctly. Creating an issue means I can investigate it rather than discovering the difference during a later deployment.
 
 [![Drift Detection](/assets/posts/iam/entra-iac-intro/driftdetection.png)](/assets/posts/iam/entra-iac-intro/driftdetection.png)
 
@@ -117,13 +117,11 @@ Drift is useful information. It can point to a portal change, an external automa
 
 The repository also runs Maester tests on a schedule. Maester checks the tenant against Microsoft security recommendations and other identity controls, then publishes an HTML report as a workflow artifact.
 
-Terraform answers, "Does the tenant match the declared configuration?" Maester answers, "Does the tenant meet these security checks?" Those are related questions, but they are not the same question.
+Terraform detects differences from the configuration I've declared, while Maester checks the tenant against its security tests.
 
 [![Maester Tests](/assets/posts/iam/entra-iac-intro/maester.png)](/assets/posts/iam/entra-iac-intro/maester.png)
 
 ## Security choices
-
-There are a few principles running through the repository.
 
 ### Use short-lived CI authentication
 
@@ -139,7 +137,7 @@ Emergency access accounts are not a way around security controls. They are a rec
 
 ### Treat tenant-wide changes as decisions
 
-Some changes are structural. Others change how people sign in or collaborate with external tenants. I treat the second group as an operational decision, not as a routine formatting change.
+We need to be cautious with changes that affect how users sign in or how external tenants interact with the tenant. Don't treat those as routine Terraform changes just because they happen to be represented as code.
 
 Before enabling a policy, I want a clear scope, a rollout state, a test plan, and a recovery path. A successful Terraform plan cannot prove that every user will have the intended sign-in experience.
 
@@ -147,7 +145,7 @@ Before enabling a policy, I want a clear scope, a rollout state, a test plan, an
 
 [Terraform documentation and resource guides](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
 
-The repository is also a record of the decisions behind the configuration.
+I want the repository to explain why the configuration looks the way it does, rather than just contain the Terraform needed to deploy it.
 
 - Terraform files show which tenant objects are managed.
 - Companion Markdown guides explain provider choices, imports, and permissions.
@@ -169,17 +167,13 @@ The Markdown files provide the context those Skills need. The root [Copilot inst
 
 For example, a request to change `terraform/conditional-access.tf` should use the Conditional Access architect Skill. A security review of any Terraform file should use the security baseline auditor Skill, which brings Microsoft, NCSC, and Maester guidance into the review process.
 
-This helps in three ways:
-
-- **Security testing:** the assistant has local guidance for checking break-glass exclusions, least-privilege permissions, rollout states, and relevant Maester controls.
-- **Terraform changes:** the assistant knows when to prefer a typed `azuread_*` resource, when Microsoft Graph is required, and which constraints apply to the file being changed.
-- **Onboarding:** new contributors can read the Markdown guides to understand how the tenant is structured, how workflows operate, and why certain resources use imports or Graph APIs.
+In practice, this means I can ask an assistant to review a Conditional Access change and it already has the repository's guidance around break-glass exclusions, rollout states and Maester controls. When working on Terraform it also has context on where I've chosen to use the `azuread` provider and where I've had to fall back to `msgraph_resource`.
 
 > **The Skills do not replace a plan review, tenant testing, or human approval.** They make the repository's existing decisions easier to apply consistently and give new users a clearer place to start.
 
 ## Topics for future posts
 
-This introduction only covers the shape of the repository. Future posts will go deeper into the decisions that make the approach useful in practice:
+I've kept this post at a high level as there are several parts I want to cover separately. Some idea are
 
 - Building a Conditional Access baseline with break-glass exclusions and controlled rollout states.
 - Choosing between typed AzureAD resources and Microsoft Graph resources.
@@ -190,16 +184,6 @@ This introduction only covers the shape of the repository. Future posts will go 
 - Using daily drift detection as an operational workflow.
 - Combining Terraform configuration checks with Maester security tests.
 - Using repository-scoped skills to review Terraform against Microsoft, NCSC, and Maester guidance.
-
-Each topic has a different failure mode. Provider selection is about API coverage and state management. Conditional Access is about user impact and recovery. CI authentication is about trust boundaries. Drift and Maester are about finding differences that Terraform alone cannot explain.
-
-## Final thoughts
-
-[Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code)
-
-Managing Entra ID as code does not make identity simple. It makes the important parts easier to inspect, review, repeat, and discuss.
-
-That is the reason for this repository. It provides a working foundation for tenant configuration, but it also leaves room for the judgement that secure identity work still requires. The later posts will explore those edges in more detail.
 
 ## References
 
