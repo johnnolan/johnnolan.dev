@@ -13,6 +13,18 @@ tags:
 contributors: ["John Nolan"]
 ---
 
+## Introduction
+
+[Terraform configuration](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
+
+Microsoft Entra ID is part of the security boundary for almost every Microsoft cloud environment. That makes manual changes in the portal harder to reason about as a tenant grows.
+
+I wanted a better way to describe changes, review them, test them, and apply them with a repeatable process. This repository is my working example of that approach - Entra ID managed with Terraform, reviewed through GitHub, and checked with automated security tests via Maester.
+
+The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgement.
+
+> This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
+
 ## Repository
 
 [Repository README](https://github.com/johnnolan/entra-id-as-code/blob/main/README.md)
@@ -20,20 +32,6 @@ contributors: ["John Nolan"]
 The complete Terraform configuration, GitHub Actions workflows, runbooks, and security guidance are available in the [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code).
 
 [![GitHub Repo Image](/assets/posts/iam/entra-iac-intro/repo.png)](/assets/posts/iam/entra-iac-intro/repo.png)
-
-Microsoft Entra ID is part of the security boundary for almost every Microsoft cloud environment. That makes manual changes in the portal harder to reason about as a tenant grows.
-
-I wanted a better way to describe those changes, review them, and apply them with a repeatable process. This repository is my working example of that approach: Entra ID managed with Terraform, reviewed through GitHub, and checked with automated security tests.
-
-## Introduction
-
-[Terraform configuration](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
-
-The repository manages tenant configuration as code. Terraform describes the intended state, pull requests provide a review point, and GitHub Actions applies approved changes after they reach `main`.
-
-> This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
-
-The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgement.
 
 ## What the repository does
 
