@@ -9,9 +9,17 @@ export default function () {
   };
 
   const md = markdownIt(options);
+  const renderH2Permalink = markdownItAnchor.permalink.headerLink({
+    class: "direct-link",
+    safariReaderFix: true,
+  });
+
   md.use(markdownItAnchor, {
-    permalinkClass: "direct-link",
-    permalinkSymbol: "",
+    permalink(slug, anchorOptions, state, index) {
+      if (state.tokens[index].tag === "h2") {
+        renderH2Permalink(slug, anchorOptions, state, index);
+      }
+    },
   });
 
   return md;
