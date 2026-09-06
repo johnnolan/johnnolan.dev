@@ -119,25 +119,11 @@ Terraform detects differences from the configuration I've declared, while Maeste
 
 [![Maester Tests](/assets/posts/iam/entra-iac-intro/maester.png)](/assets/posts/iam/entra-iac-intro/maester.png)
 
-## Security choices
-
 ### Use short-lived CI authentication
 
 GitHub Actions uses federated credentials and OIDC to obtain tokens for the Entra application. This avoids storing a client secret that could remain valid after a workflow run finishes.
 
 The CI application still needs permissions. Those permissions should be limited to the Terraform resources the repository manages, and an administrator must grant consent after permission changes.
-
-### Keep break-glass access visible
-
-Conditional Access policies exclude a dedicated emergency access group. That exclusion is part of the baseline and should not be removed casually.
-
-Emergency access accounts are not a way around security controls. They are a recovery path for incidents such as a policy mistake, an authentication outage, or a directory problem. They need separate protection, monitoring, and testing.
-
-### Treat tenant-wide changes as decisions
-
-We need to be cautious with changes that affect how users sign in or how external tenants interact with the tenant. Don't treat those as routine Terraform changes just because they happen to be represented as code.
-
-Before enabling a policy, I want a clear scope, a rollout state, a test plan, and a recovery path. A successful Terraform plan cannot prove that every user will have the intended sign-in experience.
 
 ## What the repository makes visible
 
