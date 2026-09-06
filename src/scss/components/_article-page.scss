@@ -44,6 +44,38 @@
     align-items: center;
     gap: 16px;
 
+    .direct-link {
+      position: relative;
+      min-width: 0;
+      color: $article-text-color;
+      text-decoration: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: calc(100% + 10px);
+        width: 16px;
+        height: 16px;
+        opacity: 0;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2324634f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      &:hover {
+        color: $article-text-color;
+        text-decoration: none;
+      }
+    }
+
+    &:hover .direct-link::before,
+    .direct-link:focus-visible::before {
+      opacity: 1;
+    }
+
     &::after {
       content: "";
       flex: 1;
