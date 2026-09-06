@@ -103,7 +103,7 @@ Changes merged to `main` use the same reusable workflow with the `apply` command
 
 ### Drift detection
 
-[Drfit Detection Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-drift-daily.md)
+[Drift Detection Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-drift-daily.md)
 
 The daily drift workflow runs a detailed Terraform plan. When the tenant no longer matches the configuration, the workflow creates or updates a GitHub issue with the plan details.
 
