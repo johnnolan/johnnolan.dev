@@ -15,6 +15,8 @@ contributors: ["John Nolan"]
 
 ## Repository
 
+[Repository README](https://github.com/johnnolan/entra-id-as-code/blob/main/README.md)
+
 The complete Terraform configuration, GitHub Actions workflows, runbooks, and security guidance are available in the [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code).
 
 [![GitHub Repo Image](/assets/posts/iam/entra-iac-intro/repo.png)](/assets/posts/iam/entra-iac-intro/repo.png)
@@ -25,6 +27,8 @@ I wanted a better way to describe those changes, review them, and apply them wit
 
 ## Introduction
 
+[Terraform configuration](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
+
 The repository manages tenant configuration as code. Terraform describes the intended state, pull requests provide a review point, and GitHub Actions applies approved changes after they reach `main`.
 
 > This is not an attempt to hide the complexity of identity management behind a single module. Entra has provider gaps, singleton tenant policies, sensitive rollout decisions, and permissions that need careful review. The repository keeps those details visible.
@@ -32,6 +36,8 @@ The repository manages tenant configuration as code. Terraform describes the int
 The aim is a practical starting point for teams that want identity changes to be traceable and repeatable without treating automation as a substitute for operational judgement.
 
 ## What the repository does
+
+[Terraform resources](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
 
 The Terraform configuration currently covers several parts of an Entra tenant:
 
@@ -48,6 +54,8 @@ Some of these resources use the typed `azuread_*` resources from the AzureAD pro
 That provider boundary is deliberate. I prefer a typed resource when one exists because it gives Terraform a clearer schema and a more familiar interface. Microsoft Graph remains useful for the parts of Entra that are not covered by the provider.
 
 ## How I use it
+
+[Terraform workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-run.yml)
 
 The normal workflow is simple:
 
@@ -75,9 +83,13 @@ The backend stores Terraform state in Azure Blob Storage. The GitHub workflows a
 
 ## The workflow around Terraform
 
+[GitHub Actions workflows](https://github.com/johnnolan/entra-id-as-code/tree/main/.github/workflows)
+
 Terraform is only one part of the repository. The GitHub Actions workflows provide the delivery and feedback loop around it.
 
 ### Pull request plans
+
+[Pull Request Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-run.md)
 
 Every relevant pull request gets a plan. The reusable workflow runs `tflint`, `terraform fmt`, `terraform init`, `terraform validate`, and `terraform plan`. The result is uploaded as an artifact and summarised in the pull request.
 
@@ -85,9 +97,13 @@ Every relevant pull request gets a plan. The reusable workflow runs `tflint`, `t
 
 ### Apply on merge
 
+[Apply Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-apply-main.md)
+
 Changes merged to `main` use the same reusable workflow with the `apply` command. Keeping plan and apply in the same workflow path reduces the chance that the two operations behave differently.
 
 ### Drift detection
+
+[Drfit Detection Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-drift-daily.md)
 
 The daily drift workflow runs a detailed Terraform plan. When the tenant no longer matches the configuration, the workflow creates or updates a GitHub issue with the plan details.
 
@@ -96,6 +112,8 @@ Drift is useful information. It can point to a portal change, an external automa
 [![Drift Detection](/assets/posts/iam/entra-iac-intro/driftdetection.png)](/assets/posts/iam/entra-iac-intro/driftdetection.png)
 
 ### Maester checks
+
+[Maester Workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-maester.md)
 
 The repository also runs Maester tests on a schedule. Maester checks the tenant against Microsoft security recommendations and other identity controls, then publishes an HTML report as a workflow artifact.
 
@@ -127,6 +145,8 @@ Before enabling a policy, I want a clear scope, a rollout state, a test plan, an
 
 ## What the repository makes visible
 
+[Terraform documentation and resource guides](https://github.com/johnnolan/entra-id-as-code/tree/main/terraform)
+
 The repository is also a record of the decisions behind the configuration.
 
 - Terraform files show which tenant objects are managed.
@@ -138,6 +158,8 @@ The repository is also a record of the decisions behind the configuration.
 This is especially useful for resources that are not created from scratch. Some Entra policies are singletons that already exist in a tenant. Import blocks allow Terraform to adopt those objects while keeping the transition explicit.
 
 ## Using AI Skills as project context
+
+[Copilot instructions](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/copilot-instructions.md)
 
 The repository also uses AI Skills to make its security and Terraform guidance available during development. These are focused instruction sets that help an AI assistant understand the repository before suggesting or changing code.
 
@@ -172,6 +194,8 @@ This introduction only covers the shape of the repository. Future posts will go 
 Each topic has a different failure mode. Provider selection is about API coverage and state management. Conditional Access is about user impact and recovery. CI authentication is about trust boundaries. Drift and Maester are about finding differences that Terraform alone cannot explain.
 
 ## Final thoughts
+
+[Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code)
 
 Managing Entra ID as code does not make identity simple. It makes the important parts easier to inspect, review, repeat, and discuss.
 
