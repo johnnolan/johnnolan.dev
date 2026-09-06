@@ -8,3 +8,24 @@
     }
   }
 }
+
+.article-page > .toc {
+  margin: 12px 0 0;
+  padding: 16px 20px;
+  background-color: $article-surface-color;
+  border-left: 3px solid $article-accent-color;
+
+  > summary {
+    cursor: pointer;
+    color: $article-accent-color;
+
+    &:hover {
+      color: $article-accent-hover-color;
+    }
+  }
+
+  nav > ul, nav > ol {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+}

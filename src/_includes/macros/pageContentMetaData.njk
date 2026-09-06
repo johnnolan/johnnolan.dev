@@ -16,7 +16,7 @@
       <dd class="metadata-item-value">
         <span class="metadata-tags">
           {% for tag in tags %}
-            <span class="metadata-tag">{{tag}}</span>
+            <span class="metadata-tag" data-tag="{{ tag | lower }}">{{tag}}</span>
           {% endfor %}
         </span>
       </dd>
