@@ -3,7 +3,7 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import dateFilter from "./src/filters/date-filter.js";
 import date24HourFilter from "./src/filters/date24Hours-filter.js";
 import concat from "./src/filters/concat-filter.js";
-import dateSitemap from "./src/filters/dateSitemap-filter.js";
+import sitemap from "./src/modules/sitemap.mjs";
 import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
 import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
@@ -13,6 +13,7 @@ import contentCollections from "./src/modules/content-collections.mjs";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(contentCollections);
+  eleventyConfig.addPlugin(sitemap);
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
@@ -40,7 +41,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("dateFilter", dateFilter);
   eleventyConfig.addFilter("date24HourFilter", date24HourFilter);
-  eleventyConfig.addFilter("dateSitemap", dateSitemap);
+
   eleventyConfig.addFilter("concat", concat);
 
   eleventyConfig.setLibrary("md", markdownIt());
