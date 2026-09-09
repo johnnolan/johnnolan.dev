@@ -5,6 +5,7 @@ description:  "How to use webpack-bundle-analyzer with create-react-app"
 date: 2019-01-15
 tags: 
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2019-01-13-react.png"
 imagewidth: "250"

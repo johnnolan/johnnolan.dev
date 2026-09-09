@@ -5,6 +5,7 @@ description: "Advice and thoughts on how to handle teams towards and mental heal
 date: 2017-06-19
 tags:
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2017-06-19-handling-team-end-project-2.jpg"
 imagewidth: "400"

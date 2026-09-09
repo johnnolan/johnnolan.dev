@@ -7,6 +7,7 @@ date: 2023-08-10
 tags: 
   - hcta
   - architecture
+topics: ["architecture"]
 contributors: ["John Nolan"]
 ---
 

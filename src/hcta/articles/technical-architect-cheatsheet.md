@@ -6,6 +6,7 @@ image: "assets/posts/johnnolan.jpg"
 date: 2023-03-26
 tags: 
   - hcta
+topics: []
 contributors: ["John Nolan"]
 ---
 

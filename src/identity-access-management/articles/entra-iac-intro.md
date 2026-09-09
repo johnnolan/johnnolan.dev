@@ -10,6 +10,7 @@ tags:
   - terraform
   - security
   - architecture
+topics: ["entra-id","terraform","security","architecture"]
 contributors: ["John Nolan"]
 ---
 

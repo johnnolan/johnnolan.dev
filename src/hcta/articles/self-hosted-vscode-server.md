@@ -8,6 +8,7 @@ tags:
   - hcta
   - architecture
   - selfhosted
+topics: ["architecture","selfhosted"]
 contributors: ["John Nolan"]
 ---
 

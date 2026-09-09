@@ -5,6 +5,7 @@ description:  "How to setup and use Google Data Studio with RUM and Error Tracki
 date: 2018-10-08
 tags: 
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2018-10-08-performance-errors-ga.png"
 imagewidth: "250"

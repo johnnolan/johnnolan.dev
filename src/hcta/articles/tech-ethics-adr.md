@@ -7,6 +7,7 @@ date: 2022-08-22
 tags: 
   - hcta
   - ethics
+topics: ["ethics"]
 contributors: ["John Nolan"]
 ---
 

@@ -5,6 +5,7 @@ description:  "How to publish your Jekyll blog to AWS S3. Includes caching with 
 date: 2017-03-03
 tags: 
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2017-03-04-publishing-jekyll-aws-s3-cloudfront.jpg"
 imagewidth: "200"

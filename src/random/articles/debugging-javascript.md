@@ -5,6 +5,7 @@ description:  "Overview of debugging options using Google Chrome Debugger"
 date: 2018-10-07
 tags: 
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2018-10-07-debugging-javascript.png"
 imagewidth: "100"

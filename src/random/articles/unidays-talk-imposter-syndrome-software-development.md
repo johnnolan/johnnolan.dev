@@ -5,6 +5,7 @@ description: "A writeup of a talk I gave at UNiDAYS on Imposter Syndrome in Soft
 date: 2017-04-12
 tags:
   - other
+topics: []
 contributors: ["John Nolan"]
 image: "assets/posts/2017-04-12-unidays-talk-imposter-syndrome-software-development.jpg"
 imagewidth: "600"
