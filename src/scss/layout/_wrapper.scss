@@ -1,0 +1,24 @@
+@use "../settings/tokens";
+@use "../tools/media";
+
+/**
+ * Wrapper
+ */
+.wrapper {
+  max-width: calc(#{tokens.$content-width} - (#{tokens.$spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: tokens.$spacing-unit;
+  padding-left: tokens.$spacing-unit;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @include media.media-query(tokens.$on-laptop) {
+    max-width: calc(#{tokens.$content-width} - (#{tokens.$spacing-unit}));
+    padding-right: calc(tokens.$spacing-unit / 2);
+    padding-left: calc(tokens.$spacing-unit / 2);
+  }
+}

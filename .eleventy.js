@@ -5,26 +5,21 @@ import date24HourFilter from "./src/filters/date24Hours-filter.js";
 import concat from "./src/filters/concat-filter.js";
 import dateSitemap from "./src/filters/dateSitemap-filter.js";
 import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
-import customHelpers from "./src/modules/cacheBuster.js";
+import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_includes/rootAssets": "/" });
 
-  eleventyConfig.addGlobalData("cssHash", () => {
-    return customHelpers.getHash("src/_includes/css/main.css");
-  });
+  eleventyConfig.addPlugin(pluginSass);
 
   eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
 
   eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
-
-  eleventyConfig.addWatchTarget("./src/");
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginMermaid);

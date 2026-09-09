@@ -19,7 +19,7 @@ module.exports = (eleventyConfig, options) => {
     if (highlighter) {
       return highlighter(str, language);
     }
-    return `<pre class="${language}">${str}</pre>`;
+    return `<pre><code class="language-${htmlencode.htmlEncode(language || "text")}">${htmlencode.htmlEncode(str)}</code></pre>`;
   });
   return {};
 };

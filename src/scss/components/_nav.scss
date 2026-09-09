@@ -1,8 +1,11 @@
+@use "../settings/tokens";
+@use "../tools/media";
+
 .nav {
   position: relative;
   padding: 10px 0 10px 0;
   margin: 0px 0 10px 0;
-  background-color: $background-color-2;
+  background-color: tokens.$background-color-2;
 
   &_list {
     display: flex;
@@ -11,20 +14,20 @@
     padding: 0;
     margin: 0;
 
-    @include media-query($on-palm) {
+    @include media.media-query(tokens.$on-palm) {
       display: block;
       text-align: center;
     }
 
     &-item {
-      @include media-query($on-palm) {
+      @include media.media-query(tokens.$on-palm) {
         padding: 5px 0;
       }
       list-style-type: none;
       padding: 0;
       margin: 0;
       &_link {
-        color: $text-color;
+        color: tokens.$text-color;
       }
     }
   }

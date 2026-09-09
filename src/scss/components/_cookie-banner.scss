@@ -1,7 +1,10 @@
+@use "../settings/tokens";
+@use "../tools/media";
+
 .cookie-banner {
   padding: 14px 0;
-  color: $article-text-color;
-  background-color: $article-surface-color;
+  color: tokens.$content-color;
+  background-color: tokens.$surface-color;
   border-bottom: 1px solid #c5d8cd;
 
   .wrapper {
@@ -39,7 +42,7 @@
 
   &__button {
     padding: 8px 14px;
-    border: 1px solid $article-accent-color;
+    border: 1px solid tokens.$accent-color;
     border-radius: 6px;
     font: inherit;
     font-size: 15px;
@@ -49,27 +52,27 @@
 
     &--accept {
       color: #ffffff;
-      background-color: $article-accent-color;
+      background-color: tokens.$accent-color;
     }
 
     &--reject {
-      color: $article-text-color;
+      color: tokens.$content-color;
       background-color: transparent;
     }
 
     &:hover {
       color: #ffffff;
-      background-color: $article-accent-hover-color;
-      border-color: $article-accent-hover-color;
+      background-color: tokens.$accent-hover-color;
+      border-color: tokens.$accent-hover-color;
     }
 
     &:focus-visible {
-      outline: 3px solid $article-accent-color;
+      outline: 3px solid tokens.$accent-color;
       outline-offset: 3px;
     }
   }
 
-  @include media-query($on-laptop) {
+  @include media.media-query(tokens.$on-laptop) {
     &__content {
       display: block;
     }
@@ -79,7 +82,7 @@
     }
   }
 
-  @include media-query($on-palm) {
+  @include media.media-query(tokens.$on-palm) {
     padding: 12px 0;
 
     .wrapper {

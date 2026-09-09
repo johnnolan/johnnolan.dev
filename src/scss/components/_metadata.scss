@@ -1,10 +1,12 @@
+@use "../settings/tokens";
+
 .metadata {
   display: flex;
 
   &-item {
     font-size: 15px;
     padding-right: 5px;
-    color: $text-color-light;
+    color: tokens.$text-color-light;
 
     &-key {
       padding-right: 10px;
@@ -22,8 +24,8 @@
     padding: 2px 9px;
     border: 1px solid #c5d8cd;
     border-radius: 999px;
-    color: $article-text-color;
-    background-color: $article-surface-color;
+    color: tokens.$content-color;
+    background-color: tokens.$surface-color;
     font-size: 14px;
     line-height: 20px;
   }
@@ -37,7 +39,7 @@
   }
 
   .metadata-item {
-    color: $article-muted-color;
+    color: tokens.$muted-color;
   }
 }
 

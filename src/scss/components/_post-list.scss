@@ -1,3 +1,6 @@
+@use "../settings/tokens";
+@use "../tools/media";
+
 .articles {
   margin-top: 48px;
   line-height: 1.7;
@@ -6,7 +9,7 @@
     font-size: 34px;
     line-height: 1.2;
     margin: 0 0 32px;
-    color: $article-text-color;
+    color: tokens.$content-color;
 
     &::before {
       content: "";
@@ -14,7 +17,7 @@
       width: 48px;
       height: 3px;
       margin-bottom: 20px;
-      background-color: $article-accent-color;
+      background-color: tokens.$accent-color;
     }
   }
 
@@ -41,13 +44,13 @@
         left: 0;
         width: 40px;
         height: 3px;
-        background-color: $article-accent-color;
+        background-color: tokens.$accent-color;
       }
 
       &-caption {
         display: block;
         margin: 8px 0 0;
-        color: $article-text-color;
+        color: tokens.$content-color;
       }
 
       &-image {
@@ -58,18 +61,18 @@
         display: block;
         width: fit-content;
         max-width: 100%;
-        color: $article-text-color;
+        color: tokens.$content-color;
         text-decoration: none;
         text-underline-offset: 0.18em;
 
         &:hover {
-          color: $article-accent-hover-color;
+          color: tokens.$accent-hover-color;
           text-decoration: underline;
           text-decoration-thickness: 2px;
         }
 
         &:focus-visible {
-          outline: 3px solid $article-accent-color;
+          outline: 3px solid tokens.$accent-color;
           outline-offset: 4px;
         }
       }
@@ -110,8 +113,7 @@
       margin-left: 0em;
     }
 
-    @include media-min-query($on-palm) {
-
+    @include media.media-min-query(tokens.$on-palm) {
       > .article {
         margin-bottom: 0;
       }
@@ -122,7 +124,7 @@
       }
     }
 
-    @include media-min-query($on-desktop) {
+    @include media.media-min-query(tokens.$on-desktop) {
       > .article {
         margin-bottom: 0;
       }
@@ -136,9 +138,9 @@
 
   &--categories {
     margin-top: 0;
-    background-color: $background-color-2;
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+    background-color: tokens.$background-color-2;
+    border-top: 1px solid tokens.$border-color;
+    border-bottom: 1px solid tokens.$border-color;
 
     .post-list {
       max-width: none;
@@ -168,7 +170,7 @@
     }
   }
 
-  @include media-query($on-palm) {
+  @include media.media-query(tokens.$on-palm) {
     margin-top: 32px;
 
     &-heading {
