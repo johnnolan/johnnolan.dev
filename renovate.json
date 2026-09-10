@@ -4,7 +4,7 @@
         "config:recommended",
         "schedule:daily",
         ":pinAllExceptPeerDependencies",
-        "npm:unpublishSafe",
+        "security:minimumReleaseAgeNpm",
         "group:all"
     ],
     "lockFileMaintenance": {
