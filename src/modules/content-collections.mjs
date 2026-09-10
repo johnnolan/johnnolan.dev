@@ -13,6 +13,11 @@ export function publishedPosts(items) {
     });
 }
 
+export function atomFeedPosts(items) {
+  return publishedPosts(items).reverse();
+}
+
 export default function contentCollections(config) {
   config.addCollection("posts", (collection) => publishedPosts(collection.getAll()));
+  config.addCollection("feedPosts", (collection) => atomFeedPosts(collection.getAll()));
 }

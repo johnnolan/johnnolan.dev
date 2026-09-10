@@ -180,6 +180,8 @@ Use computed data or a small helper to produce one canonical URL, description fa
 
 ## 13. Add a virtual-template feed
 
+### Status: Done
+
 The RSS plugin is installed and registered, but there is no feed template or generated feed. Configure its named `feedPlugin` export against the explicit post collection to produce Atom or RSS and add an autodiscovery link in the head. The installed RSS 3.0.0 supports this approach.
 
 Check that feed URLs are absolute, dates correct, and drafts excluded. Decide between summaries and full content. If including full content, test image transformations and code blocks separately from HTML pages. Virtual feeds arrived with RSS 2.0 and Eleventy 3; they avoid maintaining a separate XML template for this simple use case. [RSS virtual templates](https://www.11ty.dev/docs/plugins/rss/).

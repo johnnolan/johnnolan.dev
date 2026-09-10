@@ -1,5 +1,6 @@
 import markdownIt from "./markdown-it.js";
-import pluginRss from "@11ty/eleventy-plugin-rss";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import site from "./src/_data/site.json" with { type: "json" };
 import assetPath from "./src/filters/asset-path.js";
 import { displayDate, isoDate } from "./src/filters/date-filters.js";
 import concat from "./src/filters/concat-filter.js";
@@ -28,7 +29,18 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
 
-  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed.xml",
+    collection: { name: "feedPosts", limit: 0 },
+    metadata: {
+      language: "en",
+      title: site.name,
+      subtitle: site.description,
+      base: `${site.url}/`,
+      author: { name: site.name },
+    },
+  });
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(youtubeEmbed);
   eleventyConfig.addPlugin(pluginTOC, {

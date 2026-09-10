@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { publishedPosts } from "../src/modules/content-collections.mjs";
+import { atomFeedPosts, publishedPosts } from "../src/modules/content-collections.mjs";
+
+const article = (inputPath, date, data = {}) => ({
+  inputPath,
+  data: { title: inputPath, date, ...data },
+});
 
 test("posts filter before limiting and sort without mutating the input", () => {
   const articles = Array.from({ length: 14 }, (_, i) => ({
@@ -26,4 +31,19 @@ test("posts filter before limiting and sort without mutating the input", () => {
     .slice(0, 2)
     .map((item) => ({ ...item, data: { ...item.data, date: "2025-01-01" } }));
   assert.deepEqual(publishedPosts(tied), publishedPosts([...tied].reverse()));
+});
+
+test("Atom feed posts are oldest-first for the virtual template and exclude drafts", () => {
+  const items = [
+    article("./src/hcta/articles/older.md", "2024-01-01"),
+    article("./src/hcta/articles/newer.md", "2025-01-01"),
+    article("./src/hcta/articles/draft.md", "2026-01-01", { draft: true }),
+  ];
+
+  const posts = atomFeedPosts(items);
+  assert.deepEqual(
+    posts.map((item) => item.inputPath),
+    ["./src/hcta/articles/older.md", "./src/hcta/articles/newer.md"],
+  );
+  assert.equal(posts[1].data.date, "2025-01-01");
 });
