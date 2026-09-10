@@ -248,6 +248,8 @@ Audit actual Liquid usage and choose `markdownTemplateEngine: false` for plain M
 
 ## 23. Simplify passthrough rules and template formats
 
+### Status: Done
+
 `.eleventy.js` copies `_data` into public `/data`, although no browser code consumes those JSON files. Remove that copy unless the JSON URLs are an intentional public interface. Keep an explicit public-data allowlist if one is needed later.
 
 Restrict `templateFormats` to actual template languages. `css` and `yml` do not have custom compilers registered here and there is already explicit asset copying. The legacy `passthroughFileCopy: true` has no matching setting in the installed core source and should be removed after an output comparison. Consolidate asset destinations without moving stable URLs. Replace the partial `BASE_URL` scheme with Eleventy's `pathPrefix`/HTML Base approach only if subdirectory deployment matters; root deployment already works. HTML Base dates to v2, outside this review window. [HTML Base](https://www.11ty.dev/docs/plugins/html-base/).

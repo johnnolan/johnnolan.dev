@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
-    <link href="{{ baseUrl }}assets/main.css{% if cssHash %}?v={{ cssHash }}{% endif %}" rel="stylesheet" as="style">
+    <link href="{{ '/assets/main.css' | url }}{% if cssHash %}?v={{ cssHash }}{% endif %}" rel="stylesheet" as="style">
     <link rel="canonical" href="{{ pageMeta.canonicalUrl }}" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml" />
 

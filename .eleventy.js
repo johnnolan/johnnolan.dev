@@ -18,16 +18,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(drafts);
   eleventyConfig.addPlugin(contentCollections);
   eleventyConfig.addPlugin(sitemap);
-  eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/rootAssets": "/" });
+  eleventyConfig.addPassthroughCopy({
+    "src/_includes/assets": "assets",
+    "src/_includes/scripts": "assets",
+    "src/_includes/img": "assets",
+    "src/_includes/rootAssets": "/",
+  });
 
   eleventyConfig.addPlugin(pluginSass);
-
-  eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
-
-  eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom",
@@ -66,8 +64,7 @@ export default function (eleventyConfig) {
 
   return {
     dir: { input: "src", output: "_site", data: "_data" },
-    templateFormats: ["njk", "md", "css", "html", "yml"],
+    templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
-    passthroughFileCopy: true,
   };
 }
