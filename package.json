@@ -47,5 +47,6 @@
     "sass": "1.99.0",
     "stylelint": "17.15.0",
     "stylelint-config-recommended-scss": "17.0.1"
-  }
+  },
+  "type": "module"
 }

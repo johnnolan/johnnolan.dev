@@ -19,4 +19,4 @@ const ParseOptions = (userOptions, defaultOptions) => {
   return Object.assign({}, safeDefaultOptions, safeUserOptions);
 };
 
-module.exports = ParseOptions;
+export default ParseOptions;

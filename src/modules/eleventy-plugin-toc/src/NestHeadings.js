@@ -1,4 +1,4 @@
-const SimplifyResults = require("./SimplifyResults");
+import SimplifyResults from "./SimplifyResults.js";
 
 const NestHeadings = (tags, $) => {
   const temp = {};
@@ -35,4 +35,4 @@ const NestHeadings = (tags, $) => {
   return headings;
 };
 
-module.exports = NestHeadings;
+export default NestHeadings;

@@ -1,8 +1,8 @@
-const cheerio = require("cheerio");
+import * as cheerio from "cheerio";
 
-const ParseOptions = require("./ParseOptions");
-const NestHeadings = require("./NestHeadings");
-const BuildList = require("./BuildList");
+import ParseOptions from "./ParseOptions.js";
+import NestHeadings from "./NestHeadings.js";
+import BuildList from "./BuildList.js";
 
 const defaults = {
   tags: ["h2", "h3", "h4"],
@@ -37,4 +37,4 @@ const BuildTOC = (text, opts) => {
     : BuildList(headings, ul, flat, anchorClass);
 };
 
-module.exports = BuildTOC;
+export default BuildTOC;

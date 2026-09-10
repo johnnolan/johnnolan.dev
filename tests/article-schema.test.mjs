@@ -3,7 +3,7 @@ import test from "node:test";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import schema from "../src/modules/article-schema.cjs";
+import { validateArticle } from "../src/modules/article-schema.js";
 
 test("article schema requires editorial metadata and rejects malformed values", () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "article-schema-"));
@@ -20,7 +20,7 @@ test("article schema requires editorial metadata and rejects malformed values", 
   };
   try {
     fs.writeFileSync(file, "---\ndate: 2025-01-01\n---\nArticle");
-    schema.validateArticle(valid);
+    validateArticle(valid);
     for (const changes of [
       { title: "" },
       { description: null },
@@ -33,11 +33,11 @@ test("article schema requires editorial metadata and rejects malformed values", 
       { image: "assets/missing.png" },
       { image: "assets/../package.json" },
     ]) {
-      assert.throws(() => schema.validateArticle({ ...valid, ...changes }));
+      assert.throws(() => validateArticle({ ...valid, ...changes }));
     }
     fs.writeFileSync(file, "# Missing metadata");
-    assert.throws(() => schema.validateArticle(valid), /explicit date/);
-    schema.validateArticle({ ...valid, draft: true, date: undefined });
+    assert.throws(() => validateArticle(valid), /explicit date/);
+    validateArticle({ ...valid, draft: true, date: undefined });
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }

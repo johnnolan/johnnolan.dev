@@ -18,7 +18,11 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs}"],
     ignores: ["src/_includes/scripts/**"],
-    languageOptions: { globals: globals.node },
+    languageOptions: { globals: globals.nodeBuiltin },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: { sourceType: "commonjs", globals: globals.node },
   },
   {
     files: ["src/_includes/scripts/**/*.js"],

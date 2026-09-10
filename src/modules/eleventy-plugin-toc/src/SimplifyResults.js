@@ -25,4 +25,4 @@ const SimplifyResults = (tag, tags, $) => {
   return results;
 };
 
-module.exports = SimplifyResults;
+export default SimplifyResults;

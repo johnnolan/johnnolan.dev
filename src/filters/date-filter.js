@@ -1,5 +1,5 @@
-let dayjs = require("dayjs");
+import dayjs from "dayjs";
 
-module.exports = (date) => {
+export default (date) => {
   return `${dayjs(date, "YYYY-MM-DD").format("D MMMM YYYY")}`;
 };

@@ -1,9 +1,9 @@
-const fs = require("node:fs");
-const path = require("node:path");
+import fs from "node:fs";
+import path from "node:path";
 
 const categories = ["hcta", "iam", "other"];
 
-function validateArticle(data) {
+export function validateArticle(data) {
   const file = data.page.inputPath;
   const fail = (message) => {
     throw new Error(`${file}: ${message}`);
@@ -68,8 +68,7 @@ function validateArticle(data) {
   }
 }
 
-module.exports = (category) => ({
+export default (category) => ({
   category,
   eleventyDataSchema: validateArticle,
 });
-module.exports.validateArticle = validateArticle;

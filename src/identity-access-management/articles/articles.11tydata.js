@@ -1,1 +1,3 @@
-module.exports = require("../../modules/article-schema.cjs")("iam");
+import articleData from "../../modules/article-schema.js";
+
+export default articleData("iam");

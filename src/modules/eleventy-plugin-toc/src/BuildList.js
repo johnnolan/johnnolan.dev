@@ -38,4 +38,4 @@ const BuildList = (listItems, ul, flat, anchorClass) => {
   return list.length > 0 ? `<${listType}>${list.join("")}</${listType}>` : "";
 };
 
-module.exports = BuildList;
+export default BuildList;

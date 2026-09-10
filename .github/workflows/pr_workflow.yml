@@ -76,5 +76,5 @@ jobs:
           REPO: 'johnnolan.dev'
         with:
           script: |
-            const script = require('./.github/workflows/scripts/pa11y-ci.js')
+            const script = require('./.github/workflows/scripts/pa11y-ci.cjs')
             await script({ github, context, core })

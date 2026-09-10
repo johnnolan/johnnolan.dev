@@ -1,4 +1,4 @@
-module.exports = (eleventyConfig, options) => {
+export default (eleventyConfig, options) => {
   const html_tag = options?.html_tag || "pre";
   const extra_classes = options?.extra_classes ? " " + options.extra_classes : "";
 
