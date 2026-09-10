@@ -16,7 +16,7 @@
     "@type": "ImageObject",
     "url": "{{ siteUrl }}{{ image | assetPath }}"
   },
-  "datePublished": "{{ datePublished | date24HourFilter }}",
+  "datePublished": "{{ datePublished | isoDate }}",
   "publisher": {
     "@type": "Organization",
     "name": "{{ organisationName }}"

@@ -1,8 +1,9 @@
-{% macro pageContentMetaData(date, contributors, topics, categoryLabel, backLink) %}
+{% macro pageContentMetaData(date, updated, contributors, topics, categoryLabel, backLink) %}
 {%- from "./datetime.njk" import datetime %}
 {%- from "./authorsList.njk" import authorsList %}
 <div class="metadata">
   <span class="metadata-item">{{ datetime(date) }}</span>
+  {% if updated %}<span class="metadata-item">Updated {{ datetime(updated) }}</span>{% endif %}
   <span class="metadata-item">By {{ authorsList(contributors) }}</span>
 </div>
 <div class="metadata">

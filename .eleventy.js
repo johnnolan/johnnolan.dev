@@ -1,8 +1,7 @@
 import markdownIt from "./markdown-it.js";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import assetPath from "./src/filters/asset-path.js";
-import dateFilter from "./src/filters/date-filter.js";
-import date24HourFilter from "./src/filters/date24Hours-filter.js";
+import { displayDate, isoDate } from "./src/filters/date-filters.js";
 import concat from "./src/filters/concat-filter.js";
 import sitemap from "./src/modules/sitemap.mjs";
 import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
@@ -43,8 +42,8 @@ export default function (eleventyConfig) {
     return array.slice(0, limit);
   });
   eleventyConfig.addFilter("assetPath", assetPath);
-  eleventyConfig.addFilter("dateFilter", dateFilter);
-  eleventyConfig.addFilter("date24HourFilter", date24HourFilter);
+  eleventyConfig.addFilter("displayDate", displayDate);
+  eleventyConfig.addFilter("isoDate", isoDate);
 
   eleventyConfig.addFilter("concat", concat);
 

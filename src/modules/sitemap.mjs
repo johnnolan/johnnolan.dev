@@ -1,4 +1,5 @@
 import { isArticle } from "./content-collections.mjs";
+import { isoDate } from "../filters/date-filters.js";
 
 export function sitemapPages(items) {
   const urls = new Map();
@@ -25,10 +26,7 @@ const escapeXml = (value) =>
   );
 
 export function editorialDate(value) {
-  if (!value) return undefined;
-  const date = value instanceof Date ? value : new Date(value);
-  if (Number.isNaN(date.getTime())) throw new Error(`Invalid sitemap date: ${value}`);
-  return date.toISOString().slice(0, 10);
+  return isoDate(value) || undefined;
 }
 
 export function sitemapXml(items, baseUrl) {
