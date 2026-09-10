@@ -1,0 +1,18 @@
+[
+  { "url": "/hcta/articles/ams-tools-architecture/", "headings": ["introduction", "using-ams-(archimate%2C-mermaid-and-structurizr)", "archimate-modelling-language", "mermaid", "structurizr---c4-model", "conclusion", "references"] },
+  { "url": "/hcta/articles/self-hosted-development-pipeline/", "headings": ["show-me-the-code", "introduction", "setup", "renovate"] },
+  { "url": "/hcta/articles/self-hosted-vscode-server/", "headings": ["show-me-the-code", "introduction", "visual-studio-code-server", "the-dockerfile", "docker-compose.yml", "build-pipeline"] },
+  { "url": "/hcta/articles/tech-ethics-adr/", "headings": ["tl%3Bdr", "introduction", "first-version-of-adding-tech-ethics-to-adrs", "how-to-setup-tech-ethics-in-architectural-decision-records", "example-adr", "status", "context", "ethics", "article-references"] },
+  { "url": "/hcta/articles/technical-architect-cheatsheet/", "headings": ["overview", "technical-architect-cheatsheet"] },
+  { "url": "/identity-access-management/articles/entra-iac-intro/", "headings": ["introduction", "repository", "what-the-repository-does", "how-i-use-it", "the-workflow-around-terraform", "what-the-repository-makes-visible", "using-ai-skills-as-project-context", "topics-for-future-posts", "references"] },
+  { "url": "/random/articles/debugging-javascript/", "headings": ["console.log", "console.warn-and-console.error", "console.table", "debugger", "console-sidebar"] },
+  { "url": "/random/articles/handling-team-end-project/", "headings": ["get-closer-to-your-teams", "do-a-reset-on-what-is-left", "roll-your-sleeves-up-and-get-stuck-in", "communicate-with-your-team-about-everything", "fix-arguments-straight-away", "be-the-calm-in-the-storm", "lean-on-your-team-as-much-as-they-lean-on-you", "celebrate-every-win", "closing"] },
+  { "url": "/random/articles/pandemic-remote-working/", "headings": ["routine", "concentration", "mental-health", "to-finish"] },
+  { "url": "/random/articles/performance-errors-ga/", "headings": ["tracking-errors", "tracking-performance", "producing-a-dashboard"] },
+  { "url": "/random/articles/preconect-hint-tag/", "headings": [] },
+  { "url": "/random/articles/publishing-jekyll-aws-s3-cloudfront/", "headings": [] },
+  { "url": "/random/articles/react-callbacks-refs/", "headings": ["how-to-get-to-a-dom-element-in-jsx"] },
+  { "url": "/random/articles/react-testing-library-hoc/", "headings": ["show-me-the-code", "what-is-going-on%3F"] },
+  { "url": "/random/articles/react-webpack-analyzer/", "headings": ["a-noobies-common-questions-to-react-and-redux-series"] },
+  { "url": "/random/articles/unidays-talk-imposter-syndrome-software-development/", "headings": ["what-is-imposter-syndrome%3F", "my-experiences-with-imposter-syndrome", "so%2C-if-you-feel-at-all-like-this%2C-here-are-the-reasons-why-you-shouldn't", "how-can-we-work-together-to-overcome-it", "outro"] }
+]

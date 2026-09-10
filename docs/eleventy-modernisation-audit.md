@@ -293,6 +293,8 @@ Mark the root package private if it is never published and remove the unused `ma
 
 ## 27. Add focused output regression checks
 
+### Status: Done
+
 Use Node's test runner or a small validation script against a clean output directory. Prioritise checks that would catch the demonstrated failures: twelve actual articles on the homepage where available; published IAM content in the sitemap; drafts absent; fenced HTML remaining text; JSON-LD parsing and referenced images existing; local links resolving; and TOC fragments mapping to headings.
 
 Record current article URLs and heading fragments before restructuring. Compare a full build with an incremental edit sequence covering an article, its metadata, a Sass partial, and an imported helper. Avoid snapshots of all whitespace-heavy HTML or tests that merely duplicate configuration constants. Node 24 verification and a frozen clean install remain required before treating the upgrade as validated.
