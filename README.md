@@ -43,3 +43,13 @@ yarn test:scss
 The repository recommends the Prettier VS Code extension and enables format-on-save for SCSS. CI checks formatting, Stylelint, and the Sass build integration. The styles target current evergreen browsers, consistent with the existing use of `:has()` and `text-wrap: balance`; legacy Internet Explorer prefixes are not maintained.
 
 If changes do not appear, confirm that the preview is served by Eleventy and its reload WebSocket is connected. Fix compilation errors shown in the terminal; saving valid Sass resumes updates without restarting. See [the SCSS implementation notes](docs/scss-build-and-cleanup-proposal.md).
+
+## Articles and drafts
+
+Articles require a title, description, explicit `date: YYYY-MM-DD`, string arrays for `tags` and `topics`, and a valid local image path when provided. Category comes from the article directory. Optional `updated` dates cannot precede publication. Validation fails the build for invalid metadata.
+
+Set `draft: true` for unfinished articles; drafts may omit the publication date. `yarn serve` renders them at their normal URL with a draft label, but excludes them from article listings and the sitemap. To build a preview explicitly, use `INCLUDE_DRAFTS=true yarn build`. Do not deploy that preview output.
+
+Normal `yarn build` excludes drafts before rendering and cleans `_site` first, removing pages left by an earlier preview. If using Eleventy directly with a custom output directory, clean that directory yourself before deployment. Future dates do not schedule publication automatically.
+
+Run `yarn test:content` to check code fences, collections, sitemap generation, metadata validation, and draft publishing.

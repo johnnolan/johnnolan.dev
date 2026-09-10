@@ -9,9 +9,11 @@ import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
+import { drafts } from "./src/modules/drafts.mjs";
 import contentCollections from "./src/modules/content-collections.mjs";
 
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(drafts);
   eleventyConfig.addPlugin(contentCollections);
   eleventyConfig.addPlugin(sitemap);
   eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });

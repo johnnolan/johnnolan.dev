@@ -12,8 +12,6 @@ contributors: ["John Nolan"]
 image: "assets/posts/johnnolan.jpg"
 ---
 
-# Audit Entra ID Terraform with repository skills
-
 This post shows how to use repository-scoped Copilot skills and context to audit Microsoft Entra ID Terraform. It follows the workflow used to create the [Terraform audit backlog](terraform-audit-issues.md).
 
 The method combines three inputs:

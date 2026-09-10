@@ -8,10 +8,16 @@ backLink: "/hcta/"
 {%- from "../../_includes/macros/json-ld/ldArticle.njk" import ldArticle %}
 
 <article class="article-page">
+    {% if not draft %}
     {{ ldArticle(title, image, date, site.name, site.name, site.authorImage, site.jobTitle, description, site.url) }}
+    {% endif %}
     <h1 class="article-page-heading">{{title}}</h1>
 
-    {{ pageContentMetaData(date, contributors, tags) }}
+    {% if draft %}
+      <p class="draft-notice">Draft — unpublished</p>
+    {% else %}
+      {{ pageContentMetaData(date, contributors, tags) }}
+    {% endif %}
     
     {{ toc(content, toc) }}
 
