@@ -8,8 +8,18 @@ This repo contains the source for my website and blog. Content is written in Mar
 
 ## Local development
 
+The repository pins Node.js in `.nvmrc` and uses Yarn Classic 1.22.22, declared in `package.json`. With [nvm](https://github.com/nvm-sh/nvm) installed, set up the matching toolchain and dependencies with:
+
 ```bash
-yarn install
+nvm install
+nvm use
+npm install --global yarn@1.22.22
+yarn install --frozen-lockfile
+```
+
+After the initial setup, start the development server with:
+
+```bash
 yarn run serve
 ```
 
@@ -29,7 +39,7 @@ The site is published as a static blog and the source is kept here for editing a
 
 ## Stylesheets
 
-Eleventy compiles `src/scss/main.scss` directly to `assets/main.css`. There is no separate Sass command or generated CSS source directory. Preview CSS is expanded and includes an inline source map; production CSS is compressed and its URL is versioned from the compiled content.
+Eleventy compiles `src/scss/main.scss` directly into the output. There is no separate Sass command or generated CSS source directory. Preview CSS is expanded at `assets/main.css` with an inline source map; production CSS is compressed and emitted with a content-hashed filename.
 
 Shared values live in `src/scss/settings/_tokens.scss`, media mixins in `src/scss/tools/_media.scss`, and components import their dependencies with `@use`. Only `main.scss` emits CSS. Add new component modules to its ordered `@use` list.
 
@@ -42,9 +52,11 @@ yarn test:scss
 
 The repository recommends the Prettier VS Code extension and enables format-on-save for SCSS. CI checks formatting, Stylelint, and the Sass build integration. The styles target current evergreen browsers, consistent with the existing use of `:has()` and `text-wrap: balance`; legacy Internet Explorer prefixes are not maintained.
 
-If changes do not appear, confirm that the preview is served by Eleventy and its reload WebSocket is connected. Fix compilation errors shown in the terminal; saving valid Sass resumes updates without restarting. See [the SCSS implementation notes](docs/scss-build-and-cleanup-proposal.md).
+If changes do not appear, confirm that the preview is served by Eleventy and its reload WebSocket is connected. Fix compilation errors shown in the terminal; saving valid Sass resumes updates without restarting.
 
 ## Articles and drafts
+
+Follow [Creating posts: required checklist](docs/creating-posts.md) for a copyable template and the complete publishing workflow. See the [final project audit](docs/project-final-audit.md) for verification results and remaining actions.
 
 Articles require a title, description, explicit `date: YYYY-MM-DD`, a string array for `topics`, and a valid local image path when provided. Category comes from the article directory. Optional `updated` dates cannot precede publication. Validation fails the build for invalid metadata.
 

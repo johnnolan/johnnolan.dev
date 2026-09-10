@@ -6,5 +6,10 @@
     "jobTitle": "Technical Architect",
     "authorImage": "/assets/images/johnnolan.jpg",
     "socialImage": "/assets/posts/johnnolan.jpg",
-    "url": "https://www.johnnolan.dev"
+    "url": "https://www.johnnolan.dev",
+    "analytics": {
+        "googleId": "G-F1C9XCHGQX",
+        "cloudflareToken": "30bebefbd39f472b98f50e2b18eef67c",
+        "disabledHostnames": "localhost,127.0.0.1"
+    }
 }

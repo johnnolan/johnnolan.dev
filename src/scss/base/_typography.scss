@@ -1,5 +1,13 @@
-@use "../settings/tokens";
+@use "../settings" as tokens;
 @use "sass:math";
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/Inter.woff2") format("woff2");
+}
 
 /**
  * Basic styling

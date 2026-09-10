@@ -17,7 +17,7 @@ test("Mermaid fences leave ordinary Markdown code rendering intact", () => {
   });
   for (const language of ["hcl", "yaml", "bash", "json", "jsx", "html", "unknown", ""]) {
     const output = md.render("```" + language + "\n<button>&example</button>\n``` ");
-    assert.match(output, /<pre><code/);
+    assert.match(output, /<pre tabindex="0"><code/);
     assert.match(output, /&lt;button&gt;&amp;example&lt;\/button&gt;/);
     assert.doesNotMatch(output, /<button>/);
   }

@@ -26,8 +26,8 @@ test("Sass builds cleanly, versions compiled imports, and excludes partials from
     `,
     );
     await writeFile(
-      path.join(fixture, "src/scss/main.11tydata.json"),
-      await readFile(path.join(root, "src/scss/main.11tydata.json")),
+      path.join(fixture, "src/scss/main.11tydata.js"),
+      await readFile(path.join(root, "src/scss/main.11tydata.js")),
     );
     await writeFile(
       path.join(fixture, "src/scss/scss.11tydata.json"),
@@ -39,26 +39,31 @@ test("Sass builds cleanly, versions compiled imports, and excludes partials from
     );
     await writeFile(
       path.join(fixture, "src/index.njk"),
-      '<link rel="stylesheet" href="/assets/main.css?v={{ cssHash }}">{{ collections.all | length }}',
+      '<link rel="stylesheet" href="{{ cssFile }}">{{ collections.all | length }}',
     );
     const tokens = path.join(fixture, "src/scss/settings/_tokens.scss");
-    const build = () => exec(process.execPath, [cli], { cwd: fixture });
+    const build = async () => {
+      await rm(path.join(fixture, "out"), { recursive: true, force: true });
+      return exec(process.execPath, [cli], { cwd: fixture });
+    };
     let previousHash;
     for (const color of ["red", "blue"]) {
       await writeFile(tokens, `$color: ${color};`);
       const { stderr } = await build();
       assert.doesNotMatch(stderr, /DEPRECATION WARNING/);
-      const css = await readFile(path.join(fixture, "out/assets/main.css"), "utf8");
-      assert.equal(css, `body{color:${color}}`);
-      const hash = createHash("sha256").update(css).digest("hex").slice(0, 12);
+      const expectedCss = `body{color:${color}}`;
+      const hash = createHash("sha256").update(expectedCss).digest("hex").slice(0, 12);
+      const cssFile = `main.${hash}.css`;
+      const css = await readFile(path.join(fixture, "out/assets", cssFile), "utf8");
+      assert.equal(css, expectedCss);
       const html = await readFile(path.join(fixture, "out/index.html"), "utf8");
-      assert.equal(html, `<link rel="stylesheet" href="/assets/main.css?v=${hash}">1`);
+      assert.equal(html, `<link rel="stylesheet" href="/assets/${cssFile}">1`);
       assert.notEqual(hash, previousHash);
       previousHash = hash;
       const files = await readdir(path.join(fixture, "out"), { recursive: true });
       assert.deepEqual(
         files.filter((file) => /\.(css|scss|map)$/.test(file)),
-        ["assets/main.css"],
+        [`assets/${cssFile}`],
       );
     }
     await writeFile(tokens, "$color: ;");
