@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="{{ '/assets/main.css' | url }}{% if cssHash %}?v={{ cssHash }}{% endif %}" rel="stylesheet" as="style">
+    <link href="{{ cssFile | url }}" rel="stylesheet" as="style">
     <link rel="canonical" href="{{ pageMeta.canonicalUrl }}" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml" />
 

@@ -39,7 +39,7 @@ The site is published as a static blog and the source is kept here for editing a
 
 ## Stylesheets
 
-Eleventy compiles `src/scss/main.scss` directly to `assets/main.css`. There is no separate Sass command or generated CSS source directory. Preview CSS is expanded and includes an inline source map; production CSS is compressed and its URL is versioned from the compiled content.
+Eleventy compiles `src/scss/main.scss` directly into the output. There is no separate Sass command or generated CSS source directory. Preview CSS is expanded at `assets/main.css` with an inline source map; production CSS is compressed and emitted with a content-hashed filename.
 
 Shared values live in `src/scss/settings/_tokens.scss`, media mixins in `src/scss/tools/_media.scss`, and components import their dependencies with `@use`. Only `main.scss` emits CSS. Add new component modules to its ordered `@use` list.
 

@@ -8,16 +8,9 @@ P2 means a worthwhile capability or maintenance improvement. P3 means optional. 
 
 | # | Potential change | Priority | Effort |
 | --- | --- | --- | --- |
-| 18 | Replace custom CSS hashing with an asset pipeline | P2 | Medium |
 | 20 | Replace deprecated Sass imports | P2 | Medium |
 | 22 | Declare Markdown preprocessing deliberately | P2 | Small |
 | 30 | Trial v4 separately after stabilising v3 | P3 | Medium |
-
-## 18. Replace custom CSS hashing with an asset pipeline
-
-`cacheBuster.js` synchronously reads CSS and returns an MD5 query-string suffix, silently falling back to `dev` when the file is missing. The production script orders Sass first, but `serve` starts Sass and Eleventy concurrently, so a fresh checkout can reach hashing before CSS exists.
-
-Consider Eleventy's bundled asset facilities for a content-hashed CSS filename and page-specific script bundles. The bundle plugin is a text bundler, not a Sass compiler, transpiler, or npm module resolver; define compilation order explicitly. For this small site, keeping a single stylesheet with a reliable build step is also reasonable. Test cache updates during watch mode before deleting the existing helper. [Bundled asset facilities](https://www.11ty.dev/docs/plugins/bundle/).
 
 ## 20. Replace deprecated Sass imports
 

@@ -54,10 +54,11 @@ export default function pluginSass(eleventyConfig) {
     return compilations.get(input);
   }
 
-  eleventyConfig.addGlobalData("cssHash", async () => {
-    if (preview) return "";
+  eleventyConfig.addGlobalData("cssFile", async () => {
+    if (preview) return "/assets/main.css";
     const result = await compile(await readFile(entrypoint, "utf8"));
-    return createHash("sha256").update(result.css).digest("hex").slice(0, 12);
+    const hash = createHash("sha256").update(result.css).digest("hex").slice(0, 12);
+    return `/assets/main.${hash}.css`;
   });
 
   eleventyConfig.addTemplateFormats("scss");
