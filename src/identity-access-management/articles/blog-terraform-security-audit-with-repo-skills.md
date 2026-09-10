@@ -43,7 +43,7 @@ Start with a concrete Terraform file. A focused request gives the skill a clear 
 Using the terraform-security-baseline-auditor skill, audit terraform/conditional-access.tf.
 Read the file fully, identify every resource and API path, verify relevant Microsoft,
 NCSC, and stable Maester guidance, report findings by severity, and do not apply
-behavior-changing changes without asking first.
+behaviour-changing changes without asking first.
 ```
 
 The skill should then:
@@ -53,7 +53,7 @@ The skill should then:
 3. Search the local Maester indexes for candidate test IDs.
 4. Fetch each candidate test page before citing it.
 5. Compare the configuration with the verified guidance.
-6. Separate safe structural changes from tenant behavior changes.
+6. Separate safe structural changes from tenant behaviour changes.
 7. Run `terraform fmt` and `terraform validate` after edits.
 8. Update the file's companion guide.
 
@@ -67,7 +67,7 @@ To create a directory-wide inventory, use a request such as:
 Using the terraform-security-baseline-auditor skill, audit all Terraform files
 under terraform/. Build a file-by-file resource inventory, identify security and
 HCL issues, verify citations against stable Microsoft and Maester pages, and create
-a prioritized remediation backlog. Do not change live tenant behavior without my approval.
+a prioritized remediation backlog. Do not change live tenant behaviour without my approval.
 ```
 
 This repository contains typed AzureAD resources and Microsoft Graph resources. The inventory should cover both.
@@ -106,7 +106,7 @@ The audit also exposed why this verification matters. The current `MT.1057` page
 
 ## Separate findings from decisions
 
-Classify findings by whether they can be fixed without changing tenant behavior.
+Classify findings by whether they can be fixed without changing tenant behaviour.
 
 Safe structural work can usually proceed directly:
 
@@ -116,7 +116,7 @@ Safe structural work can usually proceed directly:
 - Add an import block when adopting a known fixed resource.
 - Remove an unused placeholder field when the provider permits it.
 
-Tenant behavior requires a decision:
+Tenant behaviour requires a decision:
 
 - Restrict all-user and all-application cross-tenant access.
 - Enable Continuous Access Evaluation.
@@ -159,7 +159,7 @@ terraform validate
 tflint --format compact
 ```
 
-For a behavior-changing resource, also create a plan with the intended variables and inspect the affected tenant objects.
+For a behaviour-changing resource, also create a plan with the intended variables and inspect the affected tenant objects.
 
 Use a non-production tenant for enforcement changes. Test sign-in, guest collaboration, authentication registration, and GitHub Actions token exchange when those paths change.
 
@@ -193,7 +193,7 @@ Preserve resource names, API paths, fields, permissions, and verified URLs. Expl
 technical terms on first use and add visible security callouts where required.
 ```
 
-This routing keeps implementation context local. It also prevents a documentation request from silently changing Terraform behavior.
+This routing keeps implementation context local. It also prevents a documentation request from silently changing Terraform behaviour.
 
 ## Keep the repository trustworthy
 

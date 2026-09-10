@@ -64,6 +64,7 @@
     "azuread",
     "msgraph",
     "tflint",
-    "NCSC"
+    "NCSC",
+    "EIDSCA"
   ]
 }
