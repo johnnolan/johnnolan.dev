@@ -1,5 +1,6 @@
 import markdownIt from "./markdown-it.js";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import site from "./src/_data/site.json" with { type: "json" };
 import assetPath from "./src/filters/asset-path.js";
 import { displayDate, isoDate } from "./src/filters/date-filters.js";
@@ -10,6 +11,7 @@ import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
 import { buildPageMetadata, safeJson } from "./src/modules/page-metadata.js";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
 import youtubeEmbedTitles from "./src/modules/youtube-embed-titles.js";
+import responsiveImages from "./src/modules/responsive-images.js";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
 import { drafts } from "./src/modules/drafts.mjs";
@@ -41,6 +43,20 @@ export default function (eleventyConfig) {
     },
   });
   eleventyConfig.addPlugin(pluginMermaid);
+  eleventyConfig.addPlugin(responsiveImages);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "auto"],
+    widths: [480, 800, 1200],
+    sharpOptions: { animated: true },
+    svgShortCircuit: true,
+    htmlOptions: {
+      imgAttributes: {
+        loading: "lazy",
+        decoding: "async",
+        sizes: "(min-width: 800px) 68ch, 100vw",
+      },
+    },
+  });
   eleventyConfig.addPlugin(youtubeEmbed);
   eleventyConfig.addPlugin(youtubeEmbedTitles);
   eleventyConfig.addPlugin(pluginTOC, {

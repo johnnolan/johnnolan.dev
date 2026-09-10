@@ -70,6 +70,21 @@ test("JSON-LD parses and local image references exist", () => {
   }
 });
 
+test("pilot article uses responsive images without changing full-size links", () => {
+  const $ = load(readFileSync("_site/identity-access-management/articles/entra-iac-intro/index.html", "utf8"));
+  const pictures = $("main article picture");
+  assert.equal(pictures.length, 5);
+  pictures.each((_, picture) => {
+    assert.match($(picture).find("source[type='image/webp']").attr("srcset"), /\/img\//);
+    const image = $(picture).find("img");
+    assert.equal(image.attr("loading"), "lazy");
+    assert.equal(image.attr("decoding"), "async");
+    assert.ok(image.attr("width"));
+    assert.ok(image.attr("height"));
+    assert.match($(picture).parent("a").attr("href"), /^\/assets\/posts\/iam\/entra-iac-intro\//);
+  });
+});
+
 test("local links resolve and TOC fragments target headings", () => {
   for (const file of htmlFiles) {
     const $ = load(readFileSync(file, "utf8"));
