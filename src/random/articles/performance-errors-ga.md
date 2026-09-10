@@ -2,8 +2,6 @@
 title:  "Performance Tracking and Error Tracking in Google Analytics with Data Studio"
 description:  "How to setup and use Google Data Studio with RUM and Error Tracking via Google Analytics"
 date: 2018-10-08
-tags: 
-  - other
 topics: []
 image: "/assets/posts/2018-10-08-performance-errors-ga.png"
 imagewidth: "250"

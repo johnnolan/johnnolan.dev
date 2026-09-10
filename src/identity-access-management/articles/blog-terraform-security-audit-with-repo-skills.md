@@ -2,10 +2,6 @@
 title: "Audit Entra ID Terraform with repository skills"
 description: "Use repository-scoped skills and context to audit Microsoft Entra ID Terraform."
 draft: true
-tags:
-  - iam
-  - terraform
-  - security
 topics: ["terraform","security"]
 image: "/assets/posts/johnnolan.jpg"
 ---

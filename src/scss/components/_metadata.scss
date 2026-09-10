@@ -2,6 +2,7 @@
 
 .metadata {
   display: flex;
+  flex-wrap: wrap;
 
   &-item {
     font-size: 15px;
@@ -45,11 +46,6 @@
 
 // Each known tag has a consistent pastel identity. Unmapped tags use the
 // green-tinted default above, so new content remains legible without new CSS.
-.metadata-tag[data-tag="iam"] {
-  background-color: #e7f0ff;
-  border-color: #b8cceb;
-}
-
 .metadata-tag[data-tag="entra-id"] {
   background-color: #f0eaff;
   border-color: #ccbaeb;
@@ -70,11 +66,6 @@
   border-color: #dfca91;
 }
 
-.metadata-tag[data-tag="hcta"] {
-  background-color: #e3f4ea;
-  border-color: #afd4bd;
-}
-
 .metadata-tag[data-tag="selfhosted"] {
   background-color: #e3f4f4;
   border-color: #abd1d2;
@@ -83,9 +74,4 @@
 .metadata-tag[data-tag="ethics"] {
   background-color: #fbe8f1;
   border-color: #dfb6c9;
-}
-
-.metadata-tag[data-tag="other"] {
-  background-color: #eceff1;
-  border-color: #c5cbd0;
 }

@@ -2,8 +2,6 @@
 title:  "preconnect your external sources"
 description:  "Using the preconnect tag to quickly load your external resources"
 date: 2018-03-17
-tags: 
-  - other
 topics: []
 image: "/assets/posts/2018-03-17-preconnect-hint-tag.jpg"
 imagewidth: "400"

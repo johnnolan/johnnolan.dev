@@ -3,10 +3,6 @@ title: "Self-Hosted Development Pipeline Setup with Docker"
 description: "How to setup and run your own Self-Hosted Development Pipeline Setup including Git, CI/CD, Docker Registry and Renovate."
 image: "/assets/posts/johnnolan.jpg"
 date: 2025-07-30
-tags: 
-  - hcta
-  - architecture
-  - selfhosted
 topics: ["architecture","selfhosted"]
 ---
 

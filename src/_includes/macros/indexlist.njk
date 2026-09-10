@@ -17,9 +17,9 @@
                         {% if article.data.description %}
                             <figcaption class="article-caption">{{article.data.description}}</figcaption>
                         {%- endif -%}
-                        <span class="post-meta">
-                            {{ pageContentMetaData(article.data.date, article.data.contributors, article.data.tags) }}
-                        </span>
+                        <div class="post-meta">
+                            {{ pageContentMetaData(article.data.date, article.data.contributors, article.data.topics, article.data.categoryLabel, article.data.backLink) }}
+                        </div>
                         {% if showImages %}
                             {% if article.data.image %}
                                 <img class="article-image" src="{{ article.data.image | assetPath | url }}" alt="{{article.data.description}}" />

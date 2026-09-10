@@ -1,17 +1,15 @@
 import { validateArticle } from "./article-schema.js";
 
-const sectionUrls = {
-  hcta: "/hcta/",
-  iam: "/identity-access-management/",
-  other: "/random/",
-};
+import { articleSections } from "./article-sections.js";
 
 export default function articleDefaults(category) {
   return {
     layout: "layouts/article.njk",
     contributors: ["John Nolan"],
     category,
-    backLink: sectionUrls[category],
+    categoryLabel: articleSections[category].label,
+    backLink: articleSections[category].url,
+    tags: [category],
     eleventyDataSchema: validateArticle,
   };
 }

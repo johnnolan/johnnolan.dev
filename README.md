@@ -46,7 +46,7 @@ If changes do not appear, confirm that the preview is served by Eleventy and its
 
 ## Articles and drafts
 
-Articles require a title, description, explicit `date: YYYY-MM-DD`, string arrays for `tags` and `topics`, and a valid local image path when provided. Category comes from the article directory. Optional `updated` dates cannot precede publication. Validation fails the build for invalid metadata.
+Articles require a title, description, explicit `date: YYYY-MM-DD`, a string array for `topics`, and a valid local image path when provided. Category comes from the article directory. Optional `updated` dates cannot precede publication. Validation fails the build for invalid metadata.
 
 Set `draft: true` for unfinished articles; drafts may omit the publication date. `yarn serve` renders them at their normal URL with a draft label, but excludes them from article listings and the sitemap. To build a preview explicitly, use `INCLUDE_DRAFTS=true yarn build`. Do not deploy that preview output.
 
@@ -55,3 +55,5 @@ Normal `yarn build` excludes drafts before rendering and cleans `_site` first, r
 Run `yarn test:content` to check code fences, collections, sitemap generation, metadata validation, and draft publishing.
 
 Article layout, default contributor, category, section backlink, and validation are inherited from `articles.11tydata.js` through `src/modules/article-defaults.js`. Keep editorial facts in frontmatter; omit repeated defaults. Use root-relative image paths such as `/assets/posts/johnnolan.jpg`. Legacy relative image values remain supported by the shared asset-path filter.
+
+Topics describe the article (for example `topics: ["terraform", "security"]`). Omit `tags`: the directory assigns its internal collection tag, preserving the `hcta`, `iam`, and `other` section collections. Do not put those collection names, or `posts`, in topics. Readers see a readable category link, topic badges, and contributor names. Topic lists must not contain duplicates.

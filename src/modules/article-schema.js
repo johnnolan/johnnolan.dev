@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const categories = ["hcta", "iam", "other"];
+import { articleSections } from "./article-sections.js";
+
+const categories = Object.keys(articleSections);
 
 export function validateArticle(data) {
   const file = data.page.inputPath;
@@ -20,6 +22,20 @@ export function validateArticle(data) {
     ) {
       fail(`${key} must be an array of non-empty strings`);
     }
+  }
+  if (data.tags.length !== 1 || data.tags[0] !== data.category) {
+    fail("tags are managed by the article directory; use topics for editorial labels");
+  }
+  if (data.topics.some((topic) => [...categories, "posts"].includes(topic))) {
+    fail("topics must not contain internal collection names");
+  }
+  if (new Set(data.topics).size !== data.topics.length) fail("topics must be unique");
+  if (
+    !Array.isArray(data.contributors) ||
+    !data.contributors.length ||
+    data.contributors.some((name) => typeof name !== "string" || !name.trim())
+  ) {
+    fail("contributors must be a non-empty array of names");
   }
   if (data.draft !== undefined && typeof data.draft !== "boolean") fail("draft must be a boolean");
   // Eleventy may infer dates from the filesystem. Require an editorial value in

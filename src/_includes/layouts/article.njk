@@ -15,7 +15,7 @@ mastheadTitle: true
     {% if draft %}
       <p class="draft-notice">Draft — unpublished</p>
     {% else %}
-      {{ pageContentMetaData(date, contributors, tags) }}
+      {{ pageContentMetaData(date, contributors, topics, categoryLabel, backLink) }}
     {% endif %}
     
     {{ toc(content, toc) }}

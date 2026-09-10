@@ -2,8 +2,6 @@
 title:  "Pandemic Remote Working vs Remote Working"
 description:  "Thoughts on how I found remote working in a pandemic vs standard remote working"
 date: 2020-03-26
-tags: 
-  - other
 topics: []
 image: "/assets/posts/2017-06-19-handling-team-end-project-2.jpg"
 imagewidth: "400"

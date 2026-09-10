@@ -36,7 +36,7 @@ test("articles inherit layout, contributor, category and section backlink", asyn
       );
       await writeFile(
         path.join(dir, "post.md"),
-        "---\ntitle: Title\ndescription: Description\ndate: 2025-01-01\ntags: []\ntopics: []\n---\nBody",
+        "---\ntitle: Title\ndescription: Description\ndate: 2025-01-01\ntopics: []\n---\nBody",
       );
     }
     await exec(process.execPath, [path.join(root, "node_modules/@11ty/eleventy/cmd.cjs")], {

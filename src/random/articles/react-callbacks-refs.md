@@ -2,8 +2,6 @@
 title:  "React Callback refs - Disable Button onClick"
 description:  "Using React Callback refs to access the DOM in JSX"
 date: 2019-01-13
-tags: 
-  - other
 topics: []
 image: "/assets/posts/2019-01-13-react.png"
 imagewidth: "250"
