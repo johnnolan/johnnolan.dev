@@ -309,6 +309,10 @@ There is a local Inter WOFF2 file, but the main layout loads Inter from Google F
 
 ## 29. Consider navigation, pagination, and newer template options selectively
 
+### Status: Done
+
+The decisions and their review triggers are recorded in [Eleventy template and navigation decisions](eleventy-template-decisions.md).
+
 The current two-category navigation is simple enough to retain. Use the Navigation plugin if hierarchical sections or breadcrumbs become a real requirement. Add archive pagination when article growth warrants it; existing older pagination APIs are sufficient. Keep Nunjucks macros where they work.
 
 Eleventy 3 also offers JavaScript frontmatter, asynchronous configuration/plugins, named configuration exports, virtual templates, and cross-template heading IDs. JavaScript frontmatter would make ordinary articles harder to edit without solving a current problem; keep YAML and put logic in data modules. WebC, JSX, TypeScript templates, islands, and Vite are optional architecture choices, not a mandatory modern standard. The current 21-page HTML output and subsecond Eleventy run provide little evidence for a broad framework or build-tool rewrite. [v3 capability inventory](https://github.com/11ty/buildawesome/releases/tag/v3.0.0).
