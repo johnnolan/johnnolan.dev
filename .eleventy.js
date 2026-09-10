@@ -6,6 +6,7 @@ import concat from "./src/filters/concat-filter.js";
 import sitemap from "./src/modules/sitemap.mjs";
 import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
 import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
+import { buildPageMetadata, safeJson } from "./src/modules/page-metadata.js";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
@@ -46,6 +47,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("isoDate", isoDate);
 
   eleventyConfig.addFilter("concat", concat);
+  eleventyConfig.addFilter("pageMetadata", buildPageMetadata);
+  eleventyConfig.addFilter("safeJson", safeJson);
 
   eleventyConfig.setLibrary("md", markdownIt());
 

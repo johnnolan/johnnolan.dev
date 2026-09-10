@@ -1,5 +1,4 @@
 {%- from "./pageContentMetaData.njk" import pageContentMetaData %}
-{%- from "./json-ld/ldArticle.njk" import ldArticle %}
 {% macro indexList(title, content, collection, site, showImages) %}
     <div class="articles">
         <h1 class="articles-heading">{{title}}</h1>
@@ -8,7 +7,6 @@
             {%- for article in collection -%}
                 {% if article.data.date and not article.data.draft %}
                     <article class="article">
-                        {{ ldArticle(article.data.title, article.data.image, article.data.date, site.name, site.name, site.authorImage, site.jobTitle, article.data.description, site.url) }}
                         <a href="{{ article.url }}" class="post-list-item-link">
                             <h2 class="post-link">
                                 {{ article.data.title }}

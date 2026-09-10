@@ -172,6 +172,8 @@ For editorial date-only values, use a consistent UTC convention and verify rende
 
 ## 12. Consolidate metadata and JSON-LD
 
+### Status: Done
+
 The homepage and three section indexes have no populated description. `layouts/fullwidth.njk` always emits `og:type=article`, even on indexes. Its `post.image`, `page.image`, `renderData`, and `metadata` fallbacks do not match a consistent data model. `site.authorImage` points to `assets/images/johnnolan.png`, while the existing file is `.jpg`.
 
 Use computed data or a small helper to produce one canonical URL, description fallback, social image, page type, author, and publication/update metadata. Build JSON-LD from an object and serialise it safely for an HTML script element, including escaping `<`; string interpolation is fragile with quotes or multiline editorial text. Current JSON-LD parses successfully, so this is a robustness improvement alongside the confirmed missing image. Do not assume HTML URL transforms will rewrite URLs inside JSON-LD or XML.
