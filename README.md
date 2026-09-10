@@ -52,9 +52,11 @@ yarn test:scss
 
 The repository recommends the Prettier VS Code extension and enables format-on-save for SCSS. CI checks formatting, Stylelint, and the Sass build integration. The styles target current evergreen browsers, consistent with the existing use of `:has()` and `text-wrap: balance`; legacy Internet Explorer prefixes are not maintained.
 
-If changes do not appear, confirm that the preview is served by Eleventy and its reload WebSocket is connected. Fix compilation errors shown in the terminal; saving valid Sass resumes updates without restarting. See [the SCSS implementation notes](docs/scss-build-and-cleanup-proposal.md).
+If changes do not appear, confirm that the preview is served by Eleventy and its reload WebSocket is connected. Fix compilation errors shown in the terminal; saving valid Sass resumes updates without restarting.
 
 ## Articles and drafts
+
+Follow [Creating posts: required checklist](docs/creating-posts.md) for a copyable template and the complete publishing workflow. See the [final project audit](docs/project-final-audit.md) for verification results and remaining actions.
 
 Articles require a title, description, explicit `date: YYYY-MM-DD`, a string array for `topics`, and a valid local image path when provided. Category comes from the article directory. Optional `updated` dates cannot precede publication. Validation fails the build for invalid metadata.
 

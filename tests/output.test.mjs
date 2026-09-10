@@ -49,7 +49,12 @@ test("published IAM articles are indexed and drafts are excluded", () => {
 test("article URLs and heading fragments retain their semantic baseline", () => {
   const actual = baseline.map(({ url }) => {
     const $ = load(readFileSync(outputPath(url), "utf8"));
-    return { url, headings: $("main article h2[id]").map((_, node) => $(node).attr("id")).get() };
+    return {
+      url,
+      headings: $("main article h2[id]")
+        .map((_, node) => $(node).attr("id"))
+        .get(),
+    };
   });
   assert.deepEqual(actual, baseline);
 });
@@ -57,7 +62,14 @@ test("article URLs and heading fragments retain their semantic baseline", () => 
 test("JSON-LD parses and local image references exist", () => {
   for (const file of htmlFiles) {
     const $ = load(readFileSync(file, "utf8"));
-    const pageUrl = new URL(`/${path.relative(outputRoot, file).replace(/index\.html$/, "").split(path.sep).join("/")}`, siteOrigin);
+    const pageUrl = new URL(
+      `/${path
+        .relative(outputRoot, file)
+        .replace(/index\.html$/, "")
+        .split(path.sep)
+        .join("/")}`,
+      siteOrigin,
+    );
     $("script[type='application/ld+json']").each((_, node) => {
       assert.doesNotThrow(() => JSON.parse($(node).text()), `Invalid JSON-LD in ${file}`);
     });
@@ -65,24 +77,46 @@ test("JSON-LD parses and local image references exist", () => {
     $("img[src], meta[property='og:image'][content]").each((_, node) => {
       const value = $(node).attr("src") ?? $(node).attr("content");
       const url = localUrl(value, pageUrl);
-      if (url) assert.ok(existsSync(outputPath(url.pathname)), `Missing ${url.pathname} from ${file}`);
+      if (url)
+        assert.ok(existsSync(outputPath(url.pathname)), `Missing ${url.pathname} from ${file}`);
     });
   }
 });
 
-test("pilot article uses responsive images without changing full-size links", () => {
-  const $ = load(readFileSync("_site/identity-access-management/articles/entra-iac-intro/index.html", "utf8"));
-  const pictures = $("main article picture");
-  assert.equal(pictures.length, 5);
-  pictures.each((_, picture) => {
-    assert.match($(picture).find("source[type='image/webp']").attr("srcset"), /\/img\//);
-    const image = $(picture).find("img");
-    assert.equal(image.attr("loading"), "lazy");
-    assert.equal(image.attr("decoding"), "async");
-    assert.ok(image.attr("width"));
-    assert.ok(image.attr("height"));
-    assert.match($(picture).parent("a").attr("href"), /^\/assets\/posts\/iam\/entra-iac-intro\//);
-  });
+test("Markdown article images use responsive images without changing full-size links", () => {
+  const pages = [
+    {
+      file: "_site/identity-access-management/articles/entra-iac-intro/index.html",
+      linkPattern: /^\/assets\/posts\/iam\/entra-iac-intro\//,
+      pictureCount: 5,
+    },
+    {
+      file: "_site/hcta/articles/ams-tools-architecture/index.html",
+      linkPattern: /^\/assets\/posts\/ams-three\//,
+      pictureCount: 9,
+    },
+    {
+      file: "_site/random/articles/debugging-javascript/index.html",
+      pictureCount: 7,
+    },
+  ];
+
+  for (const page of pages) {
+    const $ = load(readFileSync(page.file, "utf8"));
+    const pictures = $("main article picture");
+    assert.equal(pictures.length, page.pictureCount, page.file);
+    pictures.each((_, picture) => {
+      assert.match($(picture).find("source[type='image/webp']").attr("srcset"), /\/img\//);
+      const image = $(picture).find("img");
+      assert.equal(image.attr("loading"), "lazy");
+      assert.equal(image.attr("decoding"), "async");
+      assert.ok(image.attr("width"));
+      assert.ok(image.attr("height"));
+      if (page.linkPattern) {
+        assert.match($(picture).parent("a").attr("href"), page.linkPattern);
+      }
+    });
+  }
 });
 
 test("Markdown code is not interpreted as template syntax", () => {
@@ -94,12 +128,22 @@ test("Markdown code is not interpreted as template syntax", () => {
 test("local links resolve and TOC fragments target headings", () => {
   for (const file of htmlFiles) {
     const $ = load(readFileSync(file, "utf8"));
-    const pageUrl = new URL(`/${path.relative(outputRoot, file).replace(/index\.html$/, "").split(path.sep).join("/")}`, siteOrigin);
+    const pageUrl = new URL(
+      `/${path
+        .relative(outputRoot, file)
+        .replace(/index\.html$/, "")
+        .split(path.sep)
+        .join("/")}`,
+      siteOrigin,
+    );
     $("a[href]").each((_, node) => {
       const href = $(node).attr("href");
       if (/^(mailto:|tel:|javascript:)/.test(href)) return;
       if (href.startsWith("#")) {
-        assert.ok($(`[id='${href.slice(1).replaceAll("'", "\\'")}']`).length, `Missing ${href} in ${file}`);
+        assert.ok(
+          $(`[id='${href.slice(1).replaceAll("'", "\\'")}']`).length,
+          `Missing ${href} in ${file}`,
+        );
         return;
       }
       const url = localUrl(href, pageUrl);
@@ -108,7 +152,10 @@ test("local links resolve and TOC fragments target headings", () => {
       assert.ok(existsSync(target), `Broken ${href} in ${file}`);
       if (url.hash && target.endsWith(".html")) {
         const targetPage = load(readFileSync(target, "utf8"));
-        assert.ok(targetPage(`[id='${url.hash.slice(1)}']`).length, `Missing ${url.hash} in ${target}`);
+        assert.ok(
+          targetPage(`[id='${url.hash.slice(1)}']`).length,
+          `Missing ${url.hash} in ${target}`,
+        );
       }
     });
   }
