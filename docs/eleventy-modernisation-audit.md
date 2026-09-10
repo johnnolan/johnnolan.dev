@@ -301,6 +301,8 @@ Record current article URLs and heading fragments before restructuring. Compare 
 
 ## 28. Simplify fonts and browser script configuration
 
+### Status: Done
+
 There is a local Inter WOFF2 file, but the main layout loads Inter from Google Fonts. Choose a single delivery strategy; if self-hosting, verify that the local font covers the required weights and replace the remote stylesheet and preconnects.
 
 `src/_includes/scripts/index.js` mixes `var` and `const`, hard-codes environment behaviour, and supplies Cloudflare beacon data using single-quoted object text rather than valid JSON. Generate that attribute with `JSON.stringify`. The accept handler saves a cookie but does not initialise analytics until another page load; decide whether this is intended. These are small browser-script improvements, not a justification for adding a full JavaScript bundler or changing consent policy.

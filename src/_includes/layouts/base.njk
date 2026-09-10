@@ -13,10 +13,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
     <link href="{{ '/assets/main.css' | url }}{% if cssHash %}?v={{ cssHash }}{% endif %}" rel="stylesheet" as="style">
     <link rel="canonical" href="{{ pageMeta.canonicalUrl }}" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml" />
@@ -40,7 +36,13 @@
     {% if pageMeta.datePublished %}<meta property="article:published_time" content="{{ pageMeta.datePublished }}" />{% endif %}
     {% if pageMeta.dateModified %}<meta property="article:modified_time" content="{{ pageMeta.dateModified }}" />{% endif %}
 
-    <script src="{{ '/assets/index.js' | url }}" defer></script>
+    <script
+      src="{{ '/assets/index.js' | url }}"
+      data-google-analytics-id="{{ site.analytics.googleId }}"
+      data-cloudflare-beacon-token="{{ site.analytics.cloudflareToken }}"
+      data-disabled-hostnames="{{ site.analytics.disabledHostnames }}"
+      defer
+    ></script>
     <title>{{ pageMeta.title }} - {{ site.name }}</title>
     
   </head>
