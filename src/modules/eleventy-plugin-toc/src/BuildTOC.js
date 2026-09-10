@@ -23,18 +23,19 @@ const BuildTOC = (text, opts) => {
   const $ = cheerio.load(text);
 
   const headings = NestHeadings(tags, $);
+  const list = BuildList(headings, ul, flat, anchorClass);
 
-  if (headings.length === 0) {
+  if (!list) {
     return undefined;
   }
 
-  const label = wrapperLabel ? `aria-label="${wrapperLabel}"` : "";
+  const label = wrapperLabel ? ` aria-label="${wrapperLabel}"` : "";
 
   return wrapper
-    ? `<${wrapper} class="${wrapperClass}" ${label}>
-        ${BuildList(headings, ul, flat, anchorClass)}
+    ? `<${wrapper} class="${wrapperClass}"${label}>
+        ${list}
       </${wrapper}>`
-    : BuildList(headings, ul, flat, anchorClass);
+    : list;
 };
 
 export default BuildTOC;

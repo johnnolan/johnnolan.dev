@@ -1,4 +1,6 @@
-{% macro toc(content, toc) %}
+{% macro toc(content) %}
+{% set tocContent = content | toc %}
+{% if tocContent %}
 <details class="toc">
     <summary>
         <span class="toc__summary">
@@ -7,8 +9,9 @@
     </summary>
     <div>
         <nav aria-label="Contents" role="navigation">
-            {{ content | toc | safe }}
+            {{ tocContent | safe }}
         </nav>
     </div>
 </details>
+{% endif %}
 {% endmacro %}

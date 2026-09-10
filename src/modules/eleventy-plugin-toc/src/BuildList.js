@@ -11,19 +11,19 @@ const _buildLink = ({ id, text, children }, ul, flat, anchorClass) => {
   let nestedList = "";
 
   if (children.length > 0 && flat) {
-    nestedList = children.map((c) => _buildLink(c, ul, flat));
+    nestedList = children.map((child) => _buildLink(child, ul, flat, anchorClass));
   } else if (children.length > 0) {
-    nestedList = BuildList(children, ul, flat);
+    nestedList = BuildList(children, ul, flat, anchorClass);
   }
 
   const anchorClassAttribute = anchorClass ? ` class="${anchorClass}"` : "";
 
   if (id && text && flat) {
-    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(text)}</a></li>${(
+    return `<li><a href="#${_escText(id)}"${anchorClassAttribute}>${_escText(text)}</a></li>${(
       nestedList || []
     ).join("")}`;
   } else if (id && text) {
-    return `<li><a href="#${id}"${anchorClassAttribute}>${_escText(text)}</a>${nestedList}</li>`;
+    return `<li><a href="#${_escText(id)}"${anchorClassAttribute}>${_escText(text)}</a>${nestedList}</li>`;
   } else {
     return nestedList;
   }
@@ -32,8 +32,8 @@ const _buildLink = ({ id, text, children }, ul, flat, anchorClass) => {
 const BuildList = (listItems, ul, flat, anchorClass) => {
   const listType = ul ? "ul" : "ol";
   const list = listItems
-    .sort((a, b) => a.order - b.order)
-    .map((li) => _buildLink(li, ul, flat, anchorClass));
+    .map((item) => _buildLink(item, ul, flat, anchorClass))
+    .filter(Boolean);
 
   return list.length > 0 ? `<${listType}>${list.join("")}</${listType}>` : "";
 };

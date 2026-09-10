@@ -234,6 +234,8 @@ This is not a safe mechanical keyword replacement because the current partials s
 
 ## 21. Repair and simplify the local TOC plugin
 
+### Status: Done
+
 The vendored TOC implementation reparses HTML with Cheerio and maintains its own hierarchy algorithm. A small fixture with `h2 A`, `h4 B`, `h2 C` produces `B, A, C`, demonstrating incorrect source order for a skipped heading level. Recursive list construction also drops `anchorClass` when descending.
 
 Fix ordering with a document-order heading stack, or evaluate a maintained alternative that shares heading information with the Markdown renderer. Suppress empty TOC containers and remove the unused macro argument. Add fixtures for skipped levels, repeated headings, nested inline markup, and headings without IDs. The newer IdAttribute plugin is an option for mixed-template heading IDs, but it does not replace a TOC; do not run competing ID generators or change existing fragments without compatibility checks.

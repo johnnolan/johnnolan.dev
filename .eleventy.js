@@ -44,7 +44,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(youtubeEmbed);
   eleventyConfig.addPlugin(pluginTOC, {
-    wrapper: "div",
+    wrapper: false,
     ul: true,
   });
 
