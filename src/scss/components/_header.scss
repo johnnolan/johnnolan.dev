@@ -1,5 +1,7 @@
+@use "../settings/tokens";
+
 .header {
-  background-color: $background-color;
+  background-color: tokens.$background-color;
 
   .wrapper {
     position: relative;
@@ -11,11 +13,10 @@
       margin: 0;
       text-align: center;
       padding: 10px 0 10px 0;
-      font-weight: bold;
-      color: $text-color-light;
-      
+      color: tokens.$text-color-light;
+
       &-link {
-        color: $text-color-light;
+        color: tokens.$text-color-light;
         text-decoration: none;
         &:hover {
           text-decoration: underline;

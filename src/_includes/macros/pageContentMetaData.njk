@@ -1,26 +1,21 @@
-{% macro pageContentMetaData(date, contributors, tags) %}
+{% macro pageContentMetaData(date, updated, contributors, topics, categoryLabel, backLink) %}
 {%- from "./datetime.njk" import datetime %}
 {%- from "./authorsList.njk" import authorsList %}
-
-
-<dl class="metadata">
-  <div class="metadata-item">
-    <dd class="metadata-item-value">
-      {{datetime(date)}}
-    </dd>
-  </div>
-</dl>
-<dl class="metadata">
-  {% if tags %}
-    <div class="metadata-item">
-      <dd class="metadata-item-value">
-        <span class="metadata-tags">
-          {% for tag in tags %}
-            <span class="metadata-tag" data-tag="{{ tag | lower }}">{{tag}}</span>
-          {% endfor %}
-        </span>
-      </dd>
-    </div>
-  {% endif %}
-</dl>
+<div class="metadata">
+  <span class="metadata-item">{{ datetime(date) }}</span>
+  {% if updated %}<span class="metadata-item">Updated {{ datetime(updated) }}</span>{% endif %}
+  <span class="metadata-item">By {{ authorsList(contributors) }}</span>
+</div>
+<div class="metadata">
+  <span class="metadata-item">In <a href="{{ backLink | url }}">{{ categoryLabel }}</a></span>
+</div>
+{% if topics.length %}
+<div class="metadata">
+  <span class="metadata-item metadata-tags">
+    {% for topic in topics %}
+      <span class="metadata-tag" data-tag="{{ topic | lower }}">{{ topic }}</span>
+    {% endfor %}
+  </span>
+</div>
+{% endif %}
 {% endmacro %}

@@ -1,16 +1,9 @@
 ---
-layout: layouts/article.njk
 title: "Managing Entra ID as Code with Terraform"
 description: "An introduction to managing Microsoft Entra ID with Terraform, GitHub Actions, OIDC, drift detection, and Maester."
-image: "assets/posts/johnnolan.jpg"
+image: "/assets/posts/johnnolan.jpg"
 date: 2026-09-05
-tags:
-  - iam
-  - entra-id
-  - terraform
-  - security
-  - architecture
-contributors: ["John Nolan"]
+topics: ["entra-id","terraform","security","architecture"]
 ---
 
 ## Introduction

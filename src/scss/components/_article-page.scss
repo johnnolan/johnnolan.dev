@@ -1,8 +1,11 @@
+@use "../settings/tokens";
+@use "../tools/media";
+
 .article-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 68ch) minmax(0, 1fr);
   margin: 48px auto 64px;
-  color: $article-text-color;
+  color: tokens.$content-color;
   font-size: 18px;
   line-height: 1.7;
   letter-spacing: normal;
@@ -29,11 +32,15 @@
       width: 48px;
       height: 3px;
       margin-bottom: 24px;
-      background-color: $article-accent-color;
+      background-color: tokens.$accent-color;
     }
   }
 
-  > h2, > h3, > h4, > h5, > h6 {
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
     margin: 48px 0 16px;
     line-height: 1.3;
     scroll-margin-top: 24px;
@@ -47,7 +54,7 @@
     .direct-link {
       position: relative;
       min-width: 0;
-      color: $article-text-color;
+      color: tokens.$content-color;
       text-decoration: none;
 
       &::before {
@@ -66,7 +73,7 @@
       }
 
       &:hover {
-        color: $article-text-color;
+        color: tokens.$content-color;
         text-decoration: none;
       }
     }
@@ -85,7 +92,10 @@
     }
   }
 
-  > h3, > h4, > h5, > h6 {
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
     margin-top: 32px;
   }
 
@@ -101,7 +111,7 @@
       align-items: center;
       gap: 8px;
       padding: 7px 11px;
-      color: $article-accent-color;
+      color: tokens.$accent-color;
       background-color: #fff3d6;
       border: 1px solid #dfca91;
       border-radius: 6px;
@@ -122,7 +132,7 @@
       }
 
       &:hover {
-        color: $article-accent-hover-color;
+        color: tokens.$accent-hover-color;
         background-color: #fbe7b2;
         border-color: #c9ae65;
         text-decoration: none;
@@ -130,13 +140,22 @@
     }
   }
 
-  > p, > ul, > ol, > pre, > figure, > blockquote {
+  > p,
+  > ul,
+  > ol,
+  > pre,
+  > figure,
+  > blockquote {
     margin-bottom: 24px;
   }
 
   // Visual content can use the full wrapper width; prose and code stay readable.
-  > figure, > .gist, > .mermaid, > .gallery,
-  > table, > p:has(img) {
+  > figure,
+  > .gist,
+  > .mermaid,
+  > .gallery,
+  > table,
+  > p:has(img) {
     grid-column: 1 / -1;
   }
 
@@ -157,27 +176,27 @@
   }
 
   a {
-    color: $article-accent-color;
+    color: tokens.$accent-color;
     text-decoration: underline;
     text-underline-offset: 0.18em;
     text-decoration-thickness: 1px;
 
     &:hover {
-      color: $article-accent-hover-color;
+      color: tokens.$accent-hover-color;
       text-decoration-thickness: 2px;
     }
   }
 
   :focus-visible {
-    outline: 3px solid $article-accent-color;
+    outline: 3px solid tokens.$accent-color;
     outline-offset: 4px;
   }
 
   blockquote {
     padding: 20px 24px;
-    border-left: 3px solid $article-accent-color;
-    background-color: $article-surface-color;
-    color: $article-text-color;
+    border-left: 3px solid tokens.$accent-color;
+    background-color: tokens.$surface-color;
+    color: tokens.$content-color;
     font-size: inherit;
     font-style: normal;
     letter-spacing: normal;
@@ -188,8 +207,8 @@
   }
 
   :not(pre) > code {
-    color: $article-text-color;
-    background-color: $article-surface-color;
+    color: tokens.$content-color;
+    background-color: tokens.$surface-color;
     border: 0;
   }
 
@@ -198,7 +217,7 @@
     margin-bottom: 0;
   }
 
-  @include media-query($on-palm) {
+  @include media.media-query(tokens.$on-palm) {
     margin-top: 32px;
     margin-bottom: 48px;
 

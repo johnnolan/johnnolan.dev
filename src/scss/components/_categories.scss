@@ -1,0 +1,17 @@
+@use "../settings/tokens";
+
+.categories {
+  margin-top: 40px;
+  text-align: center;
+
+  &__link {
+    border-radius: 30px;
+    border: 5px solid #1e2512;
+    padding: 10px;
+
+    &:hover {
+      color: tokens.$text-color-light;
+      text-decoration: none;
+    }
+  }
+}

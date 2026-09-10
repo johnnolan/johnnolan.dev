@@ -1,12 +1,9 @@
 ---
-layout: layouts/article.njk
 title:  "React Higher Order Component using react-testing-library and Jest"
 description:  "How to test a React Higher Order Component using react-testing-library and Jest"
 date: 2019-06-05
-tags: 
-  - other
-contributors: ["John Nolan"]
-image: "assets/posts/2019-01-13-react.png"
+topics: []
+image: "/assets/posts/2019-01-13-react.png"
 imagewidth: "250"
 imageheight: "250"
 ---

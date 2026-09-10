@@ -1,13 +1,10 @@
 ---
-layout: layouts/article.njk
 title: "AMS (ArchiMate, Mermaid and Structurizr) - Tools and Techniques to manage your Architecture knowledge"
 description: "AMS - Tools and Techniques, using ArchiMate, Mermaid and Structurizr to maintain your architectural data and diagrams."
-image: "assets/posts/johnnolan.jpg"
+image: "/assets/posts/johnnolan.jpg"
 date: 2023-08-10
-tags: 
-  - hcta
-  - architecture
-contributors: ["John Nolan"]
+topics: ["architecture"]
+mermaid: true
 ---
 
 ## Introduction

@@ -1,19 +1,20 @@
 ---
 layout: layouts/fullwidth.njk
 mastheadTitle: true
-backLink: "/hcta/"
 ---
 {%- from "../../_includes/macros/toc.njk" import toc %}
 {%- from "../../_includes/macros/pageContentMetaData.njk" import pageContentMetaData %}
-{%- from "../../_includes/macros/json-ld/ldArticle.njk" import ldArticle %}
 
 <article class="article-page">
-    {{ ldArticle(title, image, date, site.name, site.name, site.authorImage, site.jobTitle, description, site.url) }}
     <h1 class="article-page-heading">{{title}}</h1>
 
-    {{ pageContentMetaData(date, contributors, tags) }}
+    {% if draft %}
+      <p class="draft-notice">Draft — unpublished</p>
+    {% else %}
+      {{ pageContentMetaData(date, updated, contributors, topics, categoryLabel, backLink) }}
+    {% endif %}
     
-    {{ toc(content, toc) }}
+    {{ toc(content) }}
 
     {{ content | safe }}
 </article>

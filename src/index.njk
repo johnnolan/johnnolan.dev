@@ -1,4 +1,5 @@
 ---
+sitemap: true
 layout: layouts/fullwidth.njk
 mastheadTitle: true
 eleventyComputed:
@@ -7,4 +8,4 @@ eleventyComputed:
 
 {%- from "./_includes/macros/indexlist.njk" import indexList %}
 
-{{ indexList("Latest Posts", '', collections.all.reverse().slice(0,12), site) }}
+{{ indexList("Latest Posts", '', collections.posts | limit(12), site) }}

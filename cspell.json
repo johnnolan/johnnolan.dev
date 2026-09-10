@@ -64,6 +64,9 @@
     "azuread",
     "msgraph",
     "tflint",
-    "NCSC"
+    "NCSC",
+    "EIDSCA",
+    "tydata",
+    "vendored"
   ]
 }

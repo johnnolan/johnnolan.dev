@@ -1,56 +1,15 @@
-// Our variables
-@use "sass:math";
-$base-font-family: 'Inter', sans-serif;
-$base-font-family-header: 'Inter', sans-serif;
-$base-font-size: 16px;
-$base-font-weight: 400;
-$base-line-height: 24px;
-
-$spacing-unit: 30px;
-
-$text-color: #212529;
-$text-color-light: #212529;
-$background-color: #ffffff;
-$background-color-2: #fdfdfd;
-$background-color-3: #fdfdfd;
-$border-color: #e6e6e6;
-
-// Article text colours meet WCAG AA on white and the callout surface.
-$article-text-color: #24332f;
-$article-muted-color: #52615b;
-$article-accent-color: #24634f;
-$article-accent-hover-color: #194936;
-$article-surface-color: #f0f5f2;
-
-$border-radius: 18px;
-
-// Width of the content area
-$content-width: 1200px;
-
-$on-palm: 600px;
-$on-laptop: 1100px;
-$on-desktop: 1100px;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
-}
-
-@mixin media-min-query($device) {
-  @media screen and (min-width: $device) {
-    @content;
-  }
-}
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import "base", "layout", "syntax-highlighting", "components/header", "components/footer",
-"components/nav", "components/metadata", "components/article-page", "components/post-list", 
-"components/gallery", "components/mermaid", "components/toc", "components/cookieBanner";
+@use "base/reset";
+@use "base/typography";
+@use "layout/wrapper";
+@use "components/icons";
+@use "components/categories";
+@use "layout/page";
+@use "components/header";
+@use "components/footer";
+@use "components/nav";
+@use "components/metadata";
+@use "components/article-page";
+@use "components/post-list";
+@use "components/mermaid";
+@use "components/toc";
+@use "components/cookie-banner";

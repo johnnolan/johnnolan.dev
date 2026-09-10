@@ -1,17 +1,31 @@
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import babelParser from "@babel/eslint-parser";
+import js from "@eslint/js";
+import globals from "globals";
 
 export default [
   {
-    files: ["**/*.js", "**/*.jsx"],
-    languageOptions: {
-      parser: babelParser,
-    },
-    plugins: {
-      prettier: eslintPluginPrettier,
-    },
-    rules: {
-      "prettier/prettier": "error",
-    },
+    ignores: [
+      "_site/**",
+      "node_modules/**",
+      "src/_includes/css/**",
+      "*_report.json",
+      "pa11y-output.json",
+    ],
+  },
+  {
+    ...js.configs.recommended,
+    files: ["**/*.{js,mjs,cjs}"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    ignores: ["src/_includes/scripts/**"],
+    languageOptions: { globals: globals.nodeBuiltin },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: { sourceType: "commonjs", globals: globals.node },
+  },
+  {
+    files: ["src/_includes/scripts/**/*.js"],
+    languageOptions: { sourceType: "script", globals: globals.browser },
   },
 ];

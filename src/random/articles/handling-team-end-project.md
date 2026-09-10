@@ -1,12 +1,9 @@
 ---
-layout: layouts/article.njk
 title: "Handling teams towards the end of a big project"
 description: "Advice and thoughts on how to handle teams towards and mental health at the end of a big project"
 date: 2017-06-19
-tags:
-  - other
-contributors: ["John Nolan"]
-image: "assets/posts/2017-06-19-handling-team-end-project-2.jpg"
+topics: []
+image: "/assets/posts/2017-06-19-handling-team-end-project-2.jpg"
 imagewidth: "400"
 imageheight: "419"
 ---

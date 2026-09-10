@@ -1,3 +1,5 @@
+@use "../settings/tokens";
+
 .toc {
   margin-bottom: 15px;
   &__summary {
@@ -12,19 +14,20 @@
 .article-page > .toc {
   margin: 12px 0 0;
   padding: 16px 20px;
-  background-color: $article-surface-color;
-  border-left: 3px solid $article-accent-color;
+  background-color: tokens.$surface-color;
+  border-left: 3px solid tokens.$accent-color;
 
   > summary {
     cursor: pointer;
-    color: $article-accent-color;
+    color: tokens.$accent-color;
 
     &:hover {
-      color: $article-accent-hover-color;
+      color: tokens.$accent-hover-color;
     }
   }
 
-  nav > ul, nav > ol {
+  nav > ul,
+  nav > ol {
     margin-top: 16px;
     margin-bottom: 0;
   }

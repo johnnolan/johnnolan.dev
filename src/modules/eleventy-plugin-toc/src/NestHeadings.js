@@ -1,38 +1,27 @@
-const SimplifyResults = require("./SimplifyResults");
-
 const NestHeadings = (tags, $) => {
-  const temp = {};
-
-  tags.forEach((t) => {
-    temp[t] = SimplifyResults(t, tags, $);
-  });
-
   const headings = [];
+  const stack = [];
 
-  Object.keys(temp)
-    .reverse()
-    .filter((t) => temp[t].length > 0)
-    .map((k) => {
-      const index = tags.indexOf(k);
+  $(tags.join(",")).each((_order, element) => {
+    const level = tags.indexOf(element.name);
+    const heading = {
+      id: $(element).attr("id"),
+      text: $(element).text().replace(" #", ""),
+      children: [],
+    };
 
-      temp[k].map((h) => {
-        let parent = headings;
+    while (stack.length && stack.at(-1).level >= level) stack.pop();
+    if (!heading.id || !heading.text) {
+      stack.push({ level });
+      return;
+    }
 
-        if (index > 0) {
-          const potentialParent = temp[tags[index - 1]].find((p) => {
-            return p.id === h.parent;
-          });
-
-          if (potentialParent && "children" in potentialParent) {
-            parent = potentialParent.children;
-          }
-        }
-
-        parent.push(h);
-      });
-    });
+    const parent = stack.at(-1)?.heading?.children ?? headings;
+    parent.push(heading);
+    stack.push({ level, heading });
+  });
 
   return headings;
 };
 
-module.exports = NestHeadings;
+export default NestHeadings;

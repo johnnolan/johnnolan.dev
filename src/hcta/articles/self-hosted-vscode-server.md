@@ -1,14 +1,9 @@
 ---
-layout: layouts/article.njk
 title: "Self-hosted Visual Studio Code Server with pre-installed development tooling"
 description: "How to setup and run your own self-hosted Visual Studio Code Server with pre-installed development tooling."
-image: "assets/posts/johnnolan.jpg"
+image: "/assets/posts/johnnolan.jpg"
 date: 2025-07-31
-tags: 
-  - hcta
-  - architecture
-  - selfhosted
-contributors: ["John Nolan"]
+topics: ["architecture","selfhosted"]
 ---
 
 ## Show me the code

@@ -1,36 +1,48 @@
 import markdownIt from "./markdown-it.js";
-import pluginRss from "@11ty/eleventy-plugin-rss";
-import dateFilter from "./src/filters/date-filter.js";
-import date24HourFilter from "./src/filters/date24Hours-filter.js";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import site from "./src/_data/site.json" with { type: "json" };
+import assetPath from "./src/filters/asset-path.js";
+import { displayDate, isoDate } from "./src/filters/date-filters.js";
 import concat from "./src/filters/concat-filter.js";
-import dateSitemap from "./src/filters/dateSitemap-filter.js";
+import sitemap from "./src/modules/sitemap.mjs";
 import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
-import customHelpers from "./src/modules/cacheBuster.js";
+import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
+import { buildPageMetadata, safeJson } from "./src/modules/page-metadata.js";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
-export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/_includes/css": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/scripts": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/img": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/_includes/rootAssets": "/" });
+import { drafts } from "./src/modules/drafts.mjs";
+import contentCollections from "./src/modules/content-collections.mjs";
 
-  eleventyConfig.addGlobalData("cssHash", () => {
-    return customHelpers.getHash("src/_includes/css/main.css");
+export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(drafts);
+  eleventyConfig.addPlugin(contentCollections);
+  eleventyConfig.addPlugin(sitemap);
+  eleventyConfig.addPassthroughCopy({
+    "src/_includes/assets": "assets",
+    "src/_includes/scripts": "assets",
+    "src/_includes/img": "assets",
+    "src/_includes/rootAssets": "/",
   });
 
-  eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
+  eleventyConfig.addPlugin(pluginSass);
 
-  eleventyConfig.addPassthroughCopy({ "src/_data": "data" });
-
-  eleventyConfig.addWatchTarget("./src/");
-
-  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed.xml",
+    collection: { name: "feedPosts", limit: 0 },
+    metadata: {
+      language: "en",
+      title: site.name,
+      subtitle: site.description,
+      base: `${site.url}/`,
+      author: { name: site.name },
+    },
+  });
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(youtubeEmbed);
   eleventyConfig.addPlugin(pluginTOC, {
-    wrapper: "div",
+    wrapper: false,
     ul: true,
   });
 
@@ -40,17 +52,19 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("limit", function (array, limit) {
     return array.slice(0, limit);
   });
-  eleventyConfig.addFilter("dateFilter", dateFilter);
-  eleventyConfig.addFilter("date24HourFilter", date24HourFilter);
-  eleventyConfig.addFilter("dateSitemap", dateSitemap);
+  eleventyConfig.addFilter("assetPath", assetPath);
+  eleventyConfig.addFilter("displayDate", displayDate);
+  eleventyConfig.addFilter("isoDate", isoDate);
+
   eleventyConfig.addFilter("concat", concat);
+  eleventyConfig.addFilter("pageMetadata", buildPageMetadata);
+  eleventyConfig.addFilter("safeJson", safeJson);
 
   eleventyConfig.setLibrary("md", markdownIt());
 
   return {
     dir: { input: "src", output: "_site", data: "_data" },
-    templateFormats: ["njk", "md", "css", "html", "yml"],
+    templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
-    passthroughFileCopy: true,
   };
 }

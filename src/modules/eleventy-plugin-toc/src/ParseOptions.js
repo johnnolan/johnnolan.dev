@@ -9,7 +9,9 @@ const ParseOptions = (userOptions, defaultOptions) => {
   if (userOptions && typeof userOptions === "string") {
     try {
       safeUserOptions = JSON.parse(userOptions);
-    } catch (e) {}
+    } catch {
+      // Malformed local options fall back to the configured defaults.
+    }
   } else if (userOptions && userOptions.constructor === {}.constructor) {
     safeUserOptions = userOptions;
   }
@@ -17,4 +19,4 @@ const ParseOptions = (userOptions, defaultOptions) => {
   return Object.assign({}, safeDefaultOptions, safeUserOptions);
 };
 
-module.exports = ParseOptions;
+export default ParseOptions;

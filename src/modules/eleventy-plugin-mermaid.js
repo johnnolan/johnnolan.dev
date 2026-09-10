@@ -1,25 +1,22 @@
-const htmlencode = require("htmlencode");
-
-module.exports = (eleventyConfig, options) => {
-  const highlighter = eleventyConfig.markdownHighlighter;
+export default (eleventyConfig, options) => {
   const html_tag = options?.html_tag || "pre";
   const extra_classes = options?.extra_classes ? " " + options.extra_classes : "";
 
   eleventyConfig.addShortcode("mermaid_js", () => {
-    let src = options?.mermaid_js_src || "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";
-    return `<script type="module" async>import mermaid from "${src}";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>`;
+    const src =
+      options?.mermaid_js_src ||
+      "https://unpkg.com/mermaid@10.9.5/dist/mermaid.esm.min.mjs";
+    return `<script type="module">import mermaid from "${src}";const render=()=>{mermaid.initialize({startOnLoad:false});mermaid.run({querySelector:".mermaid"});};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",render,{once:true});}else{render();}</script>`;
   });
 
-  eleventyConfig.addMarkdownHighlighter((str, language) => {
-    if (language === "mermaid") {
-      return `<${html_tag} class="mermaid${extra_classes}">${htmlencode.htmlEncode(
-        str,
-      )}</${html_tag}>`;
-    }
-    if (highlighter) {
-      return highlighter(str, language);
-    }
-    return `<pre class="${language}">${str}</pre>`;
+  eleventyConfig.amendLibrary("md", (md) => {
+    const renderFence = md.renderer.rules.fence;
+    md.renderer.rules.fence = (tokens, index, markdownOptions, env, renderer) => {
+      const token = tokens[index];
+      if (token.info.trim().split(/\s+/)[0] === "mermaid") {
+        return `<${html_tag} class="mermaid${extra_classes}">${md.utils.escapeHtml(token.content)}</${html_tag}>`;
+      }
+      return renderFence(tokens, index, markdownOptions, env, renderer);
+    };
   });
-  return {};
 };
