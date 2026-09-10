@@ -1,5 +1,5 @@
-@use "../settings/tokens";
-@use "../tools/media";
+@use "../settings" as tokens;
+@use "../tools" as media;
 
 .article-page {
   display: grid;

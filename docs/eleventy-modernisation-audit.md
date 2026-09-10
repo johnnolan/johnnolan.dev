@@ -8,15 +8,8 @@ P2 means a worthwhile capability or maintenance improvement. P3 means optional. 
 
 | # | Potential change | Priority | Effort |
 | --- | --- | --- | --- |
-| 20 | Replace deprecated Sass imports | P2 | Medium |
 | 22 | Declare Markdown preprocessing deliberately | P2 | Small |
 | 30 | Trial v4 separately after stabilising v3 | P3 | Medium |
-
-## 20. Replace deprecated Sass imports
-
-`src/scss/main.scss:54` imports the full partial tree with `@import`, despite already using `sass:math`. Compilation produces import deprecation warnings. Migrate shared tokens and mixins into modules using `@use` and `@forward`, then update partial dependencies.
-
-This is not a safe mechanical keyword replacement because the current partials share global variables. Compare compiled CSS and representative pages after migration. Sass deprecated imports in 1.80.0, placing this change inside the review window; removal is planned for Dart Sass 3.0.0. [Sass import migration](https://sass-lang.com/documentation/breaking-changes/import/).
 
 ## 22. Declare Markdown preprocessing deliberately
 
