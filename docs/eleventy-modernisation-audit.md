@@ -272,6 +272,8 @@ The installed Pa11y CI **does** expand the quoted HTML glob, and its JSON report
 
 ## 26. Remove unused and redundant dependencies
 
+### Status: Done
+
 | Dependency or module | Suggested treatment |
 | --- | --- |
 | `@11ty/eleventy-plugin-inclusive-language` | Installed but unregistered; remove or deliberately enable. |
