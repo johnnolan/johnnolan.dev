@@ -8,14 +8,7 @@ P2 means a worthwhile capability or maintenance improvement. P3 means optional. 
 
 | # | Potential change | Priority | Effort |
 | --- | --- | --- | --- |
-| 22 | Declare Markdown preprocessing deliberately | P2 | Small |
 | 30 | Trial v4 separately after stabilising v3 | P3 | Medium |
-
-## 22. Declare Markdown preprocessing deliberately
-
-The config sets `htmlTemplateEngine: "njk"` but does not set `markdownTemplateEngine`, so Markdown is still preprocessed with Eleventy's default Liquid engine. This matters for technical articles containing template-like code: code fences do not necessarily protect text from the earlier template pass.
-
-Audit actual Liquid usage and choose `markdownTemplateEngine: false` for plain Markdown, or explicitly choose Nunjucks if its features are required inside articles. Keep layout rendering in Nunjucks. Do not change `breaks: true` casually: it currently turns soft line breaks into HTML breaks, and removing it can change older article formatting. Treat preprocessing and typography as separate changes.
 
 ## 30. Trial v4 separately after stabilising v3
 
@@ -25,6 +18,4 @@ The alpha notes explicitly call out Nunjucks migration risk; they also document 
 
 ## Suggested implementation sequence
 
-1. Repair source links and explicitly configure Markdown preprocessing.
-2. Complete the Sass module migration and reconcile the overlapping Sass integration and asset-pipeline recommendations.
-3. Explore v4 only after the remaining v3 changes are stable and verified on the pinned Node runtime.
+1. Explore v4 only after the remaining v3 changes are stable and verified on the pinned Node runtime.

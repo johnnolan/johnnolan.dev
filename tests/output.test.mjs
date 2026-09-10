@@ -85,6 +85,12 @@ test("pilot article uses responsive images without changing full-size links", ()
   });
 });
 
+test("Markdown code is not interpreted as template syntax", () => {
+  const html = readFileSync("_site/random/articles/react-callbacks-refs/index.html", "utf8");
+  assert.match(html, /ref=\{btnReview\s+=&gt; \{/);
+  assert.ok(html.includes("this.btnReview = btnReview;\n }}\n)}&gt;"));
+});
+
 test("local links resolve and TOC fragments target headings", () => {
   for (const file of htmlFiles) {
     const $ = load(readFileSync(file, "utf8"));
