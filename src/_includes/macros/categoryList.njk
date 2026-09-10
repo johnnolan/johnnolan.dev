@@ -1,10 +1,10 @@
-{% macro categoryList(categories, site) %}
+{% macro categoryList(links) %}
     <div class="articles articles--categories">
         <div class="wrapper">
             <div class="post-list post-list--category">
-                {%- for article in categories | reverse -%}
+                {%- for article in links -%}
                     <article class="article--category">
-                        <a href="{{ article.url }}" class="post-list-item-link">
+                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} class="post-list-item-link">
                             <h2 class="post-link">
                                 {{ article.name }}
                             </h2>

@@ -61,10 +61,14 @@
           
           {{ header({ siteName: site.name }) }}
 
+          {% set navigationLinks = (categories.items | reverse).concat([
+            { name: "GitHub", url: "https://github.com/" + site.githubName, openInNewWindow: true },
+            { name: "LinkedIn", url: site.linkedinUrl, openInNewWindow: true }
+          ]) %}
           {% if mastheadTitle %}
-            {{ categoryList(categories.items) }}
+            {{ categoryList(navigationLinks) }}
           {% else %}
-            {{ navigation(categories.items) }}
+            {{ navigation(navigationLinks) }}
           {% endif %}
           
           <main class="wrapper" role="main" id="content">
@@ -76,7 +80,7 @@
         {% endblock %}
       </div>
 
-        {{ footer({ githubName: site.githubName, siteDescription: site.description }) }}
+        {{ footer({ githubName: site.githubName, linkedinUrl: site.linkedinUrl, siteDescription: site.description }) }}
 
     {% endblock %}
     {% mermaid_js %}

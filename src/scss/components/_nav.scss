@@ -9,6 +9,8 @@
 
   &_list {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
     list-style-type: none;
     justify-content: space-between;
     padding: 0;

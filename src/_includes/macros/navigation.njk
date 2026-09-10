@@ -1,10 +1,10 @@
-{% macro navigation(categories) %}
+{% macro navigation(links) %}
     <nav class="nav">
         <div class="wrapper">
             <ul class="nav_list">
-                {%- for article in categories | reverse -%}
+                {%- for article in links -%}
                     <li class="nav_list-item">
-                        <a href="{{ article.url }}" alt="Navigate to {{ article.name }}" class="nav_list-item_link">
+                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} alt="Navigate to {{ article.name }}" class="nav_list-item_link">
                             {{ article.name }}
                         </a>
                     </li>
