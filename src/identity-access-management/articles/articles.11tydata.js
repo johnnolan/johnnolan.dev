@@ -1,3 +1,3 @@
-import articleData from "../../modules/article-schema.js";
+import articleData from "../../modules/article-defaults.js";
 
 export default articleData("iam");

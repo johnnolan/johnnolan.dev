@@ -53,3 +53,5 @@ Set `draft: true` for unfinished articles; drafts may omit the publication date.
 Normal `yarn build` excludes drafts before rendering and cleans `_site` first, removing pages left by an earlier preview. If using Eleventy directly with a custom output directory, clean that directory yourself before deployment. Future dates do not schedule publication automatically.
 
 Run `yarn test:content` to check code fences, collections, sitemap generation, metadata validation, and draft publishing.
+
+Article layout, default contributor, category, section backlink, and validation are inherited from `articles.11tydata.js` through `src/modules/article-defaults.js`. Keep editorial facts in frontmatter; omit repeated defaults. Use root-relative image paths such as `/assets/posts/johnnolan.jpg`. Legacy relative image values remain supported by the shared asset-path filter.

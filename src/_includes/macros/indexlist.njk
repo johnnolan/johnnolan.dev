@@ -22,7 +22,7 @@
                         </span>
                         {% if showImages %}
                             {% if article.data.image %}
-                                <img class="article-image" src="/{{article.data.image}}" alt="{{article.data.description}}" />
+                                <img class="article-image" src="{{ article.data.image | assetPath | url }}" alt="{{article.data.description}}" />
                             {%- endif -%}
                         {%- endif -%}
                     </article>

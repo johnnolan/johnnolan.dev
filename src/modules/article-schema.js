@@ -67,8 +67,3 @@ export function validateArticle(data) {
     }
   }
 }
-
-export default (category) => ({
-  category,
-  eleventyDataSchema: validateArticle,
-});

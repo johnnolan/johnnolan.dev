@@ -14,7 +14,7 @@
   "description": "{{ description }}",
   "image": {
     "@type": "ImageObject",
-    "url": "{{ siteUrl }}/{{ image }}"
+    "url": "{{ siteUrl }}{{ image | assetPath }}"
   },
   "datePublished": "{{ datePublished | date24HourFilter }}",
   "publisher": {

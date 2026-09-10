@@ -1,13 +1,11 @@
 ---
-layout: layouts/article.njk
 title:  "preconnect your external sources"
 description:  "Using the preconnect tag to quickly load your external resources"
 date: 2018-03-17
 tags: 
   - other
 topics: []
-contributors: ["John Nolan"]
-image: "assets/posts/2018-03-17-preconnect-hint-tag.jpg"
+image: "/assets/posts/2018-03-17-preconnect-hint-tag.jpg"
 imagewidth: "400"
 imageheight: "419"
 ---

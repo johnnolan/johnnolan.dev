@@ -25,7 +25,7 @@
     <meta property="og:title" content="{{ title or renderData.title or metadata.title }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:description" content="{{ description or renderData.description }}" />
-    <meta property="og:image" content="{{ site.url }}/{{ post.image or page.image or image or 'assets/posts/johnnolan.jpg' }}" />
+    <meta property="og:image" content="{{ site.url }}{{ (post.image or page.image or image or '/assets/posts/johnnolan.jpg') | assetPath }}" />
     <meta property="og:type" content="article" />
 
     <script src="{{ '/assets/index.js' | url }}" defer></script>
