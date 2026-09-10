@@ -264,6 +264,8 @@ Declare the chosen package-manager version and document the Node version setup. 
 
 ## 25. Make quality checks meaningful and enforceable
 
+### Status: Done
+
 The PR workflow marks ESLint, Lighthouse, Pa11y, and the report comment as `continue-on-error`. After fixing current failures and choosing thresholds, make the relevant checks required. Review broad accessibility exclusions—especially contrast—against specific accepted exceptions.
 
 The installed Pa11y CI **does** expand the quoted HTML glob, and its JSON reporter **does** write the configured output file; those interfaces are valid. The report script can simply parse the entire JSON file rather than search for a one-line object. Handle missing reports explicitly and avoid confusing browser launch failures with accessibility findings. Prefer an HTTP-served output site for representative browser checks, and ensure comment permissions/fork behaviour are intentional. A generated artifact is useful even when posting a PR comment is unavailable. [Pa11y CI configuration](https://github.com/pa11y/pa11y-ci).

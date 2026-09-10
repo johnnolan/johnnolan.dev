@@ -7,10 +7,14 @@ module.exports = async ({ github, context, core }) => {
     return;
   }
 
-  // Read the pa11y output and build the comment body
-  const pa11yOutput = await fs.readFile("./pa11y-output.json", "utf8");
-  const lines = pa11yOutput.split("\n");
-  const asJSON = JSON.parse(lines.find((line) => line.startsWith("{")));
+  // Read the complete JSON reporter output and build the comment body.
+  let asJSON;
+  try {
+    asJSON = JSON.parse(await fs.readFile("./pa11y-output.json", "utf8"));
+  } catch (error) {
+    core.setFailed(`Unable to read pa11y-output.json: ${error.message}`);
+    return;
+  }
   const { total, errors, results } = asJSON;
 
   let commentBody = `${process.env.BODY_PREFIX}\n<h2>:microscope: pa11y-ci results</h2>\n\n`;

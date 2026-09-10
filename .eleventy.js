@@ -9,6 +9,7 @@ import pluginMermaid from "./src/modules/eleventy-plugin-mermaid.js";
 import pluginSass from "./src/modules/eleventy-plugin-sass.mjs";
 import { buildPageMetadata, safeJson } from "./src/modules/page-metadata.js";
 import youtubeEmbed from "eleventy-plugin-youtube-embed";
+import youtubeEmbedTitles from "./src/modules/youtube-embed-titles.js";
 import pluginTOC from "./src/modules/eleventy-plugin-toc/.eleventy.js";
 
 import { drafts } from "./src/modules/drafts.mjs";
@@ -41,6 +42,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(youtubeEmbed);
+  eleventyConfig.addPlugin(youtubeEmbedTitles);
   eleventyConfig.addPlugin(pluginTOC, {
     wrapper: false,
     ul: true,

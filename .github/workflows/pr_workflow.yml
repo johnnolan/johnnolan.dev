@@ -58,7 +58,7 @@ jobs:
         if: github.event.pull_request.head.repo.full_name == github.repository
         run: |
           set -euo pipefail
-          output="$(npx wrangler pages deploy _site --project-name=johnnolan-dev --branch=pr-${{ github.event.pull_request.number }} 2>&1)"
+          output="$(yarn wrangler pages deploy _site --project-name=johnnolan-dev --branch=pr-${{ github.event.pull_request.number }} 2>&1)"
           printf '%s\n' "$output"
           preview_url="$(printf '%s\n' "$output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | tail -n 1 || true)"
           if [ -z "$preview_url" ]; then
@@ -112,7 +112,6 @@ jobs:
             }
 
       - name: Audit pages using lighthouse
-        continue-on-error: true
         uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
         with:
           configPath: "./lighthouserc.json"
@@ -122,11 +121,18 @@ jobs:
 
       - name: Run pa11y
         run: yarn run pa11y-ci
-        continue-on-error: true
+
+      - name: Upload pa11y report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pa11y-report
+          path: pa11y-output.json
+          if-no-files-found: warn
 
       - name: Send pa11y results to PR Comment
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        continue-on-error: true
         env:
           BODY_PREFIX: "<!-- pa11y-ci results -->"
           OWNER: "johnnolan"
