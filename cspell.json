@@ -65,6 +65,8 @@
     "msgraph",
     "tflint",
     "NCSC",
-    "EIDSCA"
+    "EIDSCA",
+    "tydata",
+    "vendored"
   ]
 }
