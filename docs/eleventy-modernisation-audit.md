@@ -256,6 +256,8 @@ Restrict `templateFormats` to actual template languages. `css` and `yml` do not 
 
 ## 24. Make CI dependency installation reproducible
 
+### Status: Done
+
 Both workflows cache `node_modules` using only the lockfile hash and skip installation on a cache hit. The key omits Node and OS characteristics, and installs are not frozen. Prefer the package-manager download cache through `setup-node`, then run `yarn install --frozen-lockfile` on every CI build for Yarn Classic.
 
 Declare the chosen package-manager version and document the Node version setup. Pin Wrangler as a project dependency: `npx wrangler` currently fetches an unpinned deploy tool if it is absent. Preserve the existing commit-SHA pins on GitHub Actions. These are reproducibility improvements, not reasons to migrate to a different package manager. [setup-node caching guidance](https://github.com/actions/setup-node#caching-global-packages-data).

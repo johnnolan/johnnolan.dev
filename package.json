@@ -5,6 +5,7 @@
   "repository": "git@github.com:johnnolan/johnnolan.dev.git",
   "author": "John Nolan <me@johnnolan.dev>",
   "license": "MIT",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "jshint": "jshint src/",
     "lint:check": "eslint .",
@@ -46,7 +47,8 @@
     "prettier": "3.8.3",
     "sass": "1.99.0",
     "stylelint": "17.15.0",
-    "stylelint-config-recommended-scss": "17.0.1"
+    "stylelint-config-recommended-scss": "17.0.1",
+    "wrangler": "4.130.0"
   },
   "type": "module"
 }

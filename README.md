@@ -8,8 +8,18 @@ This repo contains the source for my website and blog. Content is written in Mar
 
 ## Local development
 
+The repository pins Node.js in `.nvmrc` and uses Yarn Classic 1.22.22, declared in `package.json`. With [nvm](https://github.com/nvm-sh/nvm) installed, set up the matching toolchain and dependencies with:
+
 ```bash
-yarn install
+nvm install
+nvm use
+npm install --global yarn@1.22.22
+yarn install --frozen-lockfile
+```
+
+After the initial setup, start the development server with:
+
+```bash
 yarn run serve
 ```
 
