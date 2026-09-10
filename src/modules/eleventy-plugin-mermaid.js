@@ -3,8 +3,10 @@ export default (eleventyConfig, options) => {
   const extra_classes = options?.extra_classes ? " " + options.extra_classes : "";
 
   eleventyConfig.addShortcode("mermaid_js", () => {
-    let src = options?.mermaid_js_src || "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";
-    return `<script type="module" async>import mermaid from "${src}";document.addEventListener('DOMContentLoaded', mermaid.initialize({startOnLoad:true}));</script>`;
+    const src =
+      options?.mermaid_js_src ||
+      "https://unpkg.com/mermaid@10.9.5/dist/mermaid.esm.min.mjs";
+    return `<script type="module">import mermaid from "${src}";const render=()=>{mermaid.initialize({startOnLoad:false});mermaid.run({querySelector:".mermaid"});};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",render,{once:true});}else{render();}</script>`;
   });
 
   eleventyConfig.amendLibrary("md", (md) => {

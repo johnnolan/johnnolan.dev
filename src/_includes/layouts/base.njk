@@ -81,6 +81,6 @@
         {{ footer({ githubName: site.githubName, linkedinUrl: site.linkedinUrl, siteDescription: site.description }) }}
 
     {% endblock %}
-    {% mermaid_js %}
+    {% if mermaid %}{% mermaid_js %}{% endif %}
   </body>
 </html>

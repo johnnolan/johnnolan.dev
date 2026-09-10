@@ -206,6 +206,8 @@ Do not bulk-move old assets: published asset URLs may be externally linked. Use 
 
 ## 17. Load Mermaid only where needed
 
+### Status: Done
+
 The common layout emits the Mermaid module on all 20 laid-out pages; only one page contains Mermaid diagrams. Add a per-page requirement, preferably derived during Markdown rendering, or a simple explicit flag initially. A v3 bundle can carry the small loader only to pages that need it.
 
 The current shortcode calls `mermaid.initialize(...)` immediately and passes its return value to `addEventListener`; this does not register the intended callback. Use a supported initialisation sequence, and pin an exact Mermaid release rather than a floating major CDN URL. Rendering Mermaid to SVG at build time is an optional later tradeoff that removes the client runtime but adds build dependencies. [Mermaid usage](https://mermaid.js.org/config/usage.html).

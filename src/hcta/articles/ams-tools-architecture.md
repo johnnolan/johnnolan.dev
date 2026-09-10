@@ -4,6 +4,7 @@ description: "AMS - Tools and Techniques, using ArchiMate, Mermaid and Structuri
 image: "/assets/posts/johnnolan.jpg"
 date: 2023-08-10
 topics: ["architecture"]
+mermaid: true
 ---
 
 ## Introduction

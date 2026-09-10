@@ -5,8 +5,12 @@ import mermaid from "../src/modules/eleventy-plugin-mermaid.js";
 
 test("Mermaid fences leave ordinary Markdown code rendering intact", () => {
   const md = markdown();
+  let loader;
   mermaid({
-    addShortcode() {},
+    addShortcode(name, shortcode) {
+      assert.equal(name, "mermaid_js");
+      loader = shortcode();
+    },
     amendLibrary(name, amend) {
       amend(md);
     },
@@ -18,6 +22,10 @@ test("Mermaid fences leave ordinary Markdown code rendering intact", () => {
     assert.doesNotMatch(output, /<button>/);
   }
   assert.match(md.render("```mermaid\ngraph TD; A-->B\n```"), /<pre class="mermaid">/);
+  assert.match(loader, /mermaid@10\.9\.5/);
+  assert.match(loader, /addEventListener\("DOMContentLoaded",render/);
+  assert.match(loader, /mermaid\.run\(\{querySelector:"\.mermaid"\}\)/);
+  assert.doesNotMatch(loader, /addEventListener\([^,]+,\s*mermaid\.initialize/);
   md.options.highlight = () => '<span class="token">highlighted</span>';
   assert.match(md.render("```js\nconst x = 1;\n```"), /<span class="token">highlighted<\/span>/);
 });
