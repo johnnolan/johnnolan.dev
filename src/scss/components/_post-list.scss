@@ -76,6 +76,15 @@
           outline: 3px solid tokens.$accent-color;
           outline-offset: 4px;
         }
+
+        &--icon {
+          display: inline-flex;
+          align-items: center;
+
+          h2 {
+            display: inline-flex;
+          }
+        }
       }
 
       h2 {

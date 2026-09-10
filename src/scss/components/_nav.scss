@@ -30,6 +30,19 @@
       margin: 0;
       &_link {
         color: tokens.$text-color;
+
+        &--icon {
+          display: inline-flex;
+          align-items: center;
+        }
+      }
+      &_icon {
+        display: inline-flex;
+        vertical-align: middle;
+
+        svg {
+          display: block;
+        }
       }
     }
   }

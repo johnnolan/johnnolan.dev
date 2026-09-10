@@ -4,9 +4,9 @@
             <div class="post-list post-list--category">
                 {%- for article in links -%}
                     <article class="article--category">
-                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} class="post-list-item-link">
+                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ article.name }}" class="post-list-item-link{% if article.icon %} post-list-item-link--icon{% endif %}">
                             <h2 class="post-link">
-                                {{ article.name }}
+                                {% if article.icon %}<span class="nav_list-item_icon">{{ article.icon | safe }}</span>{% else %}{{ article.name }}{% endif %}
                             </h2>
                         </a>
                     </article>

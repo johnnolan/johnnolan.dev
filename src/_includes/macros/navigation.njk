@@ -4,8 +4,8 @@
             <ul class="nav_list">
                 {%- for article in links -%}
                     <li class="nav_list-item">
-                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} alt="Navigate to {{ article.name }}" class="nav_list-item_link">
-                            {{ article.name }}
+                        <a href="{{ article.url }}"{% if article.openInNewWindow %} target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ article.name }}" class="nav_list-item_link{% if article.icon %} nav_list-item_link--icon{% endif %}">
+                            {% if article.icon %}<span class="nav_list-item_icon">{{ article.icon | safe }}</span>{% else %}{{ article.name }}{% endif %}
                         </a>
                     </li>
                 {%- endfor -%}
