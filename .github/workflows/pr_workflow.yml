@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
 jobs:
   build:
     name: Linux build on node
@@ -17,7 +22,7 @@ jobs:
       - name: Set up prerequisites - node and yarn
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - name: Cache yarn dependencies
         id: cache
@@ -54,6 +59,64 @@ jobs:
       - name: Run Build
         run: yarn run build
 
+      - name: Deploy Cloudflare Pages preview
+        id: deploy_preview
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          set -euo pipefail
+          output="$(npx wrangler pages deploy _site --project-name=johnnolan-dev --branch=pr-${{ github.event.pull_request.number }} 2>&1)"
+          printf '%s\n' "$output"
+          preview_url="$(printf '%s\n' "$output" | grep -Eo 'https://[^[:space:]]+\.pages\.dev' | tail -n 1 || true)"
+          if [ -z "$preview_url" ]; then
+            echo "Cloudflare Pages preview URL was not found in Wrangler output" >&2
+            exit 1
+          fi
+          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Send Cloudflare Pages preview to PR Comment
+        if: steps.deploy_preview.outputs.preview_url != ''
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          BODY_PREFIX: "<!-- cloudflare-pages-preview -->"
+          OWNER: "johnnolan"
+          REPO: "johnnolan.dev"
+          PREVIEW_URL: ${{ steps.deploy_preview.outputs.preview_url }}
+        with:
+          script: |
+            const prNumber = context.payload.number
+            if (!prNumber) {
+              return
+            }
+
+            const commentBody = `${process.env.BODY_PREFIX}\n<h2>Cloudflare Pages preview</h2>\n\nReview this PR before merging: ${process.env.PREVIEW_URL}`
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: process.env.OWNER,
+              repo: process.env.REPO,
+              issue_number: prNumber,
+            })
+            const previousComment = comments.find((comment) =>
+              comment.body.startsWith(process.env.BODY_PREFIX),
+            )
+
+            if (previousComment) {
+              await github.rest.issues.updateComment({
+                owner: process.env.OWNER,
+                repo: process.env.REPO,
+                comment_id: previousComment.id,
+                body: commentBody,
+              })
+            } else {
+              await github.rest.issues.createComment({
+                owner: process.env.OWNER,
+                repo: process.env.REPO,
+                issue_number: prNumber,
+                body: commentBody,
+              })
+            }
+
       - name: Audit pages using lighthouse
         continue-on-error: true
         uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
@@ -71,9 +134,9 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         continue-on-error: true
         env:
-          BODY_PREFIX: '<!-- pa11y-ci results -->'
-          OWNER: 'johnnolan'
-          REPO: 'johnnolan.dev'
+          BODY_PREFIX: "<!-- pa11y-ci results -->"
+          OWNER: "johnnolan"
+          REPO: "johnnolan.dev"
         with:
           script: |
             const script = require('./.github/workflows/scripts/pa11y-ci.cjs')
