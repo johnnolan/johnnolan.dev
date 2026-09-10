@@ -19,7 +19,7 @@ test("sitemap includes explicit indexes and IAM articles, deduplicates and exclu
   ]);
   assert.equal(pages.length, 2);
   const xml = sitemapXml(pages, "https://example.com");
-  assert.match(xml, /<loc>https:\/\/example.com\/<\/loc>\n  <\/url>/);
+  assert.match(xml, /<loc>https:\/\/example.com\/<\/loc>\n {2}<\/url>/);
   assert.match(xml, /<lastmod>2025-02-02<\/lastmod>/);
   assert.equal((xml.match(/<lastmod>/g) || []).length, 1);
   assert.match(sitemapXml([{ ...home, url: "/?a=1&b=2" }], "https://example.com"), /a=1&amp;b=2/);

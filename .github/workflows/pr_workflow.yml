@@ -38,7 +38,6 @@ jobs:
 
       - name: Run Linting
         run: yarn run lint:check
-        continue-on-error: true
 
       - name: Check SCSS formatting
         run: yarn run format:scss:check
