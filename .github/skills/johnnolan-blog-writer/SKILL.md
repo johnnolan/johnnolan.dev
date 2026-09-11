@@ -5,7 +5,7 @@ description: 'Writes and edits blog posts using the plain, practical voice and a
 
 # johnnolan-blog-writer
 
-**Description:** Creates article content in the same voice, structure, and technical tone as the existing posts. Use `src/identity-access-management/articles/entra-iac-intro.md` as the canonical layout reference without copying its topic-specific content.
+**Description:** Creates article content in the same voice, structure, and technical tone as the existing posts. Use `src/identity-access-management/articles/entra-iac-intro.md` as the canonical voice and layout reference without copying its topic-specific content.
 
 ## Instructions
 
@@ -14,14 +14,25 @@ description: 'Writes and edits blog posts using the plain, practical voice and a
 **Audience:** Developers, technical architects, and engineers who want honest experience-based guidance.
 
 **Core writing style:**
-- Write in a conversational first-person voice when appropriate: “I”, “I have”, “I wanted”, “I run”, “I use”.
-- Keep the tone honest, grounded, and opinionated without being preachy.
-- Prefer clear, plain English over corporate or promotional language.
-- Follow Hemingway clarity: keep sentences direct, plain, and easy to scan.
+- Write from lived engineering experience. Use first person when describing a decision, workflow, limitation, or preference: “I wanted”, “I use”, “I prefer”, and “In practice”.
+- Make claims proportionate to the evidence. Say what the repository, workflow, test, or operational experience demonstrates, rather than claiming that an approach is universally best.
+- Keep the tone honest, grounded, and quietly opinionated without sounding like a keynote, product page, or thought-leadership article.
+- Prefer clear, plain English over corporate or promotional language. Keep important technical terms, but explain them through the work they do.
+- Follow Hemingway clarity: keep sentences direct, plain, and easy to scan. Vary sentence length naturally instead of making every sentence the same shape.
 - Keep sentences under 35 words.
 - Keep paragraphs to a maximum of 4 sentences.
 - Explain the real-world trade-offs, why the approach matters, and what the reader should consider.
 - Make the content useful, not just descriptive.
+
+**Voice profile from the canonical article:**
+- Start with the practical problem: manual work becomes harder to reason about, a workflow needs to be repeatable, or a boundary needs to be made visible.
+- Use a calm progression: what is available, why it matters, how it works, what it makes visible, and where the approach remains limited.
+- Anchor explanations in named files, resources, commands, workflows, screenshots, permissions, or operational decisions.
+- Use modest first-person framing to show ownership without making the article autobiographical. Examples include “I wanted a better way”, “I prefer”, “I use this when”, and “I have kept this at a high level”.
+- State boundaries plainly. Useful patterns include “This is not an attempt to...”, “That provider boundary is deliberate”, and “The ... still needs...”.
+- Prefer specific verbs such as “describes”, “reviews”, “checks”, “stores”, “adopts”, “limits”, and “publishes”. Avoid inflated verbs such as “unlocks”, “revolutionises”, and “empowers”.
+- Use a short blockquote for an important constraint or operational warning. Do not turn every conclusion into a slogan.
+- Let the article sound like a working note from someone who made the choices. It should be useful even when the reader disagrees with one of them.
 
 **Article layout:**
 1. Start with an H2 that introduces the primary repository, project, or subject when one exists. Put its main resource link directly beneath the heading.
@@ -50,23 +61,19 @@ Choose headings that describe the actual subject. Do not force generic sections 
 - Be specific about tools, architecture patterns, workflows, and trade-offs.
 
 **Frontmatter pattern:**
-Use frontmatter matching the blog’s existing article structure:
+Use the frontmatter shape used by the canonical article and current articles in the target collection:
 
 ```yaml
 ---
-layout: layouts/article.njk
 title: "Article Title"
 description: "Short summary of the article."
-image: "assets/posts/johnnolan.jpg"
+image: "/assets/posts/johnnolan.jpg"
 date: YYYY-MM-DD
-tags:
-  - hcta
-  - architecture
-contributors: ["John Nolan"]
+topics: ["topic-one", "topic-two"]
 ---
 ```
 
-Replace the example date with the publication date. Choose short lowercase tags that match the topic; established tags receive their own pastel colour and unknown tags use the accessible fallback style.
+Replace the example date with the publication date. Choose short lowercase topics that match the article and the conventions already used by the target collection.
 
 **Content rules:**
 - Keep the article grounded in actual engineering practice.
@@ -86,6 +93,51 @@ Replace the example date with the publication date. Choose short lowercase tags 
 - Do not overuse buzzwords or abstract theory.
 - Do not turn the article into a long essay without practical examples.
 - Do not remove technical detail when it matters.
+- Do not add a generic hook such as “In today’s rapidly evolving landscape” or “Technology is changing faster than ever”. Start with the actual engineering problem.
+- Do not use a sequence of empty headings such as “Overview”, “Benefits”, “Challenges”, and “Conclusion” unless the subject genuinely requires them.
+- Do not manufacture personal experience, results, user quotes, metrics, or lessons. Ask for missing facts or write within the evidence available.
+- Do not force first person into factual explanations. Use “I” for decisions and experience, not as decoration in every paragraph.
+- Do not pad transitions with “Furthermore”, “Moreover”, “Additionally”, “In conclusion”, or “It is important to note”. Rewrite the sentence so the relationship is clear.
+- Do not stack adjectives or use promotional triads such as “powerful, flexible, and scalable” without concrete evidence for each claim.
+
+## Draft quality tests
+
+Run these checks before returning an article. They are language and voice tests, not just spelling checks.
+
+### Evidence and ownership test
+
+- Can each first-person claim be tied to a real repository choice, command, workflow, design decision, or stated limitation?
+- Does each major section contain at least one concrete detail that a reader could inspect or use?
+- Are trade-offs and boundaries stated where they affect the recommendation?
+- Does the article distinguish what the author does from what the reader must decide?
+
+### AI-pattern test
+
+Search the draft for these patterns and revise any sentence that uses them without a specific reason:
+
+- Generic openings: “In today’s...”, “In an increasingly...”, “As technology evolves...”, or “In the modern world”.
+- Generic conclusions: “In conclusion”, “To sum up”, “The future is bright”, or “This is just the beginning”.
+- Promotional claims: “powerful”, “seamless”, “robust”, “cutting-edge”, “game-changing”, “revolutionary”, “unlock”, “empower”, or “leverage” when a plain verb would work.
+- Mechanical transitions: “Furthermore”, “Moreover”, “Additionally”, “However” at the start of repeated paragraphs, or “It is important to note”.
+- Artificial symmetry: repeated “not only... but also...” constructions, repeated three-item adjective lists, or several paragraphs with the same sentence rhythm.
+- Empty reader address: “Whether you are a beginner or an expert”, “This guide will walk you through”, or “By the end of this article”.
+- Unsupported certainty: “always”, “never”, “the best”, “the only”, or “guarantees” when the evidence only supports a local recommendation.
+
+The test is not to ban every word mechanically. Keep a flagged word only when it is technically precise, natural in context, and supported by the surrounding detail.
+
+### Read-aloud test
+
+Read the article once without editing. Mark sentences that sound like documentation generated for an unspecified company rather than a personal engineering note. Rewrite those sentences with a concrete subject, an active verb, and the reason the choice was made.
+
+### Final style gate
+
+Before output, confirm that:
+
+1. The opening names the real problem and the practical reason for writing.
+2. The article uses first person selectively and sounds like the author made the decisions.
+3. Sections are supported by repository evidence, commands, examples, or explicit trade-offs.
+4. The prose is plain, varied, and free of generic AI transitions and marketing language.
+5. The article ends with a grounded `## Final thoughts` section, followed by `## References` when sources were used.
 
 **Output format:**
 - Return a complete Markdown article ready to paste into the blog.
