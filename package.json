@@ -32,7 +32,7 @@
     "@11ty/eleventy-plugin-rss": "3.0.0",
     "@eslint/js": "10.0.1",
     "cheerio": "1.2.0",
-    "cspell": "10.2.2",
+    "cspell": "10.3.0",
     "dayjs": "1.11.23",
     "eleventy-plugin-youtube-embed": "1.13.2",
     "eslint": "10.10.0",
