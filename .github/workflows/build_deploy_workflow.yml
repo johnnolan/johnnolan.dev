@@ -23,8 +23,8 @@ jobs:
       - name: Install packages
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn run build
+      - name: Build and validate production output
+        run: yarn run verify:production
 
       - name: Deploy to Cloudflare Pages
         run: yarn wrangler pages deploy _site --project-name=johnnolan-dev --branch=main

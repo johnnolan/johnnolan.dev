@@ -13,7 +13,7 @@ npm install --global yarn@1.22.22
 yarn install --frozen-lockfile
 ```
 
-`.nvmrc` pins Node 24.15.0. Commit intentional dependency changes with their lockfile; writing a post normally needs no new package.
+`.nvmrc` pins the required Node version. Commit intentional dependency changes with their lockfile; writing a post normally needs no new package.
 
 ## 2. Choose the directory and a stable filename
 
@@ -101,29 +101,27 @@ yarn serve
 
 Open the draft's URL directly using the local address printed in the terminal. Drafts show a label but are absent from listings, sitemap and feed. Check desktop and narrow layouts, headings, code scrolling, keyboard interaction, images, full-size links and diagrams. Restart the server after editing build plugins.
 
-An explicit draft build is also possible:
+Validate draft content before publication:
 
 ```bash
-INCLUDE_DRAFTS=true yarn build
+yarn verify:preview
 ```
 
-That output contains drafts. Do not deploy it. Always rebuild production with draft inclusion unset before publishing.
+This builds static preview output in a temporary directory and checks every article, including draft links and images. It leaves `_site` untouched and removes temporary output even when validation fails. Drafts must remain absent from listings, sitemap and feed. A missing draft attachment or broken link must be resolved before publication; do not suppress the failure.
 
 ## 7. Validate the production output before merging
 
 When the post is ready, set `draft: false` and its publication date. Run:
 
 ```bash
-unset INCLUDE_DRAFTS
 yarn lint:all
 yarn test:content
 yarn test:scss
-yarn build
-yarn test:output
+yarn verify:production
 yarn pa11y-ci
 ```
 
-Run output checks after the build. `yarn build` cleans `_site`, removing pages left by draft previews. Fix failures before publishing; a passing production build while the post is still a draft does not validate its published links.
+`yarn verify:production` forces drafts off even if `INCLUDE_DRAFTS` was set in the shell, cleans `_site`, builds, and checks the resulting output. It rejects empty output, draft pages and development image URLs. `yarn test:output` remains a low-level check of existing output and does not rebuild it. A passing production check cannot validate excluded drafts; use `yarn verify:preview` for those.
 
 Manually confirm the new article appears in its section, in Latest Posts if it is among the newest twelve, and in `_site/sitemap.xml` and `_site/feed.xml`. Verify title, description, author, dates and social image. Inspect the feed entry's code and images as well as the page.
 
