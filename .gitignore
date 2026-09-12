@@ -4,5 +4,6 @@ _site/
 src/_includes/css/
 pa11y-output.json
 .DS_Store
+docs/todos
 
 eslint_report.json
