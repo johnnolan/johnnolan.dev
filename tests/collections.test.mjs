@@ -33,7 +33,7 @@ test("posts filter before limiting and sort without mutating the input", () => {
   assert.deepEqual(publishedPosts(tied), publishedPosts([...tied].reverse()));
 });
 
-test("Atom feed posts are oldest-first for the virtual template and exclude drafts", () => {
+test("Atom feed posts are oldest-first for the feed template and exclude drafts", () => {
   const items = [
     article("./src/hcta/articles/older.md", "2024-01-01"),
     article("./src/hcta/articles/newer.md", "2025-01-01"),

@@ -75,3 +75,9 @@ Run `yarn test:content` to check code fences, collections, sitemap generation, m
 Article layout, default contributor, category, section backlink, and validation are inherited from `articles.11tydata.js` through `src/modules/article-defaults.js`. Keep editorial facts in frontmatter; omit repeated defaults. Use root-relative image paths such as `/assets/posts/johnnolan.jpg`. Legacy relative image values remain supported by the shared asset-path filter.
 
 Topics describe the article (for example `topics: ["terraform", "security"]`). Omit `tags`: the directory assigns its internal collection tag, preserving the `hcta`, `iam`, and `other` section collections. Do not put those collection names, or `posts`, in topics. Readers see a readable category link, topic badges, and contributor names. Topic lists must not contain duplicates.
+
+## Atom feed
+
+`src/feed.njk` generates `/feed.xml` using the RSS plugin filters and the site image transforms. Entry IDs are stable article URLs. Entries stay ordered by publication date; `updated` changes entry and feed modification timestamps without changing publication dates or IDs. Drafts never appear in the feed, including in preview verification.
+
+Production output checks compare feed entries with published pages and verify embedded image URLs, including every generated `srcset` candidate. `yarn test:content` also tests revisions, escaped HTML, dates and draft exclusion against the real feed template.

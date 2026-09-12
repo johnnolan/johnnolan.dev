@@ -58,7 +58,7 @@ Required authoring rules:
 - Supply a non-empty title and description, and a `topics` array. Use `topics: []` when no topics apply. Topics must be unique, non-empty strings.
 - Write `draft: true` or `draft: false` as a YAML boolean, not a quoted string. Keep it true while work is unfinished.
 - Before publication, add an explicit real calendar date such as `date: 2026-09-10` and change the draft flag to false. Omitted draft flags allow publication; keep the flag explicit for clarity.
-- Keep the original publication date when updating a post. Add `updated: YYYY-MM-DD` for a substantive revision; it must not precede `date`.
+- Keep the original publication date when updating a post. Add `updated: YYYY-MM-DD` for a substantive revision; it must not precede `date`. The Atom feed uses it as the modification date while retaining the original publication date, entry URL and ordering.
 - If supplied, `image` must identify an existing local file under the mapped `/assets/` paths. It is the social/listing image, not automatically a hero image in the article. Omitting it uses the site's social-image fallback for metadata.
 - Omit `layout`, `category`, `categoryLabel`, `backLink` and `tags`; directory data supplies those. Do not use `hcta`, `iam`, `other` or `posts` as topics.
 - The contributor defaults to John Nolan. Override with a non-empty array of names only when authorship differs.
