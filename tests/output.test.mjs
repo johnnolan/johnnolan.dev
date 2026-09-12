@@ -4,11 +4,15 @@ import { globSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { load } from "cheerio";
+import { validateOutputMode } from "./helpers/output-mode.mjs";
 
-const outputRoot = path.resolve("_site");
+const outputRoot = path.resolve(process.env.SITE_OUTPUT_DIR || "_site");
+const preview = process.env.SITE_OUTPUT_MODE === "preview";
+const siteFile = (file) => path.join(outputRoot, file);
 const siteOrigin = "https://www.johnnolan.dev";
 const baseline = JSON.parse(readFileSync("tests/fixtures/output-baseline.json", "utf8"));
-const htmlFiles = globSync("_site/**/*.html").sort();
+validateOutputMode(outputRoot, process.env.SITE_OUTPUT_MODE || "production");
+const htmlFiles = globSync("**/*.html", { cwd: outputRoot }).sort().map(siteFile);
 
 function outputPath(urlPath) {
   const pathname = decodeURI(urlPath).replace(/^\//, "");
@@ -27,13 +31,16 @@ function localUrl(value, base = siteOrigin) {
 }
 
 test("homepage contains twelve real article cards", () => {
-  const $ = load(readFileSync("_site/index.html", "utf8"));
+  const $ = load(readFileSync(siteFile("index.html"), "utf8"));
   assert.equal($("main .articles .post-list > article.article").length, 12);
 });
 
 test("published IAM articles are indexed and drafts are excluded", () => {
-  const sitemap = readFileSync("_site/sitemap.xml", "utf8");
-  for (const file of globSync("_site/identity-access-management/articles/**/index.html")) {
+  const sitemap = readFileSync(siteFile("sitemap.xml"), "utf8");
+  for (const file of globSync("identity-access-management/articles/**/index.html", {
+    cwd: outputRoot,
+  }).map(siteFile)) {
+    if (load(readFileSync(file, "utf8"))(".draft-notice").length) continue;
     const url = `/${path.relative(outputRoot, path.dirname(file)).split(path.sep).join("/")}/`;
     assert.match(sitemap, new RegExp(`${siteOrigin}${url}`));
   }
@@ -42,7 +49,35 @@ test("published IAM articles are indexed and drafts are excluded", () => {
     const markdown = readFileSync(source, "utf8");
     if (!/^draft:\s*true\s*$/m.test(markdown)) continue;
     const relative = path.relative("src", source).replace(/\.md$/, "/index.html");
-    assert.equal(existsSync(path.join(outputRoot, relative)), false, `${source} was published`);
+    assert.equal(
+      existsSync(path.join(outputRoot, relative)),
+      preview,
+      `${source}: unexpected draft output for this mode`,
+    );
+    const url =
+      "/" +
+      relative
+        .replace(/index\.html$/, "")
+        .split(path.sep)
+        .join("/");
+    assert.ok(!sitemap.includes(url), `${source} is in the sitemap`);
+    assert.ok(
+      !readFileSync(siteFile("feed.xml"), "utf8").includes(url),
+      `${source} is in the feed`,
+    );
+    for (const listing of [
+      "index.html",
+      "hcta/index.html",
+      "identity-access-management/index.html",
+      "random/index.html",
+    ]) {
+      const $ = load(readFileSync(siteFile(listing), "utf8"));
+      assert.equal(
+        $("a[href]").filter((_, node) => $(node).attr("href") === url).length,
+        0,
+        `${source} is in ${listing}`,
+      );
+    }
   }
 });
 
@@ -86,17 +121,17 @@ test("JSON-LD parses and local image references exist", () => {
 test("Markdown article images use responsive images without changing full-size links", () => {
   const pages = [
     {
-      file: "_site/identity-access-management/articles/entra-iac-intro/index.html",
+      file: siteFile("identity-access-management/articles/entra-iac-intro/index.html"),
       linkPattern: /^\/assets\/posts\/iam\/entra-iac-intro\//,
       pictureCount: 5,
     },
     {
-      file: "_site/hcta/articles/ams-tools-architecture/index.html",
+      file: siteFile("hcta/articles/ams-tools-architecture/index.html"),
       linkPattern: /^\/assets\/posts\/ams-three\//,
       pictureCount: 9,
     },
     {
-      file: "_site/random/articles/debugging-javascript/index.html",
+      file: siteFile("random/articles/debugging-javascript/index.html"),
       pictureCount: 7,
     },
   ];
@@ -120,7 +155,7 @@ test("Markdown article images use responsive images without changing full-size l
 });
 
 test("Markdown code is not interpreted as template syntax", () => {
-  const html = readFileSync("_site/random/articles/react-callbacks-refs/index.html", "utf8");
+  const html = readFileSync(siteFile("random/articles/react-callbacks-refs/index.html"), "utf8");
   assert.match(html, /ref=\{btnReview\s+=&gt; \{/);
   assert.ok(html.includes("this.btnReview = btnReview;\n }}\n)}&gt;"));
 });

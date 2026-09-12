@@ -22,7 +22,9 @@
     "lint:scss": "stylelint \"src/scss/**/*.scss\"",
     "test:scss": "node --test tests/scss.test.mjs",
     "test:output": "node --test tests/output.test.mjs",
-    "test:content": "node --test tests/markdown.test.mjs tests/collections.test.mjs tests/sitemap.test.mjs tests/article-schema.test.mjs tests/drafts.test.mjs tests/article-defaults.test.mjs tests/date-filters.test.mjs tests/page-metadata.test.mjs tests/toc.test.mjs tests/youtube-embed-titles.test.mjs"
+    "test:content": "node --test tests/markdown.test.mjs tests/collections.test.mjs tests/sitemap.test.mjs tests/article-schema.test.mjs tests/drafts.test.mjs tests/article-defaults.test.mjs tests/date-filters.test.mjs tests/page-metadata.test.mjs tests/toc.test.mjs tests/youtube-embed-titles.test.mjs tests/output-mode.test.mjs tests/verify-site.test.mjs",
+    "verify:production": "node scripts/verify-site.mjs production",
+    "verify:preview": "node scripts/verify-site.mjs preview"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

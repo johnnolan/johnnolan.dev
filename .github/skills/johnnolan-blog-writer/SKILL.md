@@ -100,6 +100,10 @@ Replace the example date with the publication date. Choose short lowercase topic
 - Do not pad transitions with “Furthermore”, “Moreover”, “Additionally”, “In conclusion”, or “It is important to note”. Rewrite the sentence so the relationship is clear.
 - Do not stack adjectives or use promotional triads such as “powerful, flexible, and scalable” without concrete evidence for each claim.
 
+## Repository validation
+
+Follow [Creating posts: required checklist](../../../docs/creating-posts.md) for publishing validation. Run `yarn verify:preview` to check draft links and assets in temporary static output. Run `yarn verify:production` before publication to rebuild and validate `_site` with drafts excluded. Report unresolved draft-link failures; do not treat a passing production check as validation of excluded articles. Use `yarn serve` for visual checks.
+
 ## Draft quality tests
 
 Run these checks before returning an article. They are language and voice tests, not just spelling checks.
