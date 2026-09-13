@@ -21,10 +21,12 @@ test("Mermaid fences leave ordinary Markdown code rendering intact", () => {
     assert.match(output, /&lt;button&gt;&amp;example&lt;\/button&gt;/);
     assert.doesNotMatch(output, /<button>/);
   }
-  assert.match(md.render("```mermaid\ngraph TD; A-->B\n```"), /<pre class="mermaid">/);
+  assert.match(md.render("```mermaid\ngraph TD; A-->B\n```"), /<pre class="mermaid" tabindex="0" role="region"/);
   assert.match(loader, /mermaid@10\.9\.5/);
   assert.match(loader, /addEventListener\("DOMContentLoaded",render/);
   assert.match(loader, /mermaid\.run\(\{querySelector:"\.mermaid"\}\)/);
+  // Disable Mermaid's automatic rendering before yielding to the font load.
+  assert.ok(loader.indexOf("mermaid.initialize") < loader.indexOf("await document.fonts.ready"));
   assert.doesNotMatch(loader, /addEventListener\([^,]+,\s*mermaid\.initialize/);
   md.options.highlight = () => '<span class="token">highlighted</span>';
   assert.match(md.render("```js\nconst x = 1;\n```"), /<span class="token">highlighted<\/span>/);
