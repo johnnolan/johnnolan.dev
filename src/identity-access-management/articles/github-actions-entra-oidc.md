@@ -192,6 +192,8 @@ Add the secrets used by this repository workflows. `Plan` callers inherit reposi
 
 ## Step 8: Confirm workflow permissions
 
+[Entra ID as Code Example Workflows](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-apply-main.yml)
+
 Your workflow must request the OIDC token.
 
 Check that workflow files include:
