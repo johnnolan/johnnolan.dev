@@ -157,7 +157,7 @@ The Terraform backend uses Azure Blob Storage (state file stored in a storage ac
 
 The reusable workflow also adds and removes storage firewall rules. Blob data access alone does not authorise these management operations.
 
-Follow the [storage network runbook](storage-account-network-hardening.md) for the required access and scope.
+Follow the [storage network runbook](https://github.com/johnnolan/entra-id-as-code/blob/main/docs/runbooks/storage-account-network-hardening.md) for the required access and scope.
 
 ## Step 6: Configure GitHub repository secrets
 
