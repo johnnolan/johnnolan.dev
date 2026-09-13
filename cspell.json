@@ -69,6 +69,7 @@
     "tydata",
     "vendored",
     "TFSTATE",
-    "AADSTS"
+    "AADSTS",
+    "Descr"
   ]
 }
