@@ -1,7 +1,7 @@
 ---
 title: "Connecting GitHub Actions to Entra ID with OIDC and federated credentials"
 description: "How I connect GitHub Actions to Terraform-managed Entra ID with explicit trust, remote state access, and production deployment controls."
-draft: false
+draft: true
 date: 2026-09-13
 mermaid: true
 topics: ["entra-id", "terraform", "github-actions", "oidc"]
