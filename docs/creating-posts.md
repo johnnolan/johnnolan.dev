@@ -132,4 +132,6 @@ Automated checks skip external-link availability and exclude Mermaid from access
 
 Review `git diff` and `git status` for accidental draft publication, secrets and generated files. Commit the Markdown, original assets and any deliberate baseline changes with a descriptive message. Do not commit `_site`, `node_modules` or generated reports.
 
-Open a pull request to main, wait for its quality checks and review its preview. Confirm the intended article is present and drafts remain excluded. A merge/push to main triggers the production deployment workflow. After deployment, open the public article and verify its images, links, sitemap and feed. Keep the same publication date and URL for later corrections.
+Open a pull request to main and wait for the separate **Validate source**, **Build production site**, **Test generated site**, and **Publish Cloudflare preview** jobs. The preview job only receives the production output artifact after the earlier jobs pass. Review its posted URL and confirm the intended article is present and drafts remain excluded. Pull requests from forks skip preview publication because they cannot access deployment secrets.
+
+A merge or push to `main` triggers separate **Build production site** and **Publish production to Cloudflare** jobs. The publishing job restores the verified artifact produced by the build job. After deployment, open the public article and verify its images, links, sitemap and feed. Keep the same publication date and URL for later corrections.

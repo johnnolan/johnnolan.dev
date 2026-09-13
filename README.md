@@ -81,3 +81,16 @@ Topics describe the article (for example `topics: ["terraform", "security"]`). O
 `src/feed.njk` generates `/feed.xml` using the RSS plugin filters and the site image transforms. Entry IDs are stable article URLs. Entries stay ordered by publication date; `updated` changes entry and feed modification timestamps without changing publication dates or IDs. Drafts never appear in the feed, including in preview verification.
 
 Production output checks compare feed entries with published pages and verify embedded image URLs, including every generated `srcset` candidate. `yarn test:content` also tests revisions, escaped HTML, dates and draft exclusion against the real feed template.
+
+## Continuous integration
+
+Pull requests report four separate jobs in GitHub Actions:
+
+1. **Validate source** checks JavaScript, Markdown, spelling and SCSS.
+2. **Build production site** creates and verifies `_site`, then stores it as a short-lived workflow artifact.
+3. **Test generated site** restores that exact artifact and runs content, Sass, Lighthouse and pa11y checks.
+4. **Publish Cloudflare preview** publishes the tested artifact and comments its URL on same-repository pull requests.
+
+The jobs run in that order through explicit dependencies. A failed validation, build, or test prevents preview publication. Pull requests from forks run the read-only jobs but skip preview publication and comment-writing steps because repository secrets are unavailable.
+
+Pushes to `main` use two further jobs: **Build production site** rebuilds, verifies and stores the output, then **Publish production to Cloudflare** restores that exact artifact for deployment. A failed build cannot reach the production publishing job.

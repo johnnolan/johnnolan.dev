@@ -7,55 +7,137 @@ on:
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
+
+env:
+  SITE_ARTIFACT: site-${{ github.run_id }}
 
 jobs:
-  build:
-    name: Linux build on node
+  validate:
+    name: Validate source
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Set up prerequisites - node and yarn
+      - name: Set up Node and Yarn cache
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
           cache-dependency-path: "yarn.lock"
-
       - name: Install packages
         run: yarn install --frozen-lockfile
+      - name: Validate JavaScript, Markdown, spelling, and SCSS
+        run: yarn run lint:all
 
-      - name: Run Spell Checking
-        run: yarn run lint:spell
-
-      - name: Run lint markdown
-        run: yarn run lint:markdown
-
-      - name: Run Linting
-        run: yarn run lint:check
-
-      - name: Check SCSS formatting
-        run: yarn run format:scss:check
-
-      - name: Lint SCSS
-        run: yarn run lint:scss
-
-      - name: Test Sass build integration
-        run: yarn run test:scss
-
-      - name: Test article publishing
-        run: yarn run test:content
-
+  build:
+    name: Build production site
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node and Yarn cache
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - name: Install packages
+        run: yarn install --frozen-lockfile
       - name: Build and validate production output
         run: yarn run verify:production
+      - name: Store generated site
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ env.SITE_ARTIFACT }}
+          path: _site/
+          if-no-files-found: error
+          retention-days: 1
 
-      - name: Deploy Cloudflare Pages preview
+  test:
+    name: Test generated site
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node and Yarn cache
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+      - name: Restore generated site
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: ${{ env.SITE_ARTIFACT }}
+          path: _site/
+      - name: Test article and build integrations
+        run: |
+          yarn run test:content
+          yarn run test:scss
+      - name: Audit pages using Lighthouse
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
+        with:
+          configPath: "./lighthouserc.json"
+          budgetPath: ./src/_includes/budget.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      - name: Audit pages using pa11y
+        run: yarn run pa11y-ci
+      - name: Store pa11y report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pa11y-report-${{ github.run_id }}
+          path: pa11y-output.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Publish pa11y results to the pull request
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          BODY_PREFIX: "<!-- pa11y-ci results -->"
+          OWNER: "johnnolan"
+          REPO: "johnnolan.dev"
+        with:
+          script: |
+            const script = require('./.github/workflows/scripts/pa11y-ci.cjs')
+            await script({ github, context, core })
+
+  publish-preview:
+    name: Publish Cloudflare preview
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node and Yarn cache
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+      - name: Restore tested site
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: ${{ env.SITE_ARTIFACT }}
+          path: _site/
+      - name: Publish Cloudflare Pages preview
         id: deploy_preview
-        if: github.event.pull_request.head.repo.full_name == github.repository
         run: |
           set -euo pipefail
           output="$(yarn wrangler pages deploy _site --project-name=johnnolan-dev --branch=pr-${{ github.event.pull_request.number }} 2>&1)"
@@ -69,9 +151,7 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-      - name: Send Cloudflare Pages preview to PR Comment
-        if: steps.deploy_preview.outputs.preview_url != ''
+      - name: Publish preview URL to the pull request
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           BODY_PREFIX: "<!-- cloudflare-pages-preview -->"
@@ -81,10 +161,6 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number
-            if (!prNumber) {
-              return
-            }
-
             const commentBody = `${process.env.BODY_PREFIX}\n<h2>Cloudflare Pages preview</h2>\n\nReview this PR before merging: ${process.env.PREVIEW_URL}`
             const { data: comments } = await github.rest.issues.listComments({
               owner: process.env.OWNER,
@@ -94,7 +170,6 @@ jobs:
             const previousComment = comments.find((comment) =>
               comment.body.startsWith(process.env.BODY_PREFIX),
             )
-
             if (previousComment) {
               await github.rest.issues.updateComment({
                 owner: process.env.OWNER,
@@ -110,34 +185,3 @@ jobs:
                 body: commentBody,
               })
             }
-
-      - name: Audit pages using lighthouse
-        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12.6.2
-        with:
-          configPath: "./lighthouserc.json"
-          budgetPath: ./src/_includes/budget.json
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-
-      - name: Run pa11y
-        run: yarn run pa11y-ci
-
-      - name: Upload pa11y report
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: pa11y-report
-          path: pa11y-output.json
-          if-no-files-found: warn
-
-      - name: Send pa11y results to PR Comment
-        if: always() && github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        env:
-          BODY_PREFIX: "<!-- pa11y-ci results -->"
-          OWNER: "johnnolan"
-          REPO: "johnnolan.dev"
-        with:
-          script: |
-            const script = require('./.github/workflows/scripts/pa11y-ci.cjs')
-            await script({ github, context, core })
