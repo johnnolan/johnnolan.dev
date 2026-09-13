@@ -35,7 +35,6 @@ draft: true
 topics:
   - entra-id
   - security
-image: /assets/posts/johnnolan.jpg
 ---
 
 Explain what the reader will learn and any prerequisites.
@@ -59,7 +58,7 @@ Required authoring rules:
 - Write `draft: true` or `draft: false` as a YAML boolean, not a quoted string. Keep it true while work is unfinished.
 - Before publication, add an explicit real calendar date such as `date: 2026-09-10` and change the draft flag to false. Omitted draft flags allow publication; keep the flag explicit for clarity.
 - Keep the original publication date when updating a post. Add `updated: YYYY-MM-DD` for a substantive revision; it must not precede `date`. The Atom feed uses it as the modification date while retaining the original publication date, entry URL and ordering.
-- If supplied, `image` must identify an existing local file under the mapped `/assets/` paths. It is the social/listing image, not automatically a hero image in the article. Omitting it uses the site's social-image fallback for metadata.
+- If supplied, `image` must identify an existing local file under the mapped `/assets/` paths. It is the social/listing image, not automatically a hero image in the article. Omitting it uses `site.socialImage` for both metadata and image-enabled listings. Set it only for an article-specific image.
 - Omit `layout`, `category`, `categoryLabel`, `backLink` and `tags`; directory data supplies those. Do not use `hcta`, `iam`, `other` or `posts` as topics.
 - The contributor defaults to John Nolan. Override with a non-empty array of names only when authorship differs.
 
@@ -89,7 +88,7 @@ To let readers open the original screenshot:
 
 Do not use `src/`, `_includes/` or `_site/` in public links. Keep published asset URLs stable. Markdown images under `/assets/posts/` are transformed into responsive images at build time from the matching files in `src/_includes/img/posts/`. Export images at sensible dimensions and file sizes, preserve SVG diagrams and GIF animation, and remove secrets or personal information from screenshots before committing them.
 
-Avoid raw HTML `<img>` tags unless the image transform's source mapping has been checked: they follow a different path from Markdown images. Old `imagewidth` and `imageheight` frontmatter fields do not size the rendered images.
+Avoid raw HTML `<img>` tags unless the image transform's source mapping has been checked: they follow a different path from Markdown images. Do not add `imagewidth` or `imageheight` frontmatter fields: they are ignored. Responsive body image dimensions come from the image transform, and listing presentation comes from CSS. Existing legacy fields and repeated image values are retained until an article-metadata cleanup is authorised.
 
 ## 6. Check links while the post is still a draft
 

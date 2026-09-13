@@ -3,6 +3,7 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { atomDate, feedUpdated } from "./src/modules/feed.js";
 import assetPath from "./src/filters/asset-path.js";
+import articleImage from "./src/filters/article-image.js";
 import { displayDate, isoDate } from "./src/filters/date-filters.js";
 import concat from "./src/filters/concat-filter.js";
 import sitemap from "./src/modules/sitemap.mjs";
@@ -62,6 +63,7 @@ export default function (eleventyConfig) {
     return array.slice(0, limit);
   });
   eleventyConfig.addFilter("assetPath", assetPath);
+  eleventyConfig.addFilter("articleImage", articleImage);
   eleventyConfig.addFilter("displayDate", displayDate);
   eleventyConfig.addFilter("isoDate", isoDate);
 

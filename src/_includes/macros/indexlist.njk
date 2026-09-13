@@ -19,9 +19,7 @@
                             {{ pageContentMetaData(article.data.date, article.data.updated, article.data.contributors, article.data.topics, article.data.categoryLabel, article.data.backLink) }}
                         </div>
                         {% if showImages %}
-                            {% if article.data.image %}
-                                <img class="article-image" src="{{ article.data.image | assetPath | url }}" alt="{{article.data.description}}" eleventy:ignore />
-                            {%- endif -%}
+                            <img class="article-image" src="{{ article.data.image | articleImage(site) | url }}" alt="{{article.data.description}}" eleventy:ignore />
                         {%- endif -%}
                     </article>
                 {%- endif -%}

@@ -1,4 +1,5 @@
 import assetPath from "../filters/asset-path.js";
+import articleImage from "../filters/article-image.js";
 import { isoDate } from "../filters/date-filters.js";
 
 const absoluteUrl = (value, baseUrl) => new URL(value, `${baseUrl.replace(/\/$/, "")}/`).href;
@@ -7,7 +8,7 @@ export function buildPageMetadata(data, site) {
   const title = data.title || site.name;
   const description = data.description || site.description;
   const canonicalUrl = absoluteUrl(data.pageUrl || "/", site.url);
-  const imageUrl = absoluteUrl(assetPath(data.image || site.socialImage), site.url);
+  const imageUrl = absoluteUrl(articleImage(data.image, site), site.url);
   const author = {
     "@type": "Person",
     name: site.name,
