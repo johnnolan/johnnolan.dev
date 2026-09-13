@@ -125,6 +125,8 @@ For both credentials, ensure these values are set:
 - Issuer: `https://token.actions.githubusercontent.com`
 - Audience: `api://AzureADTokenExchange`
 
+> At this point, GitHub and Microsoft Entra ID are configured to trust each other for the workflow contexts you selected. If you only need to establish federated authentication, the setup is complete. Continue with the remaining steps to reproduce the full Terraform setup, including Microsoft Graph permissions, Azure access, GitHub environment protection, and repository secrets.
+
 ## Step 4: Grant Microsoft Graph application permissions
 
 The AzureAD provider calls Microsoft Graph (Entra directory API). Grant only the roles your Terraform resources require.
@@ -155,17 +157,28 @@ The Terraform backend uses Azure Blob Storage (state file stored in a storage ac
 4. Scope the role to the storage account or state container.
 5. Select the service principal for your app registration.
 
-The reusable workflow also adds and removes storage firewall rules. Blob data access alone does not authorise these management operations.
+## Step 6: Create the production environment
 
-Follow the [storage network runbook](https://github.com/johnnolan/entra-id-as-code/blob/main/docs/runbooks/storage-account-network-hardening.md) for the required access and scope.
+[GitHub deployment environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments)
 
-## Step 6: Configure GitHub repository secrets
+The apply workflow uses a GitHub environment named `production`. The environment connects the deployment job to its approval rules and to the environment-specific subject trusted by the Entra federated credential.
+
+1. Open the repository in GitHub.
+2. Select **Settings** > **Environments**.
+3. Select **New environment**.
+4. Enter `production` as the environment name and select **Configure environment**.
+5. Under **Deployment protection rules**, enable **Required reviewers** and add the people or teams who must approve a production deployment.
+6. Under **Deployment branches and tags**, choose **Selected branches and tags**.
+7. Add `main` as the allowed deployment branch.
+8. Save the environment protection rules.
+
+The name must be exactly `production`. The apply workflow passes that name to the reusable workflow, and the federated credential trusts the corresponding environment subject. Branch restrictions matter because the apply workflow also supports manual dispatch.
+
+## Step 7: Configure GitHub repository secrets
 
 In GitHub, go to **Settings** > **Secrets and variables** > **Actions**.
 
-Add the secrets used by this repository workflows. Plan callers inherit repository secrets without selecting an environment.
-
-Apply uses `production`, where environment secrets can provide a separate identity. Separate credentials on one application do not separate its permissions.
+Add the secrets used by this repository workflows. `Plan` callers inherit repository secrets without selecting an environment. `Apply` uses `production`, where environment secrets _can_ provide a separate identity if you require.
 
 | Secret | Value |
 | --- | --- |
@@ -177,7 +190,7 @@ Apply uses `production`, where environment secrets can provide a separate identi
 | `TFSTATE_CONTAINER_NAME` | State container |
 | `TFSTATE_KEY` | State blob name |
 
-## Step 7: Confirm workflow permissions
+## Step 8: Confirm workflow permissions
 
 Your workflow must request the OIDC token.
 
@@ -189,7 +202,7 @@ permissions:
   contents: read
 ```
 
-## Step 8: Validate end-to-end
+## Step 9: Validate end-to-end
 
 1. Open a pull request that changes Terraform files.
 2. Confirm the plan workflow completes successfully.
