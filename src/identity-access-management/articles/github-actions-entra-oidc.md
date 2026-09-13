@@ -11,9 +11,9 @@ topics: ["entra-id", "terraform", "github-actions", "oidc"]
 
 [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code)
 
-This post takes you through configuring Microsoft Entra ID and GitHub Actions for OIDC (OpenID Connect) through Federated Identity Credentials.
+This post takes you through configuring Microsoft Entra ID and GitHub Actions for OIDC (OpenID Connect) through Federated Identity Credentials (Step 1 to Step 3).
 
-Using the [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code) repository as an example, I will take you step by step for setting up a secure way your Infrastructure as Code setup.
+Step 4 onwards continues to take you through fully setting up Terraform securely including Microsoft Graph permissions, Azure access, GitHub environment protection, and repository secrets using the [Entra ID as Code repository](https://github.com/johnnolan/entra-id-as-code) repository as an example.
 
 ```mermaid
 flowchart LR
