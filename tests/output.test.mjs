@@ -5,6 +5,7 @@ import path from "node:path";
 import test from "node:test";
 import { load } from "cheerio";
 import { validateOutputMode } from "./helpers/output-mode.mjs";
+import { findBrokenLinks } from "./helpers/link-validation.mjs";
 
 const outputRoot = path.resolve(process.env.SITE_OUTPUT_DIR || "_site");
 const preview = process.env.SITE_OUTPUT_MODE === "preview";
@@ -213,37 +214,10 @@ test("Markdown code is not interpreted as template syntax", () => {
 });
 
 test("local links resolve and TOC fragments target headings", () => {
-  for (const file of htmlFiles) {
-    const $ = load(readFileSync(file, "utf8"));
-    const pageUrl = new URL(
-      `/${path
-        .relative(outputRoot, file)
-        .replace(/index\.html$/, "")
-        .split(path.sep)
-        .join("/")}`,
-      siteOrigin,
-    );
-    $("a[href]").each((_, node) => {
-      const href = $(node).attr("href");
-      if (/^(mailto:|tel:|javascript:)/.test(href)) return;
-      if (href.startsWith("#")) {
-        assert.ok(
-          $(`[id='${href.slice(1).replaceAll("'", "\\'")}']`).length,
-          `Missing ${href} in ${file}`,
-        );
-        return;
-      }
-      const url = localUrl(href, pageUrl);
-      if (!url) return;
-      const target = outputPath(url.pathname);
-      assert.ok(existsSync(target), `Broken ${href} in ${file}`);
-      if (url.hash && target.endsWith(".html")) {
-        const targetPage = load(readFileSync(target, "utf8"));
-        assert.ok(
-          targetPage(`[id='${url.hash.slice(1)}']`).length,
-          `Missing ${url.hash} in ${target}`,
-        );
-      }
-    });
-  }
+  const failures = findBrokenLinks({ htmlFiles, outputRoot, siteOrigin });
+  assert.equal(
+    failures.length,
+    0,
+    `Found ${failures.length} broken local link(s):\n\n${failures.join("\n\n")}`,
+  );
 });
