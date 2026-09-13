@@ -67,6 +67,8 @@
     "NCSC",
     "EIDSCA",
     "tydata",
-    "vendored"
+    "vendored",
+    "TFSTATE",
+    "AADSTS"
   ]
 }
