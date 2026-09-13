@@ -35,6 +35,58 @@ test("homepage contains twelve real article cards", () => {
   assert.equal($("main .articles .post-list > article.article").length, 12);
 });
 
+test("Atom entries match published pages and all embedded local assets resolve", () => {
+  const xml = readFileSync(siteFile("feed.xml"), "utf8");
+  const feed = load(xml, { xml: true });
+  assert.equal(feed("feed").attr("xmlns"), "http://www.w3.org/2005/Atom");
+  const pages = htmlFiles
+    .flatMap((file) => {
+      const $ = load(readFileSync(file, "utf8"));
+      if (!$(".article-page").length || $(".draft-notice").length) return [];
+      const metadata = JSON.parse($("script[type='application/ld+json']").text());
+      return [metadata];
+    })
+    .sort(
+      (a, b) => b.datePublished.localeCompare(a.datePublished) || a.url.localeCompare(b.url, "en"),
+    );
+  const entries = feed("feed > entry");
+  assert.equal(entries.length, pages.length);
+  const ids = entries.map((_, entry) => feed(entry).find("id").text()).get();
+  assert.deepEqual(
+    ids,
+    pages.map((page) => page.url),
+  );
+  assert.equal(new Set(ids).size, ids.length);
+  let latest = "1970-01-01T00:00:00Z";
+  entries.each((index, entry) => {
+    const item = feed(entry);
+    const page = pages[index];
+    const published = `${page.datePublished}T00:00:00Z`;
+    const updated = `${page.dateModified || page.datePublished}T00:00:00Z`;
+    assert.equal(item.find("link").attr("href"), page.url);
+    assert.equal(item.find("published").text(), published);
+    assert.equal(item.find("updated").text(), updated);
+    if (updated > latest) latest = updated;
+    assert.equal(item.find("content").attr("type"), "html");
+    assert.equal(item.find("content").children().length, 0, "Feed HTML must be XML-escaped");
+    const html = load(item.find("content").text());
+    const check = (value) => {
+      assert.match(value, /^https?:\/\//, `Relative feed asset: ${value}`);
+      const url = new URL(value);
+      assert.ok(!url.pathname.includes("/_includes/"), `Source path in feed: ${value}`);
+      if (url.origin === siteOrigin)
+        assert.ok(existsSync(outputPath(url.pathname)), `Missing feed asset: ${value}`);
+    };
+    html("img[src]").each((_, image) => check(html(image).attr("src")));
+    html("[srcset]").each((_, image) => {
+      // Eleventy Image generates comma-separated static URLs and width descriptors.
+      for (const candidate of html(image).attr("srcset").split(","))
+        check(candidate.trim().split(/\s+/)[0]);
+    });
+  });
+  assert.equal(feed("feed > updated").text(), latest);
+});
+
 test("published IAM articles are indexed and drafts are excluded", () => {
   const sitemap = readFileSync(siteFile("sitemap.xml"), "utf8");
   for (const file of globSync("identity-access-management/articles/**/index.html", {

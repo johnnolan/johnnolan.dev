@@ -1,8 +1,9 @@
 import markdownIt from "./markdown-it.js";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import pluginRss from "@11ty/eleventy-plugin-rss";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import site from "./src/_data/site.json" with { type: "json" };
+import { atomDate, feedUpdated } from "./src/modules/feed.js";
 import assetPath from "./src/filters/asset-path.js";
+import articleImage from "./src/filters/article-image.js";
 import { displayDate, isoDate } from "./src/filters/date-filters.js";
 import concat from "./src/filters/concat-filter.js";
 import sitemap from "./src/modules/sitemap.mjs";
@@ -30,18 +31,9 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginSass);
 
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom",
-    outputPath: "/feed.xml",
-    collection: { name: "feedPosts", limit: 0 },
-    metadata: {
-      language: "en",
-      title: site.name,
-      subtitle: site.description,
-      base: `${site.url}/`,
-      author: { name: site.name },
-    },
-  });
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addFilter("feedUpdated", feedUpdated);
+  eleventyConfig.addFilter("atomDate", atomDate);
   eleventyConfig.addPlugin(pluginMermaid);
   eleventyConfig.addPlugin(responsiveImages);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
@@ -71,6 +63,7 @@ export default function (eleventyConfig) {
     return array.slice(0, limit);
   });
   eleventyConfig.addFilter("assetPath", assetPath);
+  eleventyConfig.addFilter("articleImage", articleImage);
   eleventyConfig.addFilter("displayDate", displayDate);
   eleventyConfig.addFilter("isoDate", isoDate);
 

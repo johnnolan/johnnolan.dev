@@ -72,6 +72,25 @@ With `INCLUDE_DRAFTS` unset, `yarn build` excludes drafts before rendering and c
 
 Run `yarn test:content` to check code fences, collections, sitemap generation, metadata validation, and draft publishing.
 
-Article layout, default contributor, category, section backlink, and validation are inherited from `articles.11tydata.js` through `src/modules/article-defaults.js`. Keep editorial facts in frontmatter; omit repeated defaults. Use root-relative image paths such as `/assets/posts/johnnolan.jpg`. Legacy relative image values remain supported by the shared asset-path filter.
+Article layout, default contributor, category, section backlink, and validation are inherited from `articles.11tydata.js` through `src/modules/article-defaults.js`. Keep editorial facts in frontmatter; omit repeated defaults. Omit `image` to use `site.socialImage` for both social metadata and image-enabled listings. Set a root-relative `image` only for an article-specific override. Do not add `imagewidth` or `imageheight`: those legacy fields are ignored. Legacy relative image values remain supported by the shared asset-path filter.
 
 Topics describe the article (for example `topics: ["terraform", "security"]`). Omit `tags`: the directory assigns its internal collection tag, preserving the `hcta`, `iam`, and `other` section collections. Do not put those collection names, or `posts`, in topics. Readers see a readable category link, topic badges, and contributor names. Topic lists must not contain duplicates.
+
+## Atom feed
+
+`src/feed.njk` generates `/feed.xml` using the RSS plugin filters and the site image transforms. Entry IDs are stable article URLs. Entries stay ordered by publication date; `updated` changes entry and feed modification timestamps without changing publication dates or IDs. Drafts never appear in the feed, including in preview verification.
+
+Production output checks compare feed entries with published pages and verify embedded image URLs, including every generated `srcset` candidate. `yarn test:content` also tests revisions, escaped HTML, dates and draft exclusion against the real feed template.
+
+## Continuous integration
+
+Pull requests report four separate jobs in GitHub Actions:
+
+1. **Validate source** checks JavaScript, Markdown, spelling and SCSS.
+2. **Build production site** creates and verifies `_site`, then stores it as a short-lived workflow artifact.
+3. **Test generated site** restores that exact artifact and runs content, Sass, Lighthouse and pa11y checks.
+4. **Publish Cloudflare preview** publishes the tested artifact and comments its URL on same-repository pull requests.
+
+The jobs run in that order through explicit dependencies. A failed validation, build, or test prevents preview publication. Pull requests from forks run the read-only jobs but skip preview publication and comment-writing steps because repository secrets are unavailable.
+
+Pushes to `main` use two further jobs: **Build production site** rebuilds, verifies and stores the output, then **Publish production to Cloudflare** restores that exact artifact for deployment. A failed build cannot reach the production publishing job.
