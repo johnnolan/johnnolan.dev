@@ -1,5 +1,42 @@
-pre {
-  &.mermaid {
-    background-color: #ffffff;
+@use "../settings" as tokens;
+
+.mermaid {
+  --diagram-surface: #{tokens.$background-color};
+  --diagram-text: #{tokens.$content-color};
+  --diagram-muted: #{tokens.$muted-color};
+  --diagram-border: #{tokens.$border-color};
+  --diagram-group: #{tokens.$surface-color};
+
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 24px;
+  border: 1px solid tokens.$border-color;
+  border-radius: 12px;
+  background: tokens.$background-color;
+  color: tokens.$content-color;
+  font-family: tokens.$base-font-family;
+  letter-spacing: normal;
+  line-height: 1.5;
+
+  &:focus-visible {
+    outline: 2px solid tokens.$accent-color;
+    outline-offset: 3px;
+  }
+
+  > svg {
+    display: block;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  // HTML labels must not inherit article paragraph margins or pre whitespace.
+  &[data-processed] {
+    white-space: normal;
+  }
+
+  p {
+    margin: 0;
   }
 }

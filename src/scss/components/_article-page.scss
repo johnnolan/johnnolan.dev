@@ -154,7 +154,6 @@
   > .gist,
   > .mermaid,
   > .gallery,
-  > table,
   > p:has(img) {
     grid-column: 1 / -1;
   }
@@ -171,8 +170,23 @@
   }
 
   > table {
+    grid-column: 2;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
     display: block;
     overflow-x: auto;
+
+    th {
+      padding-bottom: 5px;
+      text-align: left;
+      border-bottom: 2px solid tokens.$content-color;
+    }
+
+    td {
+      padding-bottom: 5px;
+      border-bottom: 1px solid #c5d8cd;
+    }
   }
 
   a {
