@@ -14,7 +14,7 @@ The previous article covered [OIDC (OpenID Connect) authentication for GitHub](/
 
 This article uses that connection to manage configuration. Our new Terraform will manage and describe resources, show proposed changes in a Terraform plan, and create them during an apply, all through GitHub Actions.
 
-We will create two new resources, `named-locations.tf` and `conditional-access.tf`, review their plan, deploy through GitHub, and inspect the result in Entra. 
+We will create two new resources, `named-locations.tf` and `conditional-access.tf`, review their plan, deploy through GitHub, and inspect the result in Entra.
 
 > There is also an alternative path for importing objects you already manage through the portal. We will cover this in a future article.
 
@@ -60,9 +60,7 @@ terraform/
 └── conditional-access.tf   # New policy and its exclusion-group input
 ```
 
-> **IMPORTANT!** Ensure you grant `Application` Graph permissions for the following on your Service Principle that runs the Terraform code
-> * `Policy.Read.All`
-> * `Policy.ReadWrite.ConditionalAccess`
+> **IMPORTANT!** Ensure you grant `Application` Graph permissions for `Policy.Read.All` and `Policy.ReadWrite.ConditionalAccess` on your Service Principle that runs the Terraform code
 
 ## Create the named location
 
