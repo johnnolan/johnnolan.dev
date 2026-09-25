@@ -45,7 +45,7 @@
     "sass": "1.104.1",
     "stylelint": "17.15.0",
     "stylelint-config-recommended-scss": "17.0.1",
-    "wrangler": "4.135.0"
+    "wrangler": "4.136.2"
   },
   "type": "module",
   "optionalDependencies": {
