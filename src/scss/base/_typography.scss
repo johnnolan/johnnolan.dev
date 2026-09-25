@@ -132,11 +132,14 @@ blockquote {
  */
 pre,
 code {
-  font-size: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
-  color: #000000;
-  background-color: #eef6e8;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 14px;
+  font-variant-ligatures: none;
+  letter-spacing: normal;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  color: #1f2328;
+  background-color: #f6f8fa;
 }
 
 code {
@@ -144,12 +147,16 @@ code {
 }
 
 pre {
-  padding: 8px 12px;
+  padding: 16px;
   overflow-x: auto;
+  line-height: 1.6;
+  tab-size: 4;
 
   > code {
     border: 0;
     padding-right: 0;
     padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
