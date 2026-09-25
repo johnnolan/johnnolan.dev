@@ -18,7 +18,7 @@ We will create two new resources, `named-locations.tf` and `conditional-access.t
 
 > There is also an alternative path for importing objects you already manage through the portal. We will cover this in a future article.
 
-## Check the tenant and supporting setup
+## Step 1: Check the tenant and supporting setup
 
 [Federated credentials setup runbook](https://github.com/johnnolan/entra-id-as-code/blob/main/docs/runbooks/setup-federated-credentials.md)
 
@@ -34,7 +34,7 @@ Before adding resources, confirm that you have:
 >
 > **Security Defaults:** Use a tenant already prepared for Conditional Access. Do not disable Security Defaults just to run this example; it does not replace those protections. Follow Microsoft's [transition guidance](https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults) when planning that change.
 
-## Prepare the folder and automation permissions
+## Step 2: Prepare the folder and automation permissions
 
 [Terraform baseline files to get started](https://github.com/johnnolan/entra-id-as-code/tree/main/examples/terraform-starter)
 
@@ -62,7 +62,7 @@ terraform/
 
 > **IMPORTANT!** Ensure you grant `Application` Graph permissions for `Policy.Read.All` and `Policy.ReadWrite.ConditionalAccess` on your Service Principle that runs the Terraform code
 
-## Create the named location
+## Step 3: Create the named location
 
 [Named location resource](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/named_location)
 
@@ -86,7 +86,7 @@ Creating the named location does not restrict access, it just defines it.
 
 A VPN (virtual private network) or proxy can change the public address Entra sees. Geolocation accuracy also affects the result; a country is not proof that a sign-in is trustworthy. Microsoft's [network guidance](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-assignment-network) explains how these signals work.
 
-## Create the report-only policy
+## Step 4: Create the report-only policy
 
 [Conditional Access policy resource](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/conditional_access_policy)
 
@@ -129,7 +129,7 @@ The reference to `azuread_named_location.named_location_restricted_signin.object
 
 Excluding the UK from this policy does not bypass other policies. Microsoft documents how [report-only evaluation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only) records results without enforcing the policy.
 
-## Validate and review the proposed change
+## Step 5: Validate and review the proposed change
 
 [Terraform workflow checks](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-run.yml)
 
@@ -166,7 +166,7 @@ Check you can see the country list, location reference, and report-only state.
 
 A green workflow confirms that its checks passed.
 
-## Deploy and inspect the result in Entra
+## Step 6: Deploy and inspect the result in Entra
 
 [Main branch apply workflow](https://github.com/johnnolan/entra-id-as-code/blob/main/.github/workflows/terraform-apply-main.yml)
 
@@ -177,7 +177,7 @@ A green workflow confirms that its checks passed.
 5. Check the location's country list.
 6. Open the policy and verify its users, applications, exclusions, and **Report-only** state.
 
-## Check the policy against representative sign-ins
+## Step 7: Check the policy against representative sign-ins
 
 [Analyse report-only results](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only)
 
